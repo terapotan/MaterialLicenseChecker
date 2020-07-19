@@ -5,8 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MaterialLicenseChecker.Views"
         mc:Ignorable="d"
-        Title="MainView" Height="450" Width="800">
+        Title="MainView" Height="200" Width="180"
+        WindowStartupLocation="CenterScreen">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="8*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="20">
+            <CheckBox Content="素材配布サイトA"></CheckBox>
+            <CheckBox Content="素材配布サイトB"></CheckBox>
+            <CheckBox Content="素材配布サイトC"></CheckBox>
+            <CheckBox Content="素材配布サイトD"></CheckBox>
+            <CheckBox Content="素材配布サイトE"></CheckBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1">
+            <Button Content="出力" ></Button>
+        </StackPanel>
     </Grid>
+
+
 </Window>
