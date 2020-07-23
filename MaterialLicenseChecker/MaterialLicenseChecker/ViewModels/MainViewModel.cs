@@ -24,12 +24,73 @@ namespace MaterialLicenseChecker.ViewModels
                 if(_ShowDialogCommand == null)
                 {
                     _ShowDialogCommand = new DelegateCommand(
-                        _ => MessageBox.Show("fff"));
+                        _ => MessageBox.Show(
+                            CheckBoxAState.ToString() +
+                            CheckBoxBState.ToString() +
+                            CheckBoxCState.ToString() +
+                            CheckBoxDState.ToString() +
+                            CheckBoxEState.ToString()
+                            ));
                 }
 
                 return _ShowDialogCommand;
             }
         }
 
+
+        //FIXME:とりあえずチェックボックス5つの状態を別の変数として宣言して、
+        //データバインディングしている。この機能はあくまでテスト用のもので、
+        //将来的に削除される予定である。
+        //もし、そうでないならマルチバインディングなりを使って修正する必要がある。
+
+        private bool _checkBoxAState;
+        public bool CheckBoxAState
+        {
+            get { return _checkBoxAState; }
+            set
+            {
+                _checkBoxAState = value;
+            }
+        }
+
+        private bool _checkBoxBState;
+        public bool CheckBoxBState
+        {
+            get { return _checkBoxBState; }
+            set
+            {
+                _checkBoxBState = value;
+            }
+        }
+
+        private bool _checkBoxCState;
+        public bool CheckBoxCState
+        {
+            get { return _checkBoxCState; }
+            set
+            {
+                _checkBoxCState = value;
+            }
+        }
+
+        private bool _checkBoxDState;
+        public bool CheckBoxDState
+        {
+            get { return _checkBoxDState; }
+            set
+            {
+                _checkBoxDState = value;
+            }
+        }
+
+        private bool _checkBoxEState;
+        public bool CheckBoxEState
+        {
+            get { return _checkBoxEState; }
+            set
+            {
+                _checkBoxEState = value;
+            }
+        }
     }
 }
