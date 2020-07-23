@@ -6,14 +6,25 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using MaterialLicenseChecker;
 using System.Windows;
+using MaterialLicenseChecker.Models;
 
 
 namespace MaterialLicenseChecker.ViewModels
 {
     class MainViewModel
     {
+
+        private String MakeDisplayedLicenseText()
+        {
+            ClassStoreLicenseText ClassStore = new ClassStoreLicenseText();
+            var ReturnedList = ClassStore.GetLicenseTextLists(new List<string> { "A", "B" });
+            return ReturnedList[0];
+
+        }
+
         //以下のコードは「getはpublicにしたいが、setはprivateとしたい」目的で書かれている。
         private DelegateCommand _ShowDialogCommand;
+
 
         public DelegateCommand ShowDialogCommand
         {
