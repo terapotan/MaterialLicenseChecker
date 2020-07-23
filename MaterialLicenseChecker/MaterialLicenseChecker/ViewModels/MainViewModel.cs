@@ -14,11 +14,48 @@ namespace MaterialLicenseChecker.ViewModels
     class MainViewModel
     {
 
-        private String MakeDisplayedLicenseText()
+        private string MakeDisplayedLicenseText()
         {
             ClassStoreLicenseText ClassStore = new ClassStoreLicenseText();
-            var ReturnedList = ClassStore.GetLicenseTextLists(new List<string> { "A", "B" });
-            return ReturnedList[0];
+            List<string> FetchLicenseTextSite = new List<string>();
+
+            //XXX:地獄みたいなif文の羅列である。何とかしろ!!!
+
+            if (CheckBoxAState)
+            {
+                FetchLicenseTextSite.Add("A");
+            }
+
+            if (CheckBoxBState)
+            {
+                FetchLicenseTextSite.Add("B");
+            }
+
+            if (CheckBoxCState)
+            {
+                FetchLicenseTextSite.Add("C");
+            }
+
+            if (CheckBoxDState)
+            {
+                FetchLicenseTextSite.Add("D");
+            }
+
+            if (CheckBoxEState)
+            {
+                FetchLicenseTextSite.Add("E");
+            }
+
+            var ReturnedList = ClassStore.GetLicenseTextLists(FetchLicenseTextSite);
+
+            string ReturnedText = "";
+
+            foreach (var Text in ReturnedList)
+            {
+                ReturnedText = ReturnedText + Text + '\n';
+            }
+
+            return ReturnedText;
 
         }
 
@@ -36,12 +73,7 @@ namespace MaterialLicenseChecker.ViewModels
                 {
                     _ShowDialogCommand = new DelegateCommand(
                         _ => MessageBox.Show(
-                            CheckBoxAState.ToString() +
-                            CheckBoxBState.ToString() +
-                            CheckBoxCState.ToString() +
-                            CheckBoxDState.ToString() +
-                            CheckBoxEState.ToString()
-                            ));
+                            MakeDisplayedLicenseText()));
                 }
 
                 return _ShowDialogCommand;
