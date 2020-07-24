@@ -24,10 +24,9 @@ namespace MaterialLicenseChecker.Models
         //将来的には、2番目のstringは単なる文字列ではなく、ユーザー定義のクラスとなるだろう。
         //まぁ先のことだ。
 
-        //TODO:現状このクラスで、ファイルの読み書きを行っている。
-        //別のクラスへ分離したほうがいい気がするが、それはXDocument等で取得したインスタンス
-        //を別の形式に変換することになり、あまり意味がないような気がする。
-        //ということで、FIXMEにしていないが何か不都合があれば、分離を実行するように。
+        //FIXME:現状このクラスで、ファイルの読み書きを行っている。
+        //別のクラスに分離し、こちら側はファイルから特定のサイト名のライセンステキストを出力してもらう
+        //関数を呼び出すだけにしておきたい。
 
 
         public ClassStoreLicenseText()
@@ -43,11 +42,11 @@ namespace MaterialLicenseChecker.Models
             _loadedXMLFileInstance = XDocument.Load(runingDirectoryPath + "/ExportResources/LicenseTexts.xml");  ;
 
             _licenseTextDictionary = new Dictionary<string,string>();
-            _licenseTextDictionary.Add("A", "サイトAの利用規約");
-            _licenseTextDictionary.Add("B", "サイトBの利用規約");
-            _licenseTextDictionary.Add("C", "サイトCの利用規約");
-            _licenseTextDictionary.Add("D", "サイトDの利用規約");
-            _licenseTextDictionary.Add("E", "サイトEの利用規約");
+            _licenseTextDictionary.Add("A", _fetchLicenseTextGivenSiteName("A"));
+            _licenseTextDictionary.Add("B", _fetchLicenseTextGivenSiteName("B"));
+            _licenseTextDictionary.Add("C", _fetchLicenseTextGivenSiteName("C"));
+            _licenseTextDictionary.Add("D", _fetchLicenseTextGivenSiteName("D"));
+            _licenseTextDictionary.Add("E", _fetchLicenseTextGivenSiteName("E"));
         }
 
         private string _fetchLicenseTextGivenSiteName(string SearchedSiteName)
@@ -55,7 +54,7 @@ namespace MaterialLicenseChecker.Models
             //TODO:インジェクション攻撃に備え一応エスケープしておいた。
             //一応、というだけでちゃんとした対策ではないが……
             //後で時間があればちゃんとやるように。
-            var SearchedMaterialSite = _loadedXMLFileInstance.XPathSelectElement("//materialSite[siteKey='" + SecurityElement.Escape(SearchedSiteName) + "']");
+            var SearchedMaterialSite = _loadedXMLFileInstance.XPathSelectElement("//materialSite[@siteKey='" + SecurityElement.Escape(SearchedSiteName) + "']");
 
             return SearchedMaterialSite.Element("licenseText").Value;
 

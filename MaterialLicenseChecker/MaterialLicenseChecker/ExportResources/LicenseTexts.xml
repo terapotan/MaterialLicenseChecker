@@ -2,33 +2,23 @@
 <document fileVersion="0" fileType="LicenseTexts">
 
 <materialSite siteKey="A">
-<licenseText>
-サイトA利用規約
-</licenseText>
+<licenseText>サイトA利用規約</licenseText>
 </materialSite>
 
 <materialSite siteKey="B">
-<licenseText>
-サイトB利用規約
-</licenseText>
+<licenseText>サイトB利用規約</licenseText>
 </materialSite>
 
 <materialSite siteKey="C">
-<licenseText>
-サイトC利用規約
-</licenseText>
+<licenseText>サイトC利用規約</licenseText>
 </materialSite>
 
 <materialSite siteKey="D">
-<licenseText>
-サイトD利用規約
-</licenseText>
+<licenseText>サイトD利用規約</licenseText>
 </materialSite>
 
 <materialSite siteKey="E">
-<licenseText>
-サイトE利用規約
-</licenseText>
+<licenseText>サイトE利用規約</licenseText>
 </materialSite>
 
 </document>
