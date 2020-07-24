@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml.Linq;
+using System.Xml.XPath;
 using System.Reflection;
+using System.Xml.Linq;
+using System.Security;
 
 namespace MaterialLicenseChecker.Models
 {
     class ClassStoreLicenseText
     {
+        private XDocument _loadedXMLFileInstance;
+
         /// <summary>
         /// ライセンステキストを辞書型で保管する。
         /// 1番目:利用規約のサイト名(キーとなる)
@@ -36,13 +40,25 @@ namespace MaterialLicenseChecker.Models
             System.IO.FileInfo fi = new System.IO.FileInfo(runingFilePath);
             string runingDirectoryPath = fi.Directory.FullName;
 
-            XDocument xml = XDocument.Load(runingDirectoryPath + "/ExportResources/LicenseTexts.xml");  ;
+            _loadedXMLFileInstance = XDocument.Load(runingDirectoryPath + "/ExportResources/LicenseTexts.xml");  ;
+
             _licenseTextDictionary = new Dictionary<string,string>();
             _licenseTextDictionary.Add("A", "サイトAの利用規約");
             _licenseTextDictionary.Add("B", "サイトBの利用規約");
             _licenseTextDictionary.Add("C", "サイトCの利用規約");
             _licenseTextDictionary.Add("D", "サイトDの利用規約");
             _licenseTextDictionary.Add("E", "サイトEの利用規約");
+        }
+
+        private string _fetchLicenseTextGivenSiteName(string SearchedSiteName)
+        {
+            //TODO:インジェクション攻撃に備え一応エスケープしておいた。
+            //一応、というだけでちゃんとした対策ではないが……
+            //後で時間があればちゃんとやるように。
+            var SearchedMaterialSite = _loadedXMLFileInstance.XPathSelectElement("//materialSite[siteKey='" + SecurityElement.Escape(SearchedSiteName) + "']");
+
+            return SearchedMaterialSite.Element("licenseText").Value;
+
         }
 
         /// <summary>
