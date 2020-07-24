@@ -7,11 +7,12 @@
 /build/
 /projectDocuments/
 /manualTest/
-/IntervalTimer_PUBLIC/
+/MaterialLicenseChecker_PUBLIC/
 /INSTALL.py
 /RUN.bat
 /BundleFiles/
-
+/MaterialLicenseChecker/MaterialLicenseChecker/EmbeddedResources/
+/projectWiki/
 #### END ####
 
 
