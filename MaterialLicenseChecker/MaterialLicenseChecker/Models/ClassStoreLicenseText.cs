@@ -28,6 +28,9 @@ namespace MaterialLicenseChecker.Models
 
         public ClassStoreLicenseText()
         {
+            //FIXME:ここらへんの処理を毎回書くのは面倒である。
+            //よって、別のまぁシングルトンクラスに移したい。
+            //シングルトンクラスに以下のコードを移すこと。
             Assembly assembly = Assembly.GetEntryAssembly();
             string runingFilePath = assembly.Location;
             System.IO.FileInfo fi = new System.IO.FileInfo(runingFilePath);
