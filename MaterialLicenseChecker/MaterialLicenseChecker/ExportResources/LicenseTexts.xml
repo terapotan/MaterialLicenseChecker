@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document fileVersion="0" fileType="LicenseTexts">
+
+<materialSite siteKey="A">
+<licenseText>サイトA利用規約</licenseText>
+</materialSite>
+
+<materialSite siteKey="B">
+<licenseText>サイトB利用規約</licenseText>
+</materialSite>
+
+<materialSite siteKey="C">
+<licenseText>サイトC利用規約</licenseText>
+</materialSite>
+
+<materialSite siteKey="D">
+<licenseText>サイトD利用規約</licenseText>
+</materialSite>
+
+<materialSite siteKey="E">
+<licenseText>サイトE利用規約</licenseText>
+</materialSite>
+
+</document>

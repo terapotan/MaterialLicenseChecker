@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MaterialLicenseChecker.Views"
         mc:Ignorable="d"
-        Title="MainView" Height="200" Width="180"
+        Title="MainView" Height="200" Width="200"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
@@ -14,11 +14,11 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="20">
-            <CheckBox Content="素材配布サイトA"></CheckBox>
-            <CheckBox Content="素材配布サイトB"></CheckBox>
-            <CheckBox Content="素材配布サイトC"></CheckBox>
-            <CheckBox Content="素材配布サイトD"></CheckBox>
-            <CheckBox Content="素材配布サイトE"></CheckBox>
+            <CheckBox Content="素材配布サイトA" IsChecked="{Binding CheckBoxAState}"></CheckBox>
+            <CheckBox Content="素材配布サイトB" IsChecked="{Binding CheckBoxBState}"></CheckBox>
+            <CheckBox Content="素材配布サイトC" IsChecked="{Binding CheckBoxCState}"></CheckBox>
+            <CheckBox Content="素材配布サイトD" IsChecked="{Binding CheckBoxDState}"></CheckBox>
+            <CheckBox Content="素材配布サイトE" IsChecked="{Binding CheckBoxEState}"></CheckBox>
         </StackPanel>
 
         <StackPanel Grid.Row="1">
