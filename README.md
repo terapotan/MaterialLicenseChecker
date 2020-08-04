@@ -1,17 +1,16 @@
 # 進捗状況
-- チェックボックスを押した所の利用規約が表示される機能を追加
-- 利用規約をXMLファイルから読み込むよう修正
+- UIを大幅に変更
 
-![alt](./ReleaseImage/prototype-2.png)
+![alt](./ReleaseImage/prototype-3.png)
 
 具体的な開発情報は、Twitterでお知らせしています。  
 [Twitter](https://twitter.com/terapotan)
 
 ## 素材ライセンスチェッカーをダウンロードするには?
 ### GoogleDriveからダウンロードする
-以下のリンクにある**prototype-2.zip**というファイルをダウンロードしてください。
+以下のリンクにある**prototype-3.zip**というファイルをダウンロードしてください。
 
-[ダウンロードリンク](https://drive.google.com/drive/folders/1zvJZ9vuz9R5oZNAQoeyTELV5kBcdi7sN?usp=sharing)
+[ダウンロードリンク](https://drive.google.com/drive/u/2/folders/1Ovn9N6ZFQ7WtMGye-B0cxLVX_Dg0rID1)
 
 ## ソフトのインストール方法
 特別なインストールの操作は必要ありません。ダウンロードして、すぐソフトを起動することが出来ます。
