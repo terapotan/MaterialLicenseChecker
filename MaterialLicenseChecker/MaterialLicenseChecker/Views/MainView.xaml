@@ -5,26 +5,61 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MaterialLicenseChecker.Views"
         mc:Ignorable="d"
-        Title="MainView" Height="200" Width="200"
-        WindowStartupLocation="CenterScreen">
+        Title="素材ライセンスチェッカー（試作版）" Height="300" Width="500"
+        WindowStartupLocation="CenterScreen" >
+
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="プロジェクト(_P)">
+                <MenuItem Header="新規作成"></MenuItem>
+                <MenuItem Header="開く"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="素材追加(_M)">
+                <MenuItem Header="素材を追加する"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="素材配布元追加(_N)">
+                <MenuItem Header="素材配布元を追加する"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="その他(_O)">
+                <MenuItem Header="このソフトウェアについて"></MenuItem>
+                <MenuItem Header="ヘルプ"></MenuItem>
+            </MenuItem>
+        </Menu>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="8*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="20">
-            <CheckBox Content="素材配布サイトA" IsChecked="{Binding CheckBoxAState}"></CheckBox>
-            <CheckBox Content="素材配布サイトB" IsChecked="{Binding CheckBoxBState}"></CheckBox>
-            <CheckBox Content="素材配布サイトC" IsChecked="{Binding CheckBoxCState}"></CheckBox>
-            <CheckBox Content="素材配布サイトD" IsChecked="{Binding CheckBoxDState}"></CheckBox>
-            <CheckBox Content="素材配布サイトE" IsChecked="{Binding CheckBoxEState}"></CheckBox>
+            <Grid>
+            <ListBox x:Name="ListBox" DisplayMemberPath="Name" SelectionMode="Single" Margin="20" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <ListBoxItem>素材1</ListBoxItem>
+                    <ListBoxItem>素材2</ListBoxItem>
+                    <ListBoxItem>素材3</ListBoxItem>
+                    <ListBoxItem>素材4</ListBoxItem>
+                    <ListBoxItem>素材5</ListBoxItem>
+                    <ListBoxItem>素材6</ListBoxItem>
+                    <ListBoxItem>素材7</ListBoxItem>
+                    <ListBoxItem>素材8</ListBoxItem>
+                    <ListBoxItem>素材9</ListBoxItem>
+                    <ListBoxItem>素材10</ListBoxItem>
+                    <ListBoxItem>素材11</ListBoxItem>
+                    <ListBoxItem>素材12</ListBoxItem>
+            </ListBox>
+
+            </Grid>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Content="ライセンスチェック" Padding ="5" Margin ="0,0,100,0" Command="{Binding ShowDialogCommand}"></Button>
+            <Button Content="ライセンス表記出力" Padding ="5" Command="{Binding ShowDialogCommand}"></Button>
         </StackPanel>
 
-        <StackPanel Grid.Row="1">
-            <Button Content="出力" Command="{Binding ShowDialogCommand}"></Button>
-        </StackPanel>
+
     </Grid>
+
+    </DockPanel>
+
 
 
 </Window>
