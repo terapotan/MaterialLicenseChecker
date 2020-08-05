@@ -12,6 +12,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+//FIXME:大抵というか原則として、ViewとViewModelは一組である。
+//そこで、一組にした名前空間を別に作ってViewsと階層構造にするというのはどうか。
+//たぶんそのほうがいいのでは?
+using MaterialLicenseChecker.ViewModels;
+
+
 namespace MaterialLicenseChecker.Views
 {
     /// <summary>
@@ -22,6 +28,15 @@ namespace MaterialLicenseChecker.Views
         public MainView()
         {
             InitializeComponent();
+            MainViewModelMessanger.Default.RegisterAction<MainVewModelMessage>(this, ShowMaterilalSiteDialog);
+        }
+
+        private void ShowMaterilalSiteDialog(MainVewModelMessage msg)
+        {
+            var win = new MaterialSiteAdditionalScreen();
+            win.Owner = GetWindow(this);
+            win.ShowDialog();
+
         }
     }
 }

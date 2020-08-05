@@ -60,6 +60,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BaseMessage.cs" />
     <Compile Include="BaseMessanger.cs" />
     <Compile Include="DelegateCommand.cs" />
     <Compile Include="Models\ClassStoreLicenseText.cs" />
@@ -69,7 +70,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\MainVewModelMessage.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModelMessanger.cs" />
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>

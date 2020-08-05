@@ -79,6 +79,23 @@ namespace MaterialLicenseChecker.ViewModels
             }
         }
 
+        private DelegateCommand _ShowMaterialSiteAdditionalDialog;
+
+        public DelegateCommand ShowMaterialSiteAdditionalDialog
+        {
+            get
+            {
+                if (_ShowMaterialSiteAdditionalDialog == null)
+                {
+                    var msg = new MainVewModelMessage(this);
+                    _ShowMaterialSiteAdditionalDialog = new DelegateCommand(
+                        _ => MainViewModelMessanger.Default.ExecuteAction<MainVewModelMessage>(this,msg));
+                }
+
+                return _ShowMaterialSiteAdditionalDialog;
+            }
+        }
+
 
         //FIXME:とりあえずチェックボックス5つの状態を別の変数として宣言して、
         //データバインディングしている。この機能はあくまでテスト用のもので、
