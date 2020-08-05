@@ -7,6 +7,17 @@ using System.Windows;
 
 namespace MaterialLicenseChecker
 {
+    //本クラスを使用する際には、該当のクラスへ継承した後次のコードを挿入すること。
+    //
+    //private static Messenger _instance = new Messenger();
+    //public static Messenger Default
+    //{
+    //    get { return _instance; }
+    //}
+    //Messengerは、該当のクラス名に置き換えること。
+
+
+
     public class BaseMessanger
     {
         private List<ActionInfo> RegisteredActionList = new List<ActionInfo>();
