@@ -8,7 +8,6 @@ using MaterialLicenseChecker;
 using System.Windows;
 using MaterialLicenseChecker.Models;
 
-
 namespace MaterialLicenseChecker.ViewModels
 {
     class MainViewModel
