@@ -32,7 +32,7 @@ namespace MaterialLicenseChecker
             //取り出す。
 
             var query = RegisteredActionList.Where(o =>
-            o.sender == sender && o.MessageType == message.GetType())
+            o.MessageType == message.GetType())
             .Select(o => o.action as Action<MessageType>);
 
             //取り出したデリゲートの実行

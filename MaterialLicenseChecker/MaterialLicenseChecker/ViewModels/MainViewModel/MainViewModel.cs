@@ -22,7 +22,7 @@ namespace MaterialLicenseChecker.ViewModels.MainViewModelPac
 
         private void ClickedMaterialSiteMenuEvent(ClickedMaterialSiteMenuEventMessage msg)
         {
-            MessageBox.Show("asfdjlk");
+            MainViewModelMessanger.Default.ExecuteAction<GenerateNewDialogMessage>(this, new GenerateNewDialogMessage(this));
         }
 
         private string MakeDisplayedLicenseText()

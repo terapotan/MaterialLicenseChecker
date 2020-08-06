@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 //たぶんそのほうがいいのでは?
 using MaterialLicenseChecker.VAndVMCommons.MainViewModel;
 
+using MaterialLicenseChecker.Views;
 
 namespace MaterialLicenseChecker.Views
 {
@@ -29,8 +30,11 @@ namespace MaterialLicenseChecker.Views
         {
             InitializeComponent();
             MainViewModelMessanger.Default.RegisterAction<MainVewModelMessage>(this, ShowMaterilalSiteDialog);
+            MainViewModelMessanger.Default.RegisterAction<GenerateNewDialogMessage>(this, GenerateNewDialog);
         }
 
+
+       
         private void ShowMaterilalSiteDialog(MainVewModelMessage msg)
         {
             var win = new MaterialSiteAdditionalScreen();
@@ -39,6 +43,20 @@ namespace MaterialLicenseChecker.Views
 
         }
 
+        private void GenerateNewDialog(GenerateNewDialogMessage msg)
+        {
+            var win = new MaterialSiteAdditionalScreen();
+            win.Owner = GetWindow(this);
+            win.ShowDialog();
+
+        }
+
+
+
+
+        //以下イベント発生コード
+
+        //素材配布サイト追加クリック
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             MainViewModelEventMessenger.Default
@@ -47,5 +65,6 @@ namespace MaterialLicenseChecker.Views
             //win.Owner = GetWindow(this);
             //win.ShowDialog();
         }
+
     }
 }

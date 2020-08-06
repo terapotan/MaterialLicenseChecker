@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MaterialLicenseChecker.VAndVMCommons.MainViewModel.Message
+namespace MaterialLicenseChecker.VAndVMCommons.MainViewModel
 {
     class GenerateNewDialogMessage : BaseMessage
     {
@@ -12,5 +12,7 @@ namespace MaterialLicenseChecker.VAndVMCommons.MainViewModel.Message
         {
 
         }
+
+        public string GeneratingDialogName = "";
     }
 }
