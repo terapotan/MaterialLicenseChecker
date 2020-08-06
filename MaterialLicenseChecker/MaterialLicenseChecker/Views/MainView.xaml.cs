@@ -41,9 +41,11 @@ namespace MaterialLicenseChecker.Views
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            var win = new MaterialSiteAdditionalScreen();
-            win.Owner = GetWindow(this);
-            win.ShowDialog();
+            MainViewModelEventMessenger.Default
+                .CallEvent<ClickedMaterialSiteMenuEventMessage>(new ClickedMaterialSiteMenuEventMessage(this));
+            //var win = new MaterialSiteAdditionalScreen();
+            //win.Owner = GetWindow(this);
+            //win.ShowDialog();
         }
     }
 }

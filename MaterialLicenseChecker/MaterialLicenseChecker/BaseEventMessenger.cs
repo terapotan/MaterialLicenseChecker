@@ -25,13 +25,13 @@ namespace MaterialLicenseChecker
                 });
             }
 
-            public void CallEvent<MessageType>(object sender, MessageType message)
-            {
-                //与えられた送り主とメッセージの型が一致しているデリゲートのみをLINQを用いて
+            public void CallEvent<MessageType>(MessageType message)
+        {
+                //与えられたメッセージの型が一致しているデリゲートのみをLINQを用いて
                 //取り出す。
 
                 var query = RegisteredActionList.Where(o =>
-                o.sender == sender && o.MessageType == message.GetType())
+                o.MessageType == message.GetType())
                 .Select(o => o.action as Action<MessageType>);
 
                 //取り出したデリゲートの実行

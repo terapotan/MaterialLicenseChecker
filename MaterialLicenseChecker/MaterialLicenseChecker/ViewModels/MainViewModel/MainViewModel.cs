@@ -13,6 +13,17 @@ namespace MaterialLicenseChecker.ViewModels.MainViewModelPac
 {
     class MainViewModel
     {
+        public MainViewModel()
+        {
+            MainViewModelEventMessenger.Default.
+                RegisterAction<ClickedMaterialSiteMenuEventMessage>
+                (this, ClickedMaterialSiteMenuEvent);
+        }
+
+        private void ClickedMaterialSiteMenuEvent(ClickedMaterialSiteMenuEventMessage msg)
+        {
+            MessageBox.Show("asfdjlk");
+        }
 
         private string MakeDisplayedLicenseText()
         {

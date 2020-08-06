@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MaterialLicenseChecker.VAndVMCommons.MainViewModel
 {
-    class MainViewModelEventMessage : BaseEventMessage
+    class ClickedMaterialSiteMenuEventMessage : BaseEventMessage
     {
-        public MainViewModelEventMessage(object sender) : base(sender)
+        public ClickedMaterialSiteMenuEventMessage(object sender) : base(sender)
         {
 
         }
