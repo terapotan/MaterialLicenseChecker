@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MaterialLicenseChecker;
 
-namespace MaterialLicenseChecker.ViewModels.MainViewModelPac
+namespace MaterialLicenseChecker.VAndVMCommons.MainViewModel
 {
     class MainViewModelMessanger : BaseMessanger
     {

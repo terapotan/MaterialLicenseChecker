@@ -7,6 +7,7 @@ using System.Windows.Input;
 using MaterialLicenseChecker;
 using System.Windows;
 using MaterialLicenseChecker.Models;
+using MaterialLicenseChecker.VAndVMCommons.MainViewModel;
 
 namespace MaterialLicenseChecker.ViewModels.MainViewModelPac
 {

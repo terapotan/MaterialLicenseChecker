@@ -72,11 +72,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\MainViewModel\Message\MainVewModelMessage.cs" />
+    <Compile Include="VAndVMCommons\MainViewModel\Message\MainVewModelMessage.cs" />
     <Compile Include="ViewModels\MainViewModel\MainViewModel.cs" />
-    <Compile Include="ViewModels\MainViewModel\EventMessage\MainViewModelEventMessage.cs" />
-    <Compile Include="ViewModels\MainViewModel\EventMessage\MainViewModelEventMessenger.cs" />
-    <Compile Include="ViewModels\MainViewModel\Message\MainViewModelMessanger.cs" />
+    <Compile Include="VAndVMCommons\MainViewModel\EventMessage\MainViewModelEventMessage.cs" />
+    <Compile Include="VAndVMCommons\MainViewModel\EventMessage\MainViewModelEventMessenger.cs" />
+    <Compile Include="VAndVMCommons\MainViewModel\Message\MainViewModelMessanger.cs" />
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
