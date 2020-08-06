@@ -70,9 +70,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\MainVewModelMessage.cs" />
-    <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="ViewModels\MainViewModelMessanger.cs" />
+    <Compile Include="ViewModels\MainViewModel\MainVewModelMessage.cs" />
+    <Compile Include="ViewModels\MainViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel\MainViewModelMessanger.cs" />
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
