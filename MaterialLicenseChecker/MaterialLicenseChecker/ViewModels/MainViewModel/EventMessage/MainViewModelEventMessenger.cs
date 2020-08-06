@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MaterialLicenseChecker.ViewModels
+namespace MaterialLicenseChecker.ViewModels.MainViewModelPac
 {
     class MainViewModelEventMessenger
     {

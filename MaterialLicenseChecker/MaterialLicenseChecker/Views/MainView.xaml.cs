@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 //FIXME:大抵というか原則として、ViewとViewModelは一組である。
 //そこで、一組にした名前空間を別に作ってViewsと階層構造にするというのはどうか。
 //たぶんそのほうがいいのでは?
-using MaterialLicenseChecker.ViewModels;
+using MaterialLicenseChecker.ViewModels.MainViewModelPac;
 
 
 namespace MaterialLicenseChecker.Views
