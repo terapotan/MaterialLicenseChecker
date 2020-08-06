@@ -72,9 +72,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\MainViewModel\MainVewModelMessage.cs" />
+    <Compile Include="ViewModels\MainViewModel\Message\MainVewModelMessage.cs" />
     <Compile Include="ViewModels\MainViewModel\MainViewModel.cs" />
-    <Compile Include="ViewModels\MainViewModel\MainViewModelMessanger.cs" />
+    <Compile Include="ViewModels\MainViewModel\EventMessage\MainViewModelEventMessage.cs" />
+    <Compile Include="ViewModels\MainViewModel\EventMessage\MainViewModelEventMessenger.cs" />
+    <Compile Include="ViewModels\MainViewModel\Message\MainViewModelMessanger.cs" />
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
