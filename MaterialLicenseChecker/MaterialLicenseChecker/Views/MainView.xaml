@@ -18,7 +18,7 @@
                 <MenuItem Header="素材を追加する"></MenuItem>
             </MenuItem>
             <MenuItem Header="素材配布元追加(_N)">
-                <MenuItem Header="素材配布元を追加する"></MenuItem>
+                <MenuItem Header="素材配布元を追加する"  Click="MenuItem_Click"></MenuItem>
             </MenuItem>
             <MenuItem Header="その他(_O)">
                 <MenuItem Header="このソフトウェアについて"></MenuItem>
