@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MaterialLicenseChecker.VAndVMCommons.MaterialSiteAdditionalDialog;
+using MaterialLicenseChecker.ViewModels.MaterialSiteAdditionalDialog;
 
 namespace MaterialLicenseChecker.Views
 {
@@ -22,6 +24,18 @@ namespace MaterialLicenseChecker.Views
         public MaterialSiteAdditionalScreen()
         {
             InitializeComponent();
+            //ViewModelの生成(Viewから生成するのはどうなんだ?)
+            var instance = new MaterialSiteAdditionalDialogViewModel();
+        }
+
+        private void ClickedRegistrationButton(object sender, RoutedEventArgs e)
+        {
+            var msg = new ClickedRegistrationButtonEventMessage(this);
+            msg.InputSiteName = MaterialSiteName.Text;
+            msg.InputLicenseText = LicenseText.Text;
+
+            MaterialSiteAdditionalDialogEventMessenger.Default.CallEvent(msg);
+
         }
     }
 }
