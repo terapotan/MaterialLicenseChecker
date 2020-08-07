@@ -13,6 +13,9 @@ namespace MaterialLicenseChecker.VAndVMCommons.MainViewModel
 
         }
 
-        public string GeneratingDialogName = "";
+        public int GeneratingDialogNumber = -1;
+        public static readonly int MATERIAL_SITE_WINDOW = 0;
+        public static readonly int MATERIAL_WINDOW = 1;
+
     }
 }
