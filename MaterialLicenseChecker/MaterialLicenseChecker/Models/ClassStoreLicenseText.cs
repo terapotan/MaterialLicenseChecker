@@ -61,6 +61,23 @@ namespace MaterialLicenseChecker.Models
         }
 
         /// <summary>
+        /// ライセンス文を追加するメソッド。サイト名の重複などの妥当性チェックは行わない。
+        /// </summary>
+        /// <param name="SiteName"></param>
+        /// <param name="LicenseText"></param>
+        public void AddLicenseText(string SiteName,string LicenseText)
+        {
+            XElement DocumentTree = _loadedXMLFileInstance.Root;
+
+            //materialSite属性の追加+ライセンステキストの追加
+            XElement AddedMaterialSiteTree = new XElement("materialSite",new XElement("licenseText",LicenseText));
+            //サイト名の追加
+            AddedMaterialSiteTree.SetAttributeValue("siteName", SiteName);
+
+
+        }
+
+        /// <summary>
         /// SiteNameListで指定されたサイトの利用規約をリストにして返却する。
         /// SiteNameListにまだ登録されていないサイト名を入力すると
         /// ソフトウェアが強制終了する。
