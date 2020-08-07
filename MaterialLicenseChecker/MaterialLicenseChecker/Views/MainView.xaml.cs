@@ -45,7 +45,20 @@ namespace MaterialLicenseChecker.Views
 
         private void GenerateNewDialog(GenerateNewDialogMessage msg)
         {
-            var win = new MaterialSiteAdditionalScreen();
+            //FIXME:今はswitch文で書いているが、何かいい案はないだろうか?
+            Window win = null;
+
+            switch (msg.GeneratingDialogNumber)
+            {
+                case GenerateNewDialogMessage.MATERIAL_SITE_WINDOW:
+                    win = new MaterialSiteAdditionalScreen();
+                    break;
+                case GenerateNewDialogMessage.MATERIAL_WINDOW:
+                    break;
+                default:
+                    break;
+            }
+
             win.Owner = GetWindow(this);
             win.ShowDialog();
 

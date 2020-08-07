@@ -22,7 +22,10 @@ namespace MaterialLicenseChecker.ViewModels.MainViewModelPac
 
         private void ClickedMaterialSiteMenuEvent(ClickedMaterialSiteMenuEventMessage msg)
         {
-            MainViewModelMessanger.Default.ExecuteAction<GenerateNewDialogMessage>(this, new GenerateNewDialogMessage(this));
+            var SendMsg = new GenerateNewDialogMessage(this);
+            SendMsg.GeneratingDialogNumber = GenerateNewDialogMessage.MATERIAL_SITE_WINDOW;
+
+            MainViewModelMessanger.Default.ExecuteAction<GenerateNewDialogMessage>(this, SendMsg);
         }
 
         private string MakeDisplayedLicenseText()
@@ -100,6 +103,7 @@ namespace MaterialLicenseChecker.ViewModels.MainViewModelPac
                 if (_ShowMaterialSiteAdditionalDialog == null)
                 {
                     var msg = new MainVewModelMessage(this);
+              
                     _ShowMaterialSiteAdditionalDialog = new DelegateCommand(
                         _ => MainViewModelMessanger.Default.ExecuteAction<MainVewModelMessage>(this,msg));
                 }
