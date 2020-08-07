@@ -84,6 +84,9 @@
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\MaterialAdditionalDialog.xaml.cs">
+      <DependentUpon>MaterialAdditionalDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MaterialSiteAdditionalDialog.xaml.cs">
       <DependentUpon>MaterialSiteAdditionalDialog.xaml</DependentUpon>
     </Compile>
@@ -115,6 +118,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Views\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MaterialAdditionalDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
