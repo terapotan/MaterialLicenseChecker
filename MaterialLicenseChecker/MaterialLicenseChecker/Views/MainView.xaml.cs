@@ -54,6 +54,7 @@ namespace MaterialLicenseChecker.Views
                     win = new MaterialSiteAdditionalScreen();
                     break;
                 case GenerateNewDialogMessage.MATERIAL_WINDOW:
+                    win = new MaterialAdditionalDialog();
                     break;
                 default:
                     break;
@@ -79,5 +80,11 @@ namespace MaterialLicenseChecker.Views
             //win.ShowDialog();
         }
 
+        //素材追加クリック
+        private void ClikedMaterialAdditionalMenuItem(object sender, RoutedEventArgs e)
+        {
+            MainViewModelEventMessenger.Default
+            .CallEvent(new ClickedMaterialAdditionalMenuEventMessage(this));
+        }
     }
 }

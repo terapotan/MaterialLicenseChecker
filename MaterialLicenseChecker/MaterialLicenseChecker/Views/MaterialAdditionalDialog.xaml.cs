@@ -22,6 +22,7 @@ namespace MaterialLicenseChecker.Views
         public MaterialAdditionalDialog()
         {
             InitializeComponent();
+            //TODO:後でViewModelの生成コード書くこと
         }
     }
 }
