@@ -72,6 +72,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="VAndVMCommons\MainViewModel\EventMessage\ClickedMaterialAdditionalMenuEventMessage.cs" />
     <Compile Include="VAndVMCommons\MainViewModel\Message\GenerateNewDialogMessage.cs" />
     <Compile Include="VAndVMCommons\MainViewModel\Message\MainVewModelMessage.cs" />
     <Compile Include="VAndVMCommons\MaterialSiteAdditionalDialog\EventMessage\ClickedRegistrationButtonEventMessage.cs" />
@@ -83,6 +84,9 @@
     <Compile Include="ViewModels\MaterialSiteAdditionalDialog\MaterialSiteAdditionalDialogViewModel.cs" />
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MaterialAdditionalDialog.xaml.cs">
+      <DependentUpon>MaterialAdditionalDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MaterialSiteAdditionalDialog.xaml.cs">
       <DependentUpon>MaterialSiteAdditionalDialog.xaml</DependentUpon>
@@ -115,6 +119,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Views\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MaterialAdditionalDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

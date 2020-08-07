@@ -35,6 +35,7 @@ namespace MaterialLicenseChecker.Views
             msg.InputLicenseText = LicenseText.Text;
 
             MaterialSiteAdditionalDialogEventMessenger.Default.CallEvent(msg);
+            this.Close();
 
         }
     }

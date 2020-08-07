@@ -18,14 +18,24 @@ namespace MaterialLicenseChecker.ViewModels.MainViewModelPac
             MainViewModelEventMessenger.Default.
                 RegisterAction<ClickedMaterialSiteMenuEventMessage>
                 (this, ClickedMaterialSiteMenuEvent);
+
+            MainViewModelEventMessenger.Default.
+                RegisterAction<ClickedMaterialAdditionalMenuEventMessage>
+                (this, ClickedMaterialMenuEvent);
         }
 
         private void ClickedMaterialSiteMenuEvent(ClickedMaterialSiteMenuEventMessage msg)
         {
             var SendMsg = new GenerateNewDialogMessage(this);
             SendMsg.GeneratingDialogNumber = GenerateNewDialogMessage.MATERIAL_SITE_WINDOW;
+            MainViewModelMessanger.Default.ExecuteAction(this, SendMsg);
+        }
 
-            MainViewModelMessanger.Default.ExecuteAction<GenerateNewDialogMessage>(this, SendMsg);
+        private void ClickedMaterialMenuEvent(ClickedMaterialAdditionalMenuEventMessage msg)
+        {
+            var SendMsg = new GenerateNewDialogMessage(this);
+            SendMsg.GeneratingDialogNumber = GenerateNewDialogMessage.MATERIAL_WINDOW;
+            MainViewModelMessanger.Default.ExecuteAction(this, SendMsg);
         }
 
         private string MakeDisplayedLicenseText()
