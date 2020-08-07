@@ -14,7 +14,7 @@
         </StackPanel>
         <StackPanel Orientation="Horizontal">
             <Label Content="登録する利用規約:" Target="{Binding ElementName=LicenseText}"  VerticalAlignment="Center"/>
-            <TextBox x:Name="LicenseText" TextWrapping="Wrap" VerticalContentAlignment="Top" Height="80" Width="175"  Margin="0,0" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+            <TextBox x:Name="LicenseText" AcceptsReturn="True" TextWrapping="Wrap" VerticalContentAlignment="Top" Height="80" Width="175"  Margin="0,0" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
         </StackPanel>
 
         <StackPanel Orientation="Vertical">
