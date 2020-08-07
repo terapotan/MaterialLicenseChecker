@@ -7,13 +7,14 @@ using System.Xml.XPath;
 using System.Reflection;
 using System.Xml.Linq;
 using System.Security;
+using System.IO;
 
 namespace MaterialLicenseChecker.Models
 {
     class ClassStoreLicenseText
     {
         private XDocument _loadedXMLFileInstance;
-
+        private string loadedXMLFileName;
         /// <summary>
         /// ライセンステキストを辞書型で保管する。
         /// 1番目:利用規約のサイト名(キーとなる)
@@ -38,8 +39,8 @@ namespace MaterialLicenseChecker.Models
             string runingFilePath = assembly.Location;
             System.IO.FileInfo fi = new System.IO.FileInfo(runingFilePath);
             string runingDirectoryPath = fi.Directory.FullName;
-
-            _loadedXMLFileInstance = XDocument.Load(runingDirectoryPath + "/ExportResources/LicenseTexts.xml");  ;
+            loadedXMLFileName = runingDirectoryPath + "/ExportResources/LicenseTexts.xml";
+            _loadedXMLFileInstance = XDocument.Load(runingDirectoryPath + "/ExportResources/LicenseTexts.xml");
 
             _licenseTextDictionary = new Dictionary<string,string>();
             _licenseTextDictionary.Add("A", _fetchLicenseTextGivenSiteName("A"));
@@ -67,14 +68,14 @@ namespace MaterialLicenseChecker.Models
         /// <param name="LicenseText"></param>
         public void AddLicenseText(string SiteName,string LicenseText)
         {
-            XElement DocumentTree = _loadedXMLFileInstance.Root;
 
             //materialSite属性の追加+ライセンステキストの追加
             XElement AddedMaterialSiteTree = new XElement("materialSite",new XElement("licenseText",LicenseText));
             //サイト名の追加
             AddedMaterialSiteTree.SetAttributeValue("siteName", SiteName);
+            _loadedXMLFileInstance.Elements().First().Add(AddedMaterialSiteTree);
 
-
+            _loadedXMLFileInstance.Save(loadedXMLFileName);
         }
 
         /// <summary>

@@ -26,7 +26,7 @@ namespace MaterialLicenseChecker
             }
 
             public void CallEvent<MessageType>(MessageType message)
-        {
+            {
                 //与えられたメッセージの型が一致しているデリゲートのみをLINQを用いて
                 //取り出す。
 
