@@ -16,15 +16,25 @@ namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
         {
             MaterialAdditionalDialogEventMessenger.Default
                 .RegisterAction<ClickedFileLocationButtonEventMessage>(this, ClickedFileLocationButtonEvent);
+            MaterialAdditionalDialogEventMessenger.Default
+                .RegisterAction<ClickedMaterialSiteButtonEventMessage>(this, ClickedMaterialButtonEvent);
         }
 
-        
+
+        private void ClickedMaterialButtonEvent(ClickedMaterialSiteButtonEventMessage msg)
+        {
+            Task.Factory.StartNew(() =>
+
+                MessageBox.Show("モードレスダイアログ")
+
+            );
+        }
+
         private void ClickedFileLocationButtonEvent(ClickedFileLocationButtonEventMessage msg)
         {
             var Dialog = new OpenFileDialog();
             Dialog.Title = "素材ファイルを指定する";
             Dialog.ShowDialog();
-            //MessageBox.Show(Dialog.FileName);
 
             var message = new SetValueFilePathTextBoxMessage(this);
             message.SetValue = Dialog.FileName;

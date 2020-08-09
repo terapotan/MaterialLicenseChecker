@@ -49,5 +49,10 @@ namespace MaterialLicenseChecker.Views
         {
             MaterialAdditionalDialogEventMessenger.Default.CallEvent(new ClickedFileLocationButtonEventMessage(this));
         }
+
+        private void ClickedMaterialSiteButton(object sender, RoutedEventArgs e)
+        {
+            MaterialAdditionalDialogEventMessenger.Default.CallEvent(new ClickedMaterialSiteButtonEventMessage(this));
+        }
     }
 }
