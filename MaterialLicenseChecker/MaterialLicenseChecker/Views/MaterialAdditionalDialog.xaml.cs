@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 using MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog;
+using MaterialLicenseChecker.VAndVMCommons.MaterialAdditionalDialog;
 
 namespace MaterialLicenseChecker.Views
 {
@@ -25,6 +26,11 @@ namespace MaterialLicenseChecker.Views
         {
             InitializeComponent();
             MaterialAdditionalDialogViewModel instance = new MaterialAdditionalDialogViewModel();
+        } 
+
+        private void ClickedFileLocationButton(object sender, RoutedEventArgs e)
+        {
+            MaterialAdditionalDialogEventMessenger.Default.CallEvent(new ClickedFileLocationButtonEventMessage(this));
         }
     }
 }
