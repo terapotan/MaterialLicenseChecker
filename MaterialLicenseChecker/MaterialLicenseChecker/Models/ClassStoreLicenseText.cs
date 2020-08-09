@@ -115,15 +115,10 @@ namespace MaterialLicenseChecker.Models
 
             foreach (XElement el in elements)
             {
-                MaterialSiteList.Add(el.Value);
+                MaterialSiteList.Add(el.Attribute("siteName").Value);
             }
 
-            foreach (var str in MaterialSiteList)
-            {
-                MessageBox.Show(str);
-            }
-
-            return new List<string>();
+            return MaterialSiteList;
         }
     }
 }

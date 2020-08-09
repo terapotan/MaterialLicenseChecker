@@ -25,11 +25,17 @@ namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
         private void ClickedMaterialButtonEvent(ClickedMaterialSiteButtonEventMessage msg)
         {
             ClassStoreLicenseText instance = new ClassStoreLicenseText();
-            instance.GetMaterialSiteList();
+            var MaterialSiteNameList = instance.GetMaterialSiteList();
+            string MessageDialog = "";
+
+            foreach (var str in MaterialSiteNameList)
+            {
+                MessageDialog += (str + '\n');
+            }
 
             Task.Factory.StartNew(() =>
 
-                MessageBox.Show("モードレスダイアログ")
+                MessageBox.Show(MessageDialog,"素材配布サイト名一覧")
 
             );
         }
