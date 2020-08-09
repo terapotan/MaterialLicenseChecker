@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Xml.Linq;
 using System.Security;
 using System.IO;
+using System.Windows;
 
 namespace MaterialLicenseChecker.Models
 {
@@ -107,7 +108,20 @@ namespace MaterialLicenseChecker.Models
 
         public List<string> GetMaterialSiteList()
         {
+            var materialSites = _loadedXMLFileInstance.XPathSelectElement("/document");
+            IEnumerable<XElement> elements = from el in materialSites.Elements() select el;
 
+            var MaterialSiteList = new List<string>();
+
+            foreach (XElement el in elements)
+            {
+                MaterialSiteList.Add(el.Value);
+            }
+
+            foreach (var str in MaterialSiteList)
+            {
+                MessageBox.Show(str);
+            }
 
             return new List<string>();
         }
