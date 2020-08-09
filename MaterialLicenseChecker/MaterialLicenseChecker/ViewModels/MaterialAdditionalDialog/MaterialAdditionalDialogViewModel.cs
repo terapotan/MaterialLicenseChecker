@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using Microsoft.Win32;
 
 using MaterialLicenseChecker.VAndVMCommons.MaterialAdditionalDialog;
 
@@ -20,7 +21,10 @@ namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
         
         private void ClickedFileLocationButtonEvent(ClickedFileLocationButtonEventMessage msg)
         {
-            MessageBox.Show("テストメッセージ。表示されるか。");
+            var Dialog = new OpenFileDialog();
+            Dialog.Title = "素材ファイルを指定する";
+            Dialog.ShowDialog();
+            MessageBox.Show(Dialog.FileName);
         }
     }
 }
