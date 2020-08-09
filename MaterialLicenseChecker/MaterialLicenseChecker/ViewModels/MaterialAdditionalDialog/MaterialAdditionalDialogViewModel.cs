@@ -24,7 +24,12 @@ namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
             var Dialog = new OpenFileDialog();
             Dialog.Title = "素材ファイルを指定する";
             Dialog.ShowDialog();
-            MessageBox.Show(Dialog.FileName);
+            //MessageBox.Show(Dialog.FileName);
+
+            var message = new SetValueFilePathTextBoxMessage(this);
+            message.SetValue = Dialog.FileName;
+
+            MaterialAdditionalDialogMessenger.Default.ExecuteAction(this, message);
         }
     }
 }

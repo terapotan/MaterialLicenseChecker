@@ -78,6 +78,7 @@
     <Compile Include="VAndVMCommons\MaterialAdditionalDialog\EventMessage\ClickedFileLocationButtonEventMessage.cs" />
     <Compile Include="VAndVMCommons\MaterialAdditionalDialog\EventMessage\MaterialAdditionalDialogEventMessenger.cs" />
     <Compile Include="VAndVMCommons\MaterialAdditionalDialog\Message\MaterialAdditionalDialogMessenger.cs" />
+    <Compile Include="VAndVMCommons\MaterialAdditionalDialog\Message\SetValueFilePathTextBoxMessage.cs" />
     <Compile Include="VAndVMCommons\MaterialSiteAdditionalDialog\EventMessage\ClickedRegistrationButtonEventMessage.cs" />
     <Compile Include="VAndVMCommons\MaterialSiteAdditionalDialog\EventMessage\MaterialSiteAdditionalDialogEventMessenger.cs" />
     <Compile Include="ViewModels\MainViewModel\MainViewModel.cs" />

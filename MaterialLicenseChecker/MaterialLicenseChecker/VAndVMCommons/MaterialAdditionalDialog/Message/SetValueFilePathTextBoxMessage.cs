@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace MaterialLicenseChecker.VAndVMCommons.MaterialAdditionalDialog
 {
-    class MaterialAdditionalDialogMessenger : BaseMessanger
+    class SetValueFilePathTextBoxMessage : BaseMessage
     {
-        public static MaterialAdditionalDialogMessenger Default { get; } = new MaterialAdditionalDialogMessenger();
+        public SetValueFilePathTextBoxMessage(object sender) : base(sender)
+        {
+
+        }
+
+        public string SetValue = "";
 
     }
 }

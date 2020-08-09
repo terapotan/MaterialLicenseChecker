@@ -26,8 +26,25 @@ namespace MaterialLicenseChecker.Views
         {
             InitializeComponent();
             MaterialAdditionalDialogViewModel instance = new MaterialAdditionalDialogViewModel();
-        } 
 
+            MaterialAdditionalDialogMessenger.Default.RegisterAction<SetValueFilePathTextBoxMessage>(this, SetValueFilePathTextBoxEvent);
+        }
+
+        private void SetValueFilePathTextBoxEvent(SetValueFilePathTextBoxMessage msg)
+        {
+            MaterialFilePath.Text = msg.SetValue;
+        }
+
+
+
+
+
+
+
+
+
+
+        //以下イベント発生処理
         private void ClickedFileLocationButton(object sender, RoutedEventArgs e)
         {
             MaterialAdditionalDialogEventMessenger.Default.CallEvent(new ClickedFileLocationButtonEventMessage(this));
