@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Xml.Linq;
 using System.Security;
 using System.IO;
+using System.Windows;
 
 namespace MaterialLicenseChecker.Models
 {
@@ -28,6 +29,11 @@ namespace MaterialLicenseChecker.Models
         //FIXME:現状このクラスで、ファイルの読み書きを行っている。
         //別のクラスに分離し、こちら側はファイルから特定のサイト名のライセンステキストを出力してもらう
         //関数を呼び出すだけにしておきたい。
+
+        //FIMXE:何だか、このクラスは責務を抱えすぎているように思える。
+        //将来の機能変更に耐えるためにも、次のブログリリースまでにはこのクラスのリファクタリングを行いたい。
+
+      
 
 
         public ClassStoreLicenseText()
@@ -55,7 +61,7 @@ namespace MaterialLicenseChecker.Models
             //TODO:インジェクション攻撃に備え一応エスケープしておいた。
             //一応、というだけでちゃんとした対策ではないが……
             //後で時間があればちゃんとやるように。
-            var SearchedMaterialSite = _loadedXMLFileInstance.XPathSelectElement("//materialSite[@siteKey='" + SecurityElement.Escape(SearchedSiteName) + "']");
+            var SearchedMaterialSite = _loadedXMLFileInstance.XPathSelectElement("//materialSite[@siteName='" + SecurityElement.Escape(SearchedSiteName) + "']");
 
             return SearchedMaterialSite.Element("licenseText").Value;
 
@@ -98,6 +104,21 @@ namespace MaterialLicenseChecker.Models
 
             return ReturnList;
 
+        }
+
+        public List<string> GetMaterialSiteList()
+        {
+            var materialSites = _loadedXMLFileInstance.XPathSelectElement("/document");
+            IEnumerable<XElement> elements = from el in materialSites.Elements() select el;
+
+            var MaterialSiteList = new List<string>();
+
+            foreach (XElement el in elements)
+            {
+                MaterialSiteList.Add(el.Attribute("siteName").Value);
+            }
+
+            return MaterialSiteList;
         }
     }
 }
