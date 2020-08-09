@@ -7,6 +7,7 @@ using System.Windows;
 using Microsoft.Win32;
 
 using MaterialLicenseChecker.VAndVMCommons.MaterialAdditionalDialog;
+using MaterialLicenseChecker.Models;
 
 namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
 {
@@ -23,6 +24,9 @@ namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
 
         private void ClickedMaterialButtonEvent(ClickedMaterialSiteButtonEventMessage msg)
         {
+            ClassStoreLicenseText instance = new ClassStoreLicenseText();
+            instance.GetMaterialSiteList();
+
             Task.Factory.StartNew(() =>
 
                 MessageBox.Show("モードレスダイアログ")

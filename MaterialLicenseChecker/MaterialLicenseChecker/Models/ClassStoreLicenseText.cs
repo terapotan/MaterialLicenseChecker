@@ -32,6 +32,8 @@ namespace MaterialLicenseChecker.Models
         //FIMXE:何だか、このクラスは責務を抱えすぎているように思える。
         //将来の機能変更に耐えるためにも、次のブログリリースまでにはこのクラスのリファクタリングを行いたい。
 
+      
+
 
         public ClassStoreLicenseText()
         {
@@ -58,7 +60,7 @@ namespace MaterialLicenseChecker.Models
             //TODO:インジェクション攻撃に備え一応エスケープしておいた。
             //一応、というだけでちゃんとした対策ではないが……
             //後で時間があればちゃんとやるように。
-            var SearchedMaterialSite = _loadedXMLFileInstance.XPathSelectElement("//materialSite[@siteKey='" + SecurityElement.Escape(SearchedSiteName) + "']");
+            var SearchedMaterialSite = _loadedXMLFileInstance.XPathSelectElement("//materialSite[@siteName='" + SecurityElement.Escape(SearchedSiteName) + "']");
 
             return SearchedMaterialSite.Element("licenseText").Value;
 
@@ -101,6 +103,13 @@ namespace MaterialLicenseChecker.Models
 
             return ReturnList;
 
+        }
+
+        public List<string> GetMaterialSiteList()
+        {
+
+
+            return new List<string>();
         }
     }
 }
