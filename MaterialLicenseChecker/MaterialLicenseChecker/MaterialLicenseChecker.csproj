@@ -75,12 +75,15 @@
     <Compile Include="VAndVMCommons\MainViewModel\EventMessage\ClickedMaterialAdditionalMenuEventMessage.cs" />
     <Compile Include="VAndVMCommons\MainViewModel\Message\GenerateNewDialogMessage.cs" />
     <Compile Include="VAndVMCommons\MainViewModel\Message\MainVewModelMessage.cs" />
+    <Compile Include="VAndVMCommons\MaterialAdditionalDialog\EventMessage\MaterialAdditionalDialogEventMessenger.cs" />
+    <Compile Include="VAndVMCommons\MaterialAdditionalDialog\Message\MaterialAdditionalDialogMessenger.cs" />
     <Compile Include="VAndVMCommons\MaterialSiteAdditionalDialog\EventMessage\ClickedRegistrationButtonEventMessage.cs" />
     <Compile Include="VAndVMCommons\MaterialSiteAdditionalDialog\EventMessage\MaterialSiteAdditionalDialogEventMessenger.cs" />
     <Compile Include="ViewModels\MainViewModel\MainViewModel.cs" />
     <Compile Include="VAndVMCommons\MainViewModel\EventMessage\ClickedMaterialSiteMenuEventMessage.cs" />
     <Compile Include="VAndVMCommons\MainViewModel\EventMessage\MainViewModelEventMessenger.cs" />
     <Compile Include="VAndVMCommons\MainViewModel\Message\MainViewModelMessanger.cs" />
+    <Compile Include="ViewModels\MaterialAdditionalDialog\MaterialAdditionalDialogViewModel.cs" />
     <Compile Include="ViewModels\MaterialSiteAdditionalDialog\MaterialSiteAdditionalDialogViewModel.cs" />
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>

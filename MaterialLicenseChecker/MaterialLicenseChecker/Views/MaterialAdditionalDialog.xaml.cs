@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog;
+
 namespace MaterialLicenseChecker.Views
 {
     /// <summary>
@@ -22,7 +24,7 @@ namespace MaterialLicenseChecker.Views
         public MaterialAdditionalDialog()
         {
             InitializeComponent();
-            //TODO:後でViewModelの生成コード書くこと
+            MaterialAdditionalDialogViewModel instance = new MaterialAdditionalDialogViewModel();
         }
     }
 }
