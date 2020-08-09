@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using MaterialLicenseChecker.Views;
-using MaterialLicenseChecker.ViewModels;
+using MaterialLicenseChecker.ViewModels.MainViewModelPac;
 
 namespace MaterialLicenseChecker
 {

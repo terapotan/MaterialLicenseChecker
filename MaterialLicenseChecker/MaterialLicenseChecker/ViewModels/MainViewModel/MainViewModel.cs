@@ -7,12 +7,36 @@ using System.Windows.Input;
 using MaterialLicenseChecker;
 using System.Windows;
 using MaterialLicenseChecker.Models;
+using MaterialLicenseChecker.VAndVMCommons.MainViewModel;
 
-
-namespace MaterialLicenseChecker.ViewModels
+namespace MaterialLicenseChecker.ViewModels.MainViewModelPac
 {
     class MainViewModel
     {
+        public MainViewModel()
+        {
+            MainViewModelEventMessenger.Default.
+                RegisterAction<ClickedMaterialSiteMenuEventMessage>
+                (this, ClickedMaterialSiteMenuEvent);
+
+            MainViewModelEventMessenger.Default.
+                RegisterAction<ClickedMaterialAdditionalMenuEventMessage>
+                (this, ClickedMaterialMenuEvent);
+        }
+
+        private void ClickedMaterialSiteMenuEvent(ClickedMaterialSiteMenuEventMessage msg)
+        {
+            var SendMsg = new GenerateNewDialogMessage(this);
+            SendMsg.GeneratingDialogNumber = GenerateNewDialogMessage.MATERIAL_SITE_WINDOW;
+            MainViewModelMessanger.Default.ExecuteAction(this, SendMsg);
+        }
+
+        private void ClickedMaterialMenuEvent(ClickedMaterialAdditionalMenuEventMessage msg)
+        {
+            var SendMsg = new GenerateNewDialogMessage(this);
+            SendMsg.GeneratingDialogNumber = GenerateNewDialogMessage.MATERIAL_WINDOW;
+            MainViewModelMessanger.Default.ExecuteAction(this, SendMsg);
+        }
 
         private string MakeDisplayedLicenseText()
         {
@@ -77,6 +101,24 @@ namespace MaterialLicenseChecker.ViewModels
                 }
 
                 return _ShowDialogCommand;
+            }
+        }
+
+        private DelegateCommand _ShowMaterialSiteAdditionalDialog;
+
+        public DelegateCommand ShowMaterialSiteAdditionalDialog
+        {
+            get
+            {
+                if (_ShowMaterialSiteAdditionalDialog == null)
+                {
+                    var msg = new MainVewModelMessage(this);
+              
+                    _ShowMaterialSiteAdditionalDialog = new DelegateCommand(
+                        _ => MainViewModelMessanger.Default.ExecuteAction<MainVewModelMessage>(this,msg));
+                }
+
+                return _ShowMaterialSiteAdditionalDialog;
             }
         }
 
