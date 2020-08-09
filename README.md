@@ -1,14 +1,14 @@
 # 進捗状況
-- UIを大幅に変更
+- 素材配布元追加ウィンドウと素材追加ウィンドウを追加
 
-![alt](./ReleaseImage/prototype-3.png)
+![alt](./ReleaseImage/prototype-4.png)
 
 具体的な開発情報は、Twitterでお知らせしています。  
 [Twitter](https://twitter.com/terapotan)
 
 ## 素材ライセンスチェッカーをダウンロードするには?
 ### GoogleDriveからダウンロードする
-以下のリンクにある**prototype-3.zip**というファイルをダウンロードしてください。
+以下のリンクにある**prototype-4.zip**というファイルをダウンロードしてください。
 
 [ダウンロードリンク](https://drive.google.com/drive/u/2/folders/1Ovn9N6ZFQ7WtMGye-B0cxLVX_Dg0rID1)
 
