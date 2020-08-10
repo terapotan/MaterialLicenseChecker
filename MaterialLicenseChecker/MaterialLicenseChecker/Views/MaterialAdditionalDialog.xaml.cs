@@ -64,6 +64,7 @@ namespace MaterialLicenseChecker.Views
             Message.MaterialSiteName = MaterialSiteName.Text;
 
             MaterialAdditionalDialogEventMessenger.Default.CallEvent(Message);
+            this.Close();
         }
     }
 }
