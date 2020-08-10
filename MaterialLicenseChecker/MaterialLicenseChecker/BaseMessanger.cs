@@ -35,6 +35,12 @@ namespace MaterialLicenseChecker
             o.MessageType == message.GetType())
             .Select(o => o.action as Action<MessageType>);
 
+            //FIXME:BaseEventMessangerクラスで多重起動のバグが発生した。
+            //応急処置でとりあえず治ったが、同様の仕組みを採用しているこのクラスでも
+            //同様のバグが発生する可能性が高い。BaseMessangerクラスと同様、このクラスも
+            //Dictを用いたイベント登録システムに変更したほうがいいだろう。
+            //そうすれば、原理的に一つの関数しか呼び出すことが出来なくなる。
+
             //取り出したデリゲートの実行
 
             foreach (var action in query)

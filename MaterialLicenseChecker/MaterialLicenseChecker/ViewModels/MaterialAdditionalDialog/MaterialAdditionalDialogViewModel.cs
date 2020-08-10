@@ -7,6 +7,7 @@ using System.Windows;
 using Microsoft.Win32;
 
 using MaterialLicenseChecker.VAndVMCommons.MaterialAdditionalDialog;
+using MaterialLicenseChecker.VAndVMCommons.MainViewModel;
 using MaterialLicenseChecker.Models;
 
 namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
@@ -28,6 +29,7 @@ namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
         {
             ClassStoreMaterialList FileInstance = new ClassStoreMaterialList();
             FileInstance.AddMaterialData(msg.MaterialName, msg.MaterialFilePath, msg.MaterialSiteName);
+            MainViewModelMessanger.Default.ExecuteAction(this, new UpdatingMaterialListBoxMessage(this));
         }
 
         
@@ -44,11 +46,8 @@ namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
                 MessageDialog += (str + '\n');
             }
 
-            Task.Factory.StartNew(() =>
+            MessageBox.Show(MessageDialog, "素材配布サイト名一覧");
 
-                MessageBox.Show(MessageDialog,"素材配布サイト名一覧")
-
-            );
         }
 
         private void ClickedFileLocationButtonEvent(ClickedFileLocationButtonEventMessage msg)

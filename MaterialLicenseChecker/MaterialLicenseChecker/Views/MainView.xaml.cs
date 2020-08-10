@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 //そこで、一組にした名前空間を別に作ってViewsと階層構造にするというのはどうか。
 //たぶんそのほうがいいのでは?
 using MaterialLicenseChecker.VAndVMCommons.MainViewModel;
-
+using MaterialLicenseChecker.Models;
 using MaterialLicenseChecker.Views;
 
 namespace MaterialLicenseChecker.Views
@@ -31,12 +31,30 @@ namespace MaterialLicenseChecker.Views
             InitializeComponent();
             MainViewModelMessanger.Default.RegisterAction<MainVewModelMessage>(this, ShowMaterilalSiteDialog);
             MainViewModelMessanger.Default.RegisterAction<GenerateNewDialogMessage>(this, GenerateNewDialog);
+            MainViewModelMessanger.Default.RegisterAction<UpdatingMaterialListBoxMessage>(this, UpdatingMaterialListBoxMessage);
         }
 
 
-       
+        private void UpdatingMaterialListBoxMessage(UpdatingMaterialListBoxMessage msg)
+        {
+            ClassStoreMaterialList FileInstance = new ClassStoreMaterialList();
+            var MaterialNameList = FileInstance.GetMaterialNameList();
+
+            MaterialListBox.Items.Clear();
+
+            foreach (var MaterialName in MaterialNameList)
+            {
+                ListBoxItem listItem = new ListBoxItem();
+                listItem.Content = MaterialName;
+                MaterialListBox.Items.Add(listItem);
+            }
+
+        }
+
+
         private void ShowMaterilalSiteDialog(MainVewModelMessage msg)
         {
+
             var win = new MaterialSiteAdditionalScreen();
             win.Owner = GetWindow(this);
             win.ShowDialog();
@@ -73,6 +91,9 @@ namespace MaterialLicenseChecker.Views
         //素材配布サイト追加クリック
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
+            //ListBoxItem listBox = new ListBoxItem();
+            //listBox.Content = "sfdjal";
+            //MaterialListBox.Items.Add(listBox);
             MainViewModelEventMessenger.Default
                 .CallEvent<ClickedMaterialSiteMenuEventMessage>(new ClickedMaterialSiteMenuEventMessage(this));
             //var win = new MaterialSiteAdditionalScreen();

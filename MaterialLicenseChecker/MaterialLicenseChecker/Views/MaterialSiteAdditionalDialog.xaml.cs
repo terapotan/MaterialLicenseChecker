@@ -36,7 +36,7 @@ namespace MaterialLicenseChecker.Views
 
             MaterialSiteAdditionalDialogEventMessenger.Default.CallEvent(msg);
             MessageBox.Show("登録が完了しました。", "登録完了", MessageBoxButton.OK, MessageBoxImage.Information);
-            this.Close();
+            Close();
 
         }
     }

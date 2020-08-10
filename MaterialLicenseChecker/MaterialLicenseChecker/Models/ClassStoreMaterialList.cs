@@ -33,5 +33,24 @@ namespace MaterialLicenseChecker.Models
 
             LoadedXMLFileInstance.Save(StoringDataFilePath.GetInstance().MaterialListFileAbsolutePath);
         }
+
+        /// <summary>
+        /// 素材名の一覧をリスト形式で取得する
+        /// </summary>
+        /// <returns></returns>
+        public List<string> GetMaterialNameList()
+        {
+            var materialNames = LoadedXMLFileInstance.XPathSelectElement("/document");
+            IEnumerable<XElement> elements = from el in materialNames.Elements() select el;
+
+            var MaterialNameList = new List<string>();
+
+            foreach (XElement el in elements)
+            {
+                MaterialNameList.Add(el.Attribute("materialName").Value);
+            }
+
+            return MaterialNameList;
+        }
     }
 }
