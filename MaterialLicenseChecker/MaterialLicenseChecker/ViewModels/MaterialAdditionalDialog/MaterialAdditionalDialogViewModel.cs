@@ -26,7 +26,8 @@ namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
 
         private void ClickedregistrationButtonEvent(ClickedRegistrationButtonEventMessage msg)
         {
-            MessageBox.Show(msg.MaterialName + '\n' + msg.MaterialFilePath + '\n' + msg.MaterialSiteName);
+            ClassStoreMaterialList FileInstance = new ClassStoreMaterialList();
+            FileInstance.AddMaterialData(msg.MaterialName, msg.MaterialFilePath, msg.MaterialSiteName);
         }
 
         

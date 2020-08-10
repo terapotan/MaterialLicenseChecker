@@ -30,8 +30,8 @@ namespace MaterialLicenseChecker.Models
 
             //現在は、リテラルで指定しているが将来的にはプロジェクトファイルから値
             //を読み込んで指定される仕組みに変更する
-            LicenseTextFileAbsolutePath = runingDirectoryAbsolutePath + "/LicenseTexts.xml";
-            MaterialListFileAbsolutePath = runingDirectoryAbsolutePath + "/materialListFile.xml";
+            LicenseTextFileAbsolutePath = runingDirectoryAbsolutePath + "/ExportResources/LicenseTexts.xml";
+            MaterialListFileAbsolutePath = runingDirectoryAbsolutePath + "/ExportResources/materialListFile.xml";
 
         }
 
