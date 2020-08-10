@@ -3,11 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.XPath;
+using System.Xml.Linq;
 
 namespace MaterialLicenseChecker.Models
 {
-    class ClassStoreMaterialList
+    public class ClassStoreMaterialList
     {
+        private XDocument LoadedXMLFileInstance;
 
+        public ClassStoreMaterialList()
+        {
+            LoadedXMLFileInstance = XDocument.Load(StoringDataFilePath.GetInstance().MaterialListFileAbsolutePath);
+        }
+
+        /// <summary>
+        /// 素材データを追加するメソッド。妥当性チェックは行わない。
+        /// </summary>
+        /// <param name="SiteName"></param>
+        /// <param name="LicenseText"></param>
+        public void AddMaterialData(string MaterialName, string MaterialFilePath,string MaterialSiteName)
+        {
+            XElement AddedMaterialTree = new XElement("material", 
+                new XElement("materialCreationSiteName", MaterialSiteName),
+                new XElement("materialFileAbsolutePath", MaterialFilePath));
+
+            AddedMaterialTree.SetAttributeValue("materialName", MaterialName);
+            LoadedXMLFileInstance.Elements().First().Add(AddedMaterialTree);
+
+            LoadedXMLFileInstance.Save(StoringDataFilePath.GetInstance().MaterialListFileAbsolutePath);
+        }
     }
 }

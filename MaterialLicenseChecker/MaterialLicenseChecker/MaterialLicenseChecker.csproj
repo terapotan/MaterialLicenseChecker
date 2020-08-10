@@ -65,8 +65,16 @@
     <Compile Include="BaseMessage.cs" />
     <Compile Include="BaseMessanger.cs" />
     <Compile Include="DelegateCommand.cs" />
+    <Compile Include="ExportResources\materialListFile.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>materialListFile.xml</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="Models\ClassStoreLicenseText.cs" />
+    <Compile Include="Models\ClassStoreMaterialList.cs" />
     <Compile Include="Models\ExportingDisplayedLicenseText.cs" />
+    <Compile Include="Models\StoringDataFilePath.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -140,6 +148,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ExportResources\LicenseTexts.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ExportResources\materialListFile.xml">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>materialListFile.Designer.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
