@@ -83,6 +83,7 @@
     <Compile Include="VAndVMCommons\MainViewModel\EventMessage\ClickedMaterialAdditionalMenuEventMessage.cs" />
     <Compile Include="VAndVMCommons\MainViewModel\Message\GenerateNewDialogMessage.cs" />
     <Compile Include="VAndVMCommons\MainViewModel\Message\MainVewModelMessage.cs" />
+    <Compile Include="VAndVMCommons\MainViewModel\Message\UpdatingMaterialListBoxMessage.cs" />
     <Compile Include="VAndVMCommons\MaterialAdditionalDialog\EventMessage\ClickedFileLocationButtonEventMessage.cs" />
     <Compile Include="VAndVMCommons\MaterialAdditionalDialog\EventMessage\ClickedMaterialSiteButtonEventMessage.cs" />
     <Compile Include="VAndVMCommons\MaterialAdditionalDialog\EventMessage\ClickedRegistrationButtonEventMessage.cs" />
