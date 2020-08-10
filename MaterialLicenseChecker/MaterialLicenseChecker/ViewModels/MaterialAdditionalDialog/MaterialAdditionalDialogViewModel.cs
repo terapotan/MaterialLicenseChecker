@@ -19,8 +19,19 @@ namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
                 .RegisterAction<ClickedFileLocationButtonEventMessage>(this, ClickedFileLocationButtonEvent);
             MaterialAdditionalDialogEventMessenger.Default
                 .RegisterAction<ClickedMaterialSiteButtonEventMessage>(this, ClickedMaterialButtonEvent);
+            MaterialAdditionalDialogEventMessenger.Default
+                .RegisterAction<ClickedRegistrationButtonEventMessage>(this,ClickedregistrationButtonEvent);
         }
 
+
+        private void ClickedregistrationButtonEvent(ClickedRegistrationButtonEventMessage msg)
+        {
+            ClassStoreMaterialList FileInstance = new ClassStoreMaterialList();
+            FileInstance.AddMaterialData(msg.MaterialName, msg.MaterialFilePath, msg.MaterialSiteName);
+        }
+
+        
+        
 
         private void ClickedMaterialButtonEvent(ClickedMaterialSiteButtonEventMessage msg)
         {

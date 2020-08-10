@@ -8,7 +8,6 @@ using System.Reflection;
 using System.Xml.Linq;
 using System.Security;
 using System.IO;
-using System.Windows;
 
 namespace MaterialLicenseChecker.Models
 {
