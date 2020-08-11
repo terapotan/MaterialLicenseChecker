@@ -34,7 +34,13 @@
 
             <Grid>
                 <ListBox x:Name="MaterialListBox" DisplayMemberPath="Name" SelectionMode="Single" Margin="20" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <ListBox.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="この素材をリストから削除する"></MenuItem>
+                        </ContextMenu>
+                    </ListBox.ContextMenu>
                 </ListBox>
+                    
 
             </Grid>
 
