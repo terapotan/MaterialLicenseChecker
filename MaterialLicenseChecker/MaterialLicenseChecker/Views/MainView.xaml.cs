@@ -112,6 +112,8 @@ namespace MaterialLicenseChecker.Views
 
             MaterialListBox.Items.Remove(SelectedItem);
 
+            MessageBox.Show("削除が完了しました。", "削除完了", MessageBoxButton.OK, MessageBoxImage.Information);
+
         }
 
 
@@ -136,22 +138,6 @@ namespace MaterialLicenseChecker.Views
                 ListBoxItem listItem = new ListBoxItem();
                 listItem.Content = MaterialName;
                 MaterialListBox.Items.Add(listItem);
-            }
-        }
-
-        /// <summary>
-        /// 素材リストの右クリックを有効にしてよい状態なら、True
-        /// そうでないならFalseを返す。
-        /// </summary>
-        /// <returns></returns>
-        private bool IsEnabledMaterialListBoxContextMenu()
-        {
-            if (MaterialListBox.Items.Count > 0)
-            {
-                return true;
-            } else
-            {
-                return false;
             }
         }
 

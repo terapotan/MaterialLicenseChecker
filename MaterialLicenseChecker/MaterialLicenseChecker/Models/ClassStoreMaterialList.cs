@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.XPath;
 using System.Xml.Linq;
+using System.Security;
 
 namespace MaterialLicenseChecker.Models
 {
@@ -40,6 +41,11 @@ namespace MaterialLicenseChecker.Models
         /// <param name="MaterialName"></param>
         public void DeleteMaterialData(string MaterialName)
         {
+            var SearchedMaterialElement = LoadedXMLFileInstance.XPathSelectElement("//material[@materialName='" + SecurityElement.Escape(MaterialName) + "']");
+
+            SearchedMaterialElement.Remove();
+
+            LoadedXMLFileInstance.Save(StoringDataFilePath.GetInstance().MaterialListFileAbsolutePath);
 
         }
 
