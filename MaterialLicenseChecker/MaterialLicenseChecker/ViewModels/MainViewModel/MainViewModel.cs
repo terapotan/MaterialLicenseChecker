@@ -44,7 +44,8 @@ namespace MaterialLicenseChecker.ViewModels.MainViewModelPac
 
         private void ClickedRemoveMaterialFromListEvent(ClickedRemoveMaterialFromListEventMessage msg)
         {
-            MessageBox.Show(msg.ListFromDeletedMaterialName);
+            var FileInstance = new ClassStoreMaterialList();
+            FileInstance.DeleteMaterialData(msg.ListFromDeletedMaterialName);
         }
 
 

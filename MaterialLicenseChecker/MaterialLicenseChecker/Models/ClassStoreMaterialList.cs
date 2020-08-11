@@ -35,6 +35,15 @@ namespace MaterialLicenseChecker.Models
         }
 
         /// <summary>
+        /// 素材データを削除するメソッド。妥当性チェックはもちろん行わない。
+        /// </summary>
+        /// <param name="MaterialName"></param>
+        public void DeleteMaterialData(string MaterialName)
+        {
+
+        }
+
+        /// <summary>
         /// 素材名の一覧をリスト形式で取得する
         /// </summary>
         /// <returns></returns>

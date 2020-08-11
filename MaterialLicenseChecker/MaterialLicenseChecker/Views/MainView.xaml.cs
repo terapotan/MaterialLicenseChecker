@@ -102,7 +102,17 @@ namespace MaterialLicenseChecker.Views
 
             MainViewModelEventMessenger.Default.CallEvent(msg);
 
+            MaterialListBox.Items.Remove(SelectedItem);
         }
+
+
+
+
+
+
+
+
+
 
         //以下それ以外の関数
         private void UpdatingMaterialListBox()
