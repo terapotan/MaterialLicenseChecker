@@ -32,23 +32,13 @@ namespace MaterialLicenseChecker.Views
             MainViewModelMessanger.Default.RegisterAction<MainVewModelMessage>(this, ShowMaterilalSiteDialog);
             MainViewModelMessanger.Default.RegisterAction<GenerateNewDialogMessage>(this, GenerateNewDialog);
             MainViewModelMessanger.Default.RegisterAction<UpdatingMaterialListBoxMessage>(this, UpdatingMaterialListBoxMessage);
+            UpdatingMaterialListBox();
         }
 
 
         private void UpdatingMaterialListBoxMessage(UpdatingMaterialListBoxMessage msg)
         {
-            ClassStoreMaterialList FileInstance = new ClassStoreMaterialList();
-            var MaterialNameList = FileInstance.GetMaterialNameList();
-
-            MaterialListBox.Items.Clear();
-
-            foreach (var MaterialName in MaterialNameList)
-            {
-                ListBoxItem listItem = new ListBoxItem();
-                listItem.Content = MaterialName;
-                MaterialListBox.Items.Add(listItem);
-            }
-
+            UpdatingMaterialListBox();
         }
 
 
@@ -106,6 +96,23 @@ namespace MaterialLicenseChecker.Views
         {
             MainViewModelEventMessenger.Default
             .CallEvent(new ClickedMaterialAdditionalMenuEventMessage(this));
+        }
+
+
+        //以下それ以外の関数
+        private void UpdatingMaterialListBox()
+        {
+            ClassStoreMaterialList FileInstance = new ClassStoreMaterialList();
+            var MaterialNameList = FileInstance.GetMaterialNameList();
+
+            MaterialListBox.Items.Clear();
+
+            foreach (var MaterialName in MaterialNameList)
+            {
+                ListBoxItem listItem = new ListBoxItem();
+                listItem.Content = MaterialName;
+                MaterialListBox.Items.Add(listItem);
+            }
         }
     }
 }
