@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog;
+using MaterialLicenseChecker.VAndVMCommons.MaterialAdditionalDialog;
+
 namespace MaterialLicenseChecker.Views
 {
     /// <summary>
@@ -22,7 +25,52 @@ namespace MaterialLicenseChecker.Views
         public MaterialAdditionalDialog()
         {
             InitializeComponent();
-            //TODO:後でViewModelの生成コード書くこと
+            MaterialAdditionalDialogViewModel instance = new MaterialAdditionalDialogViewModel();
+
+            MaterialAdditionalDialogMessenger.Default.RegisterAction<SetValueFilePathTextBoxMessage>(this, SetValueFilePathTextBoxEvent);
+            MaterialAdditionalDialogMessenger.Default.RegisterAction<RegistrationProcessingCompleteMessage>(this, RegistrationProcessingComplete);
+        }
+
+        private void SetValueFilePathTextBoxEvent(SetValueFilePathTextBoxMessage msg)
+        {
+            MaterialFilePath.Text = msg.SetValue;
+        }
+
+        private void RegistrationProcessingComplete(RegistrationProcessingCompleteMessage msg)
+        {
+            MessageBox.Show("登録が完了しました。", "登録完了", MessageBoxButton.OK, MessageBoxImage.Information);
+            Close();
+        }
+
+
+
+
+
+
+
+
+
+
+        //以下イベント発生処理
+        private void ClickedFileLocationButton(object sender, RoutedEventArgs e)
+        {
+            MaterialAdditionalDialogEventMessenger.Default.CallEvent(new ClickedFileLocationButtonEventMessage(this));
+        }
+
+        private void ClickedMaterialSiteButton(object sender, RoutedEventArgs e)
+        {
+            MaterialAdditionalDialogEventMessenger.Default.CallEvent(new ClickedMaterialSiteButtonEventMessage(this));
+        }
+
+        private void ClickedRegistrationButton(object sender, RoutedEventArgs e)
+        {
+            var Message = new ClickedRegistrationButtonEventMessage(this);
+
+            Message.MaterialName = MaterialName.Text;
+            Message.MaterialFilePath = MaterialFilePath.Text;
+            Message.MaterialSiteName = MaterialSiteName.Text;
+
+            MaterialAdditionalDialogEventMessenger.Default.CallEvent(Message);
         }
     }
 }

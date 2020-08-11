@@ -35,7 +35,8 @@ namespace MaterialLicenseChecker.Views
             msg.InputLicenseText = LicenseText.Text;
 
             MaterialSiteAdditionalDialogEventMessenger.Default.CallEvent(msg);
-            this.Close();
+            MessageBox.Show("登録が完了しました。", "登録完了", MessageBoxButton.OK, MessageBoxImage.Information);
+            Close();
 
         }
     }

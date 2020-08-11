@@ -33,20 +33,14 @@
         </Grid.RowDefinitions>
 
             <Grid>
-            <ListBox x:Name="ListBox" DisplayMemberPath="Name" SelectionMode="Single" Margin="20" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                    <ListBoxItem>素材1</ListBoxItem>
-                    <ListBoxItem>素材2</ListBoxItem>
-                    <ListBoxItem>素材3</ListBoxItem>
-                    <ListBoxItem>素材4</ListBoxItem>
-                    <ListBoxItem>素材5</ListBoxItem>
-                    <ListBoxItem>素材6</ListBoxItem>
-                    <ListBoxItem>素材7</ListBoxItem>
-                    <ListBoxItem>素材8</ListBoxItem>
-                    <ListBoxItem>素材9</ListBoxItem>
-                    <ListBoxItem>素材10</ListBoxItem>
-                    <ListBoxItem>素材11</ListBoxItem>
-                    <ListBoxItem>素材12</ListBoxItem>
-            </ListBox>
+                <ListBox x:Name="MaterialListBox" DisplayMemberPath="Name" SelectionMode="Single" Margin="20" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <ListBox.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem x:Name="RemoveMaterialMenu" Header="この素材をリストから削除する" Click="ClickedRemoveMaterialFromListButton"></MenuItem>
+                        </ContextMenu>
+                    </ListBox.ContextMenu>
+                </ListBox>
+                    
 
             </Grid>
 

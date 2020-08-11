@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 //そこで、一組にした名前空間を別に作ってViewsと階層構造にするというのはどうか。
 //たぶんそのほうがいいのでは?
 using MaterialLicenseChecker.VAndVMCommons.MainViewModel;
-
+using MaterialLicenseChecker.Models;
 using MaterialLicenseChecker.Views;
 
 namespace MaterialLicenseChecker.Views
@@ -31,12 +31,20 @@ namespace MaterialLicenseChecker.Views
             InitializeComponent();
             MainViewModelMessanger.Default.RegisterAction<MainVewModelMessage>(this, ShowMaterilalSiteDialog);
             MainViewModelMessanger.Default.RegisterAction<GenerateNewDialogMessage>(this, GenerateNewDialog);
+            MainViewModelMessanger.Default.RegisterAction<UpdatingMaterialListBoxMessage>(this, UpdatingMaterialListBoxMessage);
+            UpdatingMaterialListBox();
         }
 
 
-       
+        private void UpdatingMaterialListBoxMessage(UpdatingMaterialListBoxMessage msg)
+        {
+            UpdatingMaterialListBox();
+        }
+
+
         private void ShowMaterilalSiteDialog(MainVewModelMessage msg)
         {
+
             var win = new MaterialSiteAdditionalScreen();
             win.Owner = GetWindow(this);
             win.ShowDialog();
@@ -74,10 +82,7 @@ namespace MaterialLicenseChecker.Views
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             MainViewModelEventMessenger.Default
-                .CallEvent<ClickedMaterialSiteMenuEventMessage>(new ClickedMaterialSiteMenuEventMessage(this));
-            //var win = new MaterialSiteAdditionalScreen();
-            //win.Owner = GetWindow(this);
-            //win.ShowDialog();
+                .CallEvent(new ClickedMaterialSiteMenuEventMessage(this));
         }
 
         //素材追加クリック
@@ -86,5 +91,56 @@ namespace MaterialLicenseChecker.Views
             MainViewModelEventMessenger.Default
             .CallEvent(new ClickedMaterialAdditionalMenuEventMessage(this));
         }
+
+        //素材削除クリック
+        private void ClickedRemoveMaterialFromListButton(object sender, RoutedEventArgs e)
+        {
+            var msg = new ClickedRemoveMaterialFromListEventMessage(this);
+
+            //何も選択されずに削除コマンドが実行された場合
+            if(MaterialListBox.SelectedIndex == -1)
+            {
+                MessageBox.Show("削除する素材が選択されていません。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            ListBoxItem SelectedItem = (ListBoxItem)(MaterialListBox.SelectedItem);
+
+            msg.ListFromDeletedMaterialName = (string)(SelectedItem.Content);
+
+            MainViewModelEventMessenger.Default.CallEvent(msg);
+
+            MaterialListBox.Items.Remove(SelectedItem);
+
+            MessageBox.Show("削除が完了しました。", "削除完了", MessageBoxButton.OK, MessageBoxImage.Information);
+
+        }
+
+
+
+
+
+
+
+
+
+
+        //以下それ以外の関数
+        private void UpdatingMaterialListBox()
+        {
+            ClassStoreMaterialList FileInstance = new ClassStoreMaterialList();
+            var MaterialNameList = FileInstance.GetMaterialNameList();
+
+            MaterialListBox.Items.Clear();
+
+            foreach (var MaterialName in MaterialNameList)
+            {
+                ListBoxItem listItem = new ListBoxItem();
+                listItem.Content = MaterialName;
+                MaterialListBox.Items.Add(listItem);
+            }
+        }
+
+
     }
 }

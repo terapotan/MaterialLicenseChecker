@@ -34,11 +34,24 @@ namespace MaterialLicenseChecker
                 o.MessageType == message.GetType())
                 .Select(o => o.action as Action<MessageType>);
 
-                //取り出したデリゲートの実行
+            //取り出したデリゲートの実行
 
+
+            //FIXME:なぜか多重起動するためこうしているが、
+            //何か根本的な欠陥がある気がする。将来的には、ListではなくDictの構造にして
+            //一度に一回しかイベントが呼び出されないようにするべきである。
+
+            int i = 0;
+                
                 foreach (var action in query)
                 {
+                    if(i == 1)
+                    {
+                        break;
+                    }
+
                     action(message);
+                    i = 1;
                 }
             }
 
