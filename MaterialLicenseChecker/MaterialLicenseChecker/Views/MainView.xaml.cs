@@ -96,6 +96,14 @@ namespace MaterialLicenseChecker.Views
         private void ClickedRemoveMaterialFromListButton(object sender, RoutedEventArgs e)
         {
             var msg = new ClickedRemoveMaterialFromListEventMessage(this);
+
+            //何も選択されずに削除コマンドが実行された場合
+            if(MaterialListBox.SelectedIndex == -1)
+            {
+                MessageBox.Show("削除する素材が選択されていません。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
             ListBoxItem SelectedItem = (ListBoxItem)(MaterialListBox.SelectedItem);
 
             msg.ListFromDeletedMaterialName = (string)(SelectedItem.Content);
@@ -103,6 +111,7 @@ namespace MaterialLicenseChecker.Views
             MainViewModelEventMessenger.Default.CallEvent(msg);
 
             MaterialListBox.Items.Remove(SelectedItem);
+
         }
 
 
@@ -127,6 +136,22 @@ namespace MaterialLicenseChecker.Views
                 ListBoxItem listItem = new ListBoxItem();
                 listItem.Content = MaterialName;
                 MaterialListBox.Items.Add(listItem);
+            }
+        }
+
+        /// <summary>
+        /// 素材リストの右クリックを有効にしてよい状態なら、True
+        /// そうでないならFalseを返す。
+        /// </summary>
+        /// <returns></returns>
+        private bool IsEnabledMaterialListBoxContextMenu()
+        {
+            if (MaterialListBox.Items.Count > 0)
+            {
+                return true;
+            } else
+            {
+                return false;
             }
         }
 

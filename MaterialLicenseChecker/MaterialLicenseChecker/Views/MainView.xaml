@@ -36,7 +36,7 @@
                 <ListBox x:Name="MaterialListBox" DisplayMemberPath="Name" SelectionMode="Single" Margin="20" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto">
                     <ListBox.ContextMenu>
                         <ContextMenu>
-                            <MenuItem Header="この素材をリストから削除する" Click="ClickedRemoveMaterialFromListButton"></MenuItem>
+                            <MenuItem x:Name="RemoveMaterialMenu" Header="この素材をリストから削除する" Click="ClickedRemoveMaterialFromListButton"></MenuItem>
                         </ContextMenu>
                     </ListBox.ContextMenu>
                 </ListBox>
