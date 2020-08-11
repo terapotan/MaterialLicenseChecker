@@ -22,6 +22,10 @@ namespace MaterialLicenseChecker.ViewModels.MainViewModelPac
             MainViewModelEventMessenger.Default.
                 RegisterAction<ClickedMaterialAdditionalMenuEventMessage>
                 (this, ClickedMaterialMenuEvent);
+
+            MainViewModelEventMessenger.Default.
+                RegisterAction<ClickedRemoveMaterialFromListEventMessage>
+                (this, ClickedRemoveMaterialFromListEvent);
         }
 
         private void ClickedMaterialSiteMenuEvent(ClickedMaterialSiteMenuEventMessage msg)
@@ -37,6 +41,27 @@ namespace MaterialLicenseChecker.ViewModels.MainViewModelPac
             SendMsg.GeneratingDialogNumber = GenerateNewDialogMessage.MATERIAL_WINDOW;
             MainViewModelMessanger.Default.ExecuteAction(this, SendMsg);
         }
+
+        private void ClickedRemoveMaterialFromListEvent(ClickedRemoveMaterialFromListEventMessage msg)
+        {
+            MessageBox.Show("テストメッセージ");
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         private string MakeDisplayedLicenseText()
         {
