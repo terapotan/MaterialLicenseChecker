@@ -1,14 +1,21 @@
 # 進捗状況
-- 素材配布元追加ウィンドウと素材追加ウィンドウを追加
+- リストに素材を追加できるようにしました
+- 追加した素材を右クリックで削除出来るようにしました
+- ユーザーからの入力チェック機能を追加しました
 
-![alt](./ReleaseImage/prototype-4.png)
+> 次回のリリースで、ライセンス表記出力機能を使えるようにする予定です。
 
-具体的な開発情報は、Twitterでお知らせしています。  
+![alt](./ReleaseImage/prototype-5/素材追加画面.png)
+
+![alt](./ReleaseImage/prototype-5/素材削除機能画面.png)
+
+
+具体的な開発情報は、Twitterでもお知らせしています。  
 [Twitter](https://twitter.com/terapotan)
 
 ## 素材ライセンスチェッカーをダウンロードするには?
 ### GoogleDriveからダウンロードする
-以下のリンクにある**prototype-4.zip**というファイルをダウンロードしてください。
+以下のリンクにある**prototype-5.zip**というファイルをダウンロードしてください。
 
 [ダウンロードリンク](https://drive.google.com/drive/u/2/folders/1Ovn9N6ZFQ7WtMGye-B0cxLVX_Dg0rID1)
 
