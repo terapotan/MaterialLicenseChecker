@@ -81,14 +81,8 @@ namespace MaterialLicenseChecker.Views
         //素材配布サイト追加クリック
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            //ListBoxItem listBox = new ListBoxItem();
-            //listBox.Content = "sfdjal";
-            //MaterialListBox.Items.Add(listBox);
             MainViewModelEventMessenger.Default
-                .CallEvent<ClickedMaterialSiteMenuEventMessage>(new ClickedMaterialSiteMenuEventMessage(this));
-            //var win = new MaterialSiteAdditionalScreen();
-            //win.Owner = GetWindow(this);
-            //win.ShowDialog();
+                .CallEvent(new ClickedMaterialSiteMenuEventMessage(this));
         }
 
         //素材追加クリック
@@ -98,6 +92,11 @@ namespace MaterialLicenseChecker.Views
             .CallEvent(new ClickedMaterialAdditionalMenuEventMessage(this));
         }
 
+        //素材削除クリック
+        private void ClickedRemoveMaterialFromListButton(object sender, RoutedEventArgs e)
+        {
+
+        }
 
         //以下それ以外の関数
         private void UpdatingMaterialListBox()
@@ -114,5 +113,7 @@ namespace MaterialLicenseChecker.Views
                 MaterialListBox.Items.Add(listItem);
             }
         }
+
+
     }
 }

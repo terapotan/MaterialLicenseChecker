@@ -81,6 +81,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="VAndVMCommons\MainViewModel\EventMessage\ClickedMaterialAdditionalMenuEventMessage.cs" />
+    <Compile Include="VAndVMCommons\MainViewModel\EventMessage\ClickedRemoveMaterialFromListEventMessage.cs" />
     <Compile Include="VAndVMCommons\MainViewModel\Message\GenerateNewDialogMessage.cs" />
     <Compile Include="VAndVMCommons\MainViewModel\Message\MainVewModelMessage.cs" />
     <Compile Include="VAndVMCommons\MainViewModel\Message\UpdatingMaterialListBoxMessage.cs" />
