@@ -67,6 +67,26 @@ namespace MaterialLicenseChecker.Models
         }
 
         /// <summary>
+        /// 指定されたサイト名が存在すればTrue,しなければFalseを返却する。
+        /// </summary>
+        /// <param name="SearchedSiteName"></param>
+        /// <returns></returns>
+        public bool MaterialSiteExists(string SearchedSiteName)
+        {
+            var SearchedMaterialSite = _loadedXMLFileInstance.XPathSelectElement("//materialSite[@siteName='" + SecurityElement.Escape(SearchedSiteName) + "']");
+
+            //FIXME:nullチェックって……何か、どうにかできなかったっけ?
+            if(SearchedMaterialSite == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        /// <summary>
         /// ライセンス文を追加するメソッド。サイト名の重複などの妥当性チェックは行わない。
         /// </summary>
         /// <param name="SiteName"></param>

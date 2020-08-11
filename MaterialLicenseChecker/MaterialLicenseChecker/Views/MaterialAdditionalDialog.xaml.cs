@@ -28,11 +28,18 @@ namespace MaterialLicenseChecker.Views
             MaterialAdditionalDialogViewModel instance = new MaterialAdditionalDialogViewModel();
 
             MaterialAdditionalDialogMessenger.Default.RegisterAction<SetValueFilePathTextBoxMessage>(this, SetValueFilePathTextBoxEvent);
+            MaterialAdditionalDialogMessenger.Default.RegisterAction<RegistrationProcessingCompleteMessage>(this, RegistrationProcessingComplete);
         }
 
         private void SetValueFilePathTextBoxEvent(SetValueFilePathTextBoxMessage msg)
         {
             MaterialFilePath.Text = msg.SetValue;
+        }
+
+        private void RegistrationProcessingComplete(RegistrationProcessingCompleteMessage msg)
+        {
+            MessageBox.Show("登録が完了しました。", "登録完了", MessageBoxButton.OK, MessageBoxImage.Information);
+            Close();
         }
 
 
@@ -64,9 +71,6 @@ namespace MaterialLicenseChecker.Views
             Message.MaterialSiteName = MaterialSiteName.Text;
 
             MaterialAdditionalDialogEventMessenger.Default.CallEvent(Message);
-            MessageBox.Show("登録が完了しました。", "登録完了", MessageBoxButton.OK, MessageBoxImage.Information);
-
-            Close();
         }
     }
 }
