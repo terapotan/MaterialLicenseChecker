@@ -12,5 +12,7 @@ namespace MaterialLicenseChecker.VAndVMCommons.MainViewModel
         {
 
         }
+
+        public string ListFromDeletedMaterialName = "";
     }
 }

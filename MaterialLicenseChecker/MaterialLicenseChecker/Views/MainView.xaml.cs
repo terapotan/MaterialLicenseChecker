@@ -95,8 +95,12 @@ namespace MaterialLicenseChecker.Views
         //素材削除クリック
         private void ClickedRemoveMaterialFromListButton(object sender, RoutedEventArgs e)
         {
-            MainViewModelEventMessenger.Default.
-                CallEvent(new ClickedRemoveMaterialFromListEventMessage(this));
+            var msg = new ClickedRemoveMaterialFromListEventMessage(this);
+            ListBoxItem SelectedItem = (ListBoxItem)(MaterialListBox.SelectedItem);
+
+            msg.ListFromDeletedMaterialName = (string)(SelectedItem.Content);
+
+            MainViewModelEventMessenger.Default.CallEvent(msg);
 
         }
 
