@@ -64,6 +64,7 @@ namespace MaterialLicenseChecker.ViewModels.MainViewModelPac
 
 
 
+
         private string MakeDisplayedLicenseText()
         {
             ClassStoreLicenseText ClassStore = new ClassStoreLicenseText();
