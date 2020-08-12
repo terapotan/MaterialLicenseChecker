@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MaterialLicenseChecker.Views"
         mc:Ignorable="d"
         Title="素材ライセンスチェッカー（試作版）" Height="300" Width="500"
-        WindowStartupLocation="CenterScreen" >
+        WindowStartupLocation="CenterScreen" Icon=".././EmbeddedResources/Images/WindowIconImage.ico">
 
     <DockPanel> 
         <Menu DockPanel.Dock="Top">
@@ -21,7 +21,7 @@
                 <MenuItem Header="素材配布元を追加する"  Click="MenuItem_Click"></MenuItem>
             </MenuItem>
             <MenuItem Header="その他(_O)">
-                <MenuItem Header="このソフトウェアについて"></MenuItem>
+                <MenuItem Header="このソフトウェアについて" Click="ClickedAboutSoftwareMenu"></MenuItem>
                 <MenuItem Header="ヘルプ"></MenuItem>
             </MenuItem>
         </Menu>

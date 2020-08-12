@@ -1,0 +1,20 @@
+﻿<Window x:Class="MaterialLicenseChecker.Views.AboutThisSoftware"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MaterialLicenseChecker.Views"
+        mc:Ignorable="d"
+        Title="このソフトウェアについて" Height="200" Width="410" Icon=".././EmbeddedResources/Images/WindowIconImage.ico" WindowStartupLocation="CenterOwner">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0">
+            <Image Source=".././EmbeddedResources/Images/WindowIconImage.ico" Margin="0,10,0,0" HorizontalAlignment="Center"></Image>
+        </StackPanel>
+        
+    </Grid>
+</Window>
