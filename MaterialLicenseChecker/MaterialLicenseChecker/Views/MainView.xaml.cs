@@ -128,6 +128,14 @@ namespace MaterialLicenseChecker.Views
             window.ShowDialog();
         }
 
+        //ライセンス出力ボタンをクリック
+        private void ExportLicenseTextButton(object sender, RoutedEventArgs e)
+        {
+            var window = new ExportLlicenseText();
+            window.Owner = GetWindow(this);
+            window.ShowDialog();
+        }
+
 
 
 
@@ -152,7 +160,6 @@ namespace MaterialLicenseChecker.Views
                 MaterialListBox.Items.Add(listItem);
             }
         }
-
 
     }
 }

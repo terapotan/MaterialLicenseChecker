@@ -52,7 +52,7 @@
             <!--
             <Button Content="ライセンスチェック" Padding ="5" Margin ="0,0,100,0" Command="{Binding ShowDialogCommand}"></Button>
             -->
-            <Button Content="ライセンス表記出力" Padding ="5" Command="{Binding ShowDialogCommand}"></Button>
+            <Button Content="ライセンス表記出力" Padding ="5" Click="ExportLicenseTextButton"></Button>
         </StackPanel>
 
 

@@ -98,6 +98,7 @@
     <Compile Include="VAndVMCommons\MaterialAdditionalDialog\Message\SetValueFilePathTextBoxMessage.cs" />
     <Compile Include="VAndVMCommons\MaterialSiteAdditionalDialog\EventMessage\ClickedRegistrationButtonEventMessage.cs" />
     <Compile Include="VAndVMCommons\MaterialSiteAdditionalDialog\EventMessage\MaterialSiteAdditionalDialogEventMessenger.cs" />
+    <Compile Include="ViewModels\ExportLicenseText\ExportLicenseTextViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel\MainViewModel.cs" />
     <Compile Include="VAndVMCommons\MainViewModel\EventMessage\ClickedMaterialSiteMenuEventMessage.cs" />
     <Compile Include="VAndVMCommons\MainViewModel\EventMessage\MainViewModelEventMessenger.cs" />
@@ -106,6 +107,9 @@
     <Compile Include="ViewModels\MaterialSiteAdditionalDialog\MaterialSiteAdditionalDialogViewModel.cs" />
     <Compile Include="Views\AboutThisSoftware.xaml.cs">
       <DependentUpon>AboutThisSoftware.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ExportLlicenseText.xaml.cs">
+      <DependentUpon>ExportLlicenseText.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
@@ -144,6 +148,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Views\AboutThisSoftware.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ExportLlicenseText.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
