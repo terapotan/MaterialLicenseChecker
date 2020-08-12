@@ -3,6 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:MaterialLicenseChecker">
     <Application.Resources>
-         
+        <Style x:Key="windowCommonStyle" TargetType="Window">
+            <!--今のところ問題ないが、Viewsフォルダにさらにフォルダを追加する形式となれば、パスの修正が必要になる。-->
+            <Setter Property="Icon" Value=".././EmbeddedResources/Images/WindowIconImage.ico"></Setter>
+        </Style>
     </Application.Resources>
 </Application>

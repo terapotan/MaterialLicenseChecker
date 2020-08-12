@@ -18,7 +18,6 @@ namespace MaterialLicenseChecker
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-
             var w = new MainView();
             var vm = new MainViewModel();
 
