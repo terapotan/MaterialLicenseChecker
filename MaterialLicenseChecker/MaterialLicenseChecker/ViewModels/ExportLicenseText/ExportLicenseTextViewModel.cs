@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MaterialLicenseChecker.VAndVMCommons.ExportLicenseText;
+using MaterialLicenseChecker.VAndVMCommons.MainViewModel;
 using System.Windows;
 using MaterialLicenseChecker.Models;
 
@@ -23,6 +24,7 @@ namespace MaterialLicenseChecker.ViewModels.ExportLicenseText
             ExportingLicenseText Instance = new ExportingLicenseText(msg.ExportedLicenseTextFilePath);
             ClassStoreLicenseText LicenseTextInstance = new ClassStoreLicenseText();
 
+            MainViewModelMessanger.Default.ExecuteAction(this, new GetMaterialListMessage(this));
 
             var list = LicenseTextInstance.GetLicenseTextLists(LicenseTextInstance.GetMaterialSiteList());
             
