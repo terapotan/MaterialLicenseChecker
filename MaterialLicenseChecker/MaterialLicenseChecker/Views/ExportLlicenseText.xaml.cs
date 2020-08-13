@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 using MaterialLicenseChecker.ViewModels.ExportLicenseText;
+using Microsoft.Win32;
 
 namespace MaterialLicenseChecker.Views
 {
@@ -25,6 +26,19 @@ namespace MaterialLicenseChecker.Views
         {
             InitializeComponent();
             _ = new ExportLicenseTextViewModel();
+        }
+
+        private void InputPathButton(object sender, RoutedEventArgs e)
+        {
+            //FIMXE?:サイトを追加するときには、ここはVMとVでちゃんと分離していたが、
+            //ここではそういう処理を一切行っていない。面倒くさいからこうしたわけだが、
+            //果たしてこれでよかったのだろうか……
+            var Dialog = new OpenFileDialog();
+            Dialog.Title = "ライセンス文を出力するファイルを指定";
+            Dialog.ShowDialog();
+
+            ExportedLicenseTextFilePath.Text = Dialog.FileName;
+
         }
     }
 }
