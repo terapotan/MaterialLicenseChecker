@@ -77,6 +77,7 @@
     <Compile Include="Models\ClassStoreLicenseText.cs" />
     <Compile Include="Models\ClassStoreMaterialList.cs" />
     <Compile Include="Models\ExportingDisplayedLicenseText.cs" />
+    <Compile Include="Models\ExportingLicenseText.cs" />
     <Compile Include="Models\StoringDataFilePath.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

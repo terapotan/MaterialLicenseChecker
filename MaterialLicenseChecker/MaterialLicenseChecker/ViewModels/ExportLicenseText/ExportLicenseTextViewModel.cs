@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MaterialLicenseChecker.VAndVMCommons.ExportLicenseText;
 using System.Windows;
+using MaterialLicenseChecker.Models;
 
 namespace MaterialLicenseChecker.ViewModels.ExportLicenseText
 {
@@ -19,7 +20,8 @@ namespace MaterialLicenseChecker.ViewModels.ExportLicenseText
 
         private void ClickedExportLicenseTextEvent(ClickedExportLicenseTextEventMessage msg)
         {
-            MessageBox.Show(msg.ExportedLicenseTextFilePath);
+            ExportingLicenseText Instance = new ExportingLicenseText(msg.ExportedLicenseTextFilePath);
+            Instance.WriteSomething();
         }
     }
 }
