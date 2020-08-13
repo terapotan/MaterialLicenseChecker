@@ -70,7 +70,6 @@ namespace MaterialLicenseChecker.ViewModels.MainViewModelPac
             ClassStoreLicenseText ClassStore = new ClassStoreLicenseText();
             List<string> FetchLicenseTextSite = new List<string>();
 
-            //XXX:地獄みたいなif文の羅列である。何とかしろ!!!
 
 
             return "";

@@ -9,13 +9,13 @@
     <StackPanel>
         <StackPanel Orientation="Horizontal" Margin="0,5,0,10">
             <Label Content="ライセンス表示を出力するファイル" Target="{Binding ElementName=MaterialFilePath}" HorizontalAlignment="Right"/>
-            <TextBox x:Name="MaterialFilePath" Width="90" Margin="0,2"/>
-            <Button Height="20" Margin="5,0,0,0" >参照</Button>
+            <TextBox x:Name="ExportedLicenseTextFilePath" Width="90" Margin="0,2"/>
+            <Button Height="20" Margin="5,0,0,0" Click="InputPathButton" >参照</Button>
         </StackPanel>
 
 
         <StackPanel Orientation="Vertical">
-            <Button Content="登録する" Padding="5" HorizontalAlignment="Center" Margin="0,10,0,0" ></Button>
+            <Button Content="出力する" Padding="5" HorizontalAlignment="Center" Margin="0,10,0,0" ></Button>
         </StackPanel>
     </StackPanel>
 </Window>
