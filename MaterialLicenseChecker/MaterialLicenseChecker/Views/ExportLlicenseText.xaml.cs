@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 using MaterialLicenseChecker.ViewModels.ExportLicenseText;
+using MaterialLicenseChecker.VAndVMCommons.ExportLicenseText;
 using Microsoft.Win32;
 
 namespace MaterialLicenseChecker.Views
@@ -43,7 +44,7 @@ namespace MaterialLicenseChecker.Views
 
         private void ExportLicenseTextButton(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("test");
+            ExportLicenseTextEventMessenger.Default.CallEvent(new ClickedExportLicenseTextEventMessage(this));
         }
         
     }
