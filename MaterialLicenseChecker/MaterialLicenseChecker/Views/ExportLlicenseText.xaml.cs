@@ -40,5 +40,11 @@ namespace MaterialLicenseChecker.Views
             ExportedLicenseTextFilePath.Text = Dialog.FileName;
 
         }
+
+        private void ExportLicenseTextButton(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("test");
+        }
+        
     }
 }
