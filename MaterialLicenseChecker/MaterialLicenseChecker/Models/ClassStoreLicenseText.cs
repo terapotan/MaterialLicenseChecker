@@ -48,14 +48,14 @@ namespace MaterialLicenseChecker.Models
             _loadedXMLFileInstance = XDocument.Load(runingDirectoryPath + "/ExportResources/LicenseTexts.xml");
 
             _licenseTextDictionary = new Dictionary<string,string>();
-            _licenseTextDictionary.Add("A", _fetchLicenseTextGivenSiteName("A"));
-            _licenseTextDictionary.Add("B", _fetchLicenseTextGivenSiteName("B"));
-            _licenseTextDictionary.Add("C", _fetchLicenseTextGivenSiteName("C"));
-            _licenseTextDictionary.Add("D", _fetchLicenseTextGivenSiteName("D"));
-            _licenseTextDictionary.Add("E", _fetchLicenseTextGivenSiteName("E"));
+            _licenseTextDictionary.Add("A", FetchLicenseTextGivenSiteName("A"));
+            _licenseTextDictionary.Add("B", FetchLicenseTextGivenSiteName("B"));
+            _licenseTextDictionary.Add("C", FetchLicenseTextGivenSiteName("C"));
+            _licenseTextDictionary.Add("D", FetchLicenseTextGivenSiteName("D"));
+            _licenseTextDictionary.Add("E", FetchLicenseTextGivenSiteName("E"));
         }
 
-        private string _fetchLicenseTextGivenSiteName(string SearchedSiteName)
+        public string FetchLicenseTextGivenSiteName(string SearchedSiteName)
         {
             //TODO:インジェクション攻撃に備え一応エスケープしておいた。
             //一応、というだけでちゃんとした対策ではないが……
@@ -111,14 +111,14 @@ namespace MaterialLicenseChecker.Models
         /// <param name="SiteNameList">gg</param>
         /// <returns>
         /// </returns>
-        public List<String> GetLicenseTextLists(in List<string> SiteNameList)
+        public List<string> GetLicenseTextLists(in List<string> SiteNameList)
         {
-            List<String> ReturnList = new List<String>();
+            List<string> ReturnList = new List<string>();
 
 
             foreach (var SiteName in SiteNameList)
             {
-                ReturnList.Add(_licenseTextDictionary[SiteName]);
+                ReturnList.Add(FetchLicenseTextGivenSiteName(SiteName));
             }
 
             return ReturnList;

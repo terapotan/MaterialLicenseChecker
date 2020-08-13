@@ -17,12 +17,12 @@ namespace MaterialLicenseChecker.Models
             ExportingLicenseTextFilePath = FilePath;
         }
 
-        public void WriteSomething()
+        public void WriteLicenseTextFile(string WroteLicenseText)
         {
             Encoding unicodeEnc = Encoding.UTF8;
             using (StreamWriter writer = new StreamWriter(ExportingLicenseTextFilePath,false,unicodeEnc))
             {
-                writer.WriteLine("何かを新しく書き込む。");
+                writer.WriteLine(WroteLicenseText);
             }
         }
    

@@ -21,7 +21,18 @@ namespace MaterialLicenseChecker.ViewModels.ExportLicenseText
         private void ClickedExportLicenseTextEvent(ClickedExportLicenseTextEventMessage msg)
         {
             ExportingLicenseText Instance = new ExportingLicenseText(msg.ExportedLicenseTextFilePath);
-            Instance.WriteSomething();
+            ClassStoreLicenseText LicenseTextInstance = new ClassStoreLicenseText();
+
+
+            var list = LicenseTextInstance.GetLicenseTextLists(LicenseTextInstance.GetMaterialSiteList());
+            
+            string strs = "";
+            foreach (var str in list)
+            {
+                strs += (str + '\n');
+            }
+
+            Instance.WriteLicenseTextFile(strs);
         }
     }
 }
