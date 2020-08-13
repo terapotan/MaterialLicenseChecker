@@ -2,15 +2,15 @@
 <document fileVersion="0" fileType="materialListFile">
 
   <material materialName="素材A">
-    <materialCreationSiteName>サイトA</materialCreationSiteName>
+    <materialCreationSiteName>A</materialCreationSiteName>
   </material>
 
   <material materialName="素材B">
-    <materialCreationSiteName>サイトB</materialCreationSiteName>
+    <materialCreationSiteName>B</materialCreationSiteName>
   </material>
 
   <material materialName="素材C">
-    <materialCreationSiteName>サイトC</materialCreationSiteName>
+    <materialCreationSiteName>C</materialCreationSiteName>
   </material>
 
 </document>

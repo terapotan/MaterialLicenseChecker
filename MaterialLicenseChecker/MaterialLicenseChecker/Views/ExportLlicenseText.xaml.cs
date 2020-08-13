@@ -47,6 +47,8 @@ namespace MaterialLicenseChecker.Views
             var msg = new ClickedExportLicenseTextEventMessage(this);
             msg.ExportedLicenseTextFilePath = ExportedLicenseTextFilePath.Text;
             ExportLicenseTextEventMessenger.Default.CallEvent(msg);
+            MessageBox.Show("出力が完了しました。", "出力完了",MessageBoxButton.OK,MessageBoxImage.Information); ;
+            Close();
         }
         
     }

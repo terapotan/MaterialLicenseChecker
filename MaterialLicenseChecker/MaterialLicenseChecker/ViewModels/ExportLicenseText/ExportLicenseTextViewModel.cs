@@ -23,11 +23,23 @@ namespace MaterialLicenseChecker.ViewModels.ExportLicenseText
         {
             ExportingLicenseText Instance = new ExportingLicenseText(msg.ExportedLicenseTextFilePath);
             ClassStoreLicenseText LicenseTextInstance = new ClassStoreLicenseText();
+            ClassStoreMaterialList MaterialList = new ClassStoreMaterialList();
             GetMaterialListMessage MaterialListMessage = new GetMaterialListMessage(this);
 
             MainViewModelMessanger.Default.ExecuteAction(this, MaterialListMessage);
 
-            var list = LicenseTextInstance.GetLicenseTextLists(LicenseTextInstance.GetMaterialSiteList());
+            var ConvertedInSiteName = new List<string>();
+
+            //素材名をサイト名に変換
+            foreach (var MaterialName in MaterialListMessage.MateiralNameList)
+            {
+                ConvertedInSiteName.Add(MaterialList.FetchMaterialSiteGivenMaterialName(MaterialName));
+            }
+
+            IEnumerable<string> DistinctedResult = ConvertedInSiteName.Distinct();
+
+
+            var list = LicenseTextInstance.GetLicenseTextLists(DistinctedResult);
             
             string strs = "";
             foreach (var str in list)
@@ -37,13 +49,9 @@ namespace MaterialLicenseChecker.ViewModels.ExportLicenseText
 
             Instance.WriteLicenseTextFile(strs);
 
-            strs = "";
-            foreach (var str in MaterialListMessage.MateiralNameList)
-            {
-                strs += (str + '\n');
-            }
 
-            MessageBox.Show(strs);
+       
+            
 
         }
     }

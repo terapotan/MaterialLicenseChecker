@@ -103,6 +103,9 @@ namespace MaterialLicenseChecker.Models
             _loadedXMLFileInstance.Save(loadedXMLFileName);
         }
 
+        //FIXME:しょうがないから、IEnumerable型にしたけど、
+        //後でちゃんと直さないとだめだな……
+
         /// <summary>
         /// SiteNameListで指定されたサイトの利用規約をリストにして返却する。
         /// SiteNameListにまだ登録されていないサイト名を入力すると
@@ -111,7 +114,7 @@ namespace MaterialLicenseChecker.Models
         /// <param name="SiteNameList">gg</param>
         /// <returns>
         /// </returns>
-        public List<string> GetLicenseTextLists(in List<string> SiteNameList)
+        public List<string> GetLicenseTextLists(IEnumerable<string> SiteNameList)
         {
             List<string> ReturnList = new List<string>();
 
