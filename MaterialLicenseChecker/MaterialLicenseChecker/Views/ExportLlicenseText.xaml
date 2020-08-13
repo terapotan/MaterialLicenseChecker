@@ -15,7 +15,7 @@
 
 
         <StackPanel Orientation="Vertical">
-            <Button Content="出力する" Padding="5" HorizontalAlignment="Center" Margin="0,10,0,0" ></Button>
+            <Button Content="出力する" Padding="5" HorizontalAlignment="Center" Margin="0,10,0,0" Click="ExportLicenseTextButton"></Button>
         </StackPanel>
     </StackPanel>
 </Window>

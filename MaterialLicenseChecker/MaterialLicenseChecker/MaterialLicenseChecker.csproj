@@ -77,15 +77,19 @@
     <Compile Include="Models\ClassStoreLicenseText.cs" />
     <Compile Include="Models\ClassStoreMaterialList.cs" />
     <Compile Include="Models\ExportingDisplayedLicenseText.cs" />
+    <Compile Include="Models\ExportingLicenseText.cs" />
     <Compile Include="Models\StoringDataFilePath.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="VAndVMCommons\ExportLicenseText\EventMessage\ClickedExportLicenseTextEventMessage.cs" />
+    <Compile Include="VAndVMCommons\ExportLicenseText\EventMessage\ExportLicenseTextEventMessenger.cs" />
     <Compile Include="VAndVMCommons\MainViewModel\EventMessage\ClickedAboutSoftwareMenuEventMessage.cs" />
     <Compile Include="VAndVMCommons\MainViewModel\EventMessage\ClickedMaterialAdditionalMenuEventMessage.cs" />
     <Compile Include="VAndVMCommons\MainViewModel\EventMessage\ClickedRemoveMaterialFromListEventMessage.cs" />
+    <Compile Include="VAndVMCommons\MainViewModel\Message\GetMaterialListMessage.cs" />
     <Compile Include="VAndVMCommons\MainViewModel\Message\GenerateNewDialogMessage.cs" />
     <Compile Include="VAndVMCommons\MainViewModel\Message\MainVewModelMessage.cs" />
     <Compile Include="VAndVMCommons\MainViewModel\Message\UpdatingMaterialListBoxMessage.cs" />

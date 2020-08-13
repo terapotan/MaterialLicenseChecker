@@ -32,6 +32,7 @@ namespace MaterialLicenseChecker.Views
             MainViewModelMessanger.Default.RegisterAction<MainVewModelMessage>(this, ShowMaterilalSiteDialog);
             MainViewModelMessanger.Default.RegisterAction<GenerateNewDialogMessage>(this, GenerateNewDialog);
             MainViewModelMessanger.Default.RegisterAction<UpdatingMaterialListBoxMessage>(this, UpdatingMaterialListBoxMessage);
+            MainViewModelMessanger.Default.RegisterAction<GetMaterialListMessage>(this, GetMaterialList);
             UpdatingMaterialListBox();
         }
 
@@ -71,6 +72,20 @@ namespace MaterialLicenseChecker.Views
             win.Owner = GetWindow(this);
             win.ShowDialog();
 
+        }
+
+        private void GetMaterialList(GetMaterialListMessage msg)
+        {
+
+            var MaterialListItems = MaterialListBox.Items;
+
+            foreach (ListBoxItem OneListItem in MaterialListItems)
+            {
+                msg.MateiralNameList.Add(OneListItem.Content as string);
+            }
+
+
+            
         }
 
 
