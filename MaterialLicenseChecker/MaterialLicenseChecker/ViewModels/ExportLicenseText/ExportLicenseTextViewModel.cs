@@ -19,7 +19,7 @@ namespace MaterialLicenseChecker.ViewModels.ExportLicenseText
 
         private void ClickedExportLicenseTextEvent(ClickedExportLicenseTextEventMessage msg)
         {
-            MessageBox.Show("test");
+            MessageBox.Show(msg.ExportedLicenseTextFilePath);
         }
     }
 }

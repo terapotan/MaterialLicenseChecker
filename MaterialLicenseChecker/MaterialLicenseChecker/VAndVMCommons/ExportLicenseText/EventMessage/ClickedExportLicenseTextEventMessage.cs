@@ -13,5 +13,6 @@ namespace MaterialLicenseChecker.VAndVMCommons.ExportLicenseText
 
         }
 
+        public string ExportedLicenseTextFilePath = "";
     }
 }

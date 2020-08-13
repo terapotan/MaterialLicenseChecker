@@ -44,7 +44,9 @@ namespace MaterialLicenseChecker.Views
 
         private void ExportLicenseTextButton(object sender, RoutedEventArgs e)
         {
-            ExportLicenseTextEventMessenger.Default.CallEvent(new ClickedExportLicenseTextEventMessage(this));
+            var msg = new ClickedExportLicenseTextEventMessage(this);
+            msg.ExportedLicenseTextFilePath = ExportedLicenseTextFilePath.Text;
+            ExportLicenseTextEventMessenger.Default.CallEvent(msg);
         }
         
     }
