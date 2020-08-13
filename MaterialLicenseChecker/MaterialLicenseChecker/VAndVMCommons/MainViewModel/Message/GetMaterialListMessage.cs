@@ -10,7 +10,7 @@ namespace MaterialLicenseChecker.VAndVMCommons.MainViewModel
     {
         public GetMaterialListMessage(object sender) : base(sender)
         {
-
+            MateiralNameList = new List<string>();
         }
 
         public List<string> MateiralNameList;

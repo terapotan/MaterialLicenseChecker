@@ -76,7 +76,16 @@ namespace MaterialLicenseChecker.Views
 
         private void GetMaterialList(GetMaterialListMessage msg)
         {
-            MessageBox.Show("test");
+
+            var MaterialListItems = MaterialListBox.Items;
+
+            foreach (ListBoxItem OneListItem in MaterialListItems)
+            {
+                msg.MateiralNameList.Add(OneListItem.Content as string);
+            }
+
+
+            
         }
 
 

@@ -23,8 +23,9 @@ namespace MaterialLicenseChecker.ViewModels.ExportLicenseText
         {
             ExportingLicenseText Instance = new ExportingLicenseText(msg.ExportedLicenseTextFilePath);
             ClassStoreLicenseText LicenseTextInstance = new ClassStoreLicenseText();
+            GetMaterialListMessage MaterialListMessage = new GetMaterialListMessage(this);
 
-            MainViewModelMessanger.Default.ExecuteAction(this, new GetMaterialListMessage(this));
+            MainViewModelMessanger.Default.ExecuteAction(this, MaterialListMessage);
 
             var list = LicenseTextInstance.GetLicenseTextLists(LicenseTextInstance.GetMaterialSiteList());
             
@@ -35,6 +36,15 @@ namespace MaterialLicenseChecker.ViewModels.ExportLicenseText
             }
 
             Instance.WriteLicenseTextFile(strs);
+
+            strs = "";
+            foreach (var str in MaterialListMessage.MateiralNameList)
+            {
+                strs += (str + '\n');
+            }
+
+            MessageBox.Show(strs);
+
         }
     }
 }
