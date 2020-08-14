@@ -72,7 +72,6 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>materialListFile.xml</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Models\ClassStoreLicenseText.cs" />
     <Compile Include="Models\ClassStoreMaterialList.cs" />

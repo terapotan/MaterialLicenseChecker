@@ -20,7 +20,7 @@ namespace MaterialLicenseChecker.Models
         /// 1番目:利用規約のサイト名(キーとなる)
         /// 2番目:利用規約の内容(テキスト)
         /// </summary>
-        private Dictionary<string, string> _licenseTextDictionary;
+        //private Dictionary<string, string> _licenseTextDictionary;
 
         //将来的には、2番目のstringは単なる文字列ではなく、ユーザー定義のクラスとなるだろう。
         //まぁ先のことだ。
@@ -47,12 +47,12 @@ namespace MaterialLicenseChecker.Models
             loadedXMLFileName = runingDirectoryPath + "/ExportResources/LicenseTexts.xml";
             _loadedXMLFileInstance = XDocument.Load(runingDirectoryPath + "/ExportResources/LicenseTexts.xml");
 
-            _licenseTextDictionary = new Dictionary<string,string>();
-            _licenseTextDictionary.Add("A", FetchLicenseTextGivenSiteName("A"));
-            _licenseTextDictionary.Add("B", FetchLicenseTextGivenSiteName("B"));
-            _licenseTextDictionary.Add("C", FetchLicenseTextGivenSiteName("C"));
-            _licenseTextDictionary.Add("D", FetchLicenseTextGivenSiteName("D"));
-            _licenseTextDictionary.Add("E", FetchLicenseTextGivenSiteName("E"));
+            //_licenseTextDictionary = new Dictionary<string,string>();
+            //_licenseTextDictionary.Add("A", FetchLicenseTextGivenSiteName("A"));
+            //_licenseTextDictionary.Add("B", FetchLicenseTextGivenSiteName("B"));
+            //_licenseTextDictionary.Add("C", FetchLicenseTextGivenSiteName("C"));
+            //_licenseTextDictionary.Add("D", FetchLicenseTextGivenSiteName("D"));
+            //_licenseTextDictionary.Add("E", FetchLicenseTextGivenSiteName("E"));
         }
 
         public string FetchLicenseTextGivenSiteName(string SearchedSiteName)

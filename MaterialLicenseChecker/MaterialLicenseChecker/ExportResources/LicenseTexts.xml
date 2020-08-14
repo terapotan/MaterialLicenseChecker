@@ -1,24 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document fileVersion="0" fileType="LicenseTexts">
 
-<materialSite siteName="A">
-<licenseText>サイトA利用規約</licenseText>
-</materialSite>
-
-<materialSite siteName="B">
-<licenseText>サイトB利用規約</licenseText>
-</materialSite>
-
-<materialSite siteName="C">
-<licenseText>サイトC利用規約</licenseText>
-</materialSite>
-
-<materialSite siteName="D">
-<licenseText>サイトD利用規約</licenseText>
-</materialSite>
-
-<materialSite siteName="E">
-<licenseText>サイトE利用規約</licenseText>
-</materialSite>
-
 </document>
