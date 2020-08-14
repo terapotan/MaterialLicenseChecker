@@ -1,16 +1,4 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <document fileVersion="0" fileType="materialListFile">
 
-  <material materialName="素材A">
-    <materialCreationSiteName>A</materialCreationSiteName>
-  </material>
-
-  <material materialName="素材B">
-    <materialCreationSiteName>B</materialCreationSiteName>
-  </material>
-
-  <material materialName="素材C">
-    <materialCreationSiteName>C</materialCreationSiteName>
-  </material>
-
 </document>

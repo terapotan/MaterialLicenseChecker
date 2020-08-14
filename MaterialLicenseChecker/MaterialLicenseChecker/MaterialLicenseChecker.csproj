@@ -68,6 +68,11 @@
     <Compile Include="BaseMessage.cs" />
     <Compile Include="BaseMessanger.cs" />
     <Compile Include="DelegateCommand.cs" />
+    <Compile Include="ExportResources\materialListFile.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>materialListFile.xml</DependentUpon>
+    </Compile>
     <Compile Include="Models\ClassStoreLicenseText.cs" />
     <Compile Include="Models\ClassStoreMaterialList.cs" />
     <Compile Include="Models\ExportingDisplayedLicenseText.cs" />
