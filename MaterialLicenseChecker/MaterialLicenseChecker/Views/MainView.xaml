@@ -6,14 +6,16 @@
         xmlns:local="clr-namespace:MaterialLicenseChecker.Views"
         mc:Ignorable="d"
         Title="素材ライセンスチェッカー（試作版）" Height="300" Width="500"
-        WindowStartupLocation="CenterScreen" >
+        WindowStartupLocation="CenterScreen" Icon=".././EmbeddedResources/Images/WindowIconImage.ico">
 
-    <DockPanel>
+    <DockPanel> 
         <Menu DockPanel.Dock="Top">
+            <!--
             <MenuItem Header="プロジェクト(_P)">
                 <MenuItem Header="新規作成"></MenuItem>
                 <MenuItem Header="開く"></MenuItem>
             </MenuItem>
+            -->
             <MenuItem Header="素材追加(_M)">
                 <MenuItem Header="素材を追加する" Click="ClikedMaterialAdditionalMenuItem"></MenuItem>
             </MenuItem>
@@ -21,8 +23,10 @@
                 <MenuItem Header="素材配布元を追加する"  Click="MenuItem_Click"></MenuItem>
             </MenuItem>
             <MenuItem Header="その他(_O)">
-                <MenuItem Header="このソフトウェアについて"></MenuItem>
+                <MenuItem Header="このソフトウェアについて" Click="ClickedAboutSoftwareMenu"></MenuItem>
+                <!--
                 <MenuItem Header="ヘルプ"></MenuItem>
+                -->
             </MenuItem>
         </Menu>
 
@@ -45,8 +49,10 @@
             </Grid>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <!--
             <Button Content="ライセンスチェック" Padding ="5" Margin ="0,0,100,0" Command="{Binding ShowDialogCommand}"></Button>
-            <Button Content="ライセンス表記出力" Padding ="5" Command="{Binding ShowDialogCommand}"></Button>
+            -->
+                <Button Content="ライセンス表記出力" Padding ="5" Margin="0,-10,0,0" Click="ExportLicenseTextButton"></Button>
         </StackPanel>
 
 

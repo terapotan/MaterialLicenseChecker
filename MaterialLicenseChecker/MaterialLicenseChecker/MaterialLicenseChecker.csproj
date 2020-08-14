@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>EmbeddedResources\Images\WindowIconImage.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -69,19 +72,23 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>materialListFile.xml</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Models\ClassStoreLicenseText.cs" />
     <Compile Include="Models\ClassStoreMaterialList.cs" />
     <Compile Include="Models\ExportingDisplayedLicenseText.cs" />
+    <Compile Include="Models\ExportingLicenseText.cs" />
     <Compile Include="Models\StoringDataFilePath.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="VAndVMCommons\ExportLicenseText\EventMessage\ClickedExportLicenseTextEventMessage.cs" />
+    <Compile Include="VAndVMCommons\ExportLicenseText\EventMessage\ExportLicenseTextEventMessenger.cs" />
+    <Compile Include="VAndVMCommons\MainViewModel\EventMessage\ClickedAboutSoftwareMenuEventMessage.cs" />
     <Compile Include="VAndVMCommons\MainViewModel\EventMessage\ClickedMaterialAdditionalMenuEventMessage.cs" />
     <Compile Include="VAndVMCommons\MainViewModel\EventMessage\ClickedRemoveMaterialFromListEventMessage.cs" />
+    <Compile Include="VAndVMCommons\MainViewModel\Message\GetMaterialListMessage.cs" />
     <Compile Include="VAndVMCommons\MainViewModel\Message\GenerateNewDialogMessage.cs" />
     <Compile Include="VAndVMCommons\MainViewModel\Message\MainVewModelMessage.cs" />
     <Compile Include="VAndVMCommons\MainViewModel\Message\UpdatingMaterialListBoxMessage.cs" />
@@ -94,12 +101,19 @@
     <Compile Include="VAndVMCommons\MaterialAdditionalDialog\Message\SetValueFilePathTextBoxMessage.cs" />
     <Compile Include="VAndVMCommons\MaterialSiteAdditionalDialog\EventMessage\ClickedRegistrationButtonEventMessage.cs" />
     <Compile Include="VAndVMCommons\MaterialSiteAdditionalDialog\EventMessage\MaterialSiteAdditionalDialogEventMessenger.cs" />
+    <Compile Include="ViewModels\ExportLicenseText\ExportLicenseTextViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel\MainViewModel.cs" />
     <Compile Include="VAndVMCommons\MainViewModel\EventMessage\ClickedMaterialSiteMenuEventMessage.cs" />
     <Compile Include="VAndVMCommons\MainViewModel\EventMessage\MainViewModelEventMessenger.cs" />
     <Compile Include="VAndVMCommons\MainViewModel\Message\MainViewModelMessanger.cs" />
     <Compile Include="ViewModels\MaterialAdditionalDialog\MaterialAdditionalDialogViewModel.cs" />
     <Compile Include="ViewModels\MaterialSiteAdditionalDialog\MaterialSiteAdditionalDialogViewModel.cs" />
+    <Compile Include="Views\AboutThisSoftware.xaml.cs">
+      <DependentUpon>AboutThisSoftware.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ExportLlicenseText.xaml.cs">
+      <DependentUpon>ExportLlicenseText.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
@@ -136,6 +150,14 @@
     <Resource Include="EmbeddedResources\Images\testImage.png" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Views\AboutThisSoftware.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ExportLlicenseText.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -160,6 +182,9 @@
       <LastGenOutput>materialListFile.Designer.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="EmbeddedResources\Images\WindowIconImage.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

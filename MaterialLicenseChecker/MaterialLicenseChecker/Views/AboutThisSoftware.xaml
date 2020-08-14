@@ -1,0 +1,32 @@
+﻿<Window x:Class="MaterialLicenseChecker.Views.AboutThisSoftware"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MaterialLicenseChecker.Views"
+        mc:Ignorable="d"
+        Title="このソフトウェアについて" Height="200" Width="430" Icon=".././EmbeddedResources/Images/WindowIconImage.ico" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0">
+            <Image Source=".././EmbeddedResources/Images/WindowIconImage.ico" Margin="0,10,0,0" HorizontalAlignment="Center"></Image>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1">
+            <Label Content="バージョン      prototype-6"></Label>
+            <Label Content="作者             てらたん"></Label>
+            <Label Content="連絡先          Twitter         @terapotan"></Label>
+            <Label Content="　　　          メールアドレス  terapotan@gmail.com"></Label>
+            <TextBlock Margin="5,5,0,0">
+                本ソフトウェアは、開発途中のソフトウェアです。<LineBreak></LineBreak>
+                そのため、機能が十分になかったり、不具合が発生したり<LineBreak></LineBreak>
+                する可能性があります。予めご了承ください。
+            </TextBlock>
+        </StackPanel>
+        
+    </Grid>
+</Window>

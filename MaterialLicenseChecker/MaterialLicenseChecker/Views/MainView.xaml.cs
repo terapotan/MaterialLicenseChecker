@@ -32,6 +32,7 @@ namespace MaterialLicenseChecker.Views
             MainViewModelMessanger.Default.RegisterAction<MainVewModelMessage>(this, ShowMaterilalSiteDialog);
             MainViewModelMessanger.Default.RegisterAction<GenerateNewDialogMessage>(this, GenerateNewDialog);
             MainViewModelMessanger.Default.RegisterAction<UpdatingMaterialListBoxMessage>(this, UpdatingMaterialListBoxMessage);
+            MainViewModelMessanger.Default.RegisterAction<GetMaterialListMessage>(this, GetMaterialList);
             UpdatingMaterialListBox();
         }
 
@@ -73,6 +74,20 @@ namespace MaterialLicenseChecker.Views
 
         }
 
+        private void GetMaterialList(GetMaterialListMessage msg)
+        {
+
+            var MaterialListItems = MaterialListBox.Items;
+
+            foreach (ListBoxItem OneListItem in MaterialListItems)
+            {
+                msg.MateiralNameList.Add(OneListItem.Content as string);
+            }
+
+
+            
+        }
+
 
 
 
@@ -96,6 +111,10 @@ namespace MaterialLicenseChecker.Views
         private void ClickedRemoveMaterialFromListButton(object sender, RoutedEventArgs e)
         {
             var msg = new ClickedRemoveMaterialFromListEventMessage(this);
+            
+            
+            //FIXME:本当はここらへん、ViewとViewModelを分離しておいたほうがいいのだろうが
+            //面倒くさいのでこのままにしている。何か不都合があれば、修正すること。
 
             //何も選択されずに削除コマンドが実行された場合
             if(MaterialListBox.SelectedIndex == -1)
@@ -114,6 +133,22 @@ namespace MaterialLicenseChecker.Views
 
             MessageBox.Show("削除が完了しました。", "削除完了", MessageBoxButton.OK, MessageBoxImage.Information);
 
+        }
+
+        //このソフトウェアについてをクリック
+        private void ClickedAboutSoftwareMenu(object sender,RoutedEventArgs e)
+        {
+            var window = new AboutThisSoftware();
+            window.Owner = GetWindow(this);
+            window.ShowDialog();
+        }
+
+        //ライセンス出力ボタンをクリック
+        private void ExportLicenseTextButton(object sender, RoutedEventArgs e)
+        {
+            var window = new ExportLlicenseText();
+            window.Owner = GetWindow(this);
+            window.ShowDialog();
         }
 
 
@@ -140,7 +175,6 @@ namespace MaterialLicenseChecker.Views
                 MaterialListBox.Items.Add(listItem);
             }
         }
-
 
     }
 }

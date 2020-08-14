@@ -67,5 +67,16 @@ namespace MaterialLicenseChecker.Models
 
             return MaterialNameList;
         }
+
+        /// <summary>
+        /// 素材名から、その素材の配布元サイト名を取得する。
+        /// </summary>
+        /// <param name="SiteName"></param>
+        /// <returns></returns>
+        public string FetchMaterialSiteGivenMaterialName(string MaterialName)
+        {
+            var SearchedMaterialElement = LoadedXMLFileInstance.XPathSelectElement("//material[@materialName='" + SecurityElement.Escape(MaterialName) + "']");
+            return SearchedMaterialElement.Element("materialCreationSiteName").Value;
+        }
     }
 }

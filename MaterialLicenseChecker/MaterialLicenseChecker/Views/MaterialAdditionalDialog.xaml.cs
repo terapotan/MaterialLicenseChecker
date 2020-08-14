@@ -27,6 +27,10 @@ namespace MaterialLicenseChecker.Views
             InitializeComponent();
             MaterialAdditionalDialogViewModel instance = new MaterialAdditionalDialogViewModel();
 
+
+            //XXX:原因がわかりました。これ、ウィンドウが再生成されるたびに実行されるから、
+            //そして、追加先のクラスはずーっと残ってるから、ウィンドウを開くたびにイベントが追加されるのか……
+            //前のバグもそれが原因で起こったみたいですね。これで、ウィンドウが複数開かれるんだ。
             MaterialAdditionalDialogMessenger.Default.RegisterAction<SetValueFilePathTextBoxMessage>(this, SetValueFilePathTextBoxEvent);
             MaterialAdditionalDialogMessenger.Default.RegisterAction<RegistrationProcessingCompleteMessage>(this, RegistrationProcessingComplete);
         }
@@ -39,7 +43,9 @@ namespace MaterialLicenseChecker.Views
         private void RegistrationProcessingComplete(RegistrationProcessingCompleteMessage msg)
         {
             MessageBox.Show("登録が完了しました。", "登録完了", MessageBoxButton.OK, MessageBoxImage.Information);
-            Close();
+            //FIXME:なぜか、Close()が2回目以降呼び出した際に実行されない。謎であるが、ひとまずコメントアウトして
+            //そもそもウィンドウがクローズしない設定にする。……しょうがない。
+            //Close();
         }
 
 
