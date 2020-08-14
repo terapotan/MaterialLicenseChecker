@@ -43,11 +43,20 @@ namespace MaterialLicenseChecker
 
             //取り出したデリゲートの実行
 
+            int i = 0;
+
             foreach (var action in query)
             {
+                if (i == 1)
+                {
+                    break;
+                }
+
                 action(message);
+                i = 1;
             }
         }
+    
 
         private class ActionInfo 
         {
