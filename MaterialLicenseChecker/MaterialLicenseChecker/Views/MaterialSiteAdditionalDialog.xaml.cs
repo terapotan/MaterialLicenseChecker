@@ -44,6 +44,12 @@ namespace MaterialLicenseChecker.Views
                 MessageBox.Show("まだ入力されていない項目があります。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
+
+            if(msg.ValueInputCheckResult == ClickedRegistrationButtonEventMessage.REGISTER_EXISTS_MATERALSITE)
+            {
+                MessageBox.Show("指定された素材配布サイトは既に存在します。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
             MessageBox.Show("登録が完了しました。", "登録完了", MessageBoxButton.OK, MessageBoxImage.Information);
             Close();
 
