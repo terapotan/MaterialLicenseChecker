@@ -22,6 +22,13 @@ namespace MaterialLicenseChecker.ViewModels.MaterialSiteAdditionalDialog
 
         private void ClickedRegistrationButtonEvent(ClickedRegistrationButtonEventMessage msg)
         {
+            if(msg.InputSiteName.Equals("") || msg.InputLicenseText.Equals(""))
+            {
+                msg.ValueInputCheckResult = ClickedRegistrationButtonEventMessage.VALUE_EMPTY;
+                return;
+            }
+
+            msg.ValueInputCheckResult = ClickedRegistrationButtonEventMessage.ACCEPTED_VALUE;
             XMLFileInstance.AddLicenseText(msg.InputSiteName, msg.InputLicenseText);
         }
     }
