@@ -39,12 +39,23 @@ namespace MaterialLicenseChecker.Views
             Dialog.DefaultExt = ".txt";
             Dialog.ShowDialog();
 
+
+
             ExportedLicenseTextFilePath.Text = Dialog.FileName;
 
         }
 
         private void ExportLicenseTextButton(object sender, RoutedEventArgs e)
         {
+            //FIXME:こういうエラー処理関連はここに任せるのではなく、
+            //Model側に任せた方がいいと思う。が、どちらにせよ次のリリースでの修正となるだろう。
+
+            if (ExportedLicenseTextFilePath.Text.Equals(""))
+            {
+                MessageBox.Show("ファイル名が入力されていません。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
             var msg = new ClickedExportLicenseTextEventMessage(this);
             msg.ExportedLicenseTextFilePath = ExportedLicenseTextFilePath.Text;
             ExportLicenseTextEventMessenger.Default.CallEvent(msg);
