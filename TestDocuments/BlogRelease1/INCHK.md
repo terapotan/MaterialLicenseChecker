@@ -78,6 +78,30 @@
 | Y | Y | Y | N | 3      |1
 | Y | Y | Y | Y | N/A    |N/A
 
+### 2
+実施日:2020/08/25  
+テスト対象バージョン:prototype-6
+
+| 1 | 2 | 3 | 4 | Result | OK |
+| - | - | - | - | ------ | --- |
+| N | N | N | N | 1      |y
+| N | N | N | Y | 2      |y
+| N | N | Y | N | 3      |y
+| N | N | Y | Y | N/A    |N/A
+| N | Y | N | N | 3      |y
+| N | Y | N | Y | 3      |y
+| N | Y | Y | N | 3      |y
+| N | Y | Y | Y | N/A    |N/A
+| Y | N | N | N | 3      |y
+| Y | N | N | Y | 3      |y
+| Y | N | Y | N | 3      |y
+| Y | N | Y | Y | N/A    |N/A
+| Y | Y | N | N | 3      |y
+| Y | Y | N | Y | 3      |y
+| Y | Y | Y | N | 3      |y
+| Y | Y | Y | Y | N/A    |N/A
+
+
 ## 素材削除機能(BLOGRELEASE1_INCHK_DELMATERIAL)
 状況は二つ。  
 
