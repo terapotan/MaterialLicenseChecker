@@ -51,6 +51,7 @@ namespace MaterialLicenseChecker.Views
             MessageBox.Show("出力が完了しました。", "出力完了",MessageBoxButton.OK,MessageBoxImage.Information); ;
             Close();
         }
-        
+
+
     }
 }

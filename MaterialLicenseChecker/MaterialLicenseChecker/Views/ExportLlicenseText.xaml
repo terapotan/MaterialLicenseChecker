@@ -8,9 +8,9 @@
         Title="ライセンス表示を出力する" Height="115" Width="320" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" Icon=".././EmbeddedResources/Images/WindowIconImage.ico">
     <StackPanel>
         <StackPanel Orientation="Horizontal" Margin="0,5,0,10">
-            <Label Content="ライセンス表示を出力するファイル" Target="{Binding ElementName=MaterialFilePath}" HorizontalAlignment="Right"/>
-            <TextBox x:Name="ExportedLicenseTextFilePath" Width="90" Margin="0,2"/>
-            <Button Height="20" Margin="5,0,0,0" Click="InputPathButton" >参照</Button>
+            <Label Content="ファイル名" Target="{Binding ElementName=MaterialFilePath}" HorizontalAlignment="Right"/>
+            <TextBox x:Name="ExportedLicenseTextFilePath" Width="110" Margin="0,2" IsReadOnly="True"/>
+            <Button Height="20" Margin="5,0,0,0" Click="InputPathButton" >出力するファイルを指定</Button>
         </StackPanel>
 
 
