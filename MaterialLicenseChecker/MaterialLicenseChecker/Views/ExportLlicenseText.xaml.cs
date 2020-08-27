@@ -34,9 +34,12 @@ namespace MaterialLicenseChecker.Views
             //FIMXE?:サイトを追加するときには、ここはVMとVでちゃんと分離していたが、
             //ここではそういう処理を一切行っていない。面倒くさいからこうしたわけだが、
             //果たしてこれでよかったのだろうか……
-            var Dialog = new OpenFileDialog();
-            Dialog.Title = "ライセンス文を出力するファイルを指定";
+            var Dialog = new SaveFileDialog();
+            Dialog.Title = "ライセンス表示を出力するファイルを指定";
+            Dialog.DefaultExt = ".txt";
             Dialog.ShowDialog();
+
+
 
             ExportedLicenseTextFilePath.Text = Dialog.FileName;
 
@@ -44,12 +47,22 @@ namespace MaterialLicenseChecker.Views
 
         private void ExportLicenseTextButton(object sender, RoutedEventArgs e)
         {
+            //FIXME:こういうエラー処理関連はここに任せるのではなく、
+            //Model側に任せた方がいいと思う。が、どちらにせよ次のリリースでの修正となるだろう。
+
+            if (ExportedLicenseTextFilePath.Text.Equals(""))
+            {
+                MessageBox.Show("ファイル名が入力されていません。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
             var msg = new ClickedExportLicenseTextEventMessage(this);
             msg.ExportedLicenseTextFilePath = ExportedLicenseTextFilePath.Text;
             ExportLicenseTextEventMessenger.Default.CallEvent(msg);
             MessageBox.Show("出力が完了しました。", "出力完了",MessageBoxButton.OK,MessageBoxImage.Information); ;
             Close();
         }
-        
+
+
     }
 }

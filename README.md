@@ -1,15 +1,18 @@
 # 進捗状況
-- ライセンス表記出力機能を追加しました
-  - 素材ライセンスチェッカーで登録した内容を元に、指定したファイルにライセンス表記を出力することが出来るようになりました。
+- テストを行い、動作が安定するようにしました
+  - いくつかのバグを修正しました。機能面の追加はありません。
 
-![alt](./ReleaseImage/prototype-6.png)
+![alt](./ReleaseImage/prototype-7.png)
 
 具体的な開発情報は、Twitterでもお知らせしています。  
 [Twitter](https://twitter.com/terapotan)
 
-## 素材ライセンスチェッカーをダウンロードするには?
-### GoogleDriveからダウンロードする
-以下のリンクにある**prototype-5.zip**というファイルをダウンロードしてください。
+# 近日リリース!
+近日Vectorにて、本バージョンと同じ内容を公開する予定です。  
+
+# 素材ライセンスチェッカーをダウンロードするには?
+## GoogleDriveからダウンロードする
+以下のリンクにある**prototype-7.zip**というファイルをダウンロードしてください。
 
 [ダウンロードリンク](https://drive.google.com/drive/u/2/folders/1Ovn9N6ZFQ7WtMGye-B0cxLVX_Dg0rID1)
 
