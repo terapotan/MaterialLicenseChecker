@@ -1,18 +1,22 @@
-# 進捗状況
-- テストを行い、動作が安定するようにしました
-  - いくつかのバグを修正しました。機能面の追加はありません。
+# 試作版公開!
+![alt](./ReleaseImage/prototype-final.png)
 
-![alt](./ReleaseImage/prototype-7.png)
+素材ライセンスチェッカーの試作版をVectorにて公開しました!  
+ダウンロード先へは、下のリンクから飛ぶことが出来ます。  
+
+[ダウンロード先](https://www.vector.co.jp/soft/winnt/util/se521816.html)
+
+**注意:本試作版では、素材を追加ウィンドウ中の参照ボタンを押してファイルを選択しても、テキストボックスに何も入力されないバグがあります。本バージョンでは、この項目の内容は動作に影響を与えないため、適当な値を入力してください。**
+
+このソフトの詳しい情報は、以下の記事でご覧ください。  
+[紹介記事](https://terapotan.hatenablog.jp/entry/MaterialLicenseChecker)
 
 具体的な開発情報は、Twitterでもお知らせしています。  
 [Twitter](https://twitter.com/terapotan)
 
-# 近日リリース!
-近日Vectorにて、本バージョンと同じ内容を公開する予定です。  
-
-# 素材ライセンスチェッカーをダウンロードするには?
+# このバージョンの素材ライセンスチェッカーをダウンロードするには?
 ## GoogleDriveからダウンロードする
-以下のリンクにある**prototype-7.zip**というファイルをダウンロードしてください。
+以下のリンクにある**prototype-final.zip**というファイルをダウンロードしてください。
 
 [ダウンロードリンク](https://drive.google.com/drive/u/2/folders/1Ovn9N6ZFQ7WtMGye-B0cxLVX_Dg0rID1)
 
