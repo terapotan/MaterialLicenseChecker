@@ -31,7 +31,7 @@ namespace MaterialLicenseChecker.Views
             InitializeComponent();
 
             //XXX:後でこの重複を削除せよ!!!!
-            MaterialAdditionalDialogViewModel instance = new MaterialAdditionalDialogViewModel();
+            // MaterialAdditionalDialogViewModel instance = new MaterialAdditionalDialogViewModel();
             SentCommand = new MaterialAdditionalDialogViewModel();
 
             //XXX:原因がわかりました。これ、ウィンドウが再生成されるたびに実行されるから、
@@ -39,27 +39,6 @@ namespace MaterialLicenseChecker.Views
             //前のバグもそれが原因で起こったみたいですね。これで、ウィンドウが複数開かれるんだ。
             
         }
-
-        /*
-        private void SetValueFilePathTextBoxEvent(SetValueFilePathTextBoxMessage msg)
-        {
-            MaterialFilePath.Text = msg.SetValue;
-        }
-
-        private void RegistrationProcessingComplete(RegistrationProcessingCompleteMessage msg)
-        {
-            MessageBox.Show("登録が完了しました。", "登録完了", MessageBoxButton.OK, MessageBoxImage.Information);
-            //FIXME:なぜか、Close()が2回目以降呼び出した際に実行されない。謎であるが、ひとまずコメントアウトして
-            //そもそもウィンドウがクローズしない設定にする。……しょうがない。
-            //Close();
-        }
-        */
-
-
-
-
-
-
 
 
 

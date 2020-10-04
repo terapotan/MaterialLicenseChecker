@@ -19,51 +19,7 @@ namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
             
         }
 
-        /*
-        private void ClickedregistrationButtonEvent(ClickedRegistrationButtonEventMessage msg)
-        {
-            ClassStoreMaterialList FileInstance = new ClassStoreMaterialList();
-            ClassStoreLicenseText LicenseTextInstance = new ClassStoreLicenseText();
-
-            bool MaterialSiteExists = LicenseTextInstance.MaterialSiteExists(msg.MaterialSiteName);
-            
-            if (msg.MaterialName.Equals("") || msg.MaterialFilePath.Equals("") || msg.MaterialSiteName.Equals(""))
-            {
-                MessageBox.Show("まだ入力されていない項目があります。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            if (!MaterialSiteExists)
-            {
-                MessageBox.Show("指定された素材配布サイトが見つかりません。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-
-
-            FileInstance.AddMaterialData(msg.MaterialName, msg.MaterialFilePath, msg.MaterialSiteName);
-            MainViewModelMessanger.Default.ExecuteAction(this, new UpdatingMaterialListBoxMessage(this));
-            MaterialAdditionalDialogMessenger.Default.ExecuteAction(this, new RegistrationProcessingCompleteMessage(this));
-        }
-        
-        
-        
-
-        private void ClickedMaterialButtonEvent(ClickedMaterialSiteButtonEventMessage msg)
-        {
-            ClassStoreLicenseText instance = new ClassStoreLicenseText();
-            var MaterialSiteNameList = instance.GetMaterialSiteList();
-            string MessageDialog = "";
-
-            foreach (var str in MaterialSiteNameList)
-            {
-                MessageDialog += (str + '\n');
-            }
-
-            MessageBox.Show(MessageDialog, "素材配布サイト名一覧");
-
-        }
-        */
+  
       
 
         public void CommandViewModelTo(AddMaterialDataToFile msg)
