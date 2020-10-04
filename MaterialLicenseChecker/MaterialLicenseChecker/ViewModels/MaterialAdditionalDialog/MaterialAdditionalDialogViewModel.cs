@@ -16,13 +16,10 @@ namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
     {
        public MaterialAdditionalDialogViewModel()
         {
-            //MaterialAdditionalDialogEventMessenger.Default
-            //    .RegisterAction<ClickedMaterialSiteButtonEventMessage>(this, ClickedMaterialButtonEvent);
-            //MaterialAdditionalDialogEventMessenger.Default
-            //    .RegisterAction<ClickedRegistrationButtonEventMessage>(this,ClickedregistrationButtonEvent);
+            
         }
 
-
+        /*
         private void ClickedregistrationButtonEvent(ClickedRegistrationButtonEventMessage msg)
         {
             ClassStoreMaterialList FileInstance = new ClassStoreMaterialList();
@@ -48,7 +45,7 @@ namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
             MainViewModelMessanger.Default.ExecuteAction(this, new UpdatingMaterialListBoxMessage(this));
             MaterialAdditionalDialogMessenger.Default.ExecuteAction(this, new RegistrationProcessingCompleteMessage(this));
         }
-
+        
         
         
 
@@ -66,7 +63,7 @@ namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
             MessageBox.Show(MessageDialog, "素材配布サイト名一覧");
 
         }
-
+        */
       
 
         public void CommandViewModelTo(AddMaterialDataToFile msg)
