@@ -92,16 +92,9 @@
     <Compile Include="VAndVMCommons\MainViewModel\Message\GenerateNewDialogMessage.cs" />
     <Compile Include="VAndVMCommons\MainViewModel\Message\MainVewModelMessage.cs" />
     <Compile Include="VAndVMCommons\MainViewModel\Message\UpdatingMaterialListBoxMessage.cs" />
-    <Compile Include="VAndVMCommons\MaterialAdditionalDialog\EventMessage\ClickedFileLocationButtonEventMessage.cs" />
-    <Compile Include="VAndVMCommons\MaterialAdditionalDialog\EventMessage\ClickedMaterialSiteButtonEventMessage.cs" />
-    <Compile Include="VAndVMCommons\MaterialAdditionalDialog\EventMessage\ClickedRegistrationButtonEventMessage.cs" />
-    <Compile Include="VAndVMCommons\MaterialAdditionalDialog\EventMessage\RegistrationProcessingCompleteMessage.cs" />
-    <Compile Include="VAndVMCommons\MaterialAdditionalDialog\EventMessage\MaterialAdditionalDialogEventMessenger.cs" />
     <Compile Include="ViewModels\MaterialAdditionalDialog\AddMaterialDataToFile.cs" />
     <Compile Include="ViewModels\MaterialAdditionalDialog\FetchMaterialSiteLIst.cs" />
     <Compile Include="ViewModels\MaterialAdditionalDialog\IReceiverCommandFromView.cs" />
-    <Compile Include="VAndVMCommons\MaterialAdditionalDialog\Message\MaterialAdditionalDialogMessenger.cs" />
-    <Compile Include="VAndVMCommons\MaterialAdditionalDialog\Message\SetValueFilePathTextBoxMessage.cs" />
     <Compile Include="VAndVMCommons\MaterialSiteAdditionalDialog\EventMessage\ClickedRegistrationButtonEventMessage.cs" />
     <Compile Include="VAndVMCommons\MaterialSiteAdditionalDialog\EventMessage\MaterialSiteAdditionalDialogEventMessenger.cs" />
     <Compile Include="ViewModels\ExportLicenseText\ExportLicenseTextViewModel.cs" />
@@ -191,6 +184,9 @@
   <ItemGroup>
     <Resource Include="EmbeddedResources\Images\WindowIconImage.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="VAndVMCommons\MaterialAdditionalDialog\EventMessage\" />
+    <Folder Include="VAndVMCommons\MaterialAdditionalDialog\Message\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

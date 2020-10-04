@@ -14,7 +14,6 @@ using System.Windows.Shapes;
 using Microsoft.Win32;
 
 using MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog;
-using MaterialLicenseChecker.VAndVMCommons.MaterialAdditionalDialog;
 using MaterialLicenseChecker.Views.CMainView;
 
 namespace MaterialLicenseChecker.Views
