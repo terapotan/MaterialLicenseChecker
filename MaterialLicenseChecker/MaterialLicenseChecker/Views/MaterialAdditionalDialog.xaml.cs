@@ -31,13 +31,8 @@ namespace MaterialLicenseChecker.Views
             InitializeComponent();
 
             //XXX:後でこの重複を削除せよ!!!!
-            // MaterialAdditionalDialogViewModel instance = new MaterialAdditionalDialogViewModel();
             SentCommand = new MaterialAdditionalDialogViewModel();
 
-            //XXX:原因がわかりました。これ、ウィンドウが再生成されるたびに実行されるから、
-            //そして、追加先のクラスはずーっと残ってるから、ウィンドウを開くたびにイベントが追加されるのか……
-            //前のバグもそれが原因で起こったみたいですね。これで、ウィンドウが複数開かれるんだ。
-            
         }
 
 
@@ -91,6 +86,7 @@ namespace MaterialLicenseChecker.Views
                     MainView ins = (MainView)Owner;
                     IReceiverCommandFromViewToView instance = ins;
                     instance.CommandViewModelTo(new UpdateMaterialListBox());
+                    Close();
                     break;
 
                 default:
