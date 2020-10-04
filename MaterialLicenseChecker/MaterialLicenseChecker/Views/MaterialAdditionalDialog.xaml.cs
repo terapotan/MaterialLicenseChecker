@@ -86,7 +86,22 @@ namespace MaterialLicenseChecker.Views
             Message.MaterialSiteName = MaterialSiteName.Text;
 
             SentCommand.CommandViewModelTo(Message);
-            
+
+
+            //FIXME:このswitch文何とかなりませんか。
+            switch (Message.ProcessingResult)
+            {
+                case AddMaterialDataToFile.NOT_INPUT_ITEM_EXISTS:
+                    MessageBox.Show("まだ入力されていない項目があります。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    break;
+                case AddMaterialDataToFile.MATERIALSITE_NOT_FOUND:
+                    MessageBox.Show("指定された素材配布サイトが見つかりません。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    break;
+                default:
+                    break;
+            }
+
+
         }
     }
 }
