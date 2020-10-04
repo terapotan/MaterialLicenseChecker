@@ -15,6 +15,7 @@ using Microsoft.Win32;
 
 using MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog;
 using MaterialLicenseChecker.VAndVMCommons.MaterialAdditionalDialog;
+using MaterialLicenseChecker.Views.CMainView;
 
 namespace MaterialLicenseChecker.Views
 {
@@ -97,9 +98,18 @@ namespace MaterialLicenseChecker.Views
                 case AddMaterialDataToFile.MATERIALSITE_NOT_FOUND:
                     MessageBox.Show("指定された素材配布サイトが見つかりません。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
                     break;
+                case AddMaterialDataToFile.PROCESS_SUCCESSFUL:
+                    MessageBox.Show("登録が完了しました。", "登録完了", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MainView ins = (MainView)Owner;
+                    IReceiverCommandFromViewToView instance = ins;
+                    instance.CommandViewModelTo(new UpdateMaterialListBox());
+                    break;
+
                 default:
                     break;
             }
+
+
 
 
         }
