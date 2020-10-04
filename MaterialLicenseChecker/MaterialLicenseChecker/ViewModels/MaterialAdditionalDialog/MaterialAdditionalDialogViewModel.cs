@@ -97,5 +97,13 @@ namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
             //MainViewModelMessanger.Default.ExecuteAction(this, new UpdatingMaterialListBoxMessage(this));
             //MaterialAdditionalDialogMessenger.Default.ExecuteAction(this, new RegistrationProcessingCompleteMessage(this));
         }
+
+        public void CommandViewModelTo(FetchMaterialSiteLIst msg)
+        {
+            ClassStoreLicenseText instance = new ClassStoreLicenseText();
+            var MaterialSiteNameList = instance.GetMaterialSiteList();
+
+            msg.MaterialSiteList = MaterialSiteNameList;
+        }
     }
 }

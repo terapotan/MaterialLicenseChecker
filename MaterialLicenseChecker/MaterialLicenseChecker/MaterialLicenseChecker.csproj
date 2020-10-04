@@ -98,6 +98,7 @@
     <Compile Include="VAndVMCommons\MaterialAdditionalDialog\EventMessage\RegistrationProcessingCompleteMessage.cs" />
     <Compile Include="VAndVMCommons\MaterialAdditionalDialog\EventMessage\MaterialAdditionalDialogEventMessenger.cs" />
     <Compile Include="ViewModels\MaterialAdditionalDialog\AddMaterialDataToFile.cs" />
+    <Compile Include="ViewModels\MaterialAdditionalDialog\FetchMaterialSiteLIst.cs" />
     <Compile Include="ViewModels\MaterialAdditionalDialog\IReceiverCommandFromView.cs" />
     <Compile Include="VAndVMCommons\MaterialAdditionalDialog\Message\MaterialAdditionalDialogMessenger.cs" />
     <Compile Include="VAndVMCommons\MaterialAdditionalDialog\Message\SetValueFilePathTextBoxMessage.cs" />

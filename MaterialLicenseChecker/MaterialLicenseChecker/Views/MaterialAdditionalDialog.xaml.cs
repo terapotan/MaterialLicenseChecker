@@ -75,7 +75,16 @@ namespace MaterialLicenseChecker.Views
 
         private void ClickedMaterialSiteButton(object sender, RoutedEventArgs e)
         {
-            MaterialAdditionalDialogEventMessenger.Default.CallEvent(new ClickedMaterialSiteButtonEventMessage(this));
+            FetchMaterialSiteLIst siteLIst = new FetchMaterialSiteLIst();
+            SentCommand.CommandViewModelTo(siteLIst);
+            string MessageDialog = "";
+
+            foreach (var str in siteLIst.MaterialSiteList)
+            {
+                MessageDialog += (str + '\n');
+            }
+
+            MessageBox.Show(MessageDialog, "素材配布サイト名一覧");
         }
 
         private void ClickedRegistrationButton(object sender, RoutedEventArgs e)

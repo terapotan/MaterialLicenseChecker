@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
 {
-    interface IReceiverCommandFromView
+    public class FetchMaterialSiteLIst
     {
-        void CommandViewModelTo(AddMaterialDataToFile msg);
-        void CommandViewModelTo(FetchMaterialSiteLIst msg);
+        public List<string> MaterialSiteList;
     }
 }
