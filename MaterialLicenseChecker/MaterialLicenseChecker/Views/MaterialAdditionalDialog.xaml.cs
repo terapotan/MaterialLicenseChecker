@@ -29,7 +29,6 @@ namespace MaterialLicenseChecker.Views
         {
             InitializeComponent();
 
-            //XXX:後でこの重複を削除せよ!!!!
             SentCommand = new MaterialAdditionalDialogViewModel();
 
         }

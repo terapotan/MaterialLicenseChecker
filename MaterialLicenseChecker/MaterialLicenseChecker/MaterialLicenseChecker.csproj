@@ -184,9 +184,6 @@
   <ItemGroup>
     <Resource Include="EmbeddedResources\Images\WindowIconImage.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="VAndVMCommons\MaterialAdditionalDialog\EventMessage\" />
-    <Folder Include="VAndVMCommons\MaterialAdditionalDialog\Message\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

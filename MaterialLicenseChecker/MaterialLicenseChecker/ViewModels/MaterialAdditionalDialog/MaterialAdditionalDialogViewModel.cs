@@ -46,8 +46,6 @@ namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
 
             FileInstance.AddMaterialData(msg.MaterialName, msg.MaterialFilePath, msg.MaterialSiteName);
             msg.ProcessingResult = AddMaterialDataToFile.PROCESS_SUCCESSFUL;
-            //MainViewModelMessanger.Default.ExecuteAction(this, new UpdatingMaterialListBoxMessage(this));
-            //MaterialAdditionalDialogMessenger.Default.ExecuteAction(this, new RegistrationProcessingCompleteMessage(this));
         }
 
         public void CommandViewModelTo(FetchMaterialSiteLIst msg)
