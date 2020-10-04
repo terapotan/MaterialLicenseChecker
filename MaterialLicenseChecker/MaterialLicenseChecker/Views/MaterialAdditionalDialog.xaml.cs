@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 
 using MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog;
 using MaterialLicenseChecker.VAndVMCommons.MaterialAdditionalDialog;
@@ -60,7 +61,11 @@ namespace MaterialLicenseChecker.Views
         //以下イベント発生処理
         private void ClickedFileLocationButton(object sender, RoutedEventArgs e)
         {
-            MaterialAdditionalDialogEventMessenger.Default.CallEvent(new ClickedFileLocationButtonEventMessage(this));
+            var Dialog = new OpenFileDialog();
+            Dialog.Title = "素材ファイルを指定する";
+            Dialog.ShowDialog();
+
+            MaterialFilePath.Text = Dialog.FileName;
         }
 
         private void ClickedMaterialSiteButton(object sender, RoutedEventArgs e)
