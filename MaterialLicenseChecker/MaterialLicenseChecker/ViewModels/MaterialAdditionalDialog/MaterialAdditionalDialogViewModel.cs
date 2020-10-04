@@ -79,16 +79,16 @@ namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
             if (msg.MaterialName.Equals("") || msg.MaterialFilePath.Equals("") || msg.MaterialSiteName.Equals(""))
             {
                 MessageBox.Show("まだ入力されていない項目があります。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
+                msg.ProcessingResult = AddMaterialDataToFile.NOT_INPUT_ITEM_EXISTS;
                 return;
             }
 
             if (!MaterialSiteExists)
             {
                 MessageBox.Show("指定された素材配布サイトが見つかりません。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
+                msg.ProcessingResult = AddMaterialDataToFile.MATERIALSITE_NOT_FOUND;
                 return;
             }
-
-
 
             FileInstance.AddMaterialData(msg.MaterialName, msg.MaterialFilePath, msg.MaterialSiteName);
             MainViewModelMessanger.Default.ExecuteAction(this, new UpdatingMaterialListBoxMessage(this));
