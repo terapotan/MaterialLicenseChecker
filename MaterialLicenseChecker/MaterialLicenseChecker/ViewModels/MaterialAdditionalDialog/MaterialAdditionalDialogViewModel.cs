@@ -12,7 +12,7 @@ using MaterialLicenseChecker.Models;
 
 namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
 {
-    class MaterialAdditionalDialogViewModel
+    class MaterialAdditionalDialogViewModel : IReceiverCommandFromView
     {
        public MaterialAdditionalDialogViewModel()
         {
@@ -79,6 +79,11 @@ namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
             message.SetValue = Dialog.FileName;
 
             MaterialAdditionalDialogMessenger.Default.ExecuteAction(this, message);
+        }
+
+        public void CommandViewModelTo(AddMaterialDataToFile msg)
+        {
+            throw new NotImplementedException();
         }
     }
 }
