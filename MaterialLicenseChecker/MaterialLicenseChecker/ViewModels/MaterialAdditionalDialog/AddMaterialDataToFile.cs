@@ -11,5 +11,8 @@ namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
     /// </summary>
     public class AddMaterialDataToFile
     {
+        public string MaterialName = "";
+        public string MaterialSiteName = "";
+        public string MaterialFilePath = "";
     }
 }

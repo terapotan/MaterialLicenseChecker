@@ -71,7 +71,28 @@ namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
 
         public void CommandViewModelTo(AddMaterialDataToFile msg)
         {
-            throw new NotImplementedException();
+            ClassStoreMaterialList FileInstance = new ClassStoreMaterialList();
+            ClassStoreLicenseText LicenseTextInstance = new ClassStoreLicenseText();
+
+            bool MaterialSiteExists = LicenseTextInstance.MaterialSiteExists(msg.MaterialSiteName);
+
+            if (msg.MaterialName.Equals("") || msg.MaterialFilePath.Equals("") || msg.MaterialSiteName.Equals(""))
+            {
+                MessageBox.Show("まだ入力されていない項目があります。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (!MaterialSiteExists)
+            {
+                MessageBox.Show("指定された素材配布サイトが見つかりません。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+
+
+            FileInstance.AddMaterialData(msg.MaterialName, msg.MaterialFilePath, msg.MaterialSiteName);
+            MainViewModelMessanger.Default.ExecuteAction(this, new UpdatingMaterialListBoxMessage(this));
+            MaterialAdditionalDialogMessenger.Default.ExecuteAction(this, new RegistrationProcessingCompleteMessage(this));
         }
     }
 }

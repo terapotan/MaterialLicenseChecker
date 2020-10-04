@@ -23,11 +23,15 @@ namespace MaterialLicenseChecker.Views
     /// </summary>
     public partial class MaterialAdditionalDialog : Window
     {
+        private IReceiverCommandFromView SentCommand;
+
         public MaterialAdditionalDialog()
         {
             InitializeComponent();
-            MaterialAdditionalDialogViewModel instance = new MaterialAdditionalDialogViewModel();
 
+            //XXX:後でこの重複を削除せよ!!!!
+            MaterialAdditionalDialogViewModel instance = new MaterialAdditionalDialogViewModel();
+            SentCommand = new MaterialAdditionalDialogViewModel();
 
             //XXX:原因がわかりました。これ、ウィンドウが再生成されるたびに実行されるから、
             //そして、追加先のクラスはずーっと残ってるから、ウィンドウを開くたびにイベントが追加されるのか……
@@ -75,13 +79,14 @@ namespace MaterialLicenseChecker.Views
 
         private void ClickedRegistrationButton(object sender, RoutedEventArgs e)
         {
-            var Message = new ClickedRegistrationButtonEventMessage(this);
+            var Message = new AddMaterialDataToFile();
 
             Message.MaterialName = MaterialName.Text;
             Message.MaterialFilePath = MaterialFilePath.Text;
             Message.MaterialSiteName = MaterialSiteName.Text;
 
-            MaterialAdditionalDialogEventMessenger.Default.CallEvent(Message);
+            SentCommand.CommandViewModelTo(Message);
+            
         }
     }
 }
