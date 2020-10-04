@@ -82,6 +82,8 @@ namespace MaterialLicenseChecker.Views
                 case AddMaterialDataToFile.PROCESS_SUCCESSFUL:
                     MessageBox.Show("登録が完了しました。", "登録完了", MessageBoxButton.OK, MessageBoxImage.Information);
                     MainView ins = (MainView)Owner;
+                    //TODO:ここらへんの、インタフェースの名前をどのように指定するか
+                    //を考えなくてはならない。数が多くなると、区別できなくなる。
                     IReceiverCommandFromViewToView instance = ins;
                     instance.CommandViewModelTo(new UpdateMaterialListBox());
                     Close();

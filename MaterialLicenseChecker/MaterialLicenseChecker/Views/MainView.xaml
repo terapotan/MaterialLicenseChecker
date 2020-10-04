@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MaterialLicenseChecker.Views"
         mc:Ignorable="d"
-        Title="素材ライセンスチェッカー（試作版）" Height="300" Width="500"
+        Title="素材ライセンスチェッカー（開発中）" Height="300" Width="500"
         WindowStartupLocation="CenterScreen" Icon=".././EmbeddedResources/Images/WindowIconImage.ico">
 
     <DockPanel> 
