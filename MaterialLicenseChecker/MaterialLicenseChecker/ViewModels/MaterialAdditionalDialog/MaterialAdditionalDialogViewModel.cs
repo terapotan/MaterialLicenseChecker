@@ -16,10 +16,10 @@ namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
     {
        public MaterialAdditionalDialogViewModel()
         {
-            MaterialAdditionalDialogEventMessenger.Default
-                .RegisterAction<ClickedMaterialSiteButtonEventMessage>(this, ClickedMaterialButtonEvent);
-            MaterialAdditionalDialogEventMessenger.Default
-                .RegisterAction<ClickedRegistrationButtonEventMessage>(this,ClickedregistrationButtonEvent);
+            //MaterialAdditionalDialogEventMessenger.Default
+            //    .RegisterAction<ClickedMaterialSiteButtonEventMessage>(this, ClickedMaterialButtonEvent);
+            //MaterialAdditionalDialogEventMessenger.Default
+            //    .RegisterAction<ClickedRegistrationButtonEventMessage>(this,ClickedregistrationButtonEvent);
         }
 
 

@@ -37,8 +37,8 @@ namespace MaterialLicenseChecker.Views
             //XXX:原因がわかりました。これ、ウィンドウが再生成されるたびに実行されるから、
             //そして、追加先のクラスはずーっと残ってるから、ウィンドウを開くたびにイベントが追加されるのか……
             //前のバグもそれが原因で起こったみたいですね。これで、ウィンドウが複数開かれるんだ。
-            MaterialAdditionalDialogMessenger.Default.RegisterAction<SetValueFilePathTextBoxMessage>(this, SetValueFilePathTextBoxEvent);
-            MaterialAdditionalDialogMessenger.Default.RegisterAction<RegistrationProcessingCompleteMessage>(this, RegistrationProcessingComplete);
+            //MaterialAdditionalDialogMessenger.Default.RegisterAction<SetValueFilePathTextBoxMessage>(this, SetValueFilePathTextBoxEvent);
+            //MaterialAdditionalDialogMessenger.Default.RegisterAction<RegistrationProcessingCompleteMessage>(this, RegistrationProcessingComplete);
         }
 
         private void SetValueFilePathTextBoxEvent(SetValueFilePathTextBoxMessage msg)
