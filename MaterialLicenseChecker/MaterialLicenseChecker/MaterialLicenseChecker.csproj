@@ -92,13 +92,9 @@
     <Compile Include="VAndVMCommons\MainViewModel\Message\GenerateNewDialogMessage.cs" />
     <Compile Include="VAndVMCommons\MainViewModel\Message\MainVewModelMessage.cs" />
     <Compile Include="VAndVMCommons\MainViewModel\Message\UpdatingMaterialListBoxMessage.cs" />
-    <Compile Include="VAndVMCommons\MaterialAdditionalDialog\EventMessage\ClickedFileLocationButtonEventMessage.cs" />
-    <Compile Include="VAndVMCommons\MaterialAdditionalDialog\EventMessage\ClickedMaterialSiteButtonEventMessage.cs" />
-    <Compile Include="VAndVMCommons\MaterialAdditionalDialog\EventMessage\ClickedRegistrationButtonEventMessage.cs" />
-    <Compile Include="VAndVMCommons\MaterialAdditionalDialog\EventMessage\RegistrationProcessingCompleteMessage.cs" />
-    <Compile Include="VAndVMCommons\MaterialAdditionalDialog\EventMessage\MaterialAdditionalDialogEventMessenger.cs" />
-    <Compile Include="VAndVMCommons\MaterialAdditionalDialog\Message\MaterialAdditionalDialogMessenger.cs" />
-    <Compile Include="VAndVMCommons\MaterialAdditionalDialog\Message\SetValueFilePathTextBoxMessage.cs" />
+    <Compile Include="ViewModels\MaterialAdditionalDialog\AddMaterialDataToFile.cs" />
+    <Compile Include="ViewModels\MaterialAdditionalDialog\FetchMaterialSiteLIst.cs" />
+    <Compile Include="ViewModels\MaterialAdditionalDialog\IReceiverCommandFromView.cs" />
     <Compile Include="VAndVMCommons\MaterialSiteAdditionalDialog\EventMessage\ClickedRegistrationButtonEventMessage.cs" />
     <Compile Include="VAndVMCommons\MaterialSiteAdditionalDialog\EventMessage\MaterialSiteAdditionalDialogEventMessenger.cs" />
     <Compile Include="ViewModels\ExportLicenseText\ExportLicenseTextViewModel.cs" />
@@ -111,12 +107,14 @@
     <Compile Include="Views\AboutThisSoftware.xaml.cs">
       <DependentUpon>AboutThisSoftware.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CMainView\UpdateMaterialListBox.cs" />
     <Compile Include="Views\ExportLlicenseText.xaml.cs">
       <DependentUpon>ExportLlicenseText.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CMainView\IReceiverCommandFromViewToView.cs" />
     <Compile Include="Views\MaterialAdditionalDialog.xaml.cs">
       <DependentUpon>MaterialAdditionalDialog.xaml</DependentUpon>
     </Compile>
@@ -186,5 +184,6 @@
   <ItemGroup>
     <Resource Include="EmbeddedResources\Images\WindowIconImage.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
