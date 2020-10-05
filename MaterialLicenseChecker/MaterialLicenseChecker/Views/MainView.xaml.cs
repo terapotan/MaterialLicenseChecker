@@ -17,14 +17,14 @@ using System.Windows.Shapes;
 //たぶんそのほうがいいのでは?
 using MaterialLicenseChecker.VAndVMCommons.MainViewModel;
 using MaterialLicenseChecker.Models;
-using MaterialLicenseChecker.Views;
+using MaterialLicenseChecker.Views.CMainView;
 
 namespace MaterialLicenseChecker.Views
 {
     /// <summary>
     /// MainView.xaml の相互作用ロジック
     /// </summary>
-    public partial class MainView : Window
+    public partial class MainView : Window,IReceiverCommandFromViewToView
     {
         public MainView()
         {
@@ -33,13 +33,13 @@ namespace MaterialLicenseChecker.Views
             MainViewModelMessanger.Default.RegisterAction<GenerateNewDialogMessage>(this, GenerateNewDialog);
             MainViewModelMessanger.Default.RegisterAction<UpdatingMaterialListBoxMessage>(this, UpdatingMaterialListBoxMessage);
             MainViewModelMessanger.Default.RegisterAction<GetMaterialListMessage>(this, GetMaterialList);
-            UpdatingMaterialListBox();
+            UpdateMaterialListBox();
         }
 
 
         private void UpdatingMaterialListBoxMessage(UpdatingMaterialListBoxMessage msg)
         {
-            UpdatingMaterialListBox();
+            UpdateMaterialListBox();
         }
 
 
@@ -161,7 +161,12 @@ namespace MaterialLicenseChecker.Views
 
 
         //以下それ以外の関数
-        private void UpdatingMaterialListBox()
+        void IReceiverCommandFromViewToView.CommandViewModelTo(UpdateMaterialListBox msg)
+        {
+            UpdateMaterialListBox();
+        }
+
+        private void UpdateMaterialListBox()
         {
             ClassStoreMaterialList FileInstance = new ClassStoreMaterialList();
             var MaterialNameList = FileInstance.GetMaterialNameList();
