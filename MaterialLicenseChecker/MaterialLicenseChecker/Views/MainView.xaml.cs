@@ -17,15 +17,15 @@ using System.Windows.Shapes;
 //たぶんそのほうがいいのでは?
 using MaterialLicenseChecker.VAndVMCommons.MainViewModel;
 using MaterialLicenseChecker.Models;
-using MaterialLicenseChecker.Views.CMainView;
 
 namespace MaterialLicenseChecker.Views
 {
     /// <summary>
     /// MainView.xaml の相互作用ロジック
     /// </summary>
-    public partial class MainView : Window,IReceiverCommandFromViewToView
+    public partial class MainView : Window, CMainView.IReceiverCommandFromViewToView
     {
+        //ここはViewsの名前空間の中であるから、IRCFVTVインタフェースにつけるのは、CMainViewだけでよい。
         public MainView()
         {
             InitializeComponent();
@@ -161,7 +161,7 @@ namespace MaterialLicenseChecker.Views
 
 
         //以下それ以外の関数
-        void IReceiverCommandFromViewToView.CommandViewModelTo(UpdateMaterialListBox msg)
+        void CMainView.IReceiverCommandFromViewToView.CommandViewModelTo(CMainView.UpdateMaterialListBox msg)
         {
             UpdateMaterialListBox();
         }
