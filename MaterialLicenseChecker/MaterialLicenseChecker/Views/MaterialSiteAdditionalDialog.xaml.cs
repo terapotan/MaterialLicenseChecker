@@ -40,6 +40,7 @@ namespace MaterialLicenseChecker.Views
             MaterialSiteAdditionalDialogEventMessenger.Default.CallEvent(msg);
 
             //FIXME:if-else文が多い気がするが……何とか削ることは出来ないか?
+            //XXX:ここらへんの入力チェック処理はすべてModel側へ移行する。以上。
 
             //FIMXE:ユーザーのことを考えるのであれば、どの項目が未入力なのか教えてあげたほうがいいだろう。
             if (msg.ValueInputCheckResult == ClickedRegistrationButtonEventMessage.VALUE_EMPTY)
