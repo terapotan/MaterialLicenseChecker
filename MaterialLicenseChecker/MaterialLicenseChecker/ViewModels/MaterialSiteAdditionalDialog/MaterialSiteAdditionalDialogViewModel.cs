@@ -8,7 +8,7 @@ using MaterialLicenseChecker.VAndVMCommons.MaterialSiteAdditionalDialog;
 
 namespace MaterialLicenseChecker.ViewModels.MaterialSiteAdditionalDialog
 {
-    class MaterialSiteAdditionalDialogViewModel
+    class MaterialSiteAdditionalDialogViewModel : IReceiverCommandFromView
     {
         ClassStoreLicenseText XMLFileInstance;
         public MaterialSiteAdditionalDialogViewModel()
@@ -18,6 +18,11 @@ namespace MaterialLicenseChecker.ViewModels.MaterialSiteAdditionalDialog
                     (this, ClickedRegistrationButtonEvent);
 
             XMLFileInstance = new ClassStoreLicenseText();
+        }
+
+        public void CommandViewModelTo(RegisterMaterialSite cmd)
+        {
+            throw new NotImplementedException();
         }
 
         private void ClickedRegistrationButtonEvent(ClickedRegistrationButtonEventMessage msg)
@@ -40,5 +45,7 @@ namespace MaterialLicenseChecker.ViewModels.MaterialSiteAdditionalDialog
             msg.ValueInputCheckResult = ClickedRegistrationButtonEventMessage.ACCEPTED_VALUE;
             XMLFileInstance.AddLicenseText(msg.InputSiteName, msg.InputLicenseText);
         }
+
+
     }
 }

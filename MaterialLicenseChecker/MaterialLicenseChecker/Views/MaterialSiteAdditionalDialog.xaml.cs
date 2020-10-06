@@ -12,7 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MaterialLicenseChecker.VAndVMCommons.MaterialSiteAdditionalDialog;
-using MaterialLicenseChecker.ViewModels.MaterialSiteAdditionalDialog;
+using MaterialSite = MaterialLicenseChecker.ViewModels.MaterialSiteAdditionalDialog;
+
 
 namespace MaterialLicenseChecker.Views
 {
@@ -21,11 +22,13 @@ namespace MaterialLicenseChecker.Views
     /// </summary>
     public partial class MaterialSiteAdditionalScreen : Window
     {
+        private MaterialSite.IReceiverCommandFromView receiverCommand;
+
         public MaterialSiteAdditionalScreen()
         {
             InitializeComponent();
             //ViewModelの生成(Viewから生成するのはどうなんだ?)
-            var instance = new MaterialSiteAdditionalDialogViewModel();
+            receiverCommand = new MaterialSite.MaterialSiteAdditionalDialogViewModel();
         }
 
         private void ClickedRegistrationButton(object sender, RoutedEventArgs e)
