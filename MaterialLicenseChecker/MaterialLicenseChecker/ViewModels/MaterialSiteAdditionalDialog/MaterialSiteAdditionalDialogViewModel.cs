@@ -25,7 +25,7 @@ namespace MaterialLicenseChecker.ViewModels.MaterialSiteAdditionalDialog
             //FIXME:こういう入力チェックの処理を何か画一的にまとめる方法はないものか
             if (cmd.InputSiteName.Equals("") || cmd.InputLicenseText.Equals(""))
             {
-                cmd.ValueInputCheckResult = ClickedRegistrationButtonEventMessage.VALUE_EMPTY;
+                cmd.ValueInputCheckResult = RegisterMaterialSite.VALUE_EMPTY;
                 return;
             }
 
@@ -33,11 +33,11 @@ namespace MaterialLicenseChecker.ViewModels.MaterialSiteAdditionalDialog
 
             if (LicenseTextsInstance.MaterialSiteExists(cmd.InputSiteName))
             {
-                cmd.ValueInputCheckResult = ClickedRegistrationButtonEventMessage.REGISTER_EXISTS_MATERALSITE;
+                cmd.ValueInputCheckResult = RegisterMaterialSite.REGISTER_EXISTS_MATERALSITE;
                 return;
             }
 
-            cmd.ValueInputCheckResult = ClickedRegistrationButtonEventMessage.ACCEPTED_VALUE;
+            cmd.ValueInputCheckResult = RegisterMaterialSite.ACCEPTED_VALUE;
             XMLFileInstance.AddLicenseText(cmd.InputSiteName, cmd.InputLicenseText);
         }
 
