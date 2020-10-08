@@ -39,7 +39,8 @@ namespace MaterialLicenseChecker.Views
 
             receiverCommand.CommandViewModelTo(cmd);
 
-            //FIXME:if-else文が多い気がするが……何とか削ることは出来ないか?
+            //FIXME:こうするよりも、値と処理(デリゲート)のペアを何らかの形で置いて、関数で実行する形にしたほうがいいだろう。
+            //もし今後再度リファクタリングの機会があるならば、そうしたほうがいい
 
             //FIMXE:ユーザーのことを考えるのであれば、どの項目が未入力なのか教えてあげたほうがいいだろう。
             if (cmd.ValueInputCheckResult == MaterialSite.RegisterMaterialSite.VALUE_EMPTY)
