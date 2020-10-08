@@ -40,16 +40,15 @@ namespace MaterialLicenseChecker.Views
             receiverCommand.CommandViewModelTo(cmd);
 
             //FIXME:if-else文が多い気がするが……何とか削ることは出来ないか?
-            //XXX:ここらへんの入力チェック処理はすべてModel側へ移行する。以上。
 
             //FIMXE:ユーザーのことを考えるのであれば、どの項目が未入力なのか教えてあげたほうがいいだろう。
-            if (cmd.ValueInputCheckResult == ClickedRegistrationButtonEventMessage.VALUE_EMPTY)
+            if (cmd.ValueInputCheckResult == MaterialSite.RegisterMaterialSite.VALUE_EMPTY)
             {
                 MessageBox.Show("まだ入力されていない項目があります。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
-            if(cmd.ValueInputCheckResult == ClickedRegistrationButtonEventMessage.REGISTER_EXISTS_MATERALSITE)
+            if(cmd.ValueInputCheckResult == MaterialSite.RegisterMaterialSite.REGISTER_EXISTS_MATERALSITE)
             {
                 MessageBox.Show("指定された素材配布サイトは既に存在します。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
