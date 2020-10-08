@@ -38,7 +38,14 @@ namespace MaterialLicenseChecker.ViewModels.MaterialSiteAdditionalDialog
             }
 
             cmd.ValueInputCheckResult = RegisterMaterialSite.ACCEPTED_VALUE;
-            XMLFileInstance.AddLicenseText(cmd.InputSiteName, cmd.InputLicenseText);
+            try
+            {
+                XMLFileInstance.AddLicenseText(cmd.InputSiteName, cmd.InputLicenseText);
+            }
+            catch (ArgumentException e)
+            {
+                //仮置き
+            }
         }
 
         private void ClickedRegistrationButtonEvent(ClickedRegistrationButtonEventMessage msg)
