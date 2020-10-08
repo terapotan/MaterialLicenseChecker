@@ -95,8 +95,6 @@
     <Compile Include="ViewModels\MaterialAdditionalDialog\AddMaterialDataToFile.cs" />
     <Compile Include="ViewModels\MaterialAdditionalDialog\FetchMaterialSiteLIst.cs" />
     <Compile Include="ViewModels\MaterialAdditionalDialog\IReceiverCommandFromView.cs" />
-    <Compile Include="VAndVMCommons\MaterialSiteAdditionalDialog\EventMessage\ClickedRegistrationButtonEventMessage.cs" />
-    <Compile Include="VAndVMCommons\MaterialSiteAdditionalDialog\EventMessage\MaterialSiteAdditionalDialogEventMessenger.cs" />
     <Compile Include="ViewModels\ExportLicenseText\ExportLicenseTextViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel\MainViewModel.cs" />
     <Compile Include="VAndVMCommons\MainViewModel\EventMessage\ClickedMaterialSiteMenuEventMessage.cs" />
