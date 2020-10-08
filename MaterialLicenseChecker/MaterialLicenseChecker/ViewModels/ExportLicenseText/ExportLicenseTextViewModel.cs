@@ -10,7 +10,7 @@ using MaterialLicenseChecker.Models;
 
 namespace MaterialLicenseChecker.ViewModels.ExportLicenseText
 {
-    class ExportLicenseTextViewModel
+    class ExportLicenseTextViewModel : IReceiverCommandFromView
     {
         public ExportLicenseTextViewModel()
         {
@@ -18,6 +18,37 @@ namespace MaterialLicenseChecker.ViewModels.ExportLicenseText
                 .RegisterAction<ClickedExportLicenseTextEventMessage>(this, ClickedExportLicenseTextEvent);
         }
 
+        public void CommandViewModelTo(ExportLicenseText cmd)
+        {
+            ExportingLicenseText Instance = new ExportingLicenseText(cmd.ExportedLicenseTextFilePath);
+            ClassStoreLicenseText LicenseTextInstance = new ClassStoreLicenseText();
+            ClassStoreMaterialList MaterialList = new ClassStoreMaterialList();
+            GetMaterialListMessage MaterialListMessage = new GetMaterialListMessage(this);
+
+            MainViewModelMessanger.Default.ExecuteAction(this, MaterialListMessage);
+
+            var ConvertedInSiteName = new List<string>();
+
+            //素材名をサイト名に変換
+            foreach (var MaterialName in MaterialListMessage.MateiralNameList)
+            {
+                ConvertedInSiteName.Add(MaterialList.FetchMaterialSiteGivenMaterialName(MaterialName));
+            }
+
+            IEnumerable<string> DistinctedResult = ConvertedInSiteName.Distinct();
+
+
+            var list = LicenseTextInstance.GetLicenseTextLists(DistinctedResult);
+
+            string strs = "";
+            foreach (var str in list)
+            {
+                strs += (str + '\n');
+            }
+
+            Instance.WriteLicenseTextFile(strs);
+
+        }
 
         private void ClickedExportLicenseTextEvent(ClickedExportLicenseTextEventMessage msg)
         {

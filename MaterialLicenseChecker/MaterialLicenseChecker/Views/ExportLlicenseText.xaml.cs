@@ -23,10 +23,12 @@ namespace MaterialLicenseChecker.Views
     /// </summary>
     public partial class ExportLlicenseText : Window
     {
+        private IReceiverCommandFromView receiverCommand;
+        
         public ExportLlicenseText()
         {
             InitializeComponent();
-            _ = new ExportLicenseTextViewModel();
+            receiverCommand = new ExportLicenseTextViewModel();
         }
 
         private void InputPathButton(object sender, RoutedEventArgs e)
@@ -56,9 +58,9 @@ namespace MaterialLicenseChecker.Views
                 return;
             }
 
-            var msg = new ClickedExportLicenseTextEventMessage(this);
-            msg.ExportedLicenseTextFilePath = ExportedLicenseTextFilePath.Text;
-            ExportLicenseTextEventMessenger.Default.CallEvent(msg);
+            var cmd = new ExportLicenseText();
+            cmd.ExportedLicenseTextFilePath = ExportedLicenseTextFilePath.Text;
+            receiverCommand.CommandViewModelTo(cmd);
             MessageBox.Show("出力が完了しました。", "出力完了",MessageBoxButton.OK,MessageBoxImage.Information); ;
             Close();
         }
