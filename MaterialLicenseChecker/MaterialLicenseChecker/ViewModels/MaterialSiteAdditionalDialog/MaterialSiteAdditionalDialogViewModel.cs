@@ -22,21 +22,6 @@ namespace MaterialLicenseChecker.ViewModels.MaterialSiteAdditionalDialog
 
         public void CommandViewModelTo(RegisterMaterialSite cmd)
         {
-            //FIXME:こういう入力チェックの処理を何か画一的にまとめる方法はないものか
-            if (cmd.InputSiteName.Equals("") || cmd.InputLicenseText.Equals(""))
-            {
-                cmd.ValueInputCheckResult = RegisterMaterialSite.VALUE_EMPTY;
-                return;
-            }
-
-            var LicenseTextsInstance = new ClassStoreLicenseText();
-
-            if (LicenseTextsInstance.MaterialSiteExists(cmd.InputSiteName))
-            {
-                cmd.ValueInputCheckResult = RegisterMaterialSite.REGISTER_EXISTS_MATERALSITE;
-                return;
-            }
-
             cmd.ValueInputCheckResult = RegisterMaterialSite.ACCEPTED_VALUE;
             try
             {
@@ -44,9 +29,25 @@ namespace MaterialLicenseChecker.ViewModels.MaterialSiteAdditionalDialog
             }
             catch (ArgumentException e)
             {
-                //仮置き
+                cmd.ValueInputCheckResult = ConvertAddLicenseTextFuncFromMsgViewToMsg(int.Parse(e.Message));
             }
         }
+
+        private int ConvertAddLicenseTextFuncFromMsgViewToMsg(int AddLicenseTextFuncFromMsg)
+        {
+            return AddLicenseTextFuncFromMsg;
+        }
+
+
+
+
+
+
+
+
+
+
+
 
         private void ClickedRegistrationButtonEvent(ClickedRegistrationButtonEventMessage msg)
         {
