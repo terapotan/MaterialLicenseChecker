@@ -22,7 +22,23 @@ namespace MaterialLicenseChecker.ViewModels.MaterialSiteAdditionalDialog
 
         public void CommandViewModelTo(RegisterMaterialSite cmd)
         {
-            throw new NotImplementedException();
+            //FIXME:こういう入力チェックの処理を何か画一的にまとめる方法はないものか
+            if (cmd.InputSiteName.Equals("") || cmd.InputLicenseText.Equals(""))
+            {
+                cmd.ValueInputCheckResult = ClickedRegistrationButtonEventMessage.VALUE_EMPTY;
+                return;
+            }
+
+            var LicenseTextsInstance = new ClassStoreLicenseText();
+
+            if (LicenseTextsInstance.MaterialSiteExists(cmd.InputSiteName))
+            {
+                cmd.ValueInputCheckResult = ClickedRegistrationButtonEventMessage.REGISTER_EXISTS_MATERALSITE;
+                return;
+            }
+
+            cmd.ValueInputCheckResult = ClickedRegistrationButtonEventMessage.ACCEPTED_VALUE;
+            XMLFileInstance.AddLicenseText(cmd.InputSiteName, cmd.InputLicenseText);
         }
 
         private void ClickedRegistrationButtonEvent(ClickedRegistrationButtonEventMessage msg)
