@@ -96,15 +96,21 @@ namespace MaterialLicenseChecker.Views
         //素材配布サイト追加クリック
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            MainViewModelEventMessenger.Default
-                .CallEvent(new ClickedMaterialSiteMenuEventMessage(this));
+            Window win = new MaterialSiteAdditionalScreen();
+            win.Owner = GetWindow(this);
+            win.ShowDialog();
+            //MainViewModelEventMessenger.Default
+            //    .CallEvent(new ClickedMaterialSiteMenuEventMessage(this));
         }
 
         //素材追加クリック
         private void ClikedMaterialAdditionalMenuItem(object sender, RoutedEventArgs e)
         {
-            MainViewModelEventMessenger.Default
-            .CallEvent(new ClickedMaterialAdditionalMenuEventMessage(this));
+            Window win = new MaterialAdditionalDialog();
+            win.Owner = GetWindow(this);
+            win.ShowDialog();
+            //MainViewModelEventMessenger.Default
+            //.CallEvent(new ClickedMaterialAdditionalMenuEventMessage(this));
         }
 
         //素材削除クリック
