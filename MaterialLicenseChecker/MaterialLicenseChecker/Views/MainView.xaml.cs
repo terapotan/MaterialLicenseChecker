@@ -99,8 +99,6 @@ namespace MaterialLicenseChecker.Views
             Window win = new MaterialSiteAdditionalScreen();
             win.Owner = GetWindow(this);
             win.ShowDialog();
-            //MainViewModelEventMessenger.Default
-            //    .CallEvent(new ClickedMaterialSiteMenuEventMessage(this));
         }
 
         //素材追加クリック
@@ -109,10 +107,8 @@ namespace MaterialLicenseChecker.Views
             Window win = new MaterialAdditionalDialog();
             win.Owner = GetWindow(this);
             win.ShowDialog();
-            //MainViewModelEventMessenger.Default
-            //.CallEvent(new ClickedMaterialAdditionalMenuEventMessage(this));
         }
-
+          
         //素材削除クリック
         private void ClickedRemoveMaterialFromListButton(object sender, RoutedEventArgs e)
         {
