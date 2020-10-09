@@ -168,7 +168,12 @@ namespace MaterialLicenseChecker.Views
 
         void CMainView.IReceiverCommandFromView.CommandViewTo(CMainView.GetMaterialList cmd)
         {
-            throw new NotImplementedException();
+            var MaterialListItems = MaterialListBox.Items;
+
+            foreach (ListBoxItem OneListItem in MaterialListItems)
+            {
+                cmd.MateiralNameList.Add(OneListItem.Content as string);
+            }
         }
 
 

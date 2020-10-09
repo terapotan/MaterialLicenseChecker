@@ -8,5 +8,11 @@ namespace MaterialLicenseChecker.Views.CMainView
 {
     class GetMaterialList
     {
+        public GetMaterialList()
+        {
+            MateiralNameList = new List<string>();
+        }
+
+        public List<string> MateiralNameList;
     }
 }

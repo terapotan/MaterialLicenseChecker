@@ -64,6 +64,9 @@ namespace MaterialLicenseChecker.Views
 
             CMainView.IReceiverCommandFromView ReceiverOfMainView = (MainView)(Owner);
 
+            CMainView.GetMaterialList MaterialList = new CMainView.GetMaterialList();
+
+            ReceiverOfMainView.CommandViewTo(MaterialList);
              
             MessageBox.Show("出力が完了しました。", "出力完了",MessageBoxButton.OK,MessageBoxImage.Information); ;
             Close();
