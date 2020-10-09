@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MaterialLicenseChecker.VAndVMCommons.ExportLicenseText;
-using MaterialLicenseChecker.VAndVMCommons.MainViewModel;
 using System.Windows;
 using MaterialLicenseChecker.Models;
 
@@ -14,8 +12,6 @@ namespace MaterialLicenseChecker.ViewModels.ExportLicenseText
     {
         public ExportLicenseTextViewModel()
         {
-            //ExportLicenseTextEventMessenger.Default
-            //    .RegisterAction<ClickedExportLicenseTextEventMessage>(this, ClickedExportLicenseTextEvent);
         }
 
         public void CommandViewModelTo(ExportLicenseText cmd)
