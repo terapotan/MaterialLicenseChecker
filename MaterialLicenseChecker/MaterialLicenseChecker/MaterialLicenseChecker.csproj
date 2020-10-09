@@ -109,6 +109,7 @@
     <Compile Include="Views\AboutThisSoftware.xaml.cs">
       <DependentUpon>AboutThisSoftware.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CMainView\GetMaterialList.cs" />
     <Compile Include="Views\CMainView\UpdateMaterialListBox.cs" />
     <Compile Include="Views\ExportLlicenseText.xaml.cs">
       <DependentUpon>ExportLlicenseText.xaml</DependentUpon>
@@ -116,7 +117,7 @@
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CMainView\IReceiverCommandFromViewToView.cs" />
+    <Compile Include="Views\CMainView\IReceiverCommandFromView.cs" />
     <Compile Include="Views\MaterialAdditionalDialog.xaml.cs">
       <DependentUpon>MaterialAdditionalDialog.xaml</DependentUpon>
     </Compile>

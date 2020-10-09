@@ -23,7 +23,7 @@ namespace MaterialLicenseChecker.Views
     /// <summary>
     /// MainView.xaml の相互作用ロジック
     /// </summary>
-    public partial class MainView : Window, CMainView.IReceiverCommandFromViewToView
+    public partial class MainView : Window, CMainView.IReceiverCommandFromView
     {
         //ここはViewsの名前空間の中であるから、IRCFVTVインタフェースにつけるのは、CMainViewだけでよい。
         public MainView()
@@ -161,10 +161,16 @@ namespace MaterialLicenseChecker.Views
 
 
         //以下それ以外の関数
-        void CMainView.IReceiverCommandFromViewToView.CommandViewModelTo(CMainView.UpdateMaterialListBox msg)
+        void CMainView.IReceiverCommandFromView.CommandViewTo(CMainView.UpdateMaterialListBox cmd)
         {
             UpdateMaterialListBox();
         }
+
+        void CMainView.IReceiverCommandFromView.CommandViewTo(CMainView.GetMaterialList cmd)
+        {
+            throw new NotImplementedException();
+        }
+
 
         private void UpdateMaterialListBox()
         {

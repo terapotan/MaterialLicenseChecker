@@ -79,11 +79,6 @@ namespace MaterialLicenseChecker.ViewModels.ExportLicenseText
             }
 
             Instance.WriteLicenseTextFile(strs);
-
-
-       
-            
-
         }
     }
 }

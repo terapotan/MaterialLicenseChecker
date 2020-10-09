@@ -23,7 +23,7 @@ namespace MaterialLicenseChecker.Views
     /// </summary>
     public partial class MaterialAdditionalDialog : Window
     {
-        private IReceiverCommandFromView SentCommand;
+        private ViewModels.MaterialAdditionalDialog.IReceiverCommandFromView SentCommand;
 
         public MaterialAdditionalDialog()
         {
@@ -84,8 +84,8 @@ namespace MaterialLicenseChecker.Views
                     MainView ins = (MainView)Owner;
                     //TODO:ここらへんの、インタフェースの名前をどのように指定するか
                     //を考えなくてはならない。数が多くなると、区別できなくなる。
-                    IReceiverCommandFromViewToView instance = ins;
-                    instance.CommandViewModelTo(new UpdateMaterialListBox());
+                    CMainView.IReceiverCommandFromView instance = ins;
+                    instance.CommandViewTo(new UpdateMaterialListBox());
                     Close();
                     break;
 

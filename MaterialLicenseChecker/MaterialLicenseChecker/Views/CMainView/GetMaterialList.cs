@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace MaterialLicenseChecker.Views.CMainView
 {
-    interface IReceiverCommandFromViewToView
+    class GetMaterialList
     {
-        void CommandViewModelTo(UpdateMaterialListBox msg);
     }
 }
