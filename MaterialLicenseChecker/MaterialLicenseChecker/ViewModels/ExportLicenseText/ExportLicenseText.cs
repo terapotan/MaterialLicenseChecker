@@ -8,6 +8,11 @@ namespace MaterialLicenseChecker.ViewModels.ExportLicenseText
 {
     public class ExportLicenseText
     {
+        public ExportLicenseText()
+        {
+            MateiralNameList = new List<string>();
+        }
         public string ExportedLicenseTextFilePath = "";
+        public List<string> MateiralNameList;
     }
 }

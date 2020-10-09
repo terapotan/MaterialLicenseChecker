@@ -23,14 +23,14 @@ namespace MaterialLicenseChecker.ViewModels.ExportLicenseText
             ExportingLicenseText Instance = new ExportingLicenseText(cmd.ExportedLicenseTextFilePath);
             ClassStoreLicenseText LicenseTextInstance = new ClassStoreLicenseText();
             ClassStoreMaterialList MaterialList = new ClassStoreMaterialList();
-            GetMaterialListMessage MaterialListMessage = new GetMaterialListMessage(this);
+            //GetMaterialListMessage MaterialListMessage = new GetMaterialListMessage(this);
 
-            MainViewModelMessanger.Default.ExecuteAction(this, MaterialListMessage);
+            //MainViewModelMessanger.Default.ExecuteAction(this, MaterialListMessage);
 
             var ConvertedInSiteName = new List<string>();
 
             //素材名をサイト名に変換
-            foreach (var MaterialName in MaterialListMessage.MateiralNameList)
+            foreach (var MaterialName in cmd.MateiralNameList)
             {
                 ConvertedInSiteName.Add(MaterialList.FetchMaterialSiteGivenMaterialName(MaterialName));
             }
