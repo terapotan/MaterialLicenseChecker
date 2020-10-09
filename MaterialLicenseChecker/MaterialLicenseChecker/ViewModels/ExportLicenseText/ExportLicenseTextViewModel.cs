@@ -23,9 +23,6 @@ namespace MaterialLicenseChecker.ViewModels.ExportLicenseText
             ExportingLicenseText Instance = new ExportingLicenseText(cmd.ExportedLicenseTextFilePath);
             ClassStoreLicenseText LicenseTextInstance = new ClassStoreLicenseText();
             ClassStoreMaterialList MaterialList = new ClassStoreMaterialList();
-            //GetMaterialListMessage MaterialListMessage = new GetMaterialListMessage(this);
-
-            //MainViewModelMessanger.Default.ExecuteAction(this, MaterialListMessage);
 
             var ConvertedInSiteName = new List<string>();
 
