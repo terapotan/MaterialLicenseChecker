@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 using MaterialLicenseChecker.ViewModels.ExportLicenseText;
-using MaterialLicenseChecker.VAndVMCommons.ExportLicenseText;
+using CMainView = MaterialLicenseChecker.Views.CMainView;
 using Microsoft.Win32;
 
 namespace MaterialLicenseChecker.Views
@@ -23,12 +23,12 @@ namespace MaterialLicenseChecker.Views
     /// </summary>
     public partial class ExportLlicenseText : Window
     {
-        private IReceiverCommandFromView receiverCommand;
+        private IReceiverCommandFromView RecevierOfViewModel;
         
         public ExportLlicenseText()
         {
             InitializeComponent();
-            receiverCommand = new ExportLicenseTextViewModel();
+            RecevierOfViewModel = new ExportLicenseTextViewModel();
         }
 
         private void InputPathButton(object sender, RoutedEventArgs e)
@@ -60,7 +60,11 @@ namespace MaterialLicenseChecker.Views
 
             var cmd = new ExportLicenseText();
             cmd.ExportedLicenseTextFilePath = ExportedLicenseTextFilePath.Text;
-            receiverCommand.CommandViewModelTo(cmd);
+            RecevierOfViewModel.CommandViewModelTo(cmd);
+
+            CMainView.IReceiverCommandFromView ReceiverOfMainView = (MainView)(Owner);
+
+             
             MessageBox.Show("出力が完了しました。", "出力完了",MessageBoxButton.OK,MessageBoxImage.Information); ;
             Close();
         }
