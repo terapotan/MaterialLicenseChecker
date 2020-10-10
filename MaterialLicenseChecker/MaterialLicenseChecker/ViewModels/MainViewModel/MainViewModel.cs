@@ -16,24 +16,16 @@ namespace MaterialLicenseChecker.ViewModels.MainViewModel
         public MainViewModel()
         {
 
-            MainViewModelEventMessenger.Default.
-                RegisterAction<ClickedRemoveMaterialFromListEventMessage>
-                (this, ClickedRemoveMaterialFromListEvent);
+            //MainViewModelEventMessenger.Default.
+            //    RegisterAction<ClickedRemoveMaterialFromListEventMessage>
+             //   (this, ClickedRemoveMaterialFromListEvent);
         }
 
-
-        private void ClickedRemoveMaterialFromListEvent(ClickedRemoveMaterialFromListEventMessage msg)
-        {
-            var FileInstance = new ClassStoreMaterialList();
-            FileInstance.DeleteMaterialData(msg.ListFromDeletedMaterialName);
-        }
 
         private string MakeDisplayedLicenseText()
         {
             ClassStoreLicenseText ClassStore = new ClassStoreLicenseText();
             List<string> FetchLicenseTextSite = new List<string>();
-
-
 
             return "";
 

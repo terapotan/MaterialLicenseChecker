@@ -32,14 +32,17 @@ namespace MaterialLicenseChecker.Views
         {
             InitializeComponent();
             RecevierOfViewModel = new MainViewModel.MainViewModel();
+            /*
             MainViewModelMessanger.Default.RegisterAction<MainVewModelMessage>(this, ShowMaterilalSiteDialog);
             MainViewModelMessanger.Default.RegisterAction<GenerateNewDialogMessage>(this, GenerateNewDialog);
             MainViewModelMessanger.Default.RegisterAction<UpdatingMaterialListBoxMessage>(this, UpdatingMaterialListBoxMessage);
             MainViewModelMessanger.Default.RegisterAction<GetMaterialListMessage>(this, GetMaterialList);
+            */
             UpdateMaterialListBox();
         }
 
 
+        /*
         private void UpdatingMaterialListBoxMessage(UpdatingMaterialListBoxMessage msg)
         {
             UpdateMaterialListBox();
@@ -54,7 +57,9 @@ namespace MaterialLicenseChecker.Views
             win.ShowDialog();
 
         }
+        */
 
+        /*
         private void GenerateNewDialog(GenerateNewDialogMessage msg)
         {
             //FIXME:今はswitch文で書いているが、何かいい案はないだろうか?
@@ -76,7 +81,9 @@ namespace MaterialLicenseChecker.Views
             win.ShowDialog();
 
         }
+        */
 
+        /*
         private void GetMaterialList(GetMaterialListMessage msg)
         {
 
@@ -90,7 +97,7 @@ namespace MaterialLicenseChecker.Views
 
             
         }
-
+        */
 
 
 
@@ -133,7 +140,6 @@ namespace MaterialLicenseChecker.Views
             cmd.ListFromDeletedMaterialName = (string)(SelectedItem.Content);
 
             RecevierOfViewModel.CommandViewModelTo(cmd);
-            //MainViewModelEventMessenger.Default.CallEvent(msg);
 
             MaterialListBox.Items.Remove(SelectedItem);
 
