@@ -15,7 +15,6 @@ using System.Windows.Shapes;
 //FIXME:大抵というか原則として、ViewとViewModelは一組である。
 //そこで、一組にした名前空間を別に作ってViewsと階層構造にするというのはどうか。
 //たぶんそのほうがいいのでは?
-using MaterialLicenseChecker.VAndVMCommons.MainViewModel;
 using MaterialLicenseChecker.Models;
 using MainViewModel = MaterialLicenseChecker.ViewModels.MainViewModel;
 
@@ -32,72 +31,8 @@ namespace MaterialLicenseChecker.Views
         {
             InitializeComponent();
             RecevierOfViewModel = new MainViewModel.MainViewModel();
-            /*
-            MainViewModelMessanger.Default.RegisterAction<MainVewModelMessage>(this, ShowMaterilalSiteDialog);
-            MainViewModelMessanger.Default.RegisterAction<GenerateNewDialogMessage>(this, GenerateNewDialog);
-            MainViewModelMessanger.Default.RegisterAction<UpdatingMaterialListBoxMessage>(this, UpdatingMaterialListBoxMessage);
-            MainViewModelMessanger.Default.RegisterAction<GetMaterialListMessage>(this, GetMaterialList);
-            */
             UpdateMaterialListBox();
         }
-
-
-        /*
-        private void UpdatingMaterialListBoxMessage(UpdatingMaterialListBoxMessage msg)
-        {
-            UpdateMaterialListBox();
-        }
-
-
-        private void ShowMaterilalSiteDialog(MainVewModelMessage msg)
-        {
-
-            var win = new MaterialSiteAdditionalScreen();
-            win.Owner = GetWindow(this);
-            win.ShowDialog();
-
-        }
-        */
-
-        /*
-        private void GenerateNewDialog(GenerateNewDialogMessage msg)
-        {
-            //FIXME:今はswitch文で書いているが、何かいい案はないだろうか?
-            Window win = null;
-
-            switch (msg.GeneratingDialogNumber)
-            {
-                case GenerateNewDialogMessage.MATERIAL_SITE_WINDOW:
-                    win = new MaterialSiteAdditionalScreen();
-                    break;
-                case GenerateNewDialogMessage.MATERIAL_WINDOW:
-                    win = new MaterialAdditionalDialog();
-                    break;
-                default:
-                    break;
-            }
-
-            win.Owner = GetWindow(this);
-            win.ShowDialog();
-
-        }
-        */
-
-        /*
-        private void GetMaterialList(GetMaterialListMessage msg)
-        {
-
-            var MaterialListItems = MaterialListBox.Items;
-
-            foreach (ListBoxItem OneListItem in MaterialListItems)
-            {
-                msg.MateiralNameList.Add(OneListItem.Content as string);
-            }
-
-
-            
-        }
-        */
 
 
 

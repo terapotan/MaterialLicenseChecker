@@ -15,10 +15,6 @@ namespace MaterialLicenseChecker.ViewModels.MainViewModel
     {
         public MainViewModel()
         {
-
-            //MainViewModelEventMessenger.Default.
-            //    RegisterAction<ClickedRemoveMaterialFromListEventMessage>
-             //   (this, ClickedRemoveMaterialFromListEvent);
         }
 
 
@@ -37,8 +33,11 @@ namespace MaterialLicenseChecker.ViewModels.MainViewModel
             FileInstance.DeleteMaterialData(cmd.ListFromDeletedMaterialName);
         }
 
+        /*
+
         //以下のコードは「getはpublicにしたいが、setはprivateとしたい」目的で書かれている。
         private DelegateCommand _ShowDialogCommand;
+
 
 
         public DelegateCommand ShowDialogCommand
@@ -75,6 +74,7 @@ namespace MaterialLicenseChecker.ViewModels.MainViewModel
                 return _ShowMaterialSiteAdditionalDialog;
             }
         }
+        */
 
     }
 }
