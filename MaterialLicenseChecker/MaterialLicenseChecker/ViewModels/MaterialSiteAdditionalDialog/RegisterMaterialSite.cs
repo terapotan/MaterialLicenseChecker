@@ -4,15 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MaterialLicenseChecker.VAndVMCommons.MaterialSiteAdditionalDialog
+namespace MaterialLicenseChecker.ViewModels.MaterialSiteAdditionalDialog
 {
-    class ClickedRegistrationButtonEventMessage: BaseEventMessage
+    public class RegisterMaterialSite
     {
-        public ClickedRegistrationButtonEventMessage(object sender) : base(sender)
-        {
-
-        }
-
         public string InputSiteName = "";
         public string InputLicenseText = "";
 

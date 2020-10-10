@@ -17,15 +17,15 @@ using System.Windows.Shapes;
 //たぶんそのほうがいいのでは?
 using MaterialLicenseChecker.VAndVMCommons.MainViewModel;
 using MaterialLicenseChecker.Models;
-using MaterialLicenseChecker.Views.CMainView;
 
 namespace MaterialLicenseChecker.Views
 {
     /// <summary>
     /// MainView.xaml の相互作用ロジック
     /// </summary>
-    public partial class MainView : Window,IReceiverCommandFromViewToView
+    public partial class MainView : Window, CMainView.IReceiverCommandFromView
     {
+        //ここはViewsの名前空間の中であるから、IRCFVTVインタフェースにつけるのは、CMainViewだけでよい。
         public MainView()
         {
             InitializeComponent();
@@ -96,17 +96,19 @@ namespace MaterialLicenseChecker.Views
         //素材配布サイト追加クリック
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            MainViewModelEventMessenger.Default
-                .CallEvent(new ClickedMaterialSiteMenuEventMessage(this));
+            Window win = new MaterialSiteAdditionalScreen();
+            win.Owner = GetWindow(this);
+            win.ShowDialog();
         }
 
         //素材追加クリック
         private void ClikedMaterialAdditionalMenuItem(object sender, RoutedEventArgs e)
         {
-            MainViewModelEventMessenger.Default
-            .CallEvent(new ClickedMaterialAdditionalMenuEventMessage(this));
+            Window win = new MaterialAdditionalDialog();
+            win.Owner = GetWindow(this);
+            win.ShowDialog();
         }
-
+          
         //素材削除クリック
         private void ClickedRemoveMaterialFromListButton(object sender, RoutedEventArgs e)
         {
@@ -161,10 +163,21 @@ namespace MaterialLicenseChecker.Views
 
 
         //以下それ以外の関数
-        void IReceiverCommandFromViewToView.CommandViewModelTo(UpdateMaterialListBox msg)
+        void CMainView.IReceiverCommandFromView.CommandViewTo(CMainView.UpdateMaterialListBox cmd)
         {
             UpdateMaterialListBox();
         }
+
+        void CMainView.IReceiverCommandFromView.CommandViewTo(CMainView.GetMaterialList cmd)
+        {
+            var MaterialListItems = MaterialListBox.Items;
+
+            foreach (ListBoxItem OneListItem in MaterialListItems)
+            {
+                cmd.MateiralNameList.Add(OneListItem.Content as string);
+            }
+        }
+
 
         private void UpdateMaterialListBox()
         {
