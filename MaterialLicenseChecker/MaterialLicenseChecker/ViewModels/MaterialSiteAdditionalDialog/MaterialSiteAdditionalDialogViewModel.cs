@@ -4,41 +4,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MaterialLicenseChecker.Models;
-using MaterialLicenseChecker.VAndVMCommons.MaterialSiteAdditionalDialog;
 
 namespace MaterialLicenseChecker.ViewModels.MaterialSiteAdditionalDialog
 {
-    class MaterialSiteAdditionalDialogViewModel
+    class MaterialSiteAdditionalDialogViewModel : IReceiverCommandFromView
     {
         ClassStoreLicenseText XMLFileInstance;
         public MaterialSiteAdditionalDialogViewModel()
         {
-            MaterialSiteAdditionalDialogEventMessenger.Default.
-                    RegisterAction<ClickedRegistrationButtonEventMessage>
-                    (this, ClickedRegistrationButtonEvent);
-
             XMLFileInstance = new ClassStoreLicenseText();
         }
 
-        private void ClickedRegistrationButtonEvent(ClickedRegistrationButtonEventMessage msg)
+        public void CommandViewModelTo(RegisterMaterialSite cmd)
         {
-            //FIXME:こういう入力チェックの処理を何か画一的にまとめる方法はないものか
-            if(msg.InputSiteName.Equals("") || msg.InputLicenseText.Equals(""))
+            cmd.ValueInputCheckResult = RegisterMaterialSite.ACCEPTED_VALUE;
+            try
             {
-                msg.ValueInputCheckResult = ClickedRegistrationButtonEventMessage.VALUE_EMPTY;
-                return;
+                XMLFileInstance.AddLicenseText(cmd.InputSiteName, cmd.InputLicenseText);
             }
-
-            var LicenseTextsInstance = new ClassStoreLicenseText();
-
-            if (LicenseTextsInstance.MaterialSiteExists(msg.InputSiteName))
+            catch (ArgumentException e)
             {
-                msg.ValueInputCheckResult = ClickedRegistrationButtonEventMessage.REGISTER_EXISTS_MATERALSITE;
-                return;
+                cmd.ValueInputCheckResult = ConvertAddLicenseTextFuncFromMsgViewToMsg(int.Parse(e.Message));
             }
-
-            msg.ValueInputCheckResult = ClickedRegistrationButtonEventMessage.ACCEPTED_VALUE;
-            XMLFileInstance.AddLicenseText(msg.InputSiteName, msg.InputLicenseText);
         }
+
+        private int ConvertAddLicenseTextFuncFromMsgViewToMsg(int AddLicenseTextFuncFromMsg)
+        {
+            return AddLicenseTextFuncFromMsg;
+        }
+
     }
 }

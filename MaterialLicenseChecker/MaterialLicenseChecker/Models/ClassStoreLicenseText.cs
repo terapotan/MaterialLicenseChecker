@@ -32,7 +32,15 @@ namespace MaterialLicenseChecker.Models
         //FIMXE:何だか、このクラスは責務を抱えすぎているように思える。
         //将来の機能変更に耐えるためにも、次のブログリリースまでにはこのクラスのリファクタリングを行いたい。
 
-      
+        ///<summary>
+        ///引数のどちらかが空文字列("")のときに、この数値が例外メッセージとして返却される
+        ///</summary>
+        public static readonly int VALUE_EMPTY = 1;
+        /// <summary>
+        /// 素材配布サイトを追加する際、既にその配布サイトが登録されている場合、この数値が例外メッセージとして返却される。
+        /// </summary>
+        public static readonly int REGISTER_EXISTS_MATERIALSITE = 2;
+
 
 
         public ClassStoreLicenseText()
@@ -87,12 +95,31 @@ namespace MaterialLicenseChecker.Models
         }
 
         /// <summary>
-        /// ライセンス文を追加するメソッド。サイト名の重複などの妥当性チェックは行わない。
+        /// <para>
+        /// ライセンス文を追加するメソッド。サイト名の重複などがあった場合は、以下の定数のメッセージを含めたArgumentExceptionを送出する。
+        /// </para>
+        /// <para>VALUE_EMPTY:どちらかの入力値が空</para>
+        /// <para>REGISTER_EXISTS_MATERIALSITE:指定された配布サイトが既に登録されている</para>
         /// </summary>
         /// <param name="SiteName"></param>
         /// <param name="LicenseText"></param>
         public void AddLicenseText(string SiteName,string LicenseText)
         {
+            //以下引数チェック処理。
+
+            //引数のどちらかが、空文字列("")である場合
+            if (SiteName.Equals("") || LicenseText.Equals(""))
+            {
+                throw new ArgumentException(VALUE_EMPTY.ToString());
+            }
+
+            if (MaterialSiteExists(SiteName))
+            {
+                throw new ArgumentException(REGISTER_EXISTS_MATERIALSITE.ToString());
+            }
+
+
+
 
             //materialSite属性の追加+ライセンステキストの追加
             XElement AddedMaterialSiteTree = new XElement("materialSite",new XElement("licenseText",LicenseText));

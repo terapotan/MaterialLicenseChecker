@@ -3,35 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MaterialLicenseChecker.VAndVMCommons.ExportLicenseText;
-using MaterialLicenseChecker.VAndVMCommons.MainViewModel;
 using System.Windows;
 using MaterialLicenseChecker.Models;
 
 namespace MaterialLicenseChecker.ViewModels.ExportLicenseText
 {
-    class ExportLicenseTextViewModel
+    class ExportLicenseTextViewModel : IReceiverCommandFromView
     {
         public ExportLicenseTextViewModel()
         {
-            ExportLicenseTextEventMessenger.Default
-                .RegisterAction<ClickedExportLicenseTextEventMessage>(this, ClickedExportLicenseTextEvent);
         }
 
-
-        private void ClickedExportLicenseTextEvent(ClickedExportLicenseTextEventMessage msg)
+        public void CommandViewModelTo(ExportLicenseText cmd)
         {
-            ExportingLicenseText Instance = new ExportingLicenseText(msg.ExportedLicenseTextFilePath);
+            ExportingLicenseText Instance = new ExportingLicenseText(cmd.ExportedLicenseTextFilePath);
             ClassStoreLicenseText LicenseTextInstance = new ClassStoreLicenseText();
             ClassStoreMaterialList MaterialList = new ClassStoreMaterialList();
-            GetMaterialListMessage MaterialListMessage = new GetMaterialListMessage(this);
-
-            MainViewModelMessanger.Default.ExecuteAction(this, MaterialListMessage);
 
             var ConvertedInSiteName = new List<string>();
 
             //素材名をサイト名に変換
-            foreach (var MaterialName in MaterialListMessage.MateiralNameList)
+            foreach (var MaterialName in cmd.MateiralNameList)
             {
                 ConvertedInSiteName.Add(MaterialList.FetchMaterialSiteGivenMaterialName(MaterialName));
             }
@@ -40,7 +32,7 @@ namespace MaterialLicenseChecker.ViewModels.ExportLicenseText
 
 
             var list = LicenseTextInstance.GetLicenseTextLists(DistinctedResult);
-            
+
             string strs = "";
             foreach (var str in list)
             {
@@ -49,10 +41,8 @@ namespace MaterialLicenseChecker.ViewModels.ExportLicenseText
 
             Instance.WriteLicenseTextFile(strs);
 
-
-       
-            
-
         }
+
+
     }
 }

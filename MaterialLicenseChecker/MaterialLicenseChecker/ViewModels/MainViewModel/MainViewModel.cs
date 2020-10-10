@@ -16,54 +16,16 @@ namespace MaterialLicenseChecker.ViewModels.MainViewModelPac
         public MainViewModel()
         {
             MainViewModelEventMessenger.Default.
-                RegisterAction<ClickedMaterialSiteMenuEventMessage>
-                (this, ClickedMaterialSiteMenuEvent);
-
-            MainViewModelEventMessenger.Default.
-                RegisterAction<ClickedMaterialAdditionalMenuEventMessage>
-                (this, ClickedMaterialMenuEvent);
-
-            MainViewModelEventMessenger.Default.
                 RegisterAction<ClickedRemoveMaterialFromListEventMessage>
                 (this, ClickedRemoveMaterialFromListEvent);
         }
 
-        private void ClickedMaterialSiteMenuEvent(ClickedMaterialSiteMenuEventMessage msg)
-        {
-            var SendMsg = new GenerateNewDialogMessage(this);
-            SendMsg.GeneratingDialogNumber = GenerateNewDialogMessage.MATERIAL_SITE_WINDOW;
-            MainViewModelMessanger.Default.ExecuteAction(this, SendMsg);
-        }
-
-        private void ClickedMaterialMenuEvent(ClickedMaterialAdditionalMenuEventMessage msg)
-        {
-            var SendMsg = new GenerateNewDialogMessage(this);
-            SendMsg.GeneratingDialogNumber = GenerateNewDialogMessage.MATERIAL_WINDOW;
-            MainViewModelMessanger.Default.ExecuteAction(this, SendMsg);
-        }
 
         private void ClickedRemoveMaterialFromListEvent(ClickedRemoveMaterialFromListEventMessage msg)
         {
             var FileInstance = new ClassStoreMaterialList();
             FileInstance.DeleteMaterialData(msg.ListFromDeletedMaterialName);
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         private string MakeDisplayedLicenseText()
         {

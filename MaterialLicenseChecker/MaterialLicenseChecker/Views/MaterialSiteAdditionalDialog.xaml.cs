@@ -11,8 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using MaterialLicenseChecker.VAndVMCommons.MaterialSiteAdditionalDialog;
-using MaterialLicenseChecker.ViewModels.MaterialSiteAdditionalDialog;
+using MaterialSite = MaterialLicenseChecker.ViewModels.MaterialSiteAdditionalDialog;
+
 
 namespace MaterialLicenseChecker.Views
 {
@@ -21,31 +21,34 @@ namespace MaterialLicenseChecker.Views
     /// </summary>
     public partial class MaterialSiteAdditionalScreen : Window
     {
+        private MaterialSite.IReceiverCommandFromView receiverCommand;
+
         public MaterialSiteAdditionalScreen()
         {
             InitializeComponent();
             //ViewModelの生成(Viewから生成するのはどうなんだ?)
-            var instance = new MaterialSiteAdditionalDialogViewModel();
+            receiverCommand = new MaterialSite.MaterialSiteAdditionalDialogViewModel();
         }
 
         private void ClickedRegistrationButton(object sender, RoutedEventArgs e)
         {
-            var msg = new ClickedRegistrationButtonEventMessage(this);
-            msg.InputSiteName = MaterialSiteName.Text;
-            msg.InputLicenseText = LicenseText.Text;
+            var cmd = new MaterialSite.RegisterMaterialSite();
+            cmd.InputSiteName = MaterialSiteName.Text;
+            cmd.InputLicenseText = LicenseText.Text;
 
-            MaterialSiteAdditionalDialogEventMessenger.Default.CallEvent(msg);
+            receiverCommand.CommandViewModelTo(cmd);
 
-            //FIXME:if-else文が多い気がするが……何とか削ることは出来ないか?
+            //FIXME:こうするよりも、値と処理(デリゲート)のペアを何らかの形で置いて、関数で実行する形にしたほうがいいだろう。
+            //もし今後再度リファクタリングの機会があるならば、そうしたほうがいい
 
             //FIMXE:ユーザーのことを考えるのであれば、どの項目が未入力なのか教えてあげたほうがいいだろう。
-            if (msg.ValueInputCheckResult == ClickedRegistrationButtonEventMessage.VALUE_EMPTY)
+            if (cmd.ValueInputCheckResult == MaterialSite.RegisterMaterialSite.VALUE_EMPTY)
             {
                 MessageBox.Show("まだ入力されていない項目があります。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
-            if(msg.ValueInputCheckResult == ClickedRegistrationButtonEventMessage.REGISTER_EXISTS_MATERALSITE)
+            if(cmd.ValueInputCheckResult == MaterialSite.RegisterMaterialSite.REGISTER_EXISTS_MATERALSITE)
             {
                 MessageBox.Show("指定された素材配布サイトは既に存在します。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;

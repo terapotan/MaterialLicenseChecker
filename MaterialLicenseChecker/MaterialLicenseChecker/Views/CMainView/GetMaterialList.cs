@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace MaterialLicenseChecker.Views.CMainView
 {
-    interface IReceiverCommandFromViewToView
+    class GetMaterialList
     {
-        void CommandViewModelTo(UpdateMaterialListBox msg);
+        public GetMaterialList()
+        {
+            MateiralNameList = new List<string>();
+        }
+
+        public List<string> MateiralNameList;
     }
 }
