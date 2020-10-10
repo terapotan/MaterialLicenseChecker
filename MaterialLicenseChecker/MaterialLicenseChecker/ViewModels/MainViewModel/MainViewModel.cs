@@ -17,16 +17,6 @@ namespace MaterialLicenseChecker.ViewModels.MainViewModel
         {
         }
 
-
-        private string MakeDisplayedLicenseText()
-        {
-            ClassStoreLicenseText ClassStore = new ClassStoreLicenseText();
-            List<string> FetchLicenseTextSite = new List<string>();
-
-            return "";
-
-        }
-
         void IReceiverCommandFromView.CommandViewModelTo(DeleteMaterialDataOfFile cmd)
         {
             var FileInstance = new ClassStoreMaterialList();
