@@ -9,12 +9,13 @@ using System.Windows;
 using MaterialLicenseChecker.Models;
 using MaterialLicenseChecker.VAndVMCommons.MainViewModel;
 
-namespace MaterialLicenseChecker.ViewModels.MainViewModelPac
+namespace MaterialLicenseChecker.ViewModels.MainViewModel
 {
-    class MainViewModel
+    class MainViewModel : IReceiverCommandFromView
     {
         public MainViewModel()
         {
+
             MainViewModelEventMessenger.Default.
                 RegisterAction<ClickedRemoveMaterialFromListEventMessage>
                 (this, ClickedRemoveMaterialFromListEvent);
@@ -36,6 +37,11 @@ namespace MaterialLicenseChecker.ViewModels.MainViewModelPac
 
             return "";
 
+        }
+
+        void IReceiverCommandFromView.CommandViewModelTo(DeleteMaterialDataOfFile cmd)
+        {
+            throw new NotImplementedException();
         }
 
         //以下のコードは「getはpublicにしたいが、setはprivateとしたい」目的で書かれている。

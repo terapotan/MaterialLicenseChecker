@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 //たぶんそのほうがいいのでは?
 using MaterialLicenseChecker.VAndVMCommons.MainViewModel;
 using MaterialLicenseChecker.Models;
+using MaterialLicenseChecker.ViewModels.MainViewModel;
 
 namespace MaterialLicenseChecker.Views
 {
@@ -29,6 +30,7 @@ namespace MaterialLicenseChecker.Views
         public MainView()
         {
             InitializeComponent();
+            var vm = new MainViewModel();
             MainViewModelMessanger.Default.RegisterAction<MainVewModelMessage>(this, ShowMaterilalSiteDialog);
             MainViewModelMessanger.Default.RegisterAction<GenerateNewDialogMessage>(this, GenerateNewDialog);
             MainViewModelMessanger.Default.RegisterAction<UpdatingMaterialListBoxMessage>(this, UpdatingMaterialListBoxMessage);
