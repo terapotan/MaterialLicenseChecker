@@ -41,7 +41,8 @@ namespace MaterialLicenseChecker.ViewModels.MainViewModel
 
         void IReceiverCommandFromView.CommandViewModelTo(DeleteMaterialDataOfFile cmd)
         {
-            throw new NotImplementedException();
+            var FileInstance = new ClassStoreMaterialList();
+            FileInstance.DeleteMaterialData(cmd.ListFromDeletedMaterialName);
         }
 
         //以下のコードは「getはpublicにしたいが、setはprivateとしたい」目的で書かれている。

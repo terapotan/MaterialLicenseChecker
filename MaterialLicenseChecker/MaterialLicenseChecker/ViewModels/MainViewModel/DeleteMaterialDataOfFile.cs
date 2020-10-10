@@ -8,5 +8,6 @@ namespace MaterialLicenseChecker.ViewModels.MainViewModel
 {
     class DeleteMaterialDataOfFile
     {
+        public string ListFromDeletedMaterialName = "";
     }
 }

@@ -17,7 +17,7 @@ using System.Windows.Shapes;
 //たぶんそのほうがいいのでは?
 using MaterialLicenseChecker.VAndVMCommons.MainViewModel;
 using MaterialLicenseChecker.Models;
-using MaterialLicenseChecker.ViewModels.MainViewModel;
+using MainViewModel = MaterialLicenseChecker.ViewModels.MainViewModel;
 
 namespace MaterialLicenseChecker.Views
 {
@@ -26,11 +26,12 @@ namespace MaterialLicenseChecker.Views
     /// </summary>
     public partial class MainView : Window, CMainView.IReceiverCommandFromView
     {
+        private MainViewModel.IReceiverCommandFromView RecevierOfViewModel;
         //ここはViewsの名前空間の中であるから、IRCFVTVインタフェースにつけるのは、CMainViewだけでよい。
         public MainView()
         {
             InitializeComponent();
-            var vm = new MainViewModel();
+            RecevierOfViewModel = new MainViewModel.MainViewModel();
             MainViewModelMessanger.Default.RegisterAction<MainVewModelMessage>(this, ShowMaterilalSiteDialog);
             MainViewModelMessanger.Default.RegisterAction<GenerateNewDialogMessage>(this, GenerateNewDialog);
             MainViewModelMessanger.Default.RegisterAction<UpdatingMaterialListBoxMessage>(this, UpdatingMaterialListBoxMessage);
@@ -114,7 +115,7 @@ namespace MaterialLicenseChecker.Views
         //素材削除クリック
         private void ClickedRemoveMaterialFromListButton(object sender, RoutedEventArgs e)
         {
-            var msg = new ClickedRemoveMaterialFromListEventMessage(this);
+            var cmd = new MainViewModel.DeleteMaterialDataOfFile();
             
             
             //FIXME:本当はここらへん、ViewとViewModelを分離しておいたほうがいいのだろうが
@@ -129,9 +130,10 @@ namespace MaterialLicenseChecker.Views
 
             ListBoxItem SelectedItem = (ListBoxItem)(MaterialListBox.SelectedItem);
 
-            msg.ListFromDeletedMaterialName = (string)(SelectedItem.Content);
+            cmd.ListFromDeletedMaterialName = (string)(SelectedItem.Content);
 
-            MainViewModelEventMessenger.Default.CallEvent(msg);
+            RecevierOfViewModel.CommandViewModelTo(cmd);
+            //MainViewModelEventMessenger.Default.CallEvent(msg);
 
             MaterialListBox.Items.Remove(SelectedItem);
 
