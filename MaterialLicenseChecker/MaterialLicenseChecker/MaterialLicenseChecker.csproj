@@ -63,11 +63,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BaseEventMessage.cs" />
-    <Compile Include="BaseEventMessenger.cs" />
-    <Compile Include="BaseMessage.cs" />
-    <Compile Include="BaseMessanger.cs" />
-    <Compile Include="DelegateCommand.cs" />
     <Compile Include="ExportResources\materialListFile.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
