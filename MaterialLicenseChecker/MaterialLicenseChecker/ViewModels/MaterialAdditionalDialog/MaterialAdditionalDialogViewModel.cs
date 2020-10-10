@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.Win32;
 
-using MaterialLicenseChecker.VAndVMCommons.MainViewModel;
 using MaterialLicenseChecker.Models;
 
 namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog

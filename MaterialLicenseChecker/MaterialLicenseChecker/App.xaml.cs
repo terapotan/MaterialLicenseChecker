@@ -6,7 +6,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using MaterialLicenseChecker.Views;
-using MaterialLicenseChecker.ViewModels.MainViewModelPac;
 
 namespace MaterialLicenseChecker
 {
@@ -19,10 +18,6 @@ namespace MaterialLicenseChecker
         {
             base.OnStartup(e);
             var w = new MainView();
-            var vm = new MainViewModel();
-
-            w.DataContext = vm;
-
             w.Show();
         }
     }
