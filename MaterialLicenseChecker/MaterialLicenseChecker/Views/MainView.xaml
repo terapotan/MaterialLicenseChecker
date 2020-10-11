@@ -37,13 +37,28 @@
         </Grid.RowDefinitions>
 
             <Grid>
-                <ListBox x:Name="MaterialListBox" DisplayMemberPath="Name" SelectionMode="Single" Margin="20" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                    <ListBox.ContextMenu>
+                <DataGrid x:Name="MaterialListBox" AutoGenerateColumns="False" DisplayMemberPath="Name" SelectionMode="Single" Margin="20" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <DataGrid.Columns >
+                        <DataGridTextColumn Width="*">
+                            <DataGridTextColumn.Header>ファイルの種類</DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="*">
+                            <DataGridTextColumn.Header>素材名</DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="*">
+                            <DataGridTextColumn.Header>配布サイト名</DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
+                    
+
+
+
+                    <DataGrid.ContextMenu>
                         <ContextMenu>
                             <MenuItem x:Name="RemoveMaterialMenu" Header="この素材をリストから削除する" Click="ClickedRemoveMaterialFromListButton"></MenuItem>
                         </ContextMenu>
-                    </ListBox.ContextMenu>
-                </ListBox>
+                    </DataGrid.ContextMenu>
+                </DataGrid>
                     
 
             </Grid>
