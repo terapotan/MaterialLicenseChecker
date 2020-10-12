@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MaterialLicenseChecker.Views"
         mc:Ignorable="d"
-        Title="GenerateProject" Height="450" Width="800">
+        Title="GenerateProject" Height="235.5" Width="437" WindowStartupLocation="CenterOwner">
     <Grid>
-        
+
     </Grid>
 </Window>
