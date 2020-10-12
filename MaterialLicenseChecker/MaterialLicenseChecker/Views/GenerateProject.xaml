@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MaterialLicenseChecker.Views"
         mc:Ignorable="d"
-        Title="GenerateProject" Height="175" Width="350" WindowStartupLocation="CenterOwner">
+        Title="プロジェクトの新規作成" Height="124" Width="350" WindowStartupLocation="CenterOwner">
     <Grid>
         <Grid.ColumnDefinitions >
             <ColumnDefinition Width="3*"></ColumnDefinition>
             <ColumnDefinition Width="7*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
@@ -29,6 +29,11 @@
                 <TextBox Width="160" Margin="10,8,10,0"></TextBox>
                 <Button Padding="7,0" Margin="0,5,0,0">参照</Button>
             </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+            <Button Margin="5,5"  Padding="15,0">作成</Button>
+            <Button Margin="5,5"  Padding="15,0">キャンセル</Button>
         </StackPanel>
 
 
