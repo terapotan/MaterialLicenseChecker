@@ -5,8 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MaterialLicenseChecker.Views"
         mc:Ignorable="d"
-        Title="GenerateProject" Height="235.5" Width="437" WindowStartupLocation="CenterOwner">
+        Title="GenerateProject" Height="214.833" Width="391" WindowStartupLocation="CenterOwner">
     <Grid>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="7*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+
+        <StackPanel Grid.Column="0">
+            <TextBlock Margin="10,10,0,0">プロジェクト名:</TextBlock>
+            <TextBlock Margin="10,10,0,0">管理対象フォルダ:</TextBlock>
+
+        </StackPanel>
+
+        <StackPanel Grid.Column="1">
+            <TextBox Margin="10,10,100,0"></TextBox>
+            <TextBox Margin="10,8,100,0"></TextBox>
+        </StackPanel>
+
+
 
     </Grid>
 </Window>
