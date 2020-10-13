@@ -15,8 +15,8 @@ using System.Windows.Shapes;
 //FIXME:大抵というか原則として、ViewとViewModelは一組である。
 //そこで、一組にした名前空間を別に作ってViewsと階層構造にするというのはどうか。
 //たぶんそのほうがいいのでは?
-using MaterialLicenseChecker.VAndVMCommons.MainViewModel;
 using MaterialLicenseChecker.Models;
+using MainViewModel = MaterialLicenseChecker.ViewModels.MainViewModel;
 
 namespace MaterialLicenseChecker.Views
 {
@@ -25,69 +25,14 @@ namespace MaterialLicenseChecker.Views
     /// </summary>
     public partial class MainView : Window, CMainView.IReceiverCommandFromView
     {
+        private MainViewModel.IReceiverCommandFromView RecevierOfViewModel;
         //ここはViewsの名前空間の中であるから、IRCFVTVインタフェースにつけるのは、CMainViewだけでよい。
         public MainView()
         {
             InitializeComponent();
-            MainViewModelMessanger.Default.RegisterAction<MainVewModelMessage>(this, ShowMaterilalSiteDialog);
-            MainViewModelMessanger.Default.RegisterAction<GenerateNewDialogMessage>(this, GenerateNewDialog);
-            MainViewModelMessanger.Default.RegisterAction<UpdatingMaterialListBoxMessage>(this, UpdatingMaterialListBoxMessage);
-            MainViewModelMessanger.Default.RegisterAction<GetMaterialListMessage>(this, GetMaterialList);
+            RecevierOfViewModel = new MainViewModel.MainViewModel();
             UpdateMaterialListBox();
         }
-
-
-        private void UpdatingMaterialListBoxMessage(UpdatingMaterialListBoxMessage msg)
-        {
-            UpdateMaterialListBox();
-        }
-
-
-        private void ShowMaterilalSiteDialog(MainVewModelMessage msg)
-        {
-
-            var win = new MaterialSiteAdditionalScreen();
-            win.Owner = GetWindow(this);
-            win.ShowDialog();
-
-        }
-
-        private void GenerateNewDialog(GenerateNewDialogMessage msg)
-        {
-            //FIXME:今はswitch文で書いているが、何かいい案はないだろうか?
-            Window win = null;
-
-            switch (msg.GeneratingDialogNumber)
-            {
-                case GenerateNewDialogMessage.MATERIAL_SITE_WINDOW:
-                    win = new MaterialSiteAdditionalScreen();
-                    break;
-                case GenerateNewDialogMessage.MATERIAL_WINDOW:
-                    win = new MaterialAdditionalDialog();
-                    break;
-                default:
-                    break;
-            }
-
-            win.Owner = GetWindow(this);
-            win.ShowDialog();
-
-        }
-
-        private void GetMaterialList(GetMaterialListMessage msg)
-        {
-
-            var MaterialListItems = MaterialListBox.Items;
-
-            foreach (ListBoxItem OneListItem in MaterialListItems)
-            {
-                msg.MateiralNameList.Add(OneListItem.Content as string);
-            }
-
-
-            
-        }
-
 
 
 
@@ -112,7 +57,7 @@ namespace MaterialLicenseChecker.Views
         //素材削除クリック
         private void ClickedRemoveMaterialFromListButton(object sender, RoutedEventArgs e)
         {
-            var msg = new ClickedRemoveMaterialFromListEventMessage(this);
+            var cmd = new MainViewModel.DeleteMaterialDataOfFile();
             
             
             //FIXME:本当はここらへん、ViewとViewModelを分離しておいたほうがいいのだろうが
@@ -127,9 +72,9 @@ namespace MaterialLicenseChecker.Views
 
             ListBoxItem SelectedItem = (ListBoxItem)(MaterialListBox.SelectedItem);
 
-            msg.ListFromDeletedMaterialName = (string)(SelectedItem.Content);
+            cmd.ListFromDeletedMaterialName = (string)(SelectedItem.Content);
 
-            MainViewModelEventMessenger.Default.CallEvent(msg);
+            RecevierOfViewModel.CommandViewModelTo(cmd);
 
             MaterialListBox.Items.Remove(SelectedItem);
 
@@ -194,5 +139,11 @@ namespace MaterialLicenseChecker.Views
             }
         }
 
+        private void ClickedGenerateProject(object sender, RoutedEventArgs e)
+        {
+            var window = new GenerateProject();
+            window.Owner = GetWindow(this);
+            window.ShowDialog();
+        }
     }
 }

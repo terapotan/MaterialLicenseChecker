@@ -10,12 +10,12 @@
 
     <DockPanel> 
         <Menu DockPanel.Dock="Top">
-            <!--
             <MenuItem Header="プロジェクト(_P)">
-                <MenuItem Header="新規作成"></MenuItem>
+                <MenuItem Header="新規作成" Click="ClickedGenerateProject"></MenuItem>
                 <MenuItem Header="開く"></MenuItem>
+                <Separator ></Separator>
+                <MenuItem Header="プロジェクトの設定"></MenuItem>
             </MenuItem>
-            -->
             <MenuItem Header="素材追加(_M)">
                 <MenuItem Header="素材を追加する" Click="ClikedMaterialAdditionalMenuItem"></MenuItem>
             </MenuItem>
@@ -37,23 +37,37 @@
         </Grid.RowDefinitions>
 
             <Grid>
-                <ListBox x:Name="MaterialListBox" DisplayMemberPath="Name" SelectionMode="Single" Margin="20" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                    <ListBox.ContextMenu>
+                <DataGrid x:Name="MaterialListBox" AutoGenerateColumns="False" DisplayMemberPath="Name" SelectionMode="Single" Margin="20" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <DataGrid.Columns >
+                        <DataGridTextColumn Width="*">
+                            <DataGridTextColumn.Header>ファイルの種類</DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="*">
+                            <DataGridTextColumn.Header>素材名</DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Width="*">
+                            <DataGridTextColumn.Header>配布サイト名</DataGridTextColumn.Header>
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
+                    
+
+
+
+                    <DataGrid.ContextMenu>
                         <ContextMenu>
                             <MenuItem x:Name="RemoveMaterialMenu" Header="この素材をリストから削除する" Click="ClickedRemoveMaterialFromListButton"></MenuItem>
                         </ContextMenu>
-                    </ListBox.ContextMenu>
-                </ListBox>
+                    </DataGrid.ContextMenu>
+                </DataGrid>
                     
 
             </Grid>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <!--
-            <Button Content="ライセンスチェック" Padding ="5" Margin ="0,0,100,0" Command="{Binding ShowDialogCommand}"></Button>
-            -->
-                <Button Content="ライセンス表記出力" Padding ="5" Margin="0,-10,0,0" Click="ExportLicenseTextButton"></Button>
-        </StackPanel>
+            <Button Content="ライセンスチェック" Padding ="5" Margin ="0,-10,20,0" Command="{Binding ShowDialogCommand}"></Button>
+            <Button Content="ライセンス表記出力" Padding ="5" Margin="0,-10,0,0" Click="ExportLicenseTextButton"></Button>
+            <Button Content="ライセンスチェック＆ライセンス表記出力" Padding ="5" Margin="20,-10,0,0"></Button>
+            </StackPanel>
 
 
     </Grid>
