@@ -99,6 +99,9 @@
     <Compile Include="Views\ExportLlicenseText.xaml.cs">
       <DependentUpon>ExportLlicenseText.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\GenerateProject.xaml.cs">
+      <DependentUpon>GenerateProject.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
@@ -141,6 +144,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ExportLlicenseText.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GenerateProject.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

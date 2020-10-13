@@ -139,5 +139,11 @@ namespace MaterialLicenseChecker.Views
             }
         }
 
+        private void ClickedGenerateProject(object sender, RoutedEventArgs e)
+        {
+            var window = new GenerateProject();
+            window.Owner = GetWindow(this);
+            window.ShowDialog();
+        }
     }
 }
