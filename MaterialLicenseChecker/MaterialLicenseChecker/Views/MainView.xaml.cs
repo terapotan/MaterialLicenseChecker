@@ -41,7 +41,7 @@ namespace MaterialLicenseChecker.Views
         //素材配布サイト追加クリック
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            Window win = new MaterialSiteAdditionalScreen();
+            Window win = new EditingMaterialSite();
             win.Owner = GetWindow(this);
             win.ShowDialog();
         }
@@ -97,6 +97,8 @@ namespace MaterialLicenseChecker.Views
             window.Owner = GetWindow(this);
             window.ShowDialog();
         }
+
+
 
 
 

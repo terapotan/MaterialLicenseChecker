@@ -16,11 +16,11 @@
                 <Separator ></Separator>
                 <MenuItem Header="プロジェクトの設定"></MenuItem>
             </MenuItem>
-            <MenuItem Header="素材追加(_M)">
+            <MenuItem Header="素材(_M)">
                 <MenuItem Header="素材を追加する" Click="ClikedMaterialAdditionalMenuItem"></MenuItem>
             </MenuItem>
-            <MenuItem Header="素材配布元追加(_N)">
-                <MenuItem Header="素材配布元を追加する"  Click="MenuItem_Click"></MenuItem>
+            <MenuItem Header="素材配布サイト(_N)">
+                <MenuItem Header="素材配布サイトの編集"  Click="MenuItem_Click"></MenuItem>
             </MenuItem>
             <MenuItem Header="その他(_O)">
                 <MenuItem Header="このソフトウェアについて" Click="ClickedAboutSoftwareMenu"></MenuItem>
