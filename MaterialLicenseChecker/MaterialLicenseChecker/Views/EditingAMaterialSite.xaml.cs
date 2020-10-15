@@ -15,20 +15,13 @@ using System.Windows.Shapes;
 namespace MaterialLicenseChecker.Views
 {
     /// <summary>
-    /// EditingMaterialSite.xaml の相互作用ロジック
+    /// EditingAMaterialSite.xaml の相互作用ロジック
     /// </summary>
-    public partial class EditingMaterialSite : Window
+    public partial class EditingAMaterialSite : Window
     {
-        public EditingMaterialSite()
+        public EditingAMaterialSite()
         {
             InitializeComponent();
-        }
-
-        private void ClickedEditingAMaterialSite(object sender, RoutedEventArgs e)
-        {
-            Window win = new EditingAMaterialSite();
-            win.Owner = GetWindow(this);
-            win.ShowDialog();
         }
     }
 }

@@ -96,6 +96,9 @@
     </Compile>
     <Compile Include="Views\CMainView\GetMaterialList.cs" />
     <Compile Include="Views\CMainView\UpdateMaterialListBox.cs" />
+    <Compile Include="Views\EditingAMaterialSite.xaml.cs">
+      <DependentUpon>EditingAMaterialSite.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EditingMaterialSite.xaml.cs">
       <DependentUpon>EditingMaterialSite.xaml</DependentUpon>
     </Compile>
@@ -143,6 +146,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Views\AboutThisSoftware.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditingAMaterialSite.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
