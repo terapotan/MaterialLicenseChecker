@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MaterialLicenseChecker.Views"
         mc:Ignorable="d"
-        Title="素材配布サイトの編集" Height="379" Width="400" WindowStartupLocation="CenterOwner">
+        Title="素材配布サイトリストの編集" Height="379" Width="400" WindowStartupLocation="CenterOwner">
     <Grid>
 
         <Grid.RowDefinitions>
@@ -32,6 +32,7 @@
                 <Button Padding="35,0" Margin="0,15,5,0">新規</Button>
                 <Button Margin="0,8,5,0" Click="ClickedEditingAMaterialSite">編集</Button>
                 <Button Margin="0,8,5,0">削除</Button>
+                <Button Margin="0,30,5,0">利用規約を表示</Button>
             </StackPanel>
         </Grid>
         

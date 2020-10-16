@@ -5,8 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MaterialLicenseChecker.Views"
         mc:Ignorable="d"
-        Title="EditingAMaterialSite" Height="450" Width="800">
+        Title="素材配布サイトの編集" Height="406" Width="390">
     <Grid>
-        
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="7*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+        <StackPanel Grid.Column="0">
+            <TextBlock Margin="10,10,0,0">サイト名:</TextBlock>
+            <TextBlock Margin="10,10,0,0">サイトURL:</TextBlock>
+            <TextBlock Margin="10,10,0,0">利用規約URL:</TextBlock>
+            <TextBlock Margin="10,10,0,0">出力ライセンス表記:</TextBlock>
+            <TextBlock Margin="10,70,0,0">このサイトのメモ:</TextBlock>
+            <TextBlock Margin="10,88,0,0">ライセンスチェック:</TextBlock>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1">
+            <TextBox Margin="10,10,20,0"></TextBox>
+            <TextBox Margin="10,8,20,0"></TextBox>
+            <TextBox Margin="10,8,20,0"></TextBox>
+            <TextBox AcceptsReturn="True" TextWrapping="Wrap" Height="80" Margin="10,8,20,0" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+            <TextBox AcceptsReturn="True" TextWrapping="Wrap" Height="80" Margin="10,8,20,0" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+            <Button  Margin="30,20,40,0">ライセンスチェック項目の編集</Button>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+            <Button Margin="5,5"  Padding="25,2">OK</Button>
+            <Button Margin="5,5"  Padding="25,2">キャンセル</Button>
+        </StackPanel>
     </Grid>
 </Window>
