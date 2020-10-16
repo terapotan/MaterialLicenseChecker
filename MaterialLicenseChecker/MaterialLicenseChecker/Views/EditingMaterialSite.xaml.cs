@@ -37,5 +37,10 @@ namespace MaterialLicenseChecker.Views
             win.Owner = GetWindow(this);
             win.ShowDialog();
         }
+
+        private void ClickedDeletingMaterialSiteButton(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("素材配布サイト「配布サイト名」に関するデータは完全に削除されます。\n本当に削除しますか?", "素材配布サイトの削除", MessageBoxButton.YesNo, MessageBoxImage.Question);
+        }
     }
 }

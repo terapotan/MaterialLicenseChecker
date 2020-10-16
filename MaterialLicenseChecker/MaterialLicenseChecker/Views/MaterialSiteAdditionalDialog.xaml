@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MaterialLicenseChecker.Views"
         mc:Ignorable="d"
-        Title="素材配布元の追加" Height="406" Width="390" ResizeMode="NoResize"
+        Title="素材配布サイトの追加" Height="406" Width="390" ResizeMode="NoResize"
         WindowStartupLocation="CenterOwner" Icon=".././EmbeddedResources/Images/WindowIconImage.ico">
     <Grid>
         <Grid.ColumnDefinitions >
