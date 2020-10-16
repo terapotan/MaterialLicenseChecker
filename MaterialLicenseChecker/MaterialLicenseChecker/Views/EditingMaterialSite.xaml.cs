@@ -30,5 +30,12 @@ namespace MaterialLicenseChecker.Views
             win.Owner = GetWindow(this);
             win.ShowDialog();
         }
+
+        private void ClickedMaterialSiteAdditional(object sender, RoutedEventArgs e)
+        {
+            Window win = new MaterialSiteAdditionalScreen();
+            win.Owner = GetWindow(this);
+            win.ShowDialog();
+        }
     }
 }
