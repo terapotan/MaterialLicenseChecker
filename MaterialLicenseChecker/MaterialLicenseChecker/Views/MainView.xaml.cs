@@ -147,5 +147,12 @@ namespace MaterialLicenseChecker.Views
             window.Owner = GetWindow(this);
             window.ShowDialog();
         }
+
+        private void ClickedSettingProjectLicenseItems(object sender, RoutedEventArgs e)
+        {
+            var window = new SettingProjectLicenseItems();
+            window.Owner = GetWindow(this);
+            window.ShowDialog();
+        }
     }
 }

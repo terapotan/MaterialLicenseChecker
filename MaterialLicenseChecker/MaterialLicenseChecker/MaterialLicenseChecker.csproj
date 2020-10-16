@@ -118,6 +118,9 @@
     <Compile Include="Views\MaterialSiteAdditionalDialog.xaml.cs">
       <DependentUpon>MaterialSiteAdditionalDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SettingProjectLicenseItems.xaml.cs">
+      <DependentUpon>SettingProjectLicenseItems.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -174,6 +177,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MaterialSiteAdditionalDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SettingProjectLicenseItems.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
