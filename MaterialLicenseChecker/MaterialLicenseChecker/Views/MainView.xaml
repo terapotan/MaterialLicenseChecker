@@ -14,7 +14,7 @@
                 <MenuItem Header="新規作成" Click="ClickedGenerateProject"></MenuItem>
                 <MenuItem Header="開く"></MenuItem>
                 <Separator ></Separator>
-                <MenuItem Header="プロジェクトの設定"></MenuItem>
+                <MenuItem Header="ライセンス項目の設定"></MenuItem>
             </MenuItem>
             <MenuItem Header="素材(_M)">
                 <MenuItem Header="素材を追加する" Click="ClikedMaterialAdditionalMenuItem"></MenuItem>
