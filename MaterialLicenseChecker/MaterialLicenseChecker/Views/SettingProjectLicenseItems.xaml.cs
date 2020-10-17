@@ -24,9 +24,16 @@ namespace MaterialLicenseChecker.Views
             InitializeComponent();
         }
 
-        private void ClickedEditingProjectLicenseItem(object sender, RoutedEventArgs e)
+        private void ClickedAddingProjectLicenseItem(object sender, RoutedEventArgs e)
         {
             var window = new ProjectLicenseItemAddtional();
+            window.Owner = GetWindow(this);
+            window.ShowDialog();
+        }
+
+        private void ClickedEditingProjectLicenseItem(object sender, RoutedEventArgs e)
+        {
+            var window = new EditingProjectLicenseItem();
             window.Owner = GetWindow(this);
             window.ShowDialog();
         }

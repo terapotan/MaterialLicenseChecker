@@ -102,6 +102,9 @@
     <Compile Include="Views\EditingMaterialSite.xaml.cs">
       <DependentUpon>EditingMaterialSite.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\EditingProjectLicenseItem.xaml.cs">
+      <DependentUpon>EditingProjectLicenseItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ExportLlicenseText.xaml.cs">
       <DependentUpon>ExportLlicenseText.xaml</DependentUpon>
     </Compile>
@@ -160,6 +163,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\EditingMaterialSite.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditingProjectLicenseItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

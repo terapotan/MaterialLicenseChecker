@@ -29,7 +29,7 @@
             </DockPanel>
 
             <StackPanel Grid.Column="1" HorizontalAlignment="Center">
-                <Button Padding="35,0" Margin="0,15,5,0">新規</Button>
+                <Button Padding="35,0" Click="ClickedAddingProjectLicenseItem"  Margin="0,15,5,0">新規</Button>
                 <Button Margin="0,8,5,0" Click="ClickedEditingProjectLicenseItem" >編集</Button>
                 <Button Margin="0,8,5,0">削除</Button>
             </StackPanel>
