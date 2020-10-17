@@ -37,5 +37,10 @@ namespace MaterialLicenseChecker.Views
             window.Owner = GetWindow(this);
             window.ShowDialog();
         }
+
+        private void ClickedDeletingProjectLicenseItem(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("「ライセンス項目名」を削除します。\n本当に削除しますか?", "ライセンス項目の削除", MessageBoxButton.YesNo, MessageBoxImage.Question);
+        }
     }
 }
