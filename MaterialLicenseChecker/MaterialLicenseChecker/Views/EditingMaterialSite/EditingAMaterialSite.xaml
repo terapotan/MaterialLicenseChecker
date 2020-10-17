@@ -32,7 +32,7 @@
             <TextBox Margin="10,8,20,0"></TextBox>
             <TextBox AcceptsReturn="True" TextWrapping="Wrap" Height="80" Margin="10,8,20,0" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
             <TextBox AcceptsReturn="True" TextWrapping="Wrap" Height="80" Margin="10,8,20,0" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
-            <Button  Margin="30,20,40,0">ライセンスチェック項目の編集</Button>
+            <Button  Margin="30,20,40,0" Click="ClickedEditingLicenseCheckItems">ライセンスチェック項目の編集</Button>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
