@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MaterialLicenseChecker.Views"
         mc:Ignorable="d"
-        Title="ライセンス表示を出力する" Height="115" Width="320" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" Icon=".././EmbeddedResources/Images/WindowIconImage.ico">
+        Title="ライセンス表示を出力する" Height="115" Width="320" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" Icon="../.././EmbeddedResources/Images/WindowIconImage.ico">
     <StackPanel>
         <StackPanel Orientation="Horizontal" Margin="0,5,0,10">
             <Label Content="ファイル名" Target="{Binding ElementName=MaterialFilePath}" HorizontalAlignment="Right"/>

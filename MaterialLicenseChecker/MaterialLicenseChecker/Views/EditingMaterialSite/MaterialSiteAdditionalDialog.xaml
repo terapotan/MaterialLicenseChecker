@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MaterialLicenseChecker.Views"
         mc:Ignorable="d"
         Title="素材配布サイトの追加" Height="406" Width="390" ResizeMode="NoResize"
-        WindowStartupLocation="CenterOwner" Icon=".././EmbeddedResources/Images/WindowIconImage.ico">
+        WindowStartupLocation="CenterOwner" Icon="../.././EmbeddedResources/Images/WindowIconImage.ico">
     <Grid>
         <Grid.ColumnDefinitions >
             <ColumnDefinition Width="3*"></ColumnDefinition>
