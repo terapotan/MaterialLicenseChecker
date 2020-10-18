@@ -22,7 +22,7 @@
 
             <DockPanel Grid.Column="0">
                 <ListBox x:Name="MaterialListBox" DisplayMemberPath="Name" SelectionMode="Single" Margin="15" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                    <ListBoxItem>ライセンス項目1</ListBoxItem>
+                    <ListBoxItem IsSelected="True">ライセンス項目1</ListBoxItem>
                     <ListBoxItem>ライセンス項目2</ListBoxItem>
                     <ListBoxItem>ライセンス項目3</ListBoxItem>
                 </ListBox>
