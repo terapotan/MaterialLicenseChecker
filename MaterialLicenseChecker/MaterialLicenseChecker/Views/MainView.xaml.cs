@@ -41,7 +41,7 @@ namespace MaterialLicenseChecker.Views
         //素材配布サイト追加クリック
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            Window win = new MaterialSiteAdditionalScreen();
+            Window win = new EditingMaterialSite();
             win.Owner = GetWindow(this);
             win.ShowDialog();
         }
@@ -107,6 +107,8 @@ namespace MaterialLicenseChecker.Views
 
 
 
+
+
         //以下それ以外の関数
         void CMainView.IReceiverCommandFromView.CommandViewTo(CMainView.UpdateMaterialListBox cmd)
         {
@@ -142,6 +144,13 @@ namespace MaterialLicenseChecker.Views
         private void ClickedGenerateProject(object sender, RoutedEventArgs e)
         {
             var window = new GenerateProject();
+            window.Owner = GetWindow(this);
+            window.ShowDialog();
+        }
+
+        private void ClickedSettingProjectLicenseItems(object sender, RoutedEventArgs e)
+        {
+            var window = new SettingProjectLicenseItems();
             window.Owner = GetWindow(this);
             window.ShowDialog();
         }

@@ -1,0 +1,42 @@
+﻿<Window x:Class="MaterialLicenseChecker.Views.GenerateProject"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MaterialLicenseChecker.Views"
+        mc:Ignorable="d"
+        Title="プロジェクトの新規作成" Height="124" Width="350" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="7*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+        <StackPanel Grid.Column="0">
+            <TextBlock Margin="10,10,0,0">プロジェクト名:</TextBlock>
+            <TextBlock Margin="10,10,0,0">管理対象フォルダ:</TextBlock>
+
+        </StackPanel>
+
+        <StackPanel Grid.Column="1">
+            <TextBox Margin="10,10,20,0"></TextBox>
+            <StackPanel Orientation="Horizontal">
+                <TextBox Width="160" Margin="10,8,10,0"></TextBox>
+                <Button Padding="7,0" Margin="0,5,0,0">参照</Button>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+            <Button Margin="5,5"  Padding="15,0">作成</Button>
+            <Button Margin="5,5"  Padding="15,0">キャンセル</Button>
+        </StackPanel>
+
+
+
+    </Grid>
+</Window>

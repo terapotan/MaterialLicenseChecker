@@ -33,8 +33,8 @@ namespace MaterialLicenseChecker.Views
         private void ClickedRegistrationButton(object sender, RoutedEventArgs e)
         {
             var cmd = new MaterialSite.RegisterMaterialSite();
-            cmd.InputSiteName = MaterialSiteName.Text;
-            cmd.InputLicenseText = LicenseText.Text;
+            //cmd.InputSiteName = MaterialSiteName.Text;
+            //cmd.InputLicenseText = LicenseText.Text;
 
             receiverCommand.CommandViewModelTo(cmd);
 
