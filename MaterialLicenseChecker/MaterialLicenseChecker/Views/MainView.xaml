@@ -5,22 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MaterialLicenseChecker.Views"
         mc:Ignorable="d"
-        Title="素材ライセンスチェッカー（開発中）" Height="300" Width="500"
+        Title="素材ライセンスチェッカー（開発中）" Height="300" Width="500" MinHeight="300" MinWidth="500"
         WindowStartupLocation="CenterScreen" Icon=".././EmbeddedResources/Images/WindowIconImage.ico">
 
-    <DockPanel> 
+    <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="プロジェクト(_P)">
                 <MenuItem Header="新規作成" Click="ClickedGenerateProject"></MenuItem>
                 <MenuItem Header="開く"></MenuItem>
                 <Separator ></Separator>
-                <MenuItem Header="プロジェクトの設定"></MenuItem>
+                <MenuItem Header="ライセンス項目の設定" Click="ClickedSettingProjectLicenseItems"></MenuItem>
             </MenuItem>
-            <MenuItem Header="素材追加(_M)">
+            <MenuItem Header="素材(_M)">
                 <MenuItem Header="素材を追加する" Click="ClikedMaterialAdditionalMenuItem"></MenuItem>
             </MenuItem>
-            <MenuItem Header="素材配布元追加(_N)">
-                <MenuItem Header="素材配布元を追加する"  Click="MenuItem_Click"></MenuItem>
+            <MenuItem Header="素材配布サイト(_S)">
+                <MenuItem Header="素材配布サイトの編集"  Click="MenuItem_Click"></MenuItem>
             </MenuItem>
             <MenuItem Header="その他(_O)">
                 <MenuItem Header="このソフトウェアについて" Click="ClickedAboutSoftwareMenu"></MenuItem>

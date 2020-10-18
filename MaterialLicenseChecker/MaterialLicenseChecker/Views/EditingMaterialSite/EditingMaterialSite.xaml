@@ -1,0 +1,65 @@
+﻿<Window x:Class="MaterialLicenseChecker.Views.EditingMaterialSite"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MaterialLicenseChecker.Views"
+        mc:Ignorable="d"
+        Title="素材配布サイトリストの編集" Height="379" Width="400" WindowStartupLocation="CenterOwner">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="7*"></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+
+            <DockPanel Grid.Column="0">
+                <ListBox x:Name="MaterialListBox" DisplayMemberPath="Name" SelectionMode="Single" Margin="15" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <ListBoxItem>素材配布サイト1</ListBoxItem>
+                    <ListBoxItem>素材配布サイト2</ListBoxItem>
+                    <ListBoxItem>素材配布サイト3</ListBoxItem>
+                </ListBox>
+            </DockPanel>
+
+            <StackPanel Grid.Column="1" HorizontalAlignment="Center">
+                <Button Padding="35,0" Margin="0,15,5,0" Click="ClickedMaterialSiteAdditional">新規</Button>
+                <Button Margin="0,8,5,0" Click="ClickedEditingAMaterialSite">編集</Button>
+                <Button Margin="0,8,5,0" Click="ClickedDeletingMaterialSiteButton">削除</Button>
+                <Button Margin="0,30,5,0">利用規約を表示</Button>
+            </StackPanel>
+        </Grid>
+        
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                <Button Margin="5,5"  Padding="25,2">OK</Button>
+            </StackPanel>
+        </Grid>
+
+
+
+        
+
+
+
+        <!--
+        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+            <Button Margin="5,5"  Padding="15,0">作成</Button>
+            <Button Margin="5,5"  Padding="15,0">キャンセル</Button>
+        </StackPanel>
+        -->
+
+
+    </Grid>
+</Window>
