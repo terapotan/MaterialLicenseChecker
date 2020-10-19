@@ -5,17 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MaterialLicenseChecker.Views"
         mc:Ignorable="d"
-        Title="ライセンス表示を出力する" Height="115" Width="320" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" Icon="../.././EmbeddedResources/Images/WindowIconImage.ico">
-    <StackPanel>
-        <StackPanel Orientation="Horizontal" Margin="0,5,0,10">
-            <Label Content="ファイル名" Target="{Binding ElementName=MaterialFilePath}" HorizontalAlignment="Right"/>
-            <TextBox x:Name="ExportedLicenseTextFilePath" Width="110" Margin="0,2" IsReadOnly="True"/>
-            <Button Height="20" Margin="5,0,0,0" Click="InputPathButton" >出力するファイルを指定</Button>
-        </StackPanel>
+        Title="ライセンス表示を出力する
+        " Height="372" Width="423.667" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" Icon="../.././EmbeddedResources/Images/WindowIconImage.ico">
+    <Grid>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="7*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
 
 
-        <StackPanel Orientation="Vertical">
-            <Button Content="出力する" Padding="5" HorizontalAlignment="Center" Margin="0,10,0,0" Click="ExportLicenseTextButton"></Button>
+        <StackPanel Grid.Column="0">
+            <TextBlock Margin="10,10,0,0">ヘッダー:</TextBlock>
+            <TextBlock Margin="10,68,0,0">フッター:</TextBlock>
+            <TextBlock Margin="10,132,0,0">出力先ファイル名:</TextBlock>
         </StackPanel>
-    </StackPanel>
+
+        <StackPanel Grid.Column="1">
+            <TextBox AcceptsReturn="True" TextWrapping="Wrap" Height="80" Margin="10,8,20,0" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+            <TextBox AcceptsReturn="True" TextWrapping="Wrap" Height="80" Margin="10,8,20,0" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+            <Button Margin="10,25,20,10">プレビュー</Button>
+            
+
+            <StackPanel Orientation="Horizontal">
+                <TextBox MinWidth="208" Margin="10,10,8,0"></TextBox>
+                <Button Padding="8,1" Margin="10,12,20,0">参照</Button>
+            </StackPanel>
+
+
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+            <Button Margin="5,5"  Padding="25,2">出力</Button>
+            <Button Margin="5,5"  Padding="25,2">キャンセル</Button>
+        </StackPanel>
+    </Grid>
 </Window>
