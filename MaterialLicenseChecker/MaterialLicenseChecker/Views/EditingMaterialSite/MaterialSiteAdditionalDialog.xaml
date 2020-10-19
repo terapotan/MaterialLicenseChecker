@@ -8,7 +8,7 @@
         Title="素材配布サイトの追加" Height="406" Width="390" ResizeMode="NoResize"
         WindowStartupLocation="CenterOwner" Icon="../.././EmbeddedResources/Images/WindowIconImage.ico">
     <Grid>
-        <Grid.ColumnDefinitions >
+        <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"></ColumnDefinition>
             <ColumnDefinition Width="7*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
