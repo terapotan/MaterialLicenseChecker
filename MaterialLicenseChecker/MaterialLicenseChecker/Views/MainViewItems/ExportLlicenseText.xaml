@@ -31,8 +31,8 @@
             
 
             <StackPanel Orientation="Horizontal">
-                <TextBox MinWidth="208" Margin="10,10,8,0"></TextBox>
-                <Button Padding="8,1" Margin="10,12,20,0">参照</Button>
+                <TextBox x:Name="ExportedLicenseTextFilePath" Width="208" Margin="10,10,8,0"></TextBox>
+                <Button  Padding="8,1" Margin="10,12,20,0" Click="InputPathButton">参照</Button>
             </StackPanel>
 
 

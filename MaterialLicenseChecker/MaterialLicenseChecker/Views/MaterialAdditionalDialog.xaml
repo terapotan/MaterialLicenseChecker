@@ -33,7 +33,7 @@
             </ComboBox>
             
             <StackPanel Orientation="Horizontal">
-                <ComboBox MinWidth="208" Margin="10,12,5,0">
+                <ComboBox Width="208" Margin="10,12,5,0">
                     <ComboBoxItem>素材配布サイト1</ComboBoxItem>
                     <ComboBoxItem>素材配布サイト2</ComboBoxItem>
                     <ComboBoxItem>素材配布サイト3</ComboBoxItem>
