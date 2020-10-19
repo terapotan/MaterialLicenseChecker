@@ -26,8 +26,10 @@
         <StackPanel Grid.Column="1">
             <TextBox Margin="10,10,20,0"></TextBox>
             <ComboBox Margin="10,8,20,0">
-                <ComboBoxItem>あれ</ComboBoxItem>
-                <ComboBoxItem>それ</ComboBoxItem>
+                <ComboBoxItem>画像</ComboBoxItem>
+                <ComboBoxItem>音声</ComboBoxItem>
+                <ComboBoxItem>テキスト</ComboBoxItem>
+                <ComboBoxItem>その他</ComboBoxItem>
             </ComboBox>
         </StackPanel>
 
