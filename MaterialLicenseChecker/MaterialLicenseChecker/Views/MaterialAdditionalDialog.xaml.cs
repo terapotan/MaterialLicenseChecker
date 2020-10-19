@@ -35,6 +35,7 @@ namespace MaterialLicenseChecker.Views
 
 
 
+        /*
         //以下イベント発生処理
         private void ClickedFileLocationButton(object sender, RoutedEventArgs e)
         {
@@ -97,5 +98,6 @@ namespace MaterialLicenseChecker.Views
 
 
         }
+        */
     }
 }

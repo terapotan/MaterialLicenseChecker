@@ -31,6 +31,7 @@ namespace MaterialLicenseChecker.Views
             RecevierOfViewModel = new ExportLicenseTextViewModel();
         }
 
+        
         private void InputPathButton(object sender, RoutedEventArgs e)
         {
             //FIMXE?:サイトを追加するときには、ここはVMとVでちゃんと分離していたが、
@@ -46,6 +47,7 @@ namespace MaterialLicenseChecker.Views
             ExportedLicenseTextFilePath.Text = Dialog.FileName;
 
         }
+        /*
 
         private void ExportLicenseTextButton(object sender, RoutedEventArgs e)
         {
@@ -74,6 +76,7 @@ namespace MaterialLicenseChecker.Views
             Close();
         }
 
-
+    */
     }
+
 }
