@@ -10,7 +10,7 @@
 
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="プロジェクト(_P)">
+            <MenuItem IsEnabled="False" Header="プロジェクト(_P)">
                 <MenuItem Header="新規作成" Click="ClickedGenerateProject"></MenuItem>
                 <MenuItem Header="開く"></MenuItem>
                 <Separator ></Separator>
@@ -64,9 +64,8 @@
             </Grid>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button Content="ライセンスチェック" Padding ="5" Margin ="0,-10,20,0" Command="{Binding ShowDialogCommand}"></Button>
+            <Button IsEnabled="False" Content="ライセンスチェック" Padding ="5" Margin ="0,-10,20,0" Command="{Binding ShowDialogCommand}"></Button>
             <Button Content="ライセンス表記出力" Padding ="5" Margin="0,-10,0,0" Click="ExportLicenseTextButton"></Button>
-            <Button Content="ライセンスチェック＆ライセンス表記出力" Padding ="5" Margin="20,-10,0,0"></Button>
             </StackPanel>
 
 
