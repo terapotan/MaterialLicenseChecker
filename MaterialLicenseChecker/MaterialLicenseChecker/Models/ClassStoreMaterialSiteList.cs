@@ -14,7 +14,6 @@ namespace MaterialLicenseChecker.Models
     class ClassStoreMaterialSiteList
     {
         private XDocument _loadedXMLFileInstance;
-        //private string loadedXMLFileName;
         /// <summary>
         /// ライセンステキストを辞書型で保管する。
         /// 1番目:利用規約のサイト名(キーとなる)
@@ -49,13 +48,6 @@ namespace MaterialLicenseChecker.Models
             //よって、別のまぁシングルトンクラスに移したい。
             //シングルトンクラスに以下のコードを移すこと。
 
-
-            //Assembly assembly = Assembly.GetEntryAssembly();
-            //string runingFilePath = assembly.Location;
-            //System.IO.FileInfo fi = new System.IO.FileInfo(runingFilePath);
-            //string runingDirectoryPath = fi.Directory.FullName;
-            //_loadedXMLFileInstance = XDocument.Load(runingDirectoryPath + "/ExportResources/LicenseTexts.xml");
-            //loadedXMLFileName = runingDirectoryPath + "/ExportResources/LicenseTexts.xml";
             _loadedXMLFileInstance = XDocument.Load(StoringDataFilePath.GetInstance().LicenseTextFileAbsolutePath);
         }
 
