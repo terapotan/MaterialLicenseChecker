@@ -44,10 +44,6 @@ namespace MaterialLicenseChecker.Models
 
         public MaterialSiteListFileAdapter()
         {
-            //FIXME:ここらへんの処理を毎回書くのは面倒である。
-            //よって、別のまぁシングルトンクラスに移したい。
-            //シングルトンクラスに以下のコードを移すこと。
-
             _loadedXMLFileInstance = XDocument.Load(StoringDataFilePath.GetInstance().LicenseTextFileAbsolutePath);
         }
 
