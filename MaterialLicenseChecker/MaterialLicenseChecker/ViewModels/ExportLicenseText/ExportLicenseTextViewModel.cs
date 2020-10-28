@@ -17,7 +17,7 @@ namespace MaterialLicenseChecker.ViewModels.ExportLicenseText
         public void CommandViewModelTo(ExportLicenseText cmd)
         {
             ExportingLicenseText Instance = new ExportingLicenseText(cmd.ExportedLicenseTextFilePath);
-            ClassStoreLicenseText LicenseTextInstance = new ClassStoreLicenseText();
+            ClassStoreMaterialSiteList LicenseTextInstance = new ClassStoreMaterialSiteList();
             ClassStoreMaterialList MaterialList = new ClassStoreMaterialList();
 
             var ConvertedInSiteName = new List<string>();

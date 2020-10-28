@@ -11,7 +11,7 @@ using System.IO;
 
 namespace MaterialLicenseChecker.Models
 {
-    class ClassStoreLicenseText
+    class ClassStoreMaterialSiteList
     {
         private XDocument _loadedXMLFileInstance;
         private string loadedXMLFileName;
@@ -43,7 +43,7 @@ namespace MaterialLicenseChecker.Models
 
 
 
-        public ClassStoreLicenseText()
+        public ClassStoreMaterialSiteList()
         {
             //FIXME:ここらへんの処理を毎回書くのは面倒である。
             //よって、別のまぁシングルトンクラスに移したい。
