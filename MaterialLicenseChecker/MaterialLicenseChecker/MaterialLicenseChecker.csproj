@@ -68,6 +68,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>materialListFile.xml</DependentUpon>
     </Compile>
+    <Compile Include="Models\MaterialSiteListData.cs" />
     <Compile Include="Models\MaterialSiteListFileAdapter.cs" />
     <Compile Include="Models\ClassStoreMaterialList.cs" />
     <Compile Include="Models\ExportingDisplayedLicenseText.cs" />
