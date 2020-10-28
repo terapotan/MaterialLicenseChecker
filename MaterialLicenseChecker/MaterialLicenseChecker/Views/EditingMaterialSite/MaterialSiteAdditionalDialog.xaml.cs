@@ -60,6 +60,10 @@ namespace MaterialLicenseChecker.Views
             Close();
 
         }
-
+        private void ClickedCancelButton(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+            
     }
 }
