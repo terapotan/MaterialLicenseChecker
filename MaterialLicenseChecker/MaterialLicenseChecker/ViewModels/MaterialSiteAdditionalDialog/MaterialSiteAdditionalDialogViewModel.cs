@@ -9,10 +9,10 @@ namespace MaterialLicenseChecker.ViewModels.MaterialSiteAdditionalDialog
 {
     class MaterialSiteAdditionalDialogViewModel : IReceiverCommandFromView
     {
-        MaterialSiteListFileAdapter XMLFileInstance;
+        MaterialSiteListData MaterialSiteDataAInstance;
         public MaterialSiteAdditionalDialogViewModel()
         {
-            XMLFileInstance = new MaterialSiteListFileAdapter();
+            MaterialSiteDataAInstance = new MaterialSiteListData();
         }
 
         public void CommandViewModelTo(RegisterMaterialSite cmd)
@@ -20,7 +20,7 @@ namespace MaterialLicenseChecker.ViewModels.MaterialSiteAdditionalDialog
             cmd.ValueInputCheckResult = RegisterMaterialSite.ACCEPTED_VALUE;
             try
             {
-                XMLFileInstance.AddLicenseText(cmd.InputSiteName, cmd.InputLicenseText);
+                MaterialSiteDataAInstance.AddMaterialSite(cmd.InputSiteName,cmd.InputTeamsOfUseURL,cmd.InputLicenseText,cmd.InputMemoOfMaterialSite);
             }
             catch (ArgumentException e)
             {

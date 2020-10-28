@@ -10,6 +10,8 @@ namespace MaterialLicenseChecker.ViewModels.MaterialSiteAdditionalDialog
     {
         public string InputSiteName = "";
         public string InputLicenseText = "";
+        public string InputTeamsOfUseURL = "";
+        public string InputMemoOfMaterialSite = "";
 
         /// <summary>
         /// 入力として与えられた値が、有効な値であるかどうか。

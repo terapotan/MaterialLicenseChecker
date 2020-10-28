@@ -16,7 +16,7 @@ namespace MaterialLicenseChecker.Models
 
         public void AddMaterialSite(string SiteName,string TeamsOfUseURL,string LicenseText,string MemoOfMaterialSite)
         {
-            throw new NotImplementedException();
+            
         }
 
     }
