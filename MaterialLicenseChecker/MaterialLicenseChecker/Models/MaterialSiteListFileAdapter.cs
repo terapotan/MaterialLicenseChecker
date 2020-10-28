@@ -80,19 +80,19 @@ namespace MaterialLicenseChecker.Models
 
         /// <summary>
         /// <para>
-        /// ライセンス文を追加するメソッド。サイト名の重複などがあった場合は、以下の定数のメッセージを含めたArgumentExceptionを送出する。
+        /// ライセンス文を追加するメソッド。サイト名の重複などがあった場合は、以下の定数のメッセージを含めたArgumentExceptionを送出する。なお、追加した内容は即ファイルに書き出される。
         /// </para>
         /// <para>VALUE_EMPTY:どちらかの入力値が空</para>
         /// <para>REGISTER_EXISTS_MATERIALSITE:指定された配布サイトが既に登録されている</para>
         /// </summary>
         /// <param name="SiteName"></param>
         /// <param name="LicenseText"></param>
-        public void AddLicenseText(string SiteName,string LicenseText)
+        public void AddLicenseText(string SiteName, string TeamsOfUseURL, string LicenseText, string MemoOfMaterialSite)
         {
             //以下引数チェック処理。
 
             //引数のどちらかが、空文字列("")である場合
-            if (SiteName.Equals("") || LicenseText.Equals(""))
+            if (SiteName.Equals("") || LicenseText.Equals("") || TeamsOfUseURL.Equals("") || MemoOfMaterialSite.Equals(""))
             {
                 throw new ArgumentException(VALUE_EMPTY.ToString());
             }
@@ -102,12 +102,16 @@ namespace MaterialLicenseChecker.Models
                 throw new ArgumentException(REGISTER_EXISTS_MATERIALSITE.ToString());
             }
 
-            //materialSite属性の追加+ライセンステキストの追加
-            XElement AddedMaterialSiteTree = new XElement("materialSite",new XElement("licenseText",LicenseText));
+            //追加するmaterialSite要素を作成する
+            XElement AddedMaterialSiteTree = new XElement("materialSite",
+                new XElement("licenseText",LicenseText),
+                new XElement("teamsOfUseURL",TeamsOfUseURL),
+                new XElement("licenseMemo",MemoOfMaterialSite));
+
             //サイト名の追加
             AddedMaterialSiteTree.SetAttributeValue("siteName", SiteName);
-            _loadedXMLFileInstance.Elements().First().Add(AddedMaterialSiteTree);
 
+            _loadedXMLFileInstance.Elements().First().Add(AddedMaterialSiteTree);
             _loadedXMLFileInstance.Save(StoringDataFilePath.GetInstance().LicenseTextFileAbsolutePath);
         }
 
