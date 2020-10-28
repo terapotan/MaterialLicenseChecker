@@ -48,19 +48,15 @@ namespace MaterialLicenseChecker.Models
             //FIXME:ここらへんの処理を毎回書くのは面倒である。
             //よって、別のまぁシングルトンクラスに移したい。
             //シングルトンクラスに以下のコードを移すこと。
+
+
             Assembly assembly = Assembly.GetEntryAssembly();
             string runingFilePath = assembly.Location;
             System.IO.FileInfo fi = new System.IO.FileInfo(runingFilePath);
             string runingDirectoryPath = fi.Directory.FullName;
             loadedXMLFileName = runingDirectoryPath + "/ExportResources/LicenseTexts.xml";
-            _loadedXMLFileInstance = XDocument.Load(runingDirectoryPath + "/ExportResources/LicenseTexts.xml");
-
-            //_licenseTextDictionary = new Dictionary<string,string>();
-            //_licenseTextDictionary.Add("A", FetchLicenseTextGivenSiteName("A"));
-            //_licenseTextDictionary.Add("B", FetchLicenseTextGivenSiteName("B"));
-            //_licenseTextDictionary.Add("C", FetchLicenseTextGivenSiteName("C"));
-            //_licenseTextDictionary.Add("D", FetchLicenseTextGivenSiteName("D"));
-            //_licenseTextDictionary.Add("E", FetchLicenseTextGivenSiteName("E"));
+            //_loadedXMLFileInstance = XDocument.Load(runingDirectoryPath + "/ExportResources/LicenseTexts.xml");
+            _loadedXMLFileInstance = XDocument.Load(StoringDataFilePath.GetInstance().LicenseTextFileAbsolutePath);
         }
 
         public string FetchLicenseTextGivenSiteName(string SearchedSiteName)
