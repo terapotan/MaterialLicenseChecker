@@ -14,7 +14,7 @@ namespace MaterialLicenseChecker.Models
     class ClassStoreMaterialSiteList
     {
         private XDocument _loadedXMLFileInstance;
-        private string loadedXMLFileName;
+        //private string loadedXMLFileName;
         /// <summary>
         /// ライセンステキストを辞書型で保管する。
         /// 1番目:利用規約のサイト名(キーとなる)
@@ -50,12 +50,12 @@ namespace MaterialLicenseChecker.Models
             //シングルトンクラスに以下のコードを移すこと。
 
 
-            Assembly assembly = Assembly.GetEntryAssembly();
-            string runingFilePath = assembly.Location;
-            System.IO.FileInfo fi = new System.IO.FileInfo(runingFilePath);
-            string runingDirectoryPath = fi.Directory.FullName;
-            loadedXMLFileName = runingDirectoryPath + "/ExportResources/LicenseTexts.xml";
+            //Assembly assembly = Assembly.GetEntryAssembly();
+            //string runingFilePath = assembly.Location;
+            //System.IO.FileInfo fi = new System.IO.FileInfo(runingFilePath);
+            //string runingDirectoryPath = fi.Directory.FullName;
             //_loadedXMLFileInstance = XDocument.Load(runingDirectoryPath + "/ExportResources/LicenseTexts.xml");
+            //loadedXMLFileName = runingDirectoryPath + "/ExportResources/LicenseTexts.xml";
             _loadedXMLFileInstance = XDocument.Load(StoringDataFilePath.GetInstance().LicenseTextFileAbsolutePath);
         }
 
@@ -123,7 +123,7 @@ namespace MaterialLicenseChecker.Models
             AddedMaterialSiteTree.SetAttributeValue("siteName", SiteName);
             _loadedXMLFileInstance.Elements().First().Add(AddedMaterialSiteTree);
 
-            _loadedXMLFileInstance.Save(loadedXMLFileName);
+            _loadedXMLFileInstance.Save(StoringDataFilePath.GetInstance().LicenseTextFileAbsolutePath);
         }
 
         //FIXME:しょうがないから、IEnumerable型にしたけど、
