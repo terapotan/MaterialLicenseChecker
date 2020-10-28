@@ -11,7 +11,7 @@ using System.IO;
 
 namespace MaterialLicenseChecker.Models
 {
-    class ClassStoreMaterialSiteList
+    class MaterialSiteListFileAdapter
     {
         private XDocument _loadedXMLFileInstance;
         /// <summary>
@@ -42,7 +42,7 @@ namespace MaterialLicenseChecker.Models
 
 
 
-        public ClassStoreMaterialSiteList()
+        public MaterialSiteListFileAdapter()
         {
             //FIXME:ここらへんの処理を毎回書くのは面倒である。
             //よって、別のまぁシングルトンクラスに移したい。
@@ -105,9 +105,6 @@ namespace MaterialLicenseChecker.Models
             {
                 throw new ArgumentException(REGISTER_EXISTS_MATERIALSITE.ToString());
             }
-
-
-
 
             //materialSite属性の追加+ライセンステキストの追加
             XElement AddedMaterialSiteTree = new XElement("materialSite",new XElement("licenseText",LicenseText));

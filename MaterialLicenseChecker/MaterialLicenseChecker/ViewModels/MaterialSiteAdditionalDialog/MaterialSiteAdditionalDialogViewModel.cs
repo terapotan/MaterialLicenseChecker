@@ -9,10 +9,10 @@ namespace MaterialLicenseChecker.ViewModels.MaterialSiteAdditionalDialog
 {
     class MaterialSiteAdditionalDialogViewModel : IReceiverCommandFromView
     {
-        ClassStoreMaterialSiteList XMLFileInstance;
+        MaterialSiteListFileAdapter XMLFileInstance;
         public MaterialSiteAdditionalDialogViewModel()
         {
-            XMLFileInstance = new ClassStoreMaterialSiteList();
+            XMLFileInstance = new MaterialSiteListFileAdapter();
         }
 
         public void CommandViewModelTo(RegisterMaterialSite cmd)
