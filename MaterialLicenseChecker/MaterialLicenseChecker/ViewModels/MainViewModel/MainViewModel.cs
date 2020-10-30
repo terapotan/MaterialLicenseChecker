@@ -27,7 +27,7 @@ namespace MaterialLicenseChecker.ViewModels.MainViewModel
 
         void IReceiverCommandFromView.CommandViewModelTo(SetActiveProjectDataToViewModel cmd)
         {
-            cmd.ProjectDataDestination.SetActiveProjectData(ref activeProjectDataInstance);
+            throw new NotImplementedException();
         }
 
     }

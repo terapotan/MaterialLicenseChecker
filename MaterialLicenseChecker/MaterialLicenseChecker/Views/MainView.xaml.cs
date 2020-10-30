@@ -42,16 +42,7 @@ namespace MaterialLicenseChecker.Views
         //素材配布サイト追加クリック
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            MaterialSiteList.EditingMaterialSiteViewModel viewModel;
-
             EditingMaterialSite win = new EditingMaterialSite();
-            
-            //素材配布サイトのViewModelへのプロジェクトデータクラスの送信を、MainViewのViewModelに要請
-            win.GetViewModelInstance(out viewModel);
-            MainViewModel.SetActiveProjectDataToViewModel cmd = new MainViewModel.SetActiveProjectDataToViewModel();
-            cmd.ProjectDataDestination = viewModel;
-            RecevierOfViewModel.CommandViewModelTo(cmd);
-
             win.Owner = GetWindow(this);
             win.ShowDialog();
 

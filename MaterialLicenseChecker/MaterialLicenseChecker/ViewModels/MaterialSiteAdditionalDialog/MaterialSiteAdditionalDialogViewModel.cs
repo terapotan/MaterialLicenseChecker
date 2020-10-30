@@ -10,6 +10,7 @@ namespace MaterialLicenseChecker.ViewModels.MaterialSiteAdditionalDialog
     class MaterialSiteAdditionalDialogViewModel : IReceiverCommandFromView
     {
         MaterialSiteListData MaterialSiteDataAInstance;
+
         public MaterialSiteAdditionalDialogViewModel()
         {
             MaterialSiteDataAInstance = new MaterialSiteListData();
@@ -28,10 +29,14 @@ namespace MaterialLicenseChecker.ViewModels.MaterialSiteAdditionalDialog
             }
         }
 
+        void IReceiverCommandFromView.CommandViewModelTo(RegisterMaterialSite cmd)
+        {
+            throw new NotImplementedException();
+        }
+
         private int ConvertAddLicenseTextFuncFromMsgViewToMsg(int AddLicenseTextFuncFromMsg)
         {
             return AddLicenseTextFuncFromMsg;
         }
-
     }
 }

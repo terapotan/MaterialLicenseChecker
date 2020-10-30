@@ -9,7 +9,6 @@ namespace MaterialLicenseChecker.Models
     public class ActiveProjectData
     {
         public MaterialSiteListFileAdapter materialSiteListFileAdapter;
-
         public ActiveProjectData()
         {
             materialSiteListFileAdapter = new MaterialSiteListFileAdapter();

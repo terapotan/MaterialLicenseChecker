@@ -22,7 +22,7 @@ namespace MaterialLicenseChecker.Views
     public partial class MaterialSiteAdditionalScreen : Window
     {
         private MaterialSite.IReceiverCommandFromView receiverCommand;
-
+        //ここにもう一つ、ISettable型の奴を追加
         public MaterialSiteAdditionalScreen()
         {
             InitializeComponent();

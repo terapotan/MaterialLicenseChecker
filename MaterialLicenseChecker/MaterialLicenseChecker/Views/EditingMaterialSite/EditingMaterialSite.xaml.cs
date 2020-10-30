@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MaterialSiteList = MaterialLicenseChecker.ViewModels.MaterialSiteList;
+using MaterialSiteAdditional = MaterialLicenseChecker.ViewModels.MaterialSiteAdditionalDialog;
 
 namespace MaterialLicenseChecker.Views
 {
@@ -20,16 +21,16 @@ namespace MaterialLicenseChecker.Views
     /// </summary>
     public partial class EditingMaterialSite : Window
     {
-        private MaterialSiteList.EditingMaterialSiteViewModel receiverOfViewModel;
+        private MaterialSiteList.EditingMaterialSiteViewModel ReceiverOfViewModel;
         public EditingMaterialSite()
         {
-            receiverOfViewModel = new MaterialSiteList.EditingMaterialSiteViewModel();
+            ReceiverOfViewModel = new MaterialSiteList.EditingMaterialSiteViewModel();
             InitializeComponent();
         }
 
         public void GetViewModelInstance(out MaterialSiteList.EditingMaterialSiteViewModel ViewModelInstance)
         {
-            ViewModelInstance = receiverOfViewModel;
+            ViewModelInstance = ReceiverOfViewModel;
         }
 
         private void ClickedEditingAMaterialSite(object sender, RoutedEventArgs e)
@@ -42,6 +43,7 @@ namespace MaterialLicenseChecker.Views
         private void ClickedMaterialSiteAdditional(object sender, RoutedEventArgs e)
         {
             Window win = new MaterialSiteAdditionalScreen();
+
             win.Owner = GetWindow(this);
             win.ShowDialog();
         }
