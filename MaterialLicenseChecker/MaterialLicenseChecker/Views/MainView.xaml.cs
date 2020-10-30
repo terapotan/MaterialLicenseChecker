@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 //たぶんそのほうがいいのでは?
 using MaterialLicenseChecker.Models;
 using MainViewModel = MaterialLicenseChecker.ViewModels.MainViewModel;
+using EditingMaterialSiteSpace = MaterialLicenseChecker.ViewModels.EditingMaterialSiteSpace;
 
 namespace MaterialLicenseChecker.Views
 {
@@ -41,9 +42,11 @@ namespace MaterialLicenseChecker.Views
         //素材配布サイト追加クリック
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            Window win = new EditingMaterialSite();
+            EditingMaterialSite win = new EditingMaterialSite();
             win.Owner = GetWindow(this);
             win.ShowDialog();
+
+            
         }
 
         //素材追加クリック

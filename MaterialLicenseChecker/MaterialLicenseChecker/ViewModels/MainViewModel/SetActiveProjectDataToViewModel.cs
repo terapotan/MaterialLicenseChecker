@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace MaterialLicenseChecker.ViewModels.MainViewModel
 {
-    interface IReceiverCommandFromView
+    public class SetActiveProjectDataToViewModel
     {
-        void CommandViewModelTo(DeleteMaterialDataOfFile cmd);
-        void CommandViewModelTo(SetActiveProjectDataToViewModel cmd);
+        public ISettableActiveProjectData ProjectDataDestination;
     }
 }

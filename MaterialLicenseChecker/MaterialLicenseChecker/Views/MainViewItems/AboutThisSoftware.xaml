@@ -17,7 +17,7 @@
         </StackPanel>
 
         <StackPanel Grid.Column="1">
-            <Label Content="バージョン       alpha-4"></Label>
+            <Label Content="バージョン       alpha-6"></Label>
             <Label Content="作者             てらたん"></Label>
             <Label Content="連絡先          Twitter         @terapotan"></Label>
             <Label Content="　　　          メールアドレス  terapotan@gmail.com"></Label>
