@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace MaterialLicenseChecker.ViewModels.MainViewModel
 {
-    class SetActiveProjectDataToViewModel
+    public class SetActiveProjectDataToViewModel
     {
+        public ISettableActiveProjectData ProjectDataDestination;
     }
 }

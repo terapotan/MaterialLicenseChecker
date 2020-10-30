@@ -7,7 +7,7 @@ using MaterialLicenseChecker.Models;
 
 namespace MaterialLicenseChecker.ViewModels
 {
-    interface ISettableActiveProjectData
+    public interface ISettableActiveProjectData
     {
         void SetActiveProjectData(ref ActiveProjectData SetProjectData);
     }
