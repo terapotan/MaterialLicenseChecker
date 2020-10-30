@@ -25,5 +25,10 @@ namespace MaterialLicenseChecker.ViewModels.MainViewModel
             FileInstance.DeleteMaterialData(cmd.ListFromDeletedMaterialName);
         }
 
+        void IReceiverCommandFromView.CommandViewModelTo(SetActiveProjectDataToViewModel cmd)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

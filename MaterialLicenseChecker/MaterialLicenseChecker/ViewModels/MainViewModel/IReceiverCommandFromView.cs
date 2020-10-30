@@ -9,5 +9,6 @@ namespace MaterialLicenseChecker.ViewModels.MainViewModel
     interface IReceiverCommandFromView
     {
         void CommandViewModelTo(DeleteMaterialDataOfFile cmd);
+        void CommandViewModelTo(SetActiveProjectDataToViewModel cmd);
     }
 }
