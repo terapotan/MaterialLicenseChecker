@@ -18,6 +18,11 @@ namespace MaterialLicenseChecker.Models
         {
             materialSiteListFileInstance.AddLicenseText(SiteName, TeamsOfUseURL, LicenseText, MemoOfMaterialSite);
         }
+        
+        public List<string> GetMaterialList()
+        {
+            return materialSiteListFileInstance.GetMaterialSiteList();
+        }
 
     }
 }
