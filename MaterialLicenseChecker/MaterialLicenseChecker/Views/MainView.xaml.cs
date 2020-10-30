@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 //たぶんそのほうがいいのでは?
 using MaterialLicenseChecker.Models;
 using MainViewModel = MaterialLicenseChecker.ViewModels.MainViewModel;
+using MaterialSiteList = MaterialLicenseChecker.ViewModels.MaterialSiteList;
 
 namespace MaterialLicenseChecker.Views
 {
@@ -41,9 +42,20 @@ namespace MaterialLicenseChecker.Views
         //素材配布サイト追加クリック
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            Window win = new EditingMaterialSite();
+            MaterialSiteList.EditingMaterialSiteViewModel viewModel;
+
+            EditingMaterialSite win = new EditingMaterialSite();
+            
+            //素材配布サイトのViewModelへのプロジェクトデータクラスの送信を、MainViewのViewModelに要請
+            win.GetViewModelInstance(out viewModel);
+            MainViewModel.SetActiveProjectDataToViewModel cmd = new MainViewModel.SetActiveProjectDataToViewModel();
+            cmd.ProjectDataDestination = viewModel;
+            RecevierOfViewModel.CommandViewModelTo(cmd);
+
             win.Owner = GetWindow(this);
             win.ShowDialog();
+
+            
         }
 
         //素材追加クリック
