@@ -6,12 +6,19 @@ using System.Threading.Tasks;
 
 namespace MaterialLicenseChecker.Models
 {
-    public class ActiveProjectData
+    public sealed class ActiveProjectData
     {
-        public MaterialSiteListFileAdapter materialSiteListFileAdapter;
-        public ActiveProjectData()
+        private static readonly ActiveProjectData _singleInstance = new ActiveProjectData();
+        public MaterialSiteListData MaterialSiteList;
+
+        public static ActiveProjectData GetInstance()
         {
-            materialSiteListFileAdapter = new MaterialSiteListFileAdapter();
+            return _singleInstance;
         }
+
+        private ActiveProjectData()
+        {
+        }
+
     }
 }

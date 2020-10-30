@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MaterialLicenseChecker.Models
 {
-    class MaterialSiteListData
+    public class MaterialSiteListData
     {
         private MaterialSiteListFileAdapter materialSiteListFileInstance;
         public MaterialSiteListData()
