@@ -7,14 +7,12 @@ using MaterialLicenseChecker.Models;
 
 namespace MaterialLicenseChecker.ViewModels.MaterialSiteList
 {
-    public class EditingMaterialSiteViewModel
+    public class EditingMaterialSiteViewModel : ISettableActiveProjectData
     {
         private ActiveProjectData activeProjectData;
-
-        public void SetActiveProjectData(ref ActiveProjectData PassedActiveProjectData )
+        public void SetActiveProjectData(ref ActiveProjectData SetProjectData)
         {
-            activeProjectData = PassedActiveProjectData;
+            activeProjectData = SetProjectData;
         }
-
     }
 }

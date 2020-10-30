@@ -9,6 +9,6 @@ namespace MaterialLicenseChecker.ViewModels
 {
     interface ISettableActiveProjectData
     {
-        void SetActiveProjectData(ActiveProjectData SetProjectData);
+        void SetActiveProjectData(ref ActiveProjectData SetProjectData);
     }
 }
