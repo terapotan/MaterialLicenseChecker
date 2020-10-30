@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MaterialLicenseChecker.ViewModels.MainViewModel
+namespace MaterialLicenseChecker.ViewModels
 {
-    class SetActiveProjectDataToViewModel
+    interface ISettableActiveProjectData
     {
     }
 }
