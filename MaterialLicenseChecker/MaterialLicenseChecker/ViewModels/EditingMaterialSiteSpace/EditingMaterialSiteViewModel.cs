@@ -7,7 +7,11 @@ using MaterialLicenseChecker.Models;
 
 namespace MaterialLicenseChecker.ViewModels.EditingMaterialSiteSpace
 {
-    public class EditingMaterialSiteViewModel
+    public class EditingMaterialSiteViewModel : IReceiverCommandFromView
     {
+        public void CommandViewModelTo(GetMaterialSiteList cmd)
+        {
+            cmd.MaterialSiteList = ActiveProjectData.GetInstance().MaterialSiteListData.GetMaterialList();
+        }
     }
 }

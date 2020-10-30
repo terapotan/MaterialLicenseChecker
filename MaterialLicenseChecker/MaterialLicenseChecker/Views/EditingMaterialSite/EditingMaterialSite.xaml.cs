@@ -26,6 +26,7 @@ namespace MaterialLicenseChecker.Views
         {
             ReceiverOfViewModel = new EditingMaterialSiteSpace.EditingMaterialSiteViewModel();
             InitializeComponent();
+            UpdateMaterialSiteListBox();
         }
 
         private void ClickedEditingAMaterialSite(object sender, RoutedEventArgs e)
@@ -50,7 +51,11 @@ namespace MaterialLicenseChecker.Views
 
         private void UpdateMaterialSiteListBox()
         {
-            
+            List<string> MaterialSiteNameList;
+            EditingMaterialSiteSpace.GetMaterialSiteList cmd = new EditingMaterialSiteSpace.GetMaterialSiteList();
+            ReceiverOfViewModel.CommandViewModelTo(cmd);
+
+            MaterialSiteNameList = cmd.MaterialSiteList;
 
             //MaterialListBox.Items.Clear();
 
