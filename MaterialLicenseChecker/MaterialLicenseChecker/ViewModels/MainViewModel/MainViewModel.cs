@@ -14,6 +14,8 @@ namespace MaterialLicenseChecker.ViewModels.MainViewModel
     {
         public MainViewModel()
         {
+            //FIXME:将来的には、別の画面でこれを作成し代入する。
+            ActiveProjectData.GetInstance().MaterialSiteListData = new MaterialSiteListData();
         }
 
         void IReceiverCommandFromView.CommandViewModelTo(DeleteMaterialDataOfFile cmd)

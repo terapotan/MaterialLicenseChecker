@@ -9,11 +9,9 @@ namespace MaterialLicenseChecker.ViewModels.MaterialSiteAdditionalDialog
 {
     class MaterialSiteAdditionalDialogViewModel : IReceiverCommandFromView
     {
-        MaterialSiteListData MaterialSiteDataAInstance;
 
         public MaterialSiteAdditionalDialogViewModel()
         {
-            MaterialSiteDataAInstance = new MaterialSiteListData();
         }
 
         public void CommandViewModelTo(RegisterMaterialSite cmd)
@@ -21,17 +19,12 @@ namespace MaterialLicenseChecker.ViewModels.MaterialSiteAdditionalDialog
             cmd.ValueInputCheckResult = RegisterMaterialSite.ACCEPTED_VALUE;
             try
             {
-                MaterialSiteDataAInstance.AddMaterialSite(cmd.InputSiteName,cmd.InputTeamsOfUseURL,cmd.InputLicenseText,cmd.InputMemoOfMaterialSite);
+                ActiveProjectData.GetInstance().MaterialSiteListData.AddMaterialSite(cmd.InputSiteName,cmd.InputTeamsOfUseURL,cmd.InputLicenseText,cmd.InputMemoOfMaterialSite);
             }
             catch (ArgumentException e)
             {
                 cmd.ValueInputCheckResult = ConvertAddLicenseTextFuncFromMsgViewToMsg(int.Parse(e.Message));
             }
-        }
-
-        void IReceiverCommandFromView.CommandViewModelTo(RegisterMaterialSite cmd)
-        {
-            throw new NotImplementedException();
         }
 
         private int ConvertAddLicenseTextFuncFromMsgViewToMsg(int AddLicenseTextFuncFromMsg)

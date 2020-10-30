@@ -9,7 +9,7 @@ namespace MaterialLicenseChecker.Models
     public sealed class ActiveProjectData
     {
         private static readonly ActiveProjectData _singleInstance = new ActiveProjectData();
-        public MaterialSiteListData MaterialSiteList;
+        public MaterialSiteListData MaterialSiteListData;
 
         public static ActiveProjectData GetInstance()
         {
