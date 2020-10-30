@@ -27,7 +27,7 @@ namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
             //どこか別のところに書いたほうがいいだろう。
 
             ClassStoreMaterialList FileInstance = new ClassStoreMaterialList();
-            ClassStoreLicenseText LicenseTextInstance = new ClassStoreLicenseText();
+            MaterialSiteListFileAdapter LicenseTextInstance = new MaterialSiteListFileAdapter();
 
             bool MaterialSiteExists = LicenseTextInstance.MaterialSiteExists(msg.MaterialSiteName);
 
@@ -49,7 +49,7 @@ namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
 
         public void CommandViewModelTo(FetchMaterialSiteLIst msg)
         {
-            ClassStoreLicenseText instance = new ClassStoreLicenseText();
+            MaterialSiteListFileAdapter instance = new MaterialSiteListFileAdapter();
             var MaterialSiteNameList = instance.GetMaterialSiteList();
 
             msg.MaterialSiteList = MaterialSiteNameList;

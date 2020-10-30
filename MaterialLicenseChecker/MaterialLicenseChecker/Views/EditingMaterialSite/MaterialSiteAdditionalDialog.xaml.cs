@@ -22,7 +22,7 @@ namespace MaterialLicenseChecker.Views
     public partial class MaterialSiteAdditionalScreen : Window
     {
         private MaterialSite.IReceiverCommandFromView receiverCommand;
-
+        //ここにもう一つ、ISettable型の奴を追加
         public MaterialSiteAdditionalScreen()
         {
             InitializeComponent();
@@ -33,8 +33,11 @@ namespace MaterialLicenseChecker.Views
         private void ClickedRegistrationButton(object sender, RoutedEventArgs e)
         {
             var cmd = new MaterialSite.RegisterMaterialSite();
-            //cmd.InputSiteName = MaterialSiteName.Text;
-            //cmd.InputLicenseText = LicenseText.Text;
+
+            cmd.InputSiteName = InputSiteName.Text;
+            cmd.InputLicenseText = InputLicenseText.Text;
+            cmd.InputMemoOfMaterialSite = InputMemoOfMaterialSite.Text;
+            cmd.InputTeamsOfUseURL = InputTeamsOfUseURL.Text;
 
             receiverCommand.CommandViewModelTo(cmd);
 
@@ -57,5 +60,12 @@ namespace MaterialLicenseChecker.Views
             Close();
 
         }
+        private void ClickedCancelButton(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+
+
     }
 }

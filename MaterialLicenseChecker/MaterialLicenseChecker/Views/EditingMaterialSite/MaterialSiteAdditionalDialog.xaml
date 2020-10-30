@@ -19,24 +19,24 @@
 
 
         <StackPanel Grid.Column="0">
-            <TextBlock Margin="10,10,0,0">サイト名:</TextBlock>
-            <TextBlock Margin="10,10,0,0">利用規約URL:</TextBlock>
-            <TextBlock Margin="10,10,0,0">出力ライセンス表記:</TextBlock>
-            <TextBlock Margin="10,70,0,0">このサイトのメモ:</TextBlock>
+            <TextBlock  Margin="10,10,0,0">サイト名:</TextBlock>
+            <TextBlock  Margin="10,10,0,0">利用規約URL:</TextBlock>
+            <TextBlock  Margin="10,10,0,0">出力ライセンス表記:</TextBlock>
+            <TextBlock  Margin="10,70,0,0">このサイトのメモ:</TextBlock>
             <TextBlock Margin="10,88,0,0">ライセンスチェック:</TextBlock>
         </StackPanel>
 
         <StackPanel Grid.Column="1">
-            <TextBox Margin="10,10,20,0"></TextBox>
-            <TextBox Margin="10,8,20,0"></TextBox>
-            <TextBox AcceptsReturn="True" TextWrapping="Wrap" Height="80" Margin="10,8,20,0" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
-            <TextBox AcceptsReturn="True" TextWrapping="Wrap" Height="80" Margin="10,8,20,0" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
-            <Button  IsEnabled="False" Margin="30,20,40,0">ライセンスチェック項目の編集</Button>
+            <TextBox x:Name="InputSiteName" Margin="10,10,20,0"></TextBox>
+            <TextBox x:Name="InputTeamsOfUseURL" Margin="10,8,20,0"></TextBox>
+            <TextBox x:Name="InputLicenseText" AcceptsReturn="True" TextWrapping="Wrap" Height="80" Margin="10,8,20,0" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+            <TextBox x:Name="InputMemoOfMaterialSite" AcceptsReturn="True" TextWrapping="Wrap" Height="80" Margin="10,8,20,0" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+            <Button IsEnabled="False" Margin="30,20,40,0">ライセンスチェック項目の編集</Button>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
-            <Button Margin="5,5"  Padding="25,2">追加</Button>
-            <Button Margin="5,5"  Padding="25,2">キャンセル</Button>
+            <Button Margin="5,5"  Padding="25,2" Click="ClickedRegistrationButton">追加</Button>
+            <Button Margin="5,5"  Padding="25,2" Click="ClickedCancelButton">キャンセル</Button>
         </StackPanel>
     </Grid>
 </Window>

@@ -11,10 +11,9 @@ using System.IO;
 
 namespace MaterialLicenseChecker.Models
 {
-    class ClassStoreLicenseText
+    public class MaterialSiteListFileAdapter
     {
         private XDocument _loadedXMLFileInstance;
-        private string loadedXMLFileName;
         /// <summary>
         /// ライセンステキストを辞書型で保管する。
         /// 1番目:利用規約のサイト名(キーとなる)
@@ -43,24 +42,9 @@ namespace MaterialLicenseChecker.Models
 
 
 
-        public ClassStoreLicenseText()
+        public MaterialSiteListFileAdapter()
         {
-            //FIXME:ここらへんの処理を毎回書くのは面倒である。
-            //よって、別のまぁシングルトンクラスに移したい。
-            //シングルトンクラスに以下のコードを移すこと。
-            Assembly assembly = Assembly.GetEntryAssembly();
-            string runingFilePath = assembly.Location;
-            System.IO.FileInfo fi = new System.IO.FileInfo(runingFilePath);
-            string runingDirectoryPath = fi.Directory.FullName;
-            loadedXMLFileName = runingDirectoryPath + "/ExportResources/LicenseTexts.xml";
-            _loadedXMLFileInstance = XDocument.Load(runingDirectoryPath + "/ExportResources/LicenseTexts.xml");
-
-            //_licenseTextDictionary = new Dictionary<string,string>();
-            //_licenseTextDictionary.Add("A", FetchLicenseTextGivenSiteName("A"));
-            //_licenseTextDictionary.Add("B", FetchLicenseTextGivenSiteName("B"));
-            //_licenseTextDictionary.Add("C", FetchLicenseTextGivenSiteName("C"));
-            //_licenseTextDictionary.Add("D", FetchLicenseTextGivenSiteName("D"));
-            //_licenseTextDictionary.Add("E", FetchLicenseTextGivenSiteName("E"));
+            _loadedXMLFileInstance = XDocument.Load(StoringDataFilePath.GetInstance().LicenseTextFileAbsolutePath);
         }
 
         public string FetchLicenseTextGivenSiteName(string SearchedSiteName)
@@ -96,19 +80,19 @@ namespace MaterialLicenseChecker.Models
 
         /// <summary>
         /// <para>
-        /// ライセンス文を追加するメソッド。サイト名の重複などがあった場合は、以下の定数のメッセージを含めたArgumentExceptionを送出する。
+        /// ライセンス文を追加するメソッド。サイト名の重複などがあった場合は、以下の定数のメッセージを含めたArgumentExceptionを送出する。なお、追加した内容は即ファイルに書き出される。
         /// </para>
         /// <para>VALUE_EMPTY:どちらかの入力値が空</para>
         /// <para>REGISTER_EXISTS_MATERIALSITE:指定された配布サイトが既に登録されている</para>
         /// </summary>
         /// <param name="SiteName"></param>
         /// <param name="LicenseText"></param>
-        public void AddLicenseText(string SiteName,string LicenseText)
+        public void AddLicenseText(string SiteName, string TeamsOfUseURL, string LicenseText, string MemoOfMaterialSite)
         {
             //以下引数チェック処理。
 
             //引数のどちらかが、空文字列("")である場合
-            if (SiteName.Equals("") || LicenseText.Equals(""))
+            if (SiteName.Equals("") || LicenseText.Equals("") || TeamsOfUseURL.Equals("") || MemoOfMaterialSite.Equals(""))
             {
                 throw new ArgumentException(VALUE_EMPTY.ToString());
             }
@@ -118,16 +102,17 @@ namespace MaterialLicenseChecker.Models
                 throw new ArgumentException(REGISTER_EXISTS_MATERIALSITE.ToString());
             }
 
+            //追加するmaterialSite要素を作成する
+            XElement AddedMaterialSiteTree = new XElement("materialSite",
+                new XElement("licenseText",LicenseText),
+                new XElement("teamsOfUseURL",TeamsOfUseURL),
+                new XElement("licenseMemo",MemoOfMaterialSite));
 
-
-
-            //materialSite属性の追加+ライセンステキストの追加
-            XElement AddedMaterialSiteTree = new XElement("materialSite",new XElement("licenseText",LicenseText));
             //サイト名の追加
             AddedMaterialSiteTree.SetAttributeValue("siteName", SiteName);
-            _loadedXMLFileInstance.Elements().First().Add(AddedMaterialSiteTree);
 
-            _loadedXMLFileInstance.Save(loadedXMLFileName);
+            _loadedXMLFileInstance.Elements().First().Add(AddedMaterialSiteTree);
+            _loadedXMLFileInstance.Save(StoringDataFilePath.GetInstance().LicenseTextFileAbsolutePath);
         }
 
         //FIXME:しょうがないから、IEnumerable型にしたけど、
