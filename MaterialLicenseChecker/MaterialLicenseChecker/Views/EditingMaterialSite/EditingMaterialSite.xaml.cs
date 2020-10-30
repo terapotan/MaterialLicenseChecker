@@ -31,17 +31,24 @@ namespace MaterialLicenseChecker.Views
 
         private void ClickedEditingAMaterialSite(object sender, RoutedEventArgs e)
         {
+            //何の項目も選択されていない場合
+            if(MaterialSiteListBox.SelectedIndex == -1)
+            {
+                MessageBox.Show("編集したい項目を選択してください。", "項目の未選択", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                return;
+            }
             Window win = new EditingAMaterialSite();
             win.Owner = GetWindow(this);
             win.ShowDialog();
+            UpdateMaterialSiteListBox();
         }
 
         private void ClickedMaterialSiteAdditional(object sender, RoutedEventArgs e)
         {
             Window win = new MaterialSiteAdditionalScreen();
-
             win.Owner = GetWindow(this);
             win.ShowDialog();
+            UpdateMaterialSiteListBox();
         }
 
         private void ClickedDeletingMaterialSiteButton(object sender, RoutedEventArgs e)
@@ -57,14 +64,28 @@ namespace MaterialLicenseChecker.Views
 
             MaterialSiteNameList = cmd.MaterialSiteList;
 
-            //MaterialListBox.Items.Clear();
+            MaterialSiteListBox.Items.Clear();
 
-            //foreach (var MaterialName in MaterialNameList)
-            //{
-            //    ListBoxItem listItem = new ListBoxItem();
-            //    listItem.Content = MaterialName;
-            //    MaterialListBox.Items.Add(listItem);
-            //}
+            foreach (var MaterialSiteName in MaterialSiteNameList)
+            {
+                ListBoxItem listItem = new ListBoxItem();
+                listItem.Content = MaterialSiteName;
+                MaterialSiteListBox.Items.Add(listItem);
+            }
+        }
+
+        private void MaterialSiteListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            // 選択中のアイテムの ListBoxItem を取得
+            var listBoxItem = (ListBoxItem)MaterialSiteListBox.ItemContainerGenerator.ContainerFromItem(MaterialSiteListBox.SelectedItem);
+            // アイテム上でダブルクリックされた場合
+            if (listBoxItem?.InputHitTest(e.GetPosition(listBoxItem)) != null)
+            {
+                Window win = new EditingAMaterialSite();
+                win.Owner = GetWindow(this);
+                win.ShowDialog();
+                UpdateMaterialSiteListBox();
+            }
         }
     }
 }

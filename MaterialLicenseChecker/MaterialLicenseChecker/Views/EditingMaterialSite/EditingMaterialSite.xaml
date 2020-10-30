@@ -6,6 +6,8 @@
         xmlns:local="clr-namespace:MaterialLicenseChecker.Views"
         mc:Ignorable="d"
         Title="素材配布サイトリストの編集" Height="379" Width="400" WindowStartupLocation="CenterOwner">
+
+
     <Grid>
 
         <Grid.RowDefinitions>
@@ -21,10 +23,7 @@
 
 
             <DockPanel Grid.Column="0">
-                <ListBox x:Name="MaterialListBox" DisplayMemberPath="Name" SelectionMode="Single" Margin="15" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                    <ListBoxItem>素材配布サイト1</ListBoxItem>
-                    <ListBoxItem>素材配布サイト2</ListBoxItem>
-                    <ListBoxItem>素材配布サイト3</ListBoxItem>
+                <ListBox x:Name="MaterialSiteListBox" MouseDoubleClick="MaterialSiteListBox_MouseDoubleClick" DisplayMemberPath="Name" SelectionMode="Single" Margin="15" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto">
                 </ListBox>
             </DockPanel>
 
@@ -35,7 +34,7 @@
                 <Button Margin="0,30,5,0">利用規約を表示</Button>
             </StackPanel>
         </Grid>
-        
+
 
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
@@ -47,19 +46,12 @@
             </StackPanel>
         </Grid>
 
-
-
-        
-
-
-
         <!--
         <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
             <Button Margin="5,5"  Padding="15,0">作成</Button>
             <Button Margin="5,5"  Padding="15,0">キャンセル</Button>
         </StackPanel>
         -->
-
 
     </Grid>
 </Window>
