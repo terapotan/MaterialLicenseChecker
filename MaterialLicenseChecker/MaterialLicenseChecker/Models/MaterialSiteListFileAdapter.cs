@@ -11,7 +11,7 @@ using System.IO;
 
 namespace MaterialLicenseChecker.Models
 {
-    class MaterialSiteListFileAdapter
+    public class MaterialSiteListFileAdapter
     {
         private XDocument _loadedXMLFileInstance;
         /// <summary>

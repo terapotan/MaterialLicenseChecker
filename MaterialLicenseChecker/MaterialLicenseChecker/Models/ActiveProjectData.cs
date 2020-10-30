@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace MaterialLicenseChecker.Models
 {
-    class ActiveProjectData
+    public class ActiveProjectData
     {
+        public MaterialSiteListFileAdapter materialSiteListFileAdapter;
+
+        public ActiveProjectData()
+        {
+            materialSiteListFileAdapter = new MaterialSiteListFileAdapter();
+        }
     }
 }

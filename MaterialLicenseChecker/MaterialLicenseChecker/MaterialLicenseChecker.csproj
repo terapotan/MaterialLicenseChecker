@@ -84,6 +84,7 @@
     <Compile Include="ViewModels\ExportLicenseText\IReceiverCommandFromView.cs" />
     <Compile Include="ViewModels\MainViewModel\DeleteMaterialDataOfFile.cs" />
     <Compile Include="ViewModels\MainViewModel\IReceiverCommandFromView.cs" />
+    <Compile Include="ViewModels\MainViewModel\SetActiveProjectDataToViewModel.cs" />
     <Compile Include="ViewModels\MaterialAdditionalDialog\AddMaterialDataToFile.cs" />
     <Compile Include="ViewModels\MaterialAdditionalDialog\FetchMaterialSiteLIst.cs" />
     <Compile Include="ViewModels\MaterialAdditionalDialog\IReceiverCommandFromView.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="ViewModels\MaterialSiteAdditionalDialog\IReceiverCommandFromView.cs" />
     <Compile Include="ViewModels\MaterialSiteAdditionalDialog\MaterialSiteAdditionalDialogViewModel.cs" />
     <Compile Include="ViewModels\MaterialSiteAdditionalDialog\RegisterMaterialSite.cs" />
+    <Compile Include="ViewModels\MaterialSiteList\EditingMaterialSiteViewModel.cs" />
     <Compile Include="Views\EditingMaterialSite\EditingLicenseCheckItems\EditingLicenseCheckItems.xaml.cs">
       <DependentUpon>EditingLicenseCheckItems.xaml</DependentUpon>
     </Compile>

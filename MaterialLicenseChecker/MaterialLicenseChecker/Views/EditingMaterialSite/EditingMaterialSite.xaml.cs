@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MaterialSiteList = MaterialLicenseChecker.ViewModels.MaterialSiteList;
 
 namespace MaterialLicenseChecker.Views
 {
@@ -19,9 +20,16 @@ namespace MaterialLicenseChecker.Views
     /// </summary>
     public partial class EditingMaterialSite : Window
     {
+        private MaterialSiteList.EditingMaterialSiteViewModel receiverOfViewModel;
         public EditingMaterialSite()
         {
+            receiverOfViewModel = new MaterialSiteList.EditingMaterialSiteViewModel();
             InitializeComponent();
+        }
+
+        public void GetViewModelInstance(out MaterialSiteList.EditingMaterialSiteViewModel ViewModelInstance)
+        {
+            ViewModelInstance = receiverOfViewModel;
         }
 
         private void ClickedEditingAMaterialSite(object sender, RoutedEventArgs e)
