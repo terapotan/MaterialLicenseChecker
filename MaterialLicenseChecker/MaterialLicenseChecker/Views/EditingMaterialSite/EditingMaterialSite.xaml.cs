@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using MaterialSiteList = MaterialLicenseChecker.ViewModels.MaterialSiteList;
+using EditingMaterialSiteSpace = MaterialLicenseChecker.ViewModels.EditingMaterialSiteSpace;
 using MaterialSiteAdditional = MaterialLicenseChecker.ViewModels.MaterialSiteAdditionalDialog;
 
 namespace MaterialLicenseChecker.Views
@@ -21,16 +21,11 @@ namespace MaterialLicenseChecker.Views
     /// </summary>
     public partial class EditingMaterialSite : Window
     {
-        private MaterialSiteList.EditingMaterialSiteViewModel ReceiverOfViewModel;
+        private EditingMaterialSiteSpace.EditingMaterialSiteViewModel ReceiverOfViewModel;
         public EditingMaterialSite()
         {
-            ReceiverOfViewModel = new MaterialSiteList.EditingMaterialSiteViewModel();
+            ReceiverOfViewModel = new EditingMaterialSiteSpace.EditingMaterialSiteViewModel();
             InitializeComponent();
-        }
-
-        public void GetViewModelInstance(out MaterialSiteList.EditingMaterialSiteViewModel ViewModelInstance)
-        {
-            ViewModelInstance = ReceiverOfViewModel;
         }
 
         private void ClickedEditingAMaterialSite(object sender, RoutedEventArgs e)
@@ -51,6 +46,20 @@ namespace MaterialLicenseChecker.Views
         private void ClickedDeletingMaterialSiteButton(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("素材配布サイト「配布サイト名」に関するデータは完全に削除されます。\n本当に削除しますか?", "素材配布サイトの削除", MessageBoxButton.YesNo, MessageBoxImage.Question);
+        }
+
+        private void UpdateMaterialSiteListBox()
+        {
+            
+
+            //MaterialListBox.Items.Clear();
+
+            //foreach (var MaterialName in MaterialNameList)
+            //{
+            //    ListBoxItem listItem = new ListBoxItem();
+            //    listItem.Content = MaterialName;
+            //    MaterialListBox.Items.Add(listItem);
+            //}
         }
     }
 }

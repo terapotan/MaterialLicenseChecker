@@ -80,6 +80,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\EditingMaterialSiteSpace\GetMaterialSiteList.cs" />
+    <Compile Include="ViewModels\EditingMaterialSiteSpace\IReceiverCommandFromView.cs" />
     <Compile Include="ViewModels\ExportLicenseText\ExportLicenseText.cs" />
     <Compile Include="ViewModels\ExportLicenseText\IReceiverCommandFromView.cs" />
     <Compile Include="ViewModels\ISettableActiveProjectData.cs" />
@@ -96,7 +98,7 @@
     <Compile Include="ViewModels\MaterialSiteAdditionalDialog\MaterialSiteAdditionalDialogViewModel.cs" />
     <Compile Include="ViewModels\MaterialSiteAdditionalDialog\RegisterMaterialSite.cs" />
     <Compile Include="ViewModels\MaterialSiteAdditionalDialog\SetActiveProjectDataToViewModel.cs" />
-    <Compile Include="ViewModels\MaterialSiteList\EditingMaterialSiteViewModel.cs" />
+    <Compile Include="ViewModels\EditingMaterialSiteSpace\EditingMaterialSiteViewModel.cs" />
     <Compile Include="Views\EditingMaterialSite\EditingLicenseCheckItems\EditingLicenseCheckItems.xaml.cs">
       <DependentUpon>EditingLicenseCheckItems.xaml</DependentUpon>
     </Compile>

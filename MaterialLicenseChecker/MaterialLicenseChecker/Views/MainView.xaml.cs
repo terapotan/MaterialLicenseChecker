@@ -17,7 +17,7 @@ using System.Windows.Shapes;
 //たぶんそのほうがいいのでは?
 using MaterialLicenseChecker.Models;
 using MainViewModel = MaterialLicenseChecker.ViewModels.MainViewModel;
-using MaterialSiteList = MaterialLicenseChecker.ViewModels.MaterialSiteList;
+using EditingMaterialSiteSpace = MaterialLicenseChecker.ViewModels.EditingMaterialSiteSpace;
 
 namespace MaterialLicenseChecker.Views
 {

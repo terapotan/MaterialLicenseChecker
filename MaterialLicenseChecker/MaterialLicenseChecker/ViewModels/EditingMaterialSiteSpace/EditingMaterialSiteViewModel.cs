@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MaterialLicenseChecker.Models;
 
-namespace MaterialLicenseChecker.ViewModels.MaterialSiteList
+namespace MaterialLicenseChecker.ViewModels.EditingMaterialSiteSpace
 {
     public class EditingMaterialSiteViewModel
     {

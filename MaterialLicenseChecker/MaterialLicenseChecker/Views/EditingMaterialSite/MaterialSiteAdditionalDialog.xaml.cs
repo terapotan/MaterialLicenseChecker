@@ -64,6 +64,8 @@ namespace MaterialLicenseChecker.Views
         {
             Close();
         }
-            
+
+
+
     }
 }
