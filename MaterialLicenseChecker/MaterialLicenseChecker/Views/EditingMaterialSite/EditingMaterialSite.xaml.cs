@@ -32,7 +32,7 @@ namespace MaterialLicenseChecker.Views
         private void ClickedEditingAMaterialSite(object sender, RoutedEventArgs e)
         {
             //何の項目も選択されていない場合
-            if(MaterialSiteListBox.SelectedIndex == -1)
+            if (MaterialSiteListBox.SelectedIndex == -1)
             {
                 MessageBox.Show("編集したい項目を選択してください。", "項目の未選択", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 return;
@@ -65,9 +65,9 @@ namespace MaterialLicenseChecker.Views
             EditingMaterialSiteSpace.DeleteMaterialSite cmd = new EditingMaterialSiteSpace.DeleteMaterialSite();
             cmd.DeletingMaterialSiteName = (string)SelectedListBoxItem.Content;
 
-            var UserInput = MessageBox.Show("素材配布サイト「"+cmd.DeletingMaterialSiteName+"」に関するデータは完全に削除されます。\n本当に削除しますか?", "素材配布サイトの削除", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            var UserInput = MessageBox.Show("素材配布サイト「" + cmd.DeletingMaterialSiteName + "」に関するデータは完全に削除されます。\n本当に削除しますか?", "素材配布サイトの削除", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
-            if(UserInput == MessageBoxResult.No)
+            if (UserInput == MessageBoxResult.No)
             {
                 return;
             }
@@ -106,6 +106,27 @@ namespace MaterialLicenseChecker.Views
                 win.ShowDialog();
                 UpdateMaterialSiteListBox();
             }
+        }
+
+        private void ClickedTeamsOfUse(object sender, RoutedEventArgs e)
+        {
+            //何の項目も選択されていない場合
+            if (MaterialSiteListBox.SelectedIndex == -1)
+            {
+                MessageBox.Show("利用規約を表示したい項目を選択してください。", "項目の未選択", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                return;
+            }
+
+            var SelectedListBoxItem = (ListBoxItem)MaterialSiteListBox.ItemContainerGenerator.ContainerFromItem(MaterialSiteListBox.SelectedItem);
+            var MaterialSite = new MaterialLicenseChecker.Models.MaterialSiteData();
+
+            EditingMaterialSiteSpace.FetchMaterialSiteGivenSiteName cmd = new EditingMaterialSiteSpace.FetchMaterialSiteGivenSiteName();
+            cmd.SearchedMaterialSiteName = (string)SelectedListBoxItem.Content;
+            cmd.FetchedMaterialSiteData = MaterialSite;
+
+            ReceiverOfViewModel.CommandViewModelTo(cmd);
+
+            System.Diagnostics.Process.Start(cmd.FetchedMaterialSiteData.TeamsOfURL);
         }
     }
 }

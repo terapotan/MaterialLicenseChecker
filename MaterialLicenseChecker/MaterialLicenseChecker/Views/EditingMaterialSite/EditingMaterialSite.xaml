@@ -31,7 +31,7 @@
                 <Button Padding="35,0" Margin="0,15,5,0" Click="ClickedMaterialSiteAdditional">新規</Button>
                 <Button Margin="0,8,5,0" Click="ClickedEditingAMaterialSite">編集</Button>
                 <Button Margin="0,8,5,0" Click="ClickedDeletingMaterialSiteButton">削除</Button>
-                <Button Margin="0,30,5,0">利用規約を表示</Button>
+                <Button Margin="0,30,5,0" Click="ClickedTeamsOfUse">利用規約を表示</Button>
             </StackPanel>
         </Grid>
 
