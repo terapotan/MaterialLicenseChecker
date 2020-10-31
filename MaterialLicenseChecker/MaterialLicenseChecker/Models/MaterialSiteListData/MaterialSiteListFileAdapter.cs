@@ -168,5 +168,25 @@ namespace MaterialLicenseChecker.Models
             return ReturnedSiteData;
         }
 
+        /// <summary>
+        /// 素材データを削除するメソッド。
+        /// </summary>
+        /// <param name="MaterialSiteName"></param>
+        public void DeleteMaterialSite(string MaterialSiteName)
+        {
+            var SearchedMaterialSite = _loadedXMLFileInstance.XPathSelectElement("//materialSite[@siteName='" + SecurityElement.Escape(MaterialSiteName) + "']");
+            
+            //もしサイトが見つからない場合
+            if (SearchedMaterialSite == null)
+            {
+                throw new MyException.NotFoundMaterialSiteException();
+            }
+
+
+            SearchedMaterialSite.Remove();
+
+            _loadedXMLFileInstance.Save(StoringDataFilePath.GetInstance().LicenseTextFileAbsolutePath);
+
+        }
     }
 }
