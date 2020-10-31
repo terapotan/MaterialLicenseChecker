@@ -84,6 +84,7 @@
     </Compile>
     <Compile Include="ViewModels\EditingMaterialSiteSpace\GetMaterialSiteList.cs" />
     <Compile Include="ViewModels\EditingMaterialSiteSpace\IReceiverCommandFromView.cs" />
+    <Compile Include="ViewModels\EditingMaterialSiteSpace\UpdateMaterialSite.cs" />
     <Compile Include="ViewModels\ExportLicenseText\ExportLicenseText.cs" />
     <Compile Include="ViewModels\ExportLicenseText\IReceiverCommandFromView.cs" />
     <Compile Include="ViewModels\ISettableActiveProjectData.cs" />

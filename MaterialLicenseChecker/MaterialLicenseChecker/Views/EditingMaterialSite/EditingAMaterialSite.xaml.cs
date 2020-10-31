@@ -52,5 +52,21 @@ namespace MaterialLicenseChecker.Views
             LicenseText.Text = cmd.FetchedMaterialSiteData.LicenseText;
             LicenseMemo.Text = cmd.FetchedMaterialSiteData.LicenseMemo;
         }
+
+        private void ClickedOKButton(object sender, RoutedEventArgs e)
+        {
+            EditingMaterialSiteSpace.UpdateMaterialSite cmd = new EditingMaterialSiteSpace.UpdateMaterialSite();
+            
+            var ReplaceingMaterialSiteData = new MaterialSiteDataSpace.MaterialSiteData();
+            ReplaceingMaterialSiteData.MaterialSiteName = SiteName.Text;
+            ReplaceingMaterialSiteData.TeamsOfURL = TeamsOfUseURL.Text;
+            ReplaceingMaterialSiteData.LicenseText = LicenseText.Text;
+            ReplaceingMaterialSiteData.LicenseMemo = LicenseMemo.Text;
+
+            cmd.ReplacedMaterialSiteName = editingMaterialSite;
+            cmd.ReplaceingMaterialSite = ReplaceingMaterialSiteData;
+
+            ReceiverOfView.CommandViewModelTo(cmd);
+        }
     }
 }

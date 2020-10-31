@@ -10,5 +10,7 @@ namespace MaterialLicenseChecker.ViewModels.EditingMaterialSiteSpace
     {
         void CommandViewModelTo(GetMaterialSiteList cmd);
         void CommandViewModelTo(FetchMaterialSiteGivenSiteName cmd);
+        void CommandViewModelTo(UpdateMaterialSite cmd);
+
     }
 }
