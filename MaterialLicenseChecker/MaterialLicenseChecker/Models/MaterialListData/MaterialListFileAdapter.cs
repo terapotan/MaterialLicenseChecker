@@ -23,13 +23,14 @@ namespace MaterialLicenseChecker.Models
         /// </summary>
         /// <param name="SiteName"></param>
         /// <param name="LicenseText"></param>
-        public void AddMaterialData(string MaterialName, string MaterialFilePath,string MaterialSiteName)
+        public void AddMaterialData(MaterialData AddedMaterialData)
         {
-            XElement AddedMaterialTree = new XElement("material", 
-                new XElement("materialCreationSiteName", MaterialSiteName),
-                new XElement("materialFileAbsolutePath", MaterialFilePath));
+            XElement AddedMaterialTree = new XElement("material",
+                new XElement("materialType", AddedMaterialData.MaterialType),
+                new XElement("materialCreationSiteName", AddedMaterialData.MaterialCreationSiteName),
+                new XElement("materialFileAbsolutePath", AddedMaterialData.MaterialFileAbsolutePath));
 
-            AddedMaterialTree.SetAttributeValue("materialName", MaterialName);
+            AddedMaterialTree.SetAttributeValue("materialName", AddedMaterialData.MaterialName);
             LoadedXMLFileInstance.Elements().First().Add(AddedMaterialTree);
 
             LoadedXMLFileInstance.Save(StoringDataFilePath.GetInstance().MaterialListFileAbsolutePath);

@@ -42,7 +42,7 @@ namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
                 return;
             }
 
-            FileInstance.AddMaterialData(msg.MaterialName, msg.MaterialFilePath, msg.MaterialSiteName);
+            //FileInstance.AddMaterialData(msg.MaterialName, msg.MaterialFilePath, msg.MaterialSiteName);
             msg.ProcessingResult = AddMaterialDataToFile.PROCESS_SUCCESSFUL;
         }
 
