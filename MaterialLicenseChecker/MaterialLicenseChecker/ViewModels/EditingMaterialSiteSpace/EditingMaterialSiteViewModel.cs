@@ -29,5 +29,10 @@ namespace MaterialLicenseChecker.ViewModels.EditingMaterialSiteSpace
                 cmd.ValueInputCheckResult = int.Parse(e.Message);
             }
         }
+
+        public void CommandViewModelTo(DeleteMaterialSite cmd)
+        {
+            ActiveProjectData.GetInstance().MaterialSiteListData.DeleteMaterialSite(cmd.DeletingMaterialSiteName);
+        }
     }
 }

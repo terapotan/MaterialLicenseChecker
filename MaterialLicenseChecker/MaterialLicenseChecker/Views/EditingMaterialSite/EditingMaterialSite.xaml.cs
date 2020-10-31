@@ -55,7 +55,25 @@ namespace MaterialLicenseChecker.Views
 
         private void ClickedDeletingMaterialSiteButton(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("素材配布サイト「配布サイト名」に関するデータは完全に削除されます。\n本当に削除しますか?", "素材配布サイトの削除", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            //何の項目も選択されていない場合
+            if (MaterialSiteListBox.SelectedIndex == -1)
+            {
+                MessageBox.Show("削除したい項目を選択してください。", "項目の未選択", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                return;
+            }
+            var SelectedListBoxItem = (ListBoxItem)MaterialSiteListBox.ItemContainerGenerator.ContainerFromItem(MaterialSiteListBox.SelectedItem);
+            EditingMaterialSiteSpace.DeleteMaterialSite cmd = new EditingMaterialSiteSpace.DeleteMaterialSite();
+            cmd.DeletingMaterialSiteName = (string)SelectedListBoxItem.Content;
+
+            var UserInput = MessageBox.Show("素材配布サイト「"+cmd.DeletingMaterialSiteName+"」に関するデータは完全に削除されます。\n本当に削除しますか?", "素材配布サイトの削除", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if(UserInput == MessageBoxResult.No)
+            {
+                return;
+            }
+
+            ReceiverOfViewModel.CommandViewModelTo(cmd);
+            UpdateMaterialSiteListBox();
         }
 
         private void UpdateMaterialSiteListBox()
