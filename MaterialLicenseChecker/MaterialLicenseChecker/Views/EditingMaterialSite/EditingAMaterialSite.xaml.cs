@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using EditingMaterialSiteSpace = MaterialLicenseChecker.ViewModels.EditingMaterialSiteSpace;
+using MaterialSiteDataSpace = MaterialLicenseChecker.Models;
 
 namespace MaterialLicenseChecker.Views
 {
@@ -20,9 +22,12 @@ namespace MaterialLicenseChecker.Views
     public partial class EditingAMaterialSite : Window
     {
         private string editingMaterialSite;
+        private EditingMaterialSiteSpace.IReceiverCommandFromView ReceiverOfView;
+
         public EditingAMaterialSite(string EditingMaterialSiteName)
         {
             InitializeComponent();
+            ReceiverOfView = new EditingMaterialSiteSpace.EditingMaterialSiteViewModel();
             editingMaterialSite = EditingMaterialSiteName;
             SetMaterialSiteValue(EditingMaterialSiteName);
         }
@@ -36,7 +41,16 @@ namespace MaterialLicenseChecker.Views
 
         private void SetMaterialSiteValue(string EditingMaterialSiteName)
         {
+            MaterialSiteDataSpace.MaterialSiteData SiteData = new MaterialSiteDataSpace.MaterialSiteData();
+            EditingMaterialSiteSpace.FetchMaterialSiteGivenSiteName cmd = new EditingMaterialSiteSpace.FetchMaterialSiteGivenSiteName();
+            cmd.FetchedMaterialSiteData = SiteData;
+            cmd.SearchedMaterialSiteName = EditingMaterialSiteName;
+            ReceiverOfView.CommandViewModelTo(cmd);
 
+            SiteName.Text = cmd.FetchedMaterialSiteData.MaterialSiteName;
+            TeamsOfUseURL.Text = cmd.FetchedMaterialSiteData.TeamsOfURL;
+            LicenseText.Text = cmd.FetchedMaterialSiteData.LicenseText;
+            LicenseMemo.Text = cmd.FetchedMaterialSiteData.LicenseMemo;
         }
     }
 }

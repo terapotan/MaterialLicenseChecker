@@ -13,5 +13,9 @@ namespace MaterialLicenseChecker.ViewModels.EditingMaterialSiteSpace
         {
             cmd.MaterialSiteList = ActiveProjectData.GetInstance().MaterialSiteListData.GetMaterialList();
         }
+        public void CommandViewModelTo(FetchMaterialSiteGivenSiteName cmd)
+        {
+            cmd.FetchedMaterialSiteData = ActiveProjectData.GetInstance().MaterialSiteListData.GetMaterialSite(cmd.SearchedMaterialSiteName);
+        }
     }
 }

@@ -14,7 +14,6 @@ namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
     {
        public MaterialAdditionalDialogViewModel()
         {
-            
         }
 
   
@@ -53,11 +52,6 @@ namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
             var MaterialSiteNameList = instance.GetMaterialSiteList();
 
             msg.MaterialSiteList = MaterialSiteNameList;
-        }
-
-        public void CommandViewModelTo(FetchMaterialSiteGivenSiteName cmd)
-        {
-            cmd.FetchedMaterialSiteData = ActiveProjectData.GetInstance().MaterialSiteListData.GetMaterialSite(cmd.SearchedMaterialSiteName);
         }
     }
 }
