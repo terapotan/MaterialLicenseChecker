@@ -9,6 +9,8 @@ using System.Xml.Linq;
 using System.Security;
 using System.IO;
 
+using MyException = MaterialLicenseChecker.MyException;
+
 namespace MaterialLicenseChecker.Models
 {
     /// <summary>
@@ -151,6 +153,12 @@ namespace MaterialLicenseChecker.Models
             //FIXME:後でサイトが見つからない時の処理も実装しておくこと。
             var SearchedMaterialSite = _loadedXMLFileInstance.XPathSelectElement("//materialSite[@siteName='" + SecurityElement.Escape(SearchedSiteName) + "']");
             
+            //もしサイトが見つからない場合
+            if(SearchedMaterialSite == null)
+            {
+                throw new MyException.NotFoundMaterialSiteException();
+            }
+
             MaterialSiteData ReturnedSiteData = new MaterialSiteData();
             ReturnedSiteData.LicenseMemo = SearchedMaterialSite.Element("licenseMemo").Value;
             ReturnedSiteData.LicenseText = SearchedMaterialSite.Element("licenseText").Value;
