@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace MaterialLicenseChecker.Models
 {
-    public class MaterialListData
+    public class MaterialListLogicalData
     {
+
     }
+
 }
