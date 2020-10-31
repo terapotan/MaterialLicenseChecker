@@ -25,25 +25,31 @@ namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
             //どこか別のところに書いたほうがいいだろう。
 
 
-            MaterialListFileAdapter FileInstance = new MaterialListFileAdapter();
-            MaterialSiteListFileAdapter LicenseTextInstance = new MaterialSiteListFileAdapter();
+            //MaterialListFileAdapter FileInstance = new MaterialListFileAdapter();
+            //MaterialSiteListFileAdapter LicenseTextInstance = new MaterialSiteListFileAdapter();
 
-            bool MaterialSiteExists = LicenseTextInstance.MaterialSiteExists(msg.MaterialSiteName);
+            //bool MaterialSiteExists = LicenseTextInstance.MaterialSiteExists(msg.MaterialSiteName);
 
-            if (msg.MaterialName.Equals("") || msg.MaterialFilePath.Equals("") || msg.MaterialSiteName.Equals(""))
-            {
-                msg.ProcessingResult = AddMaterialDataToFile.NOT_INPUT_ITEM_EXISTS;
-                return;
-            }
+            //if (msg.MaterialName.Equals("") || msg.MaterialFilePath.Equals("") || msg.MaterialSiteName.Equals(""))
+            //{
+            //    msg.ProcessingResult = AddMaterialDataToFile.NOT_INPUT_ITEM_EXISTS;
+            //    return;
+            //}
 
+            //FIXME:将来的に例外処理も実装すること。
+            //現状は、コンポボックスで素材配布サイトを指定しており、この例外が発生する可能性は少ないと
+            //見られるため処理の実装を省略する。
+            /*
             if (!MaterialSiteExists)
             {
                 msg.ProcessingResult = AddMaterialDataToFile.MATERIALSITE_NOT_FOUND;
                 return;
             }
+            */
 
-            //FileInstance.AddMaterialData(msg.MaterialName, msg.MaterialFilePath, msg.MaterialSiteName);
-            msg.ProcessingResult = AddMaterialDataToFile.PROCESS_SUCCESSFUL;
+            ActiveProjectData.GetInstance().MateiralListLogicalData.AddMaterialData(msg.AddedMaterialData);
+
+            //msg.ProcessingResult = AddMaterialDataToFile.PROCESS_SUCCESSFUL;
         }
 
         public void CommandViewModelTo(FetchMaterialSiteLIst msg)

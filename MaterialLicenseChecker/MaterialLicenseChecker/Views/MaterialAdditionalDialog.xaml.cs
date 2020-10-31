@@ -69,6 +69,22 @@ namespace MaterialLicenseChecker.Views
             Close();
         }
 
+        private void ClickedOKButton(object sender, RoutedEventArgs e)
+        {
+            MaterialLicenseChecker.Models.MaterialData AddedMaterialData = new MaterialLicenseChecker.Models.MaterialData();
+            AddedMaterialData.MaterialCreationSiteName = MaterialSiteList.Text;
+            AddedMaterialData.MaterialType = MaterialType.Text;
+            AddedMaterialData.MaterialName = MaterialName.Text;
+
+            MaterialAdditional.AddMaterialDataToFile cmd = new MaterialAdditional.AddMaterialDataToFile();
+
+            cmd.AddedMaterialData = AddedMaterialData;
+
+            ReceiverOfViewModel.CommandViewModelTo(cmd);
+
+            Close();
+        }
+
 
 
         /*

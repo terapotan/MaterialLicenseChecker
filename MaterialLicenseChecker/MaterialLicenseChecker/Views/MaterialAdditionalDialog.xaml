@@ -24,8 +24,8 @@
         </StackPanel>
 
         <StackPanel Grid.Column="1">
-            <TextBox Margin="10,10,20,0"></TextBox>
-            <ComboBox Margin="10,14,20,0">
+            <TextBox x:Name="MaterialName" Margin="10,10,20,0"></TextBox>
+            <ComboBox x:Name="MaterialType" Margin="10,14,20,0">
                 <ComboBoxItem>画像</ComboBoxItem>
                 <ComboBoxItem>音声</ComboBoxItem>
                 <ComboBoxItem>テキスト</ComboBoxItem>
@@ -47,7 +47,7 @@
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
-            <Button Margin="5,5"  Padding="25,2">追加</Button>
+            <Button Margin="5,5"  Padding="25,2" Click="ClickedOKButton">追加</Button>
             <Button Margin="5,5"  Padding="25,2" Click="ClickedCancelButton">キャンセル</Button>
         </StackPanel>
     </Grid>
