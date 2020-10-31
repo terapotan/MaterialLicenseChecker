@@ -30,14 +30,18 @@
             </MenuItem>
         </Menu>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="8*"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="8*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
             <Grid>
-                <DataGrid x:Name="MaterialListBox" AutoGenerateColumns="False" DisplayMemberPath="Name" SelectionMode="Single" Margin="20" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="35*"/>
+                    <ColumnDefinition Width="129*"/>
+                </Grid.ColumnDefinitions>
+                <DataGrid x:Name="MaterialListBox" AutoGenerateColumns="False" DisplayMemberPath="Name" SelectionMode="Single" Margin="20" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="2">
                     <DataGrid.Columns >
                         <DataGridTextColumn Width="*">
                             <DataGridTextColumn.Header>ファイルの種類</DataGridTextColumn.Header>
@@ -49,7 +53,7 @@
                             <DataGridTextColumn.Header>配布サイト名</DataGridTextColumn.Header>
                         </DataGridTextColumn>
                     </DataGrid.Columns>
-                    
+
 
 
 
@@ -59,17 +63,17 @@
                         </ContextMenu>
                     </DataGrid.ContextMenu>
                 </DataGrid>
-                    
+
 
             </Grid>
 
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button IsEnabled="False" Content="ライセンスチェック" Padding ="5" Margin ="0,-10,20,0" Command="{Binding ShowDialogCommand}"></Button>
-            <Button Content="ライセンス表記出力" Padding ="5" Margin="0,-10,0,0" Click="ExportLicenseTextButton"></Button>
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button IsEnabled="False" Content="ライセンスチェック" Padding ="5" Margin ="0,-10,20,0" Command="{Binding ShowDialogCommand}"></Button>
+                <Button Content="ライセンス表記出力" Padding ="5" Margin="0,-10,0,0" Click="ExportLicenseTextButton"></Button>
             </StackPanel>
 
 
-    </Grid>
+        </Grid>
 
     </DockPanel>
 

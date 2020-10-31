@@ -33,13 +33,13 @@
             </ComboBox>
             
             <StackPanel Orientation="Horizontal">
-                <ComboBox Width="208" Margin="10,12,5,0">
+                <ComboBox x:Name="MaterialSiteList" Width="208" Margin="10,12,5,0">
                     <ComboBoxItem>素材配布サイト1</ComboBoxItem>
                     <ComboBoxItem>素材配布サイト2</ComboBoxItem>
                     <ComboBoxItem>素材配布サイト3</ComboBoxItem>
                     <ComboBoxItem>素材配布サイト4</ComboBoxItem>
                 </ComboBox>
-                <Button Margin="10,12,20,0">更新</Button>
+                <Button Margin="10,12,20,0" Click="ClickedUpdateMaterialSiteListButton">更新</Button>
             </StackPanel>
             <Button Margin="10,25,20,0" Click="ClickedMaterialSiteListButton">素材配布サイトの編集</Button>
 

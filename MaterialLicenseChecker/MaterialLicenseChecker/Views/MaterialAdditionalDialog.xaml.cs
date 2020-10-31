@@ -40,6 +40,16 @@ namespace MaterialLicenseChecker.Views
             win.ShowDialog();
         }
 
+        private void ClickedUpdateMaterialSiteListButton(object sender, RoutedEventArgs e)
+        {
+            UpdateMaterialSiteList();
+        }
+
+        private void UpdateMaterialSiteList()
+        {
+            MaterialSiteList.Items.Clear();
+        }
+
 
 
         /*
