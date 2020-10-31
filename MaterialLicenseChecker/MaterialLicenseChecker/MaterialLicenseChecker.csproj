@@ -91,6 +91,7 @@
     <Compile Include="ViewModels\MainViewModel\IReceiverCommandFromView.cs" />
     <Compile Include="ViewModels\MainViewModel\SetActiveProjectDataToViewModel.cs" />
     <Compile Include="ViewModels\MaterialAdditionalDialog\AddMaterialDataToFile.cs" />
+    <Compile Include="ViewModels\MaterialAdditionalDialog\FetchMaterialSiteGivenSiteName.cs" />
     <Compile Include="ViewModels\MaterialAdditionalDialog\FetchMaterialSiteLIst.cs" />
     <Compile Include="ViewModels\MaterialAdditionalDialog\IReceiverCommandFromView.cs" />
     <Compile Include="ViewModels\ExportLicenseText\ExportLicenseTextViewModel.cs" />

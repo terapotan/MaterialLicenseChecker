@@ -54,5 +54,10 @@ namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
 
             msg.MaterialSiteList = MaterialSiteNameList;
         }
+
+        public void CommandViewModelTo(FetchMaterialSiteGivenSiteName cmd)
+        {
+            cmd.FetchedMaterialSiteData = ActiveProjectData.GetInstance().MaterialSiteListData.GetMaterialSite(cmd.SearchedMaterialSiteName);
+        }
     }
 }

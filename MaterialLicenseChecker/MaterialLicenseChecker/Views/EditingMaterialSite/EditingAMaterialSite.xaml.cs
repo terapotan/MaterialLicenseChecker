@@ -24,7 +24,7 @@ namespace MaterialLicenseChecker.Views
         {
             InitializeComponent();
             editingMaterialSite = EditingMaterialSiteName;
-            MessageBox.Show(editingMaterialSite);
+            SetMaterialSiteValue(EditingMaterialSiteName);
         }
 
         private void ClickedEditingLicenseCheckItems(object sender, RoutedEventArgs e)
@@ -32,6 +32,11 @@ namespace MaterialLicenseChecker.Views
             Window win = new EditingLicenseCheckItems();
             win.Owner = GetWindow(this);
             win.ShowDialog();
+        }
+
+        private void SetMaterialSiteValue(string EditingMaterialSiteName)
+        {
+
         }
     }
 }
