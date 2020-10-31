@@ -33,6 +33,13 @@ namespace MaterialLicenseChecker.Views
 
         }
 
+        private void ClickedMaterialSiteListButton(object sender, RoutedEventArgs e)
+        {
+            EditingMaterialSite win = new EditingMaterialSite();
+            win.Owner = GetWindow(this);
+            win.ShowDialog();
+        }
+
 
 
         /*
