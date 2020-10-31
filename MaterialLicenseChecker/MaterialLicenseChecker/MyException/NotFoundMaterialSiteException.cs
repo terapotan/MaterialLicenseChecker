@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace MaterialLicenseChecker.MyException
 {
-    class NotFoundMaterialSiteException
+
+    [Serializable]
+    public class NotFoundMaterialSiteException : Exception
     {
+        public NotFoundMaterialSiteException() { }
+        public NotFoundMaterialSiteException(string message) : base(message) { }
+        public NotFoundMaterialSiteException(string message, Exception inner) : base(message, inner) { }
+        protected NotFoundMaterialSiteException(
+          System.Runtime.Serialization.SerializationInfo info,
+          System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
     }
 }
