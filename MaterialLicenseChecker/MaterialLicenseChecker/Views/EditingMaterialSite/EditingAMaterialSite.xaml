@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MaterialLicenseChecker.Views"
         mc:Ignorable="d"
-        Title="素材配布サイトの編集" Height="406" Width="390" WindowStartupLocation="CenterOwner">
+        Title="素材配布サイトの編集" Height="406" Width="390" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions >
             <ColumnDefinition Width="3*"></ColumnDefinition>
