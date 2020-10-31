@@ -11,25 +11,12 @@ using System.IO;
 
 namespace MaterialLicenseChecker.Models
 {
+    /// <summary>
+    /// LicenseTexts.xml(素材配布サイト管理ファイル)の読み書きを行うクラス。
+    /// </summary>
     public class MaterialSiteListFileAdapter
     {
         private XDocument _loadedXMLFileInstance;
-        /// <summary>
-        /// ライセンステキストを辞書型で保管する。
-        /// 1番目:利用規約のサイト名(キーとなる)
-        /// 2番目:利用規約の内容(テキスト)
-        /// </summary>
-        //private Dictionary<string, string> _licenseTextDictionary;
-
-        //将来的には、2番目のstringは単なる文字列ではなく、ユーザー定義のクラスとなるだろう。
-        //まぁ先のことだ。
-
-        //FIXME:現状このクラスで、ファイルの読み書きを行っている。
-        //別のクラスに分離し、こちら側はファイルから特定のサイト名のライセンステキストを出力してもらう
-        //関数を呼び出すだけにしておきたい。
-
-        //FIMXE:何だか、このクラスは責務を抱えすぎているように思える。
-        //将来の機能変更に耐えるためにも、次のブログリリースまでにはこのクラスのリファクタリングを行いたい。
 
         ///<summary>
         ///引数のどちらかが空文字列("")のときに、この数値が例外メッセージとして返却される
@@ -39,7 +26,6 @@ namespace MaterialLicenseChecker.Models
         /// 素材配布サイトを追加する際、既にその配布サイトが登録されている場合、この数値が例外メッセージとして返却される。
         /// </summary>
         public static readonly int REGISTER_EXISTS_MATERIALSITE = 2;
-
 
 
         public MaterialSiteListFileAdapter()

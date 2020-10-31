@@ -76,6 +76,7 @@
     <Compile Include="Models\ExportingDisplayedLicenseText.cs" />
     <Compile Include="Models\ExportingLicenseText.cs" />
     <Compile Include="Models\StoringDataFilePath.cs" />
+    <Compile Include="MyException\NotFoundMaterialSiteException.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -230,6 +231,8 @@
   <ItemGroup>
     <Resource Include="EmbeddedResources\Images\WindowIconImage.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="MyException\MaterialSiteListFileAdapter\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
