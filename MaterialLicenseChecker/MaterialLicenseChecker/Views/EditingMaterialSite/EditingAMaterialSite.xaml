@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MaterialLicenseChecker.Views"
         mc:Ignorable="d"
-        Title="素材配布サイトの編集" Height="406" Width="390" WindowStartupLocation="CenterOwner">
+        Title="素材配布サイトの編集" Height="406" Width="390" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions >
             <ColumnDefinition Width="3*"></ColumnDefinition>
@@ -26,16 +26,16 @@
         </StackPanel>
 
         <StackPanel Grid.Column="1">
-            <TextBox Margin="10,10,20,0"></TextBox>
-            <TextBox Margin="10,8,20,0"></TextBox>
-            <TextBox AcceptsReturn="True" TextWrapping="Wrap" Height="80" Margin="10,8,20,0" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
-            <TextBox AcceptsReturn="True" TextWrapping="Wrap" Height="80" Margin="10,8,20,0" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+            <TextBox x:Name="SiteName" Margin="10,10,20,0"></TextBox>
+            <TextBox x:Name="TeamsOfUseURL" Margin="10,8,20,0"></TextBox>
+            <TextBox x:Name="LicenseText" AcceptsReturn="True" TextWrapping="Wrap" Height="80" Margin="10,8,20,0" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+            <TextBox x:Name="LicenseMemo" AcceptsReturn="True" TextWrapping="Wrap" Height="80" Margin="10,8,20,0" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
             <Button  IsEnabled="False" Margin="30,20,40,0" Click="ClickedEditingLicenseCheckItems">ライセンスチェック項目の編集</Button>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
-            <Button Margin="5,5"  Padding="25,2">OK</Button>
-            <Button Margin="5,5"  Padding="25,2">キャンセル</Button>
+            <Button Margin="5,5"  Padding="25,2" Click="ClickedOKButton">OK</Button>
+            <Button Margin="5,5"  Padding="25,2" Click="ClickedCancelButton">キャンセル</Button>
         </StackPanel>
     </Grid>
 </Window>

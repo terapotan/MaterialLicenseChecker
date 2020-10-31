@@ -69,19 +69,23 @@
       <DependentUpon>materialListFile.xml</DependentUpon>
     </Compile>
     <Compile Include="Models\ActiveProjectData.cs" />
-    <Compile Include="Models\MaterialSiteListData.cs" />
-    <Compile Include="Models\MaterialSiteListFileAdapter.cs" />
+    <Compile Include="Models\MaterialSiteListData\MaterialSiteData.cs" />
+    <Compile Include="Models\MaterialSiteListData\MaterialSiteListData.cs" />
+    <Compile Include="Models\MaterialSiteListData\MaterialSiteListFileAdapter.cs" />
     <Compile Include="Models\ClassStoreMaterialList.cs" />
     <Compile Include="Models\ExportingDisplayedLicenseText.cs" />
     <Compile Include="Models\ExportingLicenseText.cs" />
     <Compile Include="Models\StoringDataFilePath.cs" />
+    <Compile Include="MyException\NotFoundMaterialSiteException.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\EditingMaterialSiteSpace\DeleteMaterialSite.cs" />
     <Compile Include="ViewModels\EditingMaterialSiteSpace\GetMaterialSiteList.cs" />
     <Compile Include="ViewModels\EditingMaterialSiteSpace\IReceiverCommandFromView.cs" />
+    <Compile Include="ViewModels\EditingMaterialSiteSpace\UpdateMaterialSite.cs" />
     <Compile Include="ViewModels\ExportLicenseText\ExportLicenseText.cs" />
     <Compile Include="ViewModels\ExportLicenseText\IReceiverCommandFromView.cs" />
     <Compile Include="ViewModels\ISettableActiveProjectData.cs" />
@@ -89,6 +93,7 @@
     <Compile Include="ViewModels\MainViewModel\IReceiverCommandFromView.cs" />
     <Compile Include="ViewModels\MainViewModel\SetActiveProjectDataToViewModel.cs" />
     <Compile Include="ViewModels\MaterialAdditionalDialog\AddMaterialDataToFile.cs" />
+    <Compile Include="ViewModels\EditingMaterialSiteSpace\FetchMaterialSiteGivenSiteName.cs" />
     <Compile Include="ViewModels\MaterialAdditionalDialog\FetchMaterialSiteLIst.cs" />
     <Compile Include="ViewModels\MaterialAdditionalDialog\IReceiverCommandFromView.cs" />
     <Compile Include="ViewModels\ExportLicenseText\ExportLicenseTextViewModel.cs" />
@@ -229,6 +234,8 @@
   <ItemGroup>
     <Resource Include="EmbeddedResources\Images\WindowIconImage.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="MyException\MaterialSiteListFileAdapter\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

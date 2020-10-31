@@ -14,7 +14,6 @@ namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
     {
        public MaterialAdditionalDialogViewModel()
         {
-            
         }
 
   

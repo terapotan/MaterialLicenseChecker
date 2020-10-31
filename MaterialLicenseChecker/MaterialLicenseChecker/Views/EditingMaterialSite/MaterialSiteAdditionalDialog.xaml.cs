@@ -47,7 +47,7 @@ namespace MaterialLicenseChecker.Views
             //FIMXE:ユーザーのことを考えるのであれば、どの項目が未入力なのか教えてあげたほうがいいだろう。
             if (cmd.ValueInputCheckResult == MaterialSite.RegisterMaterialSite.VALUE_EMPTY)
             {
-                MessageBox.Show("まだ入力されていない項目があります。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("サイト名が入力されていません。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
@@ -56,7 +56,7 @@ namespace MaterialLicenseChecker.Views
                 MessageBox.Show("指定された素材配布サイトは既に存在します。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-            MessageBox.Show("登録が完了しました。", "登録完了", MessageBoxButton.OK, MessageBoxImage.Information);
+            //MessageBox.Show("登録が完了しました。", "登録完了", MessageBoxButton.OK, MessageBoxImage.Information);
             Close();
 
         }

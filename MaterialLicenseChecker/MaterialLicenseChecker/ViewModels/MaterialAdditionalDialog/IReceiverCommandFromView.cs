@@ -9,6 +9,5 @@ namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
     interface IReceiverCommandFromView
     {
         void CommandViewModelTo(AddMaterialDataToFile msg);
-        void CommandViewModelTo(FetchMaterialSiteLIst msg);
     }
 }
