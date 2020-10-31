@@ -21,7 +21,7 @@
         <StackPanel Grid.Column="0">
             <TextBlock Margin="10,10,0,0">ヘッダー:</TextBlock>
             <TextBlock Margin="10,68,0,0">フッター:</TextBlock>
-            <TextBlock Margin="10,132,0,0">出力先ファイル名:</TextBlock>
+            <TextBlock Margin="10,132,0,0">出力先ディレクトリ:</TextBlock>
         </StackPanel>
 
         <StackPanel Grid.Column="1">
