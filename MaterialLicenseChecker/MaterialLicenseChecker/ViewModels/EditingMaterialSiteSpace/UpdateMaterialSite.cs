@@ -11,5 +11,10 @@ namespace MaterialLicenseChecker.ViewModels.EditingMaterialSiteSpace
     {
         public MaterialSiteData ReplaceingMaterialSite;
         public string ReplacedMaterialSiteName = "";
+        public int ValueInputCheckResult = -1;
+
+        public static readonly int ACCEPTED_VALUE = 0;
+        public static readonly int VALUE_EMPTY = 1;
+        public static readonly int REGISTER_EXISTS_MATERALSITE = 2;
     }
 }

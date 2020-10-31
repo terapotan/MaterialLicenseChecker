@@ -55,6 +55,12 @@ namespace MaterialLicenseChecker.Views
 
         private void ClickedOKButton(object sender, RoutedEventArgs e)
         {
+            if (SiteName.Text == "")
+            {
+                MessageBox.Show("サイト名が入力されていません。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
             EditingMaterialSiteSpace.UpdateMaterialSite cmd = new EditingMaterialSiteSpace.UpdateMaterialSite();
             
             var ReplaceingMaterialSiteData = new MaterialSiteDataSpace.MaterialSiteData();
@@ -68,7 +74,12 @@ namespace MaterialLicenseChecker.Views
 
             ReceiverOfView.CommandViewModelTo(cmd);
 
-            MessageBox.Show("編集が完了しました。", "編集完了", MessageBoxButton.OK, MessageBoxImage.Information);
+            //MessageBox.Show("編集が完了しました。", "編集完了", MessageBoxButton.OK, MessageBoxImage.Information);
+            Close();
+        }
+
+        private void ClickedCancelButton(object sender, RoutedEventArgs e)
+        {
             Close();
         }
     }

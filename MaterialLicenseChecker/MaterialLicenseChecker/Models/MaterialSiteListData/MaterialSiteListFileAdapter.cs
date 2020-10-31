@@ -79,8 +79,8 @@ namespace MaterialLicenseChecker.Models
         {
             //以下引数チェック処理。
 
-            //引数のどちらかが、空文字列("")である場合
-            if (SiteName.Equals("") || LicenseText.Equals("") || TeamsOfUseURL.Equals("") || MemoOfMaterialSite.Equals(""))
+            //サイト名が、空文字列("")である場合
+            if (SiteName.Equals(""))
             {
                 throw new ArgumentException(VALUE_EMPTY.ToString());
             }
