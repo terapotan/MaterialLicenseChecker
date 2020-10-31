@@ -67,6 +67,9 @@ namespace MaterialLicenseChecker.Views
             cmd.ReplaceingMaterialSite = ReplaceingMaterialSiteData;
 
             ReceiverOfView.CommandViewModelTo(cmd);
+
+            MessageBox.Show("編集が完了しました。", "編集完了", MessageBoxButton.OK, MessageBoxImage.Information);
+            Close();
         }
     }
 }
