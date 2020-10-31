@@ -82,6 +82,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\EditingMaterialSiteSpace\DeleteMaterialSite.cs" />
     <Compile Include="ViewModels\EditingMaterialSiteSpace\GetMaterialSiteList.cs" />
     <Compile Include="ViewModels\EditingMaterialSiteSpace\IReceiverCommandFromView.cs" />
     <Compile Include="ViewModels\EditingMaterialSiteSpace\UpdateMaterialSite.cs" />
