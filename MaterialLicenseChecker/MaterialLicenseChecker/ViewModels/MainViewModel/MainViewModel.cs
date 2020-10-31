@@ -20,7 +20,7 @@ namespace MaterialLicenseChecker.ViewModels.MainViewModel
 
         void IReceiverCommandFromView.CommandViewModelTo(DeleteMaterialDataOfFile cmd)
         {
-            var FileInstance = new ClassStoreMaterialList();
+            var FileInstance = new MaterialListFileAdapter();
             FileInstance.DeleteMaterialData(cmd.ListFromDeletedMaterialName);
         }
 

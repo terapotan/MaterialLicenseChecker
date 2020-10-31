@@ -9,11 +9,11 @@ using System.Security;
 
 namespace MaterialLicenseChecker.Models
 {
-    public class ClassStoreMaterialList
+    public class MaterialListFileAdapter
     {
         private XDocument LoadedXMLFileInstance;
 
-        public ClassStoreMaterialList()
+        public MaterialListFileAdapter()
         {
             LoadedXMLFileInstance = XDocument.Load(StoringDataFilePath.GetInstance().MaterialListFileAbsolutePath);
         }

@@ -131,7 +131,7 @@ namespace MaterialLicenseChecker.Views
 
         private void UpdateMaterialListBox()
         {
-            ClassStoreMaterialList FileInstance = new ClassStoreMaterialList();
+            MaterialListFileAdapter FileInstance = new MaterialListFileAdapter();
             var MaterialNameList = FileInstance.GetMaterialNameList();
 
             MaterialListBox.Items.Clear();

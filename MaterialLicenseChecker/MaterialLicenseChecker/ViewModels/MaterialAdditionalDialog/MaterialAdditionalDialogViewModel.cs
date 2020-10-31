@@ -24,7 +24,8 @@ namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
             //いや、if文があることは悪いことではないが、ここに書くべきではない気がする。
             //どこか別のところに書いたほうがいいだろう。
 
-            ClassStoreMaterialList FileInstance = new ClassStoreMaterialList();
+
+            MaterialListFileAdapter FileInstance = new MaterialListFileAdapter();
             MaterialSiteListFileAdapter LicenseTextInstance = new MaterialSiteListFileAdapter();
 
             bool MaterialSiteExists = LicenseTextInstance.MaterialSiteExists(msg.MaterialSiteName);

@@ -69,10 +69,11 @@
       <DependentUpon>materialListFile.xml</DependentUpon>
     </Compile>
     <Compile Include="Models\ActiveProjectData.cs" />
+    <Compile Include="Models\MaterialListData\MaterialListData.cs" />
     <Compile Include="Models\MaterialSiteListData\MaterialSiteData.cs" />
     <Compile Include="Models\MaterialSiteListData\MaterialSiteListData.cs" />
     <Compile Include="Models\MaterialSiteListData\MaterialSiteListFileAdapter.cs" />
-    <Compile Include="Models\ClassStoreMaterialList.cs" />
+    <Compile Include="Models\MaterialListData\MaterialListFileAdapter.cs" />
     <Compile Include="Models\ExportingDisplayedLicenseText.cs" />
     <Compile Include="Models\ExportingLicenseText.cs" />
     <Compile Include="Models\StoringDataFilePath.cs" />
