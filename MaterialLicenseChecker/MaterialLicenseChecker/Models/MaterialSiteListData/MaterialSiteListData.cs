@@ -24,6 +24,11 @@ namespace MaterialLicenseChecker.Models
             return materialSiteListFileInstance.GetMaterialSiteList();
         }
 
+        public MaterialSiteData GetMaterialSite(string SearchedMaterialSiteName)
+        {
+            return materialSiteListFileInstance.GetMaterialSite(SearchedMaterialSiteName);
+        }
+
 
     }
 }

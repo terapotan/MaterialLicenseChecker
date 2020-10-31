@@ -154,5 +154,25 @@ namespace MaterialLicenseChecker.Models
 
             return MaterialSiteList;
         }
+
+        /// <summary>
+        /// 与えられたMaterialSiteNameの内容を、MaterialSiteDataクラスにまとめて返却します。
+        /// </summary>
+        /// <param name="MaterialSiteName"></param>
+        /// <returns></returns>
+        public MaterialSiteData GetMaterialSite(string SearchedSiteName)
+        {
+            //FIXME:後でサイトが見つからない時の処理も実装しておくこと。
+            var SearchedMaterialSite = _loadedXMLFileInstance.XPathSelectElement("//materialSite[@siteName='" + SecurityElement.Escape(SearchedSiteName) + "']");
+            
+            MaterialSiteData ReturnedSiteData = new MaterialSiteData();
+            ReturnedSiteData.LicenseMemo = SearchedMaterialSite.Element("licenseMemo").Value;
+            ReturnedSiteData.LicenseText = SearchedMaterialSite.Element("licenseText").Value;
+            ReturnedSiteData.TeamsOfURL = SearchedMaterialSite.Element("teamsOfUseURL").Value;
+            ReturnedSiteData.MaterialSiteName = SearchedSiteName;
+
+            return ReturnedSiteData;
+        }
+
     }
 }
