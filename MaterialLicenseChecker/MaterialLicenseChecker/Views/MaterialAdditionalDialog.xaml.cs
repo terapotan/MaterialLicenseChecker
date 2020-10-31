@@ -15,6 +15,7 @@ using Microsoft.Win32;
 
 using MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog;
 using MaterialLicenseChecker.Views.CMainView;
+using MaterialAdditional = MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog;
 
 namespace MaterialLicenseChecker.Views
 {
@@ -23,13 +24,13 @@ namespace MaterialLicenseChecker.Views
     /// </summary>
     public partial class MaterialAdditionalDialog : Window
     {
-        private ViewModels.MaterialAdditionalDialog.IReceiverCommandFromView SentCommand;
+        private ViewModels.MaterialAdditionalDialog.IReceiverCommandFromView ReceiverOfViewModel;
 
         public MaterialAdditionalDialog()
         {
             InitializeComponent();
-
-            SentCommand = new MaterialAdditionalDialogViewModel();
+            ReceiverOfViewModel = new MaterialAdditionalDialogViewModel();
+            UpdateMaterialSiteList();
 
         }
 
@@ -47,7 +48,20 @@ namespace MaterialLicenseChecker.Views
 
         private void UpdateMaterialSiteList()
         {
+            List<string> MaterialSiteNameList;
+            MaterialAdditional.FetchMaterialSiteLIst cmd = new MaterialAdditional.FetchMaterialSiteLIst();
+            ReceiverOfViewModel.CommandViewModelTo(cmd);
+
+            MaterialSiteNameList = cmd.MaterialSiteList;
+
             MaterialSiteList.Items.Clear();
+
+            foreach (var MaterialSiteName in MaterialSiteNameList)
+            {
+                ListBoxItem listItem = new ListBoxItem();
+                listItem.Content = MaterialSiteName;
+                MaterialSiteList.Items.Add(listItem);
+            }
         }
 
 
