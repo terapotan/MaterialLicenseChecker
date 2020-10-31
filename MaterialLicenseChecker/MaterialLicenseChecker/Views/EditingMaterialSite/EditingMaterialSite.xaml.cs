@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using EditingMaterialSiteSpace = MaterialLicenseChecker.ViewModels.EditingMaterialSiteSpace;
 using MaterialSiteAdditional = MaterialLicenseChecker.ViewModels.MaterialSiteAdditionalDialog;
+using System.Text.RegularExpressions;
 
 namespace MaterialLicenseChecker.Views
 {
@@ -126,7 +127,15 @@ namespace MaterialLicenseChecker.Views
 
             ReceiverOfViewModel.CommandViewModelTo(cmd);
 
-            System.Diagnostics.Process.Start(cmd.FetchedMaterialSiteData.TeamsOfURL);
+            //利用規約に入っている文字列が、空白文字もしくは空文字列以外で、なおかつ有効なURL形式であった場合
+            if (!string.IsNullOrWhiteSpace(cmd.FetchedMaterialSiteData.TeamsOfURL) && Regex.IsMatch(cmd.FetchedMaterialSiteData.TeamsOfURL, @"^s?https?://[-_.!~*'()a-zA-Z0-9;/?:@&=+$,%#]+$"))
+            {
+                System.Diagnostics.Process.Start(cmd.FetchedMaterialSiteData.TeamsOfURL);
+            } else
+            {
+                MessageBox.Show("利用規約URLには、httpもしくはhttpsから始まるURLを入力してください。", "不正な形式", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+
         }
     }
 }
