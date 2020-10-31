@@ -61,6 +61,18 @@ namespace MaterialLicenseChecker.Views
                 return;
             }
 
+            //FIXME:本来であれば、ViewからModelへ直接アクセスすることは禁じられている。
+            //この処理は、ViewModelへ要請すべき処理であるが、このバグは意図せず素材配布サイトが削除される恐れのある、重大なバグであり
+            //そのようにして、修正する時間もとれないため、このような対処となった。
+            //時間があるときに、必ず修正すること。
+            
+            if (!(SiteName.Text == editingMaterialSite) && MaterialLicenseChecker.Models.ActiveProjectData.GetInstance().MaterialSiteListData.MaterialSiteExists(SiteName.Text))
+            {
+                MessageBox.Show("変更しようとしているサイト名は既に存在します。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+            
+
             EditingMaterialSiteSpace.UpdateMaterialSite cmd = new EditingMaterialSiteSpace.UpdateMaterialSite();
             
             var ReplaceingMaterialSiteData = new MaterialSiteDataSpace.MaterialSiteData();

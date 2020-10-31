@@ -51,6 +51,11 @@ namespace MaterialLicenseChecker.Models
             materialSiteListFileInstance.DeleteMaterialSite(DeletingMaterialSiteName);
         }
 
+        public bool MaterialSiteExists(string MaterialSiteName)
+        {
+            return materialSiteListFileInstance.MaterialSiteExists(MaterialSiteName);
+        }
+
 
     }
 }
