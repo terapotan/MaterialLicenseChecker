@@ -8,7 +8,15 @@ namespace MaterialLicenseChecker.Models
 {
     public class MaterialListLogicalData
     {
-
+        private MaterialListFileAdapter materialListFileAdapter;
+        public MaterialListLogicalData()
+        {
+            materialListFileAdapter = new MaterialListFileAdapter();
+        }
+        public void AddMaterialData(in MaterialData AddedMaterialData)
+        {
+            materialListFileAdapter.AddMaterialData(AddedMaterialData);
+        }
     }
 
 }

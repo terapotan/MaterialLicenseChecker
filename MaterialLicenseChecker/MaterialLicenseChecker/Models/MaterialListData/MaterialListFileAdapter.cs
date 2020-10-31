@@ -23,7 +23,7 @@ namespace MaterialLicenseChecker.Models
         /// </summary>
         /// <param name="SiteName"></param>
         /// <param name="LicenseText"></param>
-        public void AddMaterialData(MaterialData AddedMaterialData)
+        public void AddMaterialData(in MaterialData AddedMaterialData)
         {
             XElement AddedMaterialTree = new XElement("material",
                 new XElement("materialType", AddedMaterialData.MaterialType),
