@@ -19,9 +19,12 @@ namespace MaterialLicenseChecker.Views
     /// </summary>
     public partial class EditingAMaterialSite : Window
     {
-        public EditingAMaterialSite()
+        private string editingMaterialSite;
+        public EditingAMaterialSite(string EditingMaterialSiteName)
         {
             InitializeComponent();
+            editingMaterialSite = EditingMaterialSiteName;
+            MessageBox.Show(editingMaterialSite);
         }
 
         private void ClickedEditingLicenseCheckItems(object sender, RoutedEventArgs e)

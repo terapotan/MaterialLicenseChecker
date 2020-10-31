@@ -37,7 +37,9 @@ namespace MaterialLicenseChecker.Views
                 MessageBox.Show("編集したい項目を選択してください。", "項目の未選択", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 return;
             }
-            Window win = new EditingAMaterialSite();
+            var SelectedListBoxItem = (ListBoxItem)MaterialSiteListBox.ItemContainerGenerator.ContainerFromItem(MaterialSiteListBox.SelectedItem);
+
+            Window win = new EditingAMaterialSite((string)SelectedListBoxItem.Content);
             win.Owner = GetWindow(this);
             win.ShowDialog();
             UpdateMaterialSiteListBox();
@@ -77,11 +79,11 @@ namespace MaterialLicenseChecker.Views
         private void MaterialSiteListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             // 選択中のアイテムの ListBoxItem を取得
-            var listBoxItem = (ListBoxItem)MaterialSiteListBox.ItemContainerGenerator.ContainerFromItem(MaterialSiteListBox.SelectedItem);
+            var SelectedListBoxItem = (ListBoxItem)MaterialSiteListBox.ItemContainerGenerator.ContainerFromItem(MaterialSiteListBox.SelectedItem);
             // アイテム上でダブルクリックされた場合
-            if (listBoxItem?.InputHitTest(e.GetPosition(listBoxItem)) != null)
+            if (SelectedListBoxItem?.InputHitTest(e.GetPosition(SelectedListBoxItem)) != null)
             {
-                Window win = new EditingAMaterialSite();
+                Window win = new EditingAMaterialSite((string)SelectedListBoxItem.Content);
                 win.Owner = GetWindow(this);
                 win.ShowDialog();
                 UpdateMaterialSiteListBox();
