@@ -54,6 +54,11 @@ namespace MaterialLicenseChecker.Views
             RecevierOfViewModel = new MainViewModel.MainViewModel();
             this.DataContext = RecevierOfViewModel;
 
+            this.MaterialListTable.LoadingRow += ((s, e) =>
+            {
+                e.Row.Header = (e.Row.GetIndex()+1).ToString();
+            });
+
             UpdateMaterialDataGrid();
         }
 
