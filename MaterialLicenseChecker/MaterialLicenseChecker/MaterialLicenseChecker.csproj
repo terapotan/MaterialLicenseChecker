@@ -93,6 +93,7 @@
     <Compile Include="ViewModels\ExportLicenseText\IReceiverCommandFromView.cs" />
     <Compile Include="ViewModels\ISettableActiveProjectData.cs" />
     <Compile Include="ViewModels\MainViewModel\DeleteMaterialDataOfFile.cs" />
+    <Compile Include="ViewModels\MainViewModel\GetMaterialList.cs" />
     <Compile Include="ViewModels\MainViewModel\IReceiverCommandFromView.cs" />
     <Compile Include="ViewModels\MainViewModel\SetActiveProjectDataToViewModel.cs" />
     <Compile Include="ViewModels\MaterialAdditionalDialog\AddMaterialDataToFile.cs" />

@@ -17,6 +17,11 @@ namespace MaterialLicenseChecker.Models
         {
             materialListFileAdapter.AddMaterialData(AddedMaterialData);
         }
+
+        public void GetMaterialList(List<MaterialData> OutputMaterialData)
+        {
+            materialListFileAdapter.GetMaterialList(OutputMaterialData);
+        }
     }
 
 }

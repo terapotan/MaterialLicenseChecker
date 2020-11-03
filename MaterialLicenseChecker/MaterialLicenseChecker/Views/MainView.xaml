@@ -41,15 +41,15 @@
                     <ColumnDefinition Width="35*"/>
                     <ColumnDefinition Width="129*"/>
                 </Grid.ColumnDefinitions>
-                <DataGrid x:Name="MaterialListBox" AutoGenerateColumns="False" DisplayMemberPath="Name" SelectionMode="Single" Margin="20" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="2">
+                <DataGrid x:Name="MaterialListTable" IsReadOnly="True" AutoGenerateColumns="False" DisplayMemberPath="Name" SelectionMode="Single" Margin="20" VerticalAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="2">
                     <DataGrid.Columns >
-                        <DataGridTextColumn Width="*">
+                        <DataGridTextColumn Width="*" Binding="{Binding Path=MaterialType}">
                             <DataGridTextColumn.Header>ファイルの種類</DataGridTextColumn.Header>
                         </DataGridTextColumn>
-                        <DataGridTextColumn Width="*">
+                        <DataGridTextColumn Width="*" Binding="{Binding Path=MaterialName}">
                             <DataGridTextColumn.Header>素材名</DataGridTextColumn.Header>
                         </DataGridTextColumn>
-                        <DataGridTextColumn Width="*">
+                        <DataGridTextColumn Width="*" Binding="{Binding Path=MaterialSiteName}">
                             <DataGridTextColumn.Header>配布サイト名</DataGridTextColumn.Header>
                         </DataGridTextColumn>
                     </DataGrid.Columns>
