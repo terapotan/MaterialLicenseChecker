@@ -13,8 +13,8 @@
             <MenuItem IsEnabled="False" Header="プロジェクト(_P)">
                 <MenuItem Header="新規作成" Click="ClickedGenerateProject"></MenuItem>
                 <MenuItem Header="開く"></MenuItem>
-                <Separator ></Separator>
-                <MenuItem Header="ライセンス項目の設定" Click="ClickedSettingProjectLicenseItems"></MenuItem>
+                <!--<Separator ></Separator>-->
+                <!--=<MenuItem Header="ライセンス項目の設定" Click="ClickedSettingProjectLicenseItems"></MenuItem>-->
             </MenuItem>
             <MenuItem Header="素材(_M)">
                 <MenuItem Header="素材を追加する" Click="ClikedMaterialAdditionalMenuItem"></MenuItem>
@@ -68,7 +68,7 @@
             </Grid>
 
             <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button IsEnabled="False" Content="ライセンスチェック" Padding ="5" Margin ="0,-10,20,0" Command="{Binding ShowDialogCommand}"></Button>
+                <!--<Button IsEnabled="False" Content="ライセンスチェック" Padding ="5" Margin ="0,-10,20,0" Command="{Binding ShowDialogCommand}"></Button>-->
                 <Button Content="ライセンス表記出力" Padding ="5" Margin="0,-10,0,0" Click="ExportLicenseTextButton"></Button>
             </StackPanel>
 
