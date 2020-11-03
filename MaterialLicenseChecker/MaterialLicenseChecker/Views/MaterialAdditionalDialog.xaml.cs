@@ -15,6 +15,7 @@ using Microsoft.Win32;
 
 using MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog;
 using MaterialLicenseChecker.Views.CMainView;
+using MaterialAdditional = MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog;
 
 namespace MaterialLicenseChecker.Views
 {
@@ -23,14 +24,86 @@ namespace MaterialLicenseChecker.Views
     /// </summary>
     public partial class MaterialAdditionalDialog : Window
     {
-        private ViewModels.MaterialAdditionalDialog.IReceiverCommandFromView SentCommand;
+        private ViewModels.MaterialAdditionalDialog.IReceiverCommandFromView ReceiverOfViewModel;
 
         public MaterialAdditionalDialog()
         {
             InitializeComponent();
+            ReceiverOfViewModel = new MaterialAdditionalDialogViewModel();
+            UpdateMaterialSiteList();
 
-            SentCommand = new MaterialAdditionalDialogViewModel();
+        }
 
+        private void ClickedMaterialSiteListButton(object sender, RoutedEventArgs e)
+        {
+            EditingMaterialSite win = new EditingMaterialSite();
+            win.Owner = GetWindow(this);
+            win.ShowDialog();
+        }
+
+        private void ClickedUpdateMaterialSiteListButton(object sender, RoutedEventArgs e)
+        {
+            UpdateMaterialSiteList();
+        }
+
+        private void UpdateMaterialSiteList()
+        {
+            List<string> MaterialSiteNameList;
+            MaterialAdditional.FetchMaterialSiteLIst cmd = new MaterialAdditional.FetchMaterialSiteLIst();
+            ReceiverOfViewModel.CommandViewModelTo(cmd);
+
+            MaterialSiteNameList = cmd.MaterialSiteList;
+
+            MaterialSiteList.Items.Clear();
+
+            foreach (var MaterialSiteName in MaterialSiteNameList)
+            {
+                ListBoxItem listItem = new ListBoxItem();
+                listItem.Content = MaterialSiteName;
+                MaterialSiteList.Items.Add(listItem);
+            }
+        }
+
+        private void ClickedCancelButton(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void ClickedOKButton(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(MaterialName.Text))
+            {
+                MessageBox.Show("素材名を入力してください", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(MaterialSiteList.Text))
+            {
+                MessageBox.Show("素材配布サイトを選択してください。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(MaterialType.Text))
+            {
+                MessageBox.Show("ファイルの種類を選択してください。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            MaterialLicenseChecker.Models.MaterialData AddedMaterialData = new MaterialLicenseChecker.Models.MaterialData();
+            AddedMaterialData.MaterialCreationSiteName = MaterialSiteList.Text;
+            AddedMaterialData.MaterialType = MaterialType.Text;
+            AddedMaterialData.MaterialName = MaterialName.Text;
+
+            MaterialAdditional.AddMaterialDataToFile cmd = new MaterialAdditional.AddMaterialDataToFile();
+
+            cmd.AddedMaterialData = AddedMaterialData;
+
+            //FIXME:本当はこれではまずい。なぜなら、ViewからViewへダイレクトに呼び出しているからだ。
+            //ただ時間が無い。これで許してくれ……
+            ReceiverOfViewModel.CommandViewModelTo(cmd);
+            MainView MainViewInstance = (MainView)this.Owner;
+            MainViewInstance.UpdateMaterialDataGrid();
+            Close();
         }
 
 

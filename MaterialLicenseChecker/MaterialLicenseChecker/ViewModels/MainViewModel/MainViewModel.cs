@@ -10,17 +10,23 @@ using MaterialLicenseChecker.Models;
 
 namespace MaterialLicenseChecker.ViewModels.MainViewModel
 {
-    class MainViewModel : IReceiverCommandFromView
+   public class MainViewModel : IReceiverCommandFromView
     {
         public MainViewModel()
         {
             //FIXME:将来的には、別の画面でこれを作成し代入する。
             ActiveProjectData.GetInstance().MaterialSiteListData = new MaterialSiteListData();
+            ActiveProjectData.GetInstance().MateiralListLogicalData = new MaterialListLogicalData();
+        }
+
+        public void CommandViewModelTo(GetMaterialList cmd)
+        {
+            ActiveProjectData.GetInstance().MateiralListLogicalData.GetMaterialList(cmd.MaterialDataList);
         }
 
         void IReceiverCommandFromView.CommandViewModelTo(DeleteMaterialDataOfFile cmd)
         {
-            var FileInstance = new ClassStoreMaterialList();
+            var FileInstance = new MaterialListFileAdapter();
             FileInstance.DeleteMaterialData(cmd.ListFromDeletedMaterialName);
         }
 

@@ -9,11 +9,11 @@ using System.Security;
 
 namespace MaterialLicenseChecker.Models
 {
-    public class ClassStoreMaterialList
+    public class MaterialListFileAdapter
     {
         private XDocument LoadedXMLFileInstance;
 
-        public ClassStoreMaterialList()
+        public MaterialListFileAdapter()
         {
             LoadedXMLFileInstance = XDocument.Load(StoringDataFilePath.GetInstance().MaterialListFileAbsolutePath);
         }
@@ -23,13 +23,14 @@ namespace MaterialLicenseChecker.Models
         /// </summary>
         /// <param name="SiteName"></param>
         /// <param name="LicenseText"></param>
-        public void AddMaterialData(string MaterialName, string MaterialFilePath,string MaterialSiteName)
+        public void AddMaterialData(in MaterialData AddedMaterialData)
         {
-            XElement AddedMaterialTree = new XElement("material", 
-                new XElement("materialCreationSiteName", MaterialSiteName),
-                new XElement("materialFileAbsolutePath", MaterialFilePath));
+            XElement AddedMaterialTree = new XElement("material",
+                new XElement("materialType", AddedMaterialData.MaterialType),
+                new XElement("materialCreationSiteName", AddedMaterialData.MaterialCreationSiteName),
+                new XElement("materialFileAbsolutePath", AddedMaterialData.MaterialFileAbsolutePath));
 
-            AddedMaterialTree.SetAttributeValue("materialName", MaterialName);
+            AddedMaterialTree.SetAttributeValue("materialName", AddedMaterialData.MaterialName);
             LoadedXMLFileInstance.Elements().First().Add(AddedMaterialTree);
 
             LoadedXMLFileInstance.Save(StoringDataFilePath.GetInstance().MaterialListFileAbsolutePath);
@@ -51,21 +52,21 @@ namespace MaterialLicenseChecker.Models
 
         /// <summary>
         /// 素材名の一覧をリスト形式で取得する
-        /// </summary>
+        /// </summary
         /// <returns></returns>
-        public List<string> GetMaterialNameList()
+        public void GetMaterialList(List<MaterialData> OutputMaterialData)
         {
             var materialNames = LoadedXMLFileInstance.XPathSelectElement("/document");
             IEnumerable<XElement> elements = from el in materialNames.Elements() select el;
 
-            var MaterialNameList = new List<string>();
 
             foreach (XElement el in elements)
             {
-                MaterialNameList.Add(el.Attribute("materialName").Value);
+                OutputMaterialData.Add(new MaterialData(el.Attribute("materialName").Value,
+                    el.Element("materialCreationSiteName").Value,
+                    el.Element("materialType").Value,
+                    el.Element("materialFileAbsolutePath").Value));
             }
-
-            return MaterialNameList;
         }
 
         /// <summary>

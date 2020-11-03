@@ -41,6 +41,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -69,10 +70,12 @@
       <DependentUpon>materialListFile.xml</DependentUpon>
     </Compile>
     <Compile Include="Models\ActiveProjectData.cs" />
+    <Compile Include="Models\MaterialListData\MaterialData.cs" />
+    <Compile Include="Models\MaterialListData\MaterialListLogicalData.cs" />
     <Compile Include="Models\MaterialSiteListData\MaterialSiteData.cs" />
     <Compile Include="Models\MaterialSiteListData\MaterialSiteListData.cs" />
     <Compile Include="Models\MaterialSiteListData\MaterialSiteListFileAdapter.cs" />
-    <Compile Include="Models\ClassStoreMaterialList.cs" />
+    <Compile Include="Models\MaterialListData\MaterialListFileAdapter.cs" />
     <Compile Include="Models\ExportingDisplayedLicenseText.cs" />
     <Compile Include="Models\ExportingLicenseText.cs" />
     <Compile Include="Models\StoringDataFilePath.cs" />
@@ -90,6 +93,7 @@
     <Compile Include="ViewModels\ExportLicenseText\IReceiverCommandFromView.cs" />
     <Compile Include="ViewModels\ISettableActiveProjectData.cs" />
     <Compile Include="ViewModels\MainViewModel\DeleteMaterialDataOfFile.cs" />
+    <Compile Include="ViewModels\MainViewModel\GetMaterialList.cs" />
     <Compile Include="ViewModels\MainViewModel\IReceiverCommandFromView.cs" />
     <Compile Include="ViewModels\MainViewModel\SetActiveProjectDataToViewModel.cs" />
     <Compile Include="ViewModels\MaterialAdditionalDialog\AddMaterialDataToFile.cs" />

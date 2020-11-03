@@ -24,8 +24,8 @@
         </StackPanel>
 
         <StackPanel Grid.Column="1">
-            <TextBox Margin="10,10,20,0"></TextBox>
-            <ComboBox Margin="10,14,20,0">
+            <TextBox x:Name="MaterialName" Margin="10,10,20,0"></TextBox>
+            <ComboBox x:Name="MaterialType" Margin="10,14,20,0">
                 <ComboBoxItem>画像</ComboBoxItem>
                 <ComboBoxItem>音声</ComboBoxItem>
                 <ComboBoxItem>テキスト</ComboBoxItem>
@@ -33,22 +33,22 @@
             </ComboBox>
             
             <StackPanel Orientation="Horizontal">
-                <ComboBox Width="208" Margin="10,12,5,0">
+                <ComboBox x:Name="MaterialSiteList" Width="208" Margin="10,12,5,0">
                     <ComboBoxItem>素材配布サイト1</ComboBoxItem>
                     <ComboBoxItem>素材配布サイト2</ComboBoxItem>
                     <ComboBoxItem>素材配布サイト3</ComboBoxItem>
                     <ComboBoxItem>素材配布サイト4</ComboBoxItem>
                 </ComboBox>
-                <Button Margin="10,12,20,0">更新</Button>
+                <Button Margin="10,12,20,0" Click="ClickedUpdateMaterialSiteListButton">更新</Button>
             </StackPanel>
-            <Button Margin="10,25,20,0">素材配布サイトの編集</Button>
+            <Button Margin="10,25,20,0" Click="ClickedMaterialSiteListButton">素材配布サイトの編集</Button>
 
 
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
-            <Button Margin="5,5"  Padding="25,2">追加</Button>
-            <Button Margin="5,5"  Padding="25,2">キャンセル</Button>
+            <Button Margin="5,5"  Padding="25,2" Click="ClickedOKButton">追加</Button>
+            <Button Margin="5,5"  Padding="25,2" Click="ClickedCancelButton">キャンセル</Button>
         </StackPanel>
     </Grid>
 </Window>
