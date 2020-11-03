@@ -53,13 +53,13 @@ namespace MaterialLicenseChecker.Views
         {
             InitializeComponent();
             RecevierOfViewModel = new MainViewModel.MainViewModel();
-            MaterialItemSource = new ObservableCollection<MaterialDataGrid>();
+            //MaterialItemSource = new ObservableCollection<MaterialDataGrid>();
 
-            MaterialItemSource.Add(new MaterialDataGrid("dfsdfs","#dfsd" ,"dsfdfs" ));
-            MaterialItemSource.Add(new MaterialDataGrid("dfsdfs", "#dfsd", "dsfdfs"));
+            //MaterialItemSource.Add(new MaterialDataGrid("dfsdfs","#dfsd" ,"dsfdfs" ));
+            //MaterialItemSource.Add(new MaterialDataGrid("dfsdfs", "#dfsd", "dsfdfs"));
             this.DataContext = RecevierOfViewModel;
 
-            MaterialListTable.ItemsSource = MaterialItemSource;
+           // MaterialListTable.ItemsSource = MaterialItemSource;
             //UpdateMaterialDataGrid();
         }
 
@@ -167,7 +167,7 @@ namespace MaterialLicenseChecker.Views
             RecevierOfViewModel.CommandViewModelTo(cmd);
 
             //DataGridの値を全てクリア
-            //MaterialListTable.ItemsSource = null;
+            MaterialListTable.ItemsSource = null;
 
             //もし、管理対象の素材が一件もない場合は、
             //ここで離脱。
@@ -181,7 +181,7 @@ namespace MaterialLicenseChecker.Views
             foreach (var MaterialData in cmd.MaterialDataList)
             {
                 //CMainView.MaterialDataGrid Row = new CMainView.MaterialDataGrid();
-                MaterialItemSource.Add(new MaterialDataGrid(MaterialData.MaterialName, MaterialData.MaterialCreationSiteName, MaterialData.MaterialType));
+                MaterialItemSource.Add(new MaterialDataGrid(MaterialData.MaterialType,MaterialData.MaterialName, MaterialData.MaterialCreationSiteName ));
             }
 
             //前述のif文によってInitialMaterialItemSourceがNullにならないことは保障されている。
