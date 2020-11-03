@@ -71,6 +71,24 @@ namespace MaterialLicenseChecker.Views
 
         private void ClickedOKButton(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(MaterialName.Text))
+            {
+                MessageBox.Show("素材名を入力してください", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(MaterialSiteList.Text))
+            {
+                MessageBox.Show("素材配布サイトを選択してください。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(MaterialType.Text))
+            {
+                MessageBox.Show("ファイルの種類を選択してください。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
             MaterialLicenseChecker.Models.MaterialData AddedMaterialData = new MaterialLicenseChecker.Models.MaterialData();
             AddedMaterialData.MaterialCreationSiteName = MaterialSiteList.Text;
             AddedMaterialData.MaterialType = MaterialType.Text;
