@@ -49,18 +49,12 @@ namespace MaterialLicenseChecker.Views
         public ObservableCollection<MaterialDataGrid> MaterialItemSource { get; set; }
 
         public MainView()
-
         {
             InitializeComponent();
             RecevierOfViewModel = new MainViewModel.MainViewModel();
-            //MaterialItemSource = new ObservableCollection<MaterialDataGrid>();
-
-            //MaterialItemSource.Add(new MaterialDataGrid("dfsdfs","#dfsd" ,"dsfdfs" ));
-            //MaterialItemSource.Add(new MaterialDataGrid("dfsdfs", "#dfsd", "dsfdfs"));
             this.DataContext = RecevierOfViewModel;
 
-           // MaterialListTable.ItemsSource = MaterialItemSource;
-            //UpdateMaterialDataGrid();
+            UpdateMaterialDataGrid();
         }
 
 
@@ -86,11 +80,6 @@ namespace MaterialLicenseChecker.Views
         //素材削除クリック
         private void ClickedRemoveMaterialFromListButton(object sender, RoutedEventArgs e)
         {
-            //FIXME:後で削除すること!!!!!
-            UpdateMaterialDataGrid();
-            //FIXME:後で削除すること!!!!!
-
-
             var cmd = new MainViewModel.DeleteMaterialDataOfFile();
             
             //何も選択されずに削除コマンドが実行された場合
@@ -129,16 +118,6 @@ namespace MaterialLicenseChecker.Views
         }
 
 
-
-
-
-
-
-
-
-
-
-
         //以下それ以外の関数
         void CMainView.IReceiverCommandFromView.CommandViewTo(CMainView.UpdateMaterialListBox cmd)
         {
@@ -156,7 +135,7 @@ namespace MaterialLicenseChecker.Views
         }
 
 
-        private void UpdateMaterialDataGrid()
+        public void UpdateMaterialDataGrid()
         {
             var MaterialNameList = new List<MaterialLicenseChecker.Models.MaterialData>();
 

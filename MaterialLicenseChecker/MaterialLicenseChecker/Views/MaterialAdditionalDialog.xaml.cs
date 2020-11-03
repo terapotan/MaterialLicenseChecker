@@ -80,8 +80,11 @@ namespace MaterialLicenseChecker.Views
 
             cmd.AddedMaterialData = AddedMaterialData;
 
+            //FIXME:本当はこれではまずい。なぜなら、ViewからViewへダイレクトに呼び出しているからだ。
+            //ただ時間が無い。これで許してくれ……
             ReceiverOfViewModel.CommandViewModelTo(cmd);
-
+            MainView MainViewInstance = (MainView)this.Owner;
+            MainViewInstance.UpdateMaterialDataGrid();
             Close();
         }
 
