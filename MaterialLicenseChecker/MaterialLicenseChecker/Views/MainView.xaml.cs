@@ -19,6 +19,8 @@ using MainViewModel = MaterialLicenseChecker.ViewModels.MainViewModel;
 using EditingMaterialSiteSpace = MaterialLicenseChecker.ViewModels.EditingMaterialSiteSpace;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Collections;
+using System.Data;
 
 namespace MaterialLicenseChecker.Views
 {
@@ -38,6 +40,13 @@ namespace MaterialLicenseChecker.Views
         }
     }
 
+    public class SelectedContact
+    {
+        public string MaterialType { get; set; }
+        public string MaterialName { get; set; }
+        public string MaterialSiteName { get; set; }
+    }
+
     /// <summary>
     /// MainView.xaml の相互作用ロジック
     /// </summary>
@@ -47,6 +56,9 @@ namespace MaterialLicenseChecker.Views
         //ここはViewsの名前空間の中であるから、IRCFVTVインタフェースにつけるのは、CMainViewだけでよい。
 
         public ObservableCollection<MaterialDataGrid> MaterialItemSource { get; set; }
+        public ObservableCollection<SelectedContact> SelectedMaterialItem { get; set; }
+
+
 
         public MainView()
         {
@@ -54,6 +66,7 @@ namespace MaterialLicenseChecker.Views
             RecevierOfViewModel = new MainViewModel.MainViewModel();
             this.DataContext = RecevierOfViewModel;
 
+            //行番号表示
             this.MaterialListTable.LoadingRow += ((s, e) =>
             {
                 e.Row.Header = (e.Row.GetIndex()+1).ToString();
@@ -93,7 +106,12 @@ namespace MaterialLicenseChecker.Views
                 MessageBox.Show("削除する素材が選択されていません。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-
+            var cellInfo = MaterialListTable.SelectedCells[0];
+            var content = cellInfo.Column.GetCellContent(cellInfo.Item);
+            MaterialDataGrid SelectedData = (MaterialDataGrid)content.DataContext;
+            MessageBox.Show(SelectedData.MaterialName);
+            return;
+            /*
             ListBoxItem SelectedItem = (ListBoxItem)(MaterialListTable.SelectedItem);
 
             cmd.ListFromDeletedMaterialName = (string)(SelectedItem.Content);
@@ -103,7 +121,7 @@ namespace MaterialLicenseChecker.Views
             MaterialListTable.Items.Remove(SelectedItem);
 
             MessageBox.Show("削除が完了しました。", "削除完了", MessageBoxButton.OK, MessageBoxImage.Information);
-
+            */
         }
 
         //このソフトウェアについてをクリック
