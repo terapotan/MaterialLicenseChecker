@@ -64,7 +64,9 @@ namespace MaterialLicenseChecker.Views
         {
             InitializeComponent();
             RecevierOfViewModel = new MainViewModel.MainViewModel();
+            MaterialItemSource = new ObservableCollection<MaterialDataGrid>();
             this.DataContext = RecevierOfViewModel;
+
 
             //行番号表示
             this.MaterialListTable.LoadingRow += ((s, e) =>
@@ -110,6 +112,9 @@ namespace MaterialLicenseChecker.Views
             var content = cellInfo.Column.GetCellContent(cellInfo.Item);
             MaterialDataGrid SelectedData = (MaterialDataGrid)content.DataContext;
             MessageBox.Show(SelectedData.MaterialName);
+
+            MaterialItemSource.Remove(SelectedData);
+            MaterialListTable.ItemsSource = MaterialItemSource;
             return;
             /*
             ListBoxItem SelectedItem = (ListBoxItem)(MaterialListTable.SelectedItem);
@@ -178,7 +183,7 @@ namespace MaterialLicenseChecker.Views
                 return;
             }
 
-            ObservableCollection<MaterialDataGrid> MaterialItemSource = new ObservableCollection<MaterialDataGrid>();
+            MaterialItemSource = new ObservableCollection<MaterialDataGrid>();
 
             foreach (var MaterialData in cmd.MaterialDataList)
             {
