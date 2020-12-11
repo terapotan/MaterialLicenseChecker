@@ -19,7 +19,7 @@
 
         <StackPanel Grid.Column="0">
             <TextBlock Margin="10,10,0,0">プロジェクト名:</TextBlock>
-            <TextBlock Margin="10,10,0,0">管理対象フォルダ:</TextBlock>
+            <TextBlock Margin="10,10,0,0">プロジェクト作成先:</TextBlock>
 
         </StackPanel>
 

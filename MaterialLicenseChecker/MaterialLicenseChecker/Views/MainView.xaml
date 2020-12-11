@@ -10,7 +10,7 @@
 
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <MenuItem IsEnabled="False" Header="プロジェクト(_P)">
+            <MenuItem IsEnabled="True" Header="プロジェクト(_P)">
                 <MenuItem Header="新規作成" Click="ClickedGenerateProject"></MenuItem>
                 <MenuItem Header="開く"></MenuItem>
                 <!--<Separator ></Separator>-->
