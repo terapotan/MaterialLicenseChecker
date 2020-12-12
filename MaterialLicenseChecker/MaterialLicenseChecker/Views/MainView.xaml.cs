@@ -111,7 +111,10 @@ namespace MaterialLicenseChecker.Views
             var cellInfo = MaterialListTable.SelectedCells[0];
             var content = cellInfo.Column.GetCellContent(cellInfo.Item);
             MaterialDataGrid SelectedData = (MaterialDataGrid)content.DataContext;
+            
             MessageBox.Show(SelectedData.MaterialName);
+            cmd.ListFromDeletedMaterialName = SelectedData.MaterialName;
+            RecevierOfViewModel.CommandViewModelTo(cmd);
 
             MaterialItemSource.Remove(SelectedData);
             MaterialListTable.ItemsSource = MaterialItemSource;
