@@ -51,7 +51,7 @@
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
-            <Button Margin="5,5"  Padding="25,2" Click="ClickedOKButton">追加</Button>
+            <Button Margin="5,5"  Padding="25,2" Click="ClickedOKButton">更新</Button>
             <Button Margin="5,5"  Padding="25,2" Click="ClickedCancelButton">キャンセル</Button>
         </StackPanel>
     </Grid>
