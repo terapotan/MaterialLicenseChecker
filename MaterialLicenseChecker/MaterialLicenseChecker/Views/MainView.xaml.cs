@@ -222,7 +222,11 @@ namespace MaterialLicenseChecker.Views
                 {
                     if (null != ctrl.InputHitTest(e.GetPosition(ctrl)))
                     {
-                        MessageBox.Show("選択行をダブルクリックしました");
+                        //何かしらの行がダブルクリックされた
+                        var cellInfo = MaterialListTable.SelectedCells[0];
+                        var content = cellInfo.Column.GetCellContent(cellInfo.Item);
+                        MaterialDataGrid SelectedData = (MaterialDataGrid)content.DataContext;
+                        MessageBox.Show(SelectedData.MaterialName);
                     }
                 }
             }
