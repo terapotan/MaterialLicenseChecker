@@ -27,7 +27,7 @@
         <StackPanel Grid.Column="1">
             <TextBox x:Name="MaterialName" Margin="10,10,20,0"></TextBox>
             <StackPanel Orientation="Horizontal">
-                <TextBox x:Name="MaterfialName" MinWidth="215" Margin="10,10,0,0"></TextBox>
+                <TextBox x:Name="FileAbsoluteLocationPath" MinWidth="215" Margin="10,10,0,0"></TextBox>
                 <Button Margin="10,12,20,0" Click="ClickedUpdateMaterialSiteListButton">参照</Button>
             </StackPanel>
             <ComboBox x:Name="MaterialType" Margin="10,14,20,0">

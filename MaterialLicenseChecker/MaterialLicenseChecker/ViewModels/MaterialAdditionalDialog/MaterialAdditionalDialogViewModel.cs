@@ -66,8 +66,8 @@ namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
         {
             MaterialListLogicalData instance = new MaterialListLogicalData();
             var FetchedMaterialData = instance.FetchMaterialData(cmd.SearchMaterialName);
-
-            MessageBox.Show(FetchedMaterialData.MaterialCreationSiteName);
+            cmd.FetchedMaterialData = FetchedMaterialData;
+            //MessageBox.Show(FetchedMaterialData.MaterialCreationSiteName);
         }
     }
 }
