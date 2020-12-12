@@ -24,11 +24,12 @@ namespace MaterialLicenseChecker.Views
     public partial class MaterialEditingDialog : Window
     {
         private ViewModels.MaterialAdditionalDialog.IReceiverCommandFromView ReceiverOfViewModel;
-
+        private string ReplacedMaterialName = "";
         public MaterialEditingDialog(string InputMaterialName)
         {
             //FIXME:本来はViewModelも別々にすべきなのだろうが……
-            //時間が無いので、ひとまずMaterialAdditionalDialogの方とViewModelは共有する。
+            //時間が無いので、ひとまずMaterialAdditionalDialogの方とViewModelは共有する
+            ReplacedMaterialName = InputMaterialName;
             InitializeComponent();
             ReceiverOfViewModel = new MaterialAdditionalDialogViewModel();
 
@@ -99,14 +100,16 @@ namespace MaterialLicenseChecker.Views
                 return;
             }
 
-            MaterialLicenseChecker.Models.MaterialData AddedMaterialData = new MaterialLicenseChecker.Models.MaterialData();
-            AddedMaterialData.MaterialCreationSiteName = MaterialSiteList.Text;
-            AddedMaterialData.MaterialType = MaterialType.Text;
-            AddedMaterialData.MaterialName = MaterialName.Text;
+            MaterialLicenseChecker.Models.MaterialData UpdateMaterialData = new MaterialLicenseChecker.Models.MaterialData();
+            UpdateMaterialData.MaterialCreationSiteName = MaterialSiteList.Text;
+            UpdateMaterialData.MaterialType = MaterialType.Text;
+            UpdateMaterialData.MaterialName = MaterialName.Text;
+            UpdateMaterialData.MaterialFileAbsolutePath = "";//将来的には実装される
 
-            MaterialAdditional.AddMaterialDataToFile cmd = new MaterialAdditional.AddMaterialDataToFile();
+            UpdateMaterialDataToFile cmd = new UpdateMaterialDataToFile();
 
-            cmd.AddedMaterialData = AddedMaterialData;
+            cmd.ReplacedMaterialData = UpdateMaterialData;
+            cmd.ReplacedMaterialName = ReplacedMaterialName;
 
             //FIXME:本当はこれではまずい。なぜなら、ViewからViewへダイレクトに呼び出しているからだ。
             //ただ時間が無い。これで許してくれ……

@@ -13,7 +13,7 @@ namespace MaterialLicenseChecker.Models
         {
             materialListFileAdapter = new MaterialListFileAdapter();
         }
-        public void AddMaterialData(in MaterialData AddedMaterialData)
+        public void AddMaterialData(MaterialData AddedMaterialData)
         {
             materialListFileAdapter.AddMaterialData(AddedMaterialData);
         }
@@ -31,6 +31,12 @@ namespace MaterialLicenseChecker.Models
         public MaterialData FetchMaterialData(string MaterialName)
         {
             return materialListFileAdapter.FetchMaterialData(MaterialName);
+        }
+
+        public void UpdateMaterialData(string ReplacedMaterialName,MaterialData ReplacedMaterialData)
+        {
+            materialListFileAdapter.DeleteMaterialData(ReplacedMaterialName);
+            materialListFileAdapter.AddMaterialData(ReplacedMaterialData);
         }
     }
 
