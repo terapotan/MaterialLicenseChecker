@@ -112,7 +112,6 @@ namespace MaterialLicenseChecker.Views
             var content = cellInfo.Column.GetCellContent(cellInfo.Item);
             MaterialDataGrid SelectedData = (MaterialDataGrid)content.DataContext;
             
-            MessageBox.Show(SelectedData.MaterialName);
             cmd.ListFromDeletedMaterialName = SelectedData.MaterialName;
             RecevierOfViewModel.CommandViewModelTo(cmd);
 
@@ -212,6 +211,21 @@ namespace MaterialLicenseChecker.Views
             var window = new SettingProjectLicenseItems();
             window.Owner = GetWindow(this);
             window.ShowDialog();
+        }
+
+        private void RowMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (null != MaterialListTable.SelectedItem)
+            {
+                var ctrl = MaterialListTable.ItemContainerGenerator.ContainerFromItem(MaterialListTable.SelectedItem) as DataGridRow;
+                if (null != ctrl)
+                {
+                    if (null != ctrl.InputHitTest(e.GetPosition(ctrl)))
+                    {
+                        MessageBox.Show("選択行をダブルクリックしました");
+                    }
+                }
+            }
         }
     }
 }
