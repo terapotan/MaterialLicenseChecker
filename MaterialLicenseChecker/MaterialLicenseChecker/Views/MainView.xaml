@@ -12,7 +12,7 @@
         <Menu DockPanel.Dock="Top">
             <MenuItem IsEnabled="True" Header="プロジェクト(_P)">
                 <MenuItem Header="新規作成" Click="ClickedGenerateProject"></MenuItem>
-                <MenuItem Header="開く"></MenuItem>
+                <MenuItem Header="プロジェクトを開く"></MenuItem>
                 <!--<Separator ></Separator>-->
                 <!--=<MenuItem Header="ライセンス項目の設定" Click="ClickedSettingProjectLicenseItems"></MenuItem>-->
             </MenuItem>
