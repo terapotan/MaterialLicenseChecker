@@ -26,8 +26,10 @@ namespace MaterialLicenseChecker.ViewModels.MainViewModel
 
         void IReceiverCommandFromView.CommandViewModelTo(DeleteMaterialDataOfFile cmd)
         {
-            var FileInstance = new MaterialListFileAdapter();
-            FileInstance.DeleteMaterialData(cmd.ListFromDeletedMaterialName);
+            //!!!:自前でインスタンスを作成しないこと！！！
+            //見つかりづらい、質の悪いバグを生み出す可能性がある
+            //var FileInstance = new MaterialListFileAdapter();
+            ActiveProjectData.GetInstance().MateiralListLogicalData.DeleteMaterialData(cmd.ListFromDeletedMaterialName);
         }
 
         void IReceiverCommandFromView.CommandViewModelTo(SetActiveProjectDataToViewModel cmd)

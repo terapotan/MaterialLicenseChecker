@@ -42,10 +42,7 @@ namespace MaterialLicenseChecker.Models
         /// <param name="MaterialName"></param>
         public void DeleteMaterialData(string MaterialName)
         {
-            var SearchedMaterialElement = LoadedXMLFileInstance.XPathSelectElement("//material[@materialName='" + SecurityElement.Escape(MaterialName) + "']");
-
-            SearchedMaterialElement.Remove();
-
+            LoadedXMLFileInstance.XPathSelectElement("//material[@materialName='" + SecurityElement.Escape(MaterialName) + "']").Remove();
             LoadedXMLFileInstance.Save(StoringDataFilePath.GetInstance().MaterialListFileAbsolutePath);
 
         }
