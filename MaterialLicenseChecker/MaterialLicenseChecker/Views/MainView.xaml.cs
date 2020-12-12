@@ -226,7 +226,10 @@ namespace MaterialLicenseChecker.Views
                         var cellInfo = MaterialListTable.SelectedCells[0];
                         var content = cellInfo.Column.GetCellContent(cellInfo.Item);
                         MaterialDataGrid SelectedData = (MaterialDataGrid)content.DataContext;
-                        MessageBox.Show(SelectedData.MaterialName);
+                        //MessageBox.Show(SelectedData.MaterialName);
+                        var window = new MaterialEditingDialog();
+                        window.Owner = GetWindow(this);
+                        window.ShowDialog();
                     }
                 }
             }
