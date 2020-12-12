@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MaterialLicenseChecker.Views"
         mc:Ignorable="d"
-        Title="素材を追加" Height="240" Width="410" WindowStartupLocation="CenterOwner" ResizeMode="NoResize" Icon=".././EmbeddedResources/Images/WindowIconImage.ico">
+        Title="素材を追加" Height="300" Width="410" WindowStartupLocation="CenterOwner" ResizeMode="NoResize" Icon=".././EmbeddedResources/Images/WindowIconImage.ico">
     <Grid>
-        <Grid.ColumnDefinitions >
+        <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"></ColumnDefinition>
             <ColumnDefinition Width="7*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
@@ -19,12 +19,17 @@
 
         <StackPanel Grid.Column="0">
             <TextBlock Margin="10,10,0,0">素材名:</TextBlock>
+            <TextBlock Margin="10,18,0,0">ファイルの場所:</TextBlock>
             <TextBlock Margin="10,18,0,0">ファイルの種類:</TextBlock>
             <TextBlock Margin="10,18,0,0">素材配布サイト:</TextBlock>
         </StackPanel>
 
         <StackPanel Grid.Column="1">
             <TextBox x:Name="MaterialName" Margin="10,10,20,0"></TextBox>
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="MaterfialName" MinWidth="215" Margin="10,10,0,0"></TextBox>
+                <Button Margin="10,12,20,0" Click="ClickedUpdateMaterialSiteListButton">参照</Button>
+            </StackPanel>
             <ComboBox x:Name="MaterialType" Margin="10,14,20,0">
                 <ComboBoxItem>画像</ComboBoxItem>
                 <ComboBoxItem>音声</ComboBoxItem>
@@ -42,8 +47,7 @@
                 <Button Margin="10,12,20,0" Click="ClickedUpdateMaterialSiteListButton">更新</Button>
             </StackPanel>
             <Button Margin="10,25,20,0" Click="ClickedMaterialSiteListButton">素材配布サイトの編集</Button>
-
-
+            <Button Margin="10,10,20,0" IsEnabled="False" Click="ClickedMaterialSiteListButton">ファイルの場所を開く</Button>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">

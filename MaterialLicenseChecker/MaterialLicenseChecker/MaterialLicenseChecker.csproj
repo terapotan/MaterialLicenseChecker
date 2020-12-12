@@ -69,6 +69,9 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>materialListFile.xml</DependentUpon>
     </Compile>
+    <Compile Include="MaterialEditingDialog.xaml.cs">
+      <DependentUpon>MaterialEditingDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\ActiveProjectData.cs" />
     <Compile Include="Models\MaterialListData\MaterialData.cs" />
     <Compile Include="Models\MaterialListData\MaterialListLogicalData.cs" />
@@ -174,6 +177,10 @@
     <Resource Include="EmbeddedResources\Images\testImage.png" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="MaterialEditingDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\EditingMaterialSite\EditingLicenseCheckItems\EditingLicenseCheckItems.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
