@@ -27,6 +27,11 @@ namespace MaterialLicenseChecker.Models
         {
             materialListFileAdapter.DeleteMaterialData(MaterialName);
         }
+
+        public MaterialData FetchMaterialData(string MaterialName)
+        {
+            return materialListFileAdapter.FetchMaterialData(MaterialName);
+        }
     }
 
 }

@@ -25,14 +25,18 @@ namespace MaterialLicenseChecker.Views
     {
         private ViewModels.MaterialAdditionalDialog.IReceiverCommandFromView ReceiverOfViewModel;
 
-        public MaterialEditingDialog()
+        public MaterialEditingDialog(string MaterialName)
         {
             //FIXME:本来はViewModelも別々にすべきなのだろうが……
             //時間が無いので、ひとまずMaterialAdditionalDialogの方とViewModelは共有する。
             InitializeComponent();
             ReceiverOfViewModel = new MaterialAdditionalDialogViewModel();
-            UpdateMaterialSiteList();
 
+            var cmd = new MaterialAdditional.FetchMaterialData();
+            cmd.SearchMaterialName = MaterialName;
+            ReceiverOfViewModel.CommandViewModelTo(cmd);
+
+            UpdateMaterialSiteList();
         }
 
         private void ClickedMaterialSiteListButton(object sender, RoutedEventArgs e)
