@@ -52,12 +52,27 @@ namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
             //msg.ProcessingResult = AddMaterialDataToFile.PROCESS_SUCCESSFUL;
         }
 
+        //TODO:ここに、素材リストを取得するコマンドを追加する。
+        
         public void CommandViewModelTo(FetchMaterialSiteLIst msg)
         {
             MaterialSiteListFileAdapter instance = new MaterialSiteListFileAdapter();
             var MaterialSiteNameList = instance.GetMaterialSiteList();
 
             msg.MaterialSiteList = MaterialSiteNameList;
+        }
+
+        public void CommandViewModelTo(FetchMaterialData cmd)
+        {
+            MaterialListLogicalData instance = new MaterialListLogicalData();
+            var FetchedMaterialData = instance.FetchMaterialData(cmd.SearchMaterialName);
+            cmd.FetchedMaterialData = FetchedMaterialData;
+            //MessageBox.Show(FetchedMaterialData.MaterialCreationSiteName);
+        }
+
+        public void CommandViewModelTo(UpdateMaterialDataToFile cmd)
+        {
+            ActiveProjectData.GetInstance().MateiralListLogicalData.UpdateMaterialData(cmd.ReplacedMaterialName, cmd.ReplacedMaterialData);
         }
     }
 }

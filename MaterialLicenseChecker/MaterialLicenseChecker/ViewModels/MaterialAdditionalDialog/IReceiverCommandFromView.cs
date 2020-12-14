@@ -10,5 +10,7 @@ namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
     {
         void CommandViewModelTo(AddMaterialDataToFile msg);
         void CommandViewModelTo(FetchMaterialSiteLIst cmd);
+        void CommandViewModelTo(FetchMaterialData cmd);
+        void CommandViewModelTo(UpdateMaterialDataToFile cmd);
     }
 }

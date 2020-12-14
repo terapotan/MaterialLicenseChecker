@@ -23,7 +23,7 @@ namespace MaterialLicenseChecker.Models
         /// </summary>
         /// <param name="SiteName"></param>
         /// <param name="LicenseText"></param>
-        public void AddMaterialData(in MaterialData AddedMaterialData)
+        public void AddMaterialData(MaterialData AddedMaterialData)
         {
             XElement AddedMaterialTree = new XElement("material",
                 new XElement("materialType", AddedMaterialData.MaterialType),
@@ -42,10 +42,7 @@ namespace MaterialLicenseChecker.Models
         /// <param name="MaterialName"></param>
         public void DeleteMaterialData(string MaterialName)
         {
-            var SearchedMaterialElement = LoadedXMLFileInstance.XPathSelectElement("//material[@materialName='" + SecurityElement.Escape(MaterialName) + "']");
-
-            SearchedMaterialElement.Remove();
-
+            LoadedXMLFileInstance.XPathSelectElement("//material[@materialName='" + SecurityElement.Escape(MaterialName) + "']").Remove();
             LoadedXMLFileInstance.Save(StoringDataFilePath.GetInstance().MaterialListFileAbsolutePath);
 
         }
@@ -78,6 +75,24 @@ namespace MaterialLicenseChecker.Models
         {
             var SearchedMaterialElement = LoadedXMLFileInstance.XPathSelectElement("//material[@materialName='" + SecurityElement.Escape(MaterialName) + "']");
             return SearchedMaterialElement.Element("materialCreationSiteName").Value;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="MaterialName"></param>
+        /// <returns></returns>
+        public MaterialData FetchMaterialData(string MaterialName)
+        {
+            MaterialData ReturnedMaterialData = new MaterialData();
+            var SearchedMaterialElement = LoadedXMLFileInstance.XPathSelectElement("//material[@materialName='" + SecurityElement.Escape(MaterialName) + "']");
+            
+            ReturnedMaterialData.MaterialName = MaterialName;
+            ReturnedMaterialData.MaterialCreationSiteName = SearchedMaterialElement.Element("materialCreationSiteName").Value;
+            ReturnedMaterialData.MaterialType = SearchedMaterialElement.Element("materialType").Value;
+            ReturnedMaterialData.MaterialFileAbsolutePath = "";//将来的にこの項目を追加する予定。
+
+            return ReturnedMaterialData;
         }
     }
 }

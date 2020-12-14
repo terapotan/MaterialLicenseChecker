@@ -19,6 +19,8 @@ using MainViewModel = MaterialLicenseChecker.ViewModels.MainViewModel;
 using EditingMaterialSiteSpace = MaterialLicenseChecker.ViewModels.EditingMaterialSiteSpace;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Collections;
+using System.Data;
 
 namespace MaterialLicenseChecker.Views
 {
@@ -38,6 +40,13 @@ namespace MaterialLicenseChecker.Views
         }
     }
 
+    public class SelectedContact
+    {
+        public string MaterialType { get; set; }
+        public string MaterialName { get; set; }
+        public string MaterialSiteName { get; set; }
+    }
+
     /// <summary>
     /// MainView.xaml の相互作用ロジック
     /// </summary>
@@ -47,12 +56,23 @@ namespace MaterialLicenseChecker.Views
         //ここはViewsの名前空間の中であるから、IRCFVTVインタフェースにつけるのは、CMainViewだけでよい。
 
         public ObservableCollection<MaterialDataGrid> MaterialItemSource { get; set; }
+        public ObservableCollection<SelectedContact> SelectedMaterialItem { get; set; }
+
+
 
         public MainView()
         {
             InitializeComponent();
             RecevierOfViewModel = new MainViewModel.MainViewModel();
+            MaterialItemSource = new ObservableCollection<MaterialDataGrid>();
             this.DataContext = RecevierOfViewModel;
+
+
+            //行番号表示
+            this.MaterialListTable.LoadingRow += ((s, e) =>
+            {
+                e.Row.Header = (e.Row.GetIndex()+1).ToString();
+            });
 
             UpdateMaterialDataGrid();
         }
@@ -88,7 +108,17 @@ namespace MaterialLicenseChecker.Views
                 MessageBox.Show("削除する素材が選択されていません。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
+            var cellInfo = MaterialListTable.SelectedCells[0];
+            var content = cellInfo.Column.GetCellContent(cellInfo.Item);
+            MaterialDataGrid SelectedData = (MaterialDataGrid)content.DataContext;
+            
+            cmd.ListFromDeletedMaterialName = SelectedData.MaterialName;
+            RecevierOfViewModel.CommandViewModelTo(cmd);
 
+            MaterialItemSource.Remove(SelectedData);
+            MaterialListTable.ItemsSource = MaterialItemSource;
+            return;
+            /*
             ListBoxItem SelectedItem = (ListBoxItem)(MaterialListTable.SelectedItem);
 
             cmd.ListFromDeletedMaterialName = (string)(SelectedItem.Content);
@@ -98,7 +128,7 @@ namespace MaterialLicenseChecker.Views
             MaterialListTable.Items.Remove(SelectedItem);
 
             MessageBox.Show("削除が完了しました。", "削除完了", MessageBoxButton.OK, MessageBoxImage.Information);
-
+            */
         }
 
         //このソフトウェアについてをクリック
@@ -155,7 +185,7 @@ namespace MaterialLicenseChecker.Views
                 return;
             }
 
-            ObservableCollection<MaterialDataGrid> MaterialItemSource = new ObservableCollection<MaterialDataGrid>();
+            MaterialItemSource = new ObservableCollection<MaterialDataGrid>();
 
             foreach (var MaterialData in cmd.MaterialDataList)
             {
@@ -181,6 +211,28 @@ namespace MaterialLicenseChecker.Views
             var window = new SettingProjectLicenseItems();
             window.Owner = GetWindow(this);
             window.ShowDialog();
+        }
+
+        private void RowMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (null != MaterialListTable.SelectedItem)
+            {
+                var ctrl = MaterialListTable.ItemContainerGenerator.ContainerFromItem(MaterialListTable.SelectedItem) as DataGridRow;
+                if (null != ctrl)
+                {
+                    if (null != ctrl.InputHitTest(e.GetPosition(ctrl)))
+                    {
+                        //何かしらの行がダブルクリックされた
+                        var cellInfo = MaterialListTable.SelectedCells[0];
+                        var content = cellInfo.Column.GetCellContent(cellInfo.Item);
+                        MaterialDataGrid SelectedData = (MaterialDataGrid)content.DataContext;
+                        //MessageBox.Show(SelectedData.MaterialName);
+                        var window = new MaterialEditingDialog(SelectedData.MaterialName);
+                        window.Owner = GetWindow(this);
+                        window.ShowDialog();
+                    }
+                }
+            }
         }
     }
 }

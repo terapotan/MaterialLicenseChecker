@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MaterialLicenseChecker.Views"
         mc:Ignorable="d"
-        Title="素材配布サイトの編集" Height="406" Width="390" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+        Title="素材配布サイトの編集" Height="350" Width="390" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions >
             <ColumnDefinition Width="3*"></ColumnDefinition>
@@ -22,7 +22,7 @@
             <TextBlock Margin="10,10,0,0">利用規約URL:</TextBlock>
             <TextBlock Margin="10,10,0,0">出力ライセンス表記:</TextBlock>
             <TextBlock Margin="10,70,0,0">このサイトのメモ:</TextBlock>
-            <TextBlock Margin="10,88,0,0">ライセンスチェック:</TextBlock>
+            <!--"<TextBlock Margin="10,88,0,0">ライセンスチェック:</TextBlock>-->
         </StackPanel>
 
         <StackPanel Grid.Column="1">
@@ -30,7 +30,7 @@
             <TextBox x:Name="TeamsOfUseURL" Margin="10,8,20,0"></TextBox>
             <TextBox x:Name="LicenseText" AcceptsReturn="True" TextWrapping="Wrap" Height="80" Margin="10,8,20,0" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
             <TextBox x:Name="LicenseMemo" AcceptsReturn="True" TextWrapping="Wrap" Height="80" Margin="10,8,20,0" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
-            <Button  IsEnabled="False" Margin="30,20,40,0" Click="ClickedEditingLicenseCheckItems">ライセンスチェック項目の編集</Button>
+            <!--<Button  IsEnabled="False" Margin="30,20,40,0" Click="ClickedEditingLicenseCheckItems">ライセンスチェック項目の編集</Button>-->
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
