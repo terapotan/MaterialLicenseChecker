@@ -142,7 +142,7 @@ namespace MaterialLicenseChecker.Views
         //ライセンス出力ボタンをクリック
         private void ExportLicenseTextButton(object sender, RoutedEventArgs e)
         {
-            var window = new ExportLlicenseText();
+            var window = new ExportLicenseText();
             window.Owner = GetWindow(this);
             window.ShowDialog();
         }
