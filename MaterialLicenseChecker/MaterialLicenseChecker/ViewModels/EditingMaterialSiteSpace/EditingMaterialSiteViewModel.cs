@@ -13,5 +13,26 @@ namespace MaterialLicenseChecker.ViewModels.EditingMaterialSiteSpace
         {
             cmd.MaterialSiteList = ActiveProjectData.GetInstance().MaterialSiteListData.GetMaterialList();
         }
+        public void CommandViewModelTo(FetchMaterialSiteGivenSiteName cmd)
+        {
+            cmd.FetchedMaterialSiteData = ActiveProjectData.GetInstance().MaterialSiteListData.GetMaterialSite(cmd.SearchedMaterialSiteName);
+        }
+
+        public void CommandViewModelTo(UpdateMaterialSite cmd)
+        {
+            try
+            {
+                ActiveProjectData.GetInstance().MaterialSiteListData.UpdateMaterialSite(cmd.ReplacedMaterialSiteName, in cmd.ReplaceingMaterialSite);
+            }
+            catch (ArgumentException e)
+            {
+                cmd.ValueInputCheckResult = int.Parse(e.Message);
+            }
+        }
+
+        public void CommandViewModelTo(DeleteMaterialSite cmd)
+        {
+            ActiveProjectData.GetInstance().MaterialSiteListData.DeleteMaterialSite(cmd.DeletingMaterialSiteName);
+        }
     }
 }

@@ -37,14 +37,16 @@ namespace MaterialLicenseChecker.Views
             //FIMXE?:サイトを追加するときには、ここはVMとVでちゃんと分離していたが、
             //ここではそういう処理を一切行っていない。面倒くさいからこうしたわけだが、
             //果たしてこれでよかったのだろうか……
-            var Dialog = new SaveFileDialog();
-            Dialog.Title = "ライセンス表示を出力するファイルを指定";
-            Dialog.DefaultExt = ".txt";
-            Dialog.ShowDialog();
+            var Dialog = new System.Windows.Forms.FolderBrowserDialog();
+            Dialog.Description = "ライセンス表示を出力するディレクトリを指定";
+            if(Dialog.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+            {
+                return;
+            }
 
 
 
-            ExportedLicenseTextFilePath.Text = Dialog.FileName;
+            ExportedLicenseTextFilePath.Text = Dialog.SelectedPath;
 
         }
         /*

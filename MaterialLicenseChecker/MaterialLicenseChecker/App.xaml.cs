@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using MaterialLicenseChecker.Views;
+using MainViewModel = MaterialLicenseChecker.ViewModels.MainViewModel;
 
 namespace MaterialLicenseChecker
 {
@@ -17,6 +18,7 @@ namespace MaterialLicenseChecker
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+
             var w = new MainView();
             w.Show();
         }

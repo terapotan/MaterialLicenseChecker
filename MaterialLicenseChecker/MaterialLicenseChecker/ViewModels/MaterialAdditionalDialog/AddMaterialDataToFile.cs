@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MaterialLicenseChecker.Models;
 
 namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
 {
@@ -16,12 +17,7 @@ namespace MaterialLicenseChecker.ViewModels.MaterialAdditionalDialog
         public const int PROCESS_SUCCESSFUL = 0;
         public const int INITIAL_NUMBER = -1;
 
-
-
-
-        public string MaterialName = "";
-        public string MaterialSiteName = "";
-        public string MaterialFilePath = "";
+        public MaterialData AddedMaterialData;
         public int ProcessingResult = INITIAL_NUMBER;
     }
 }
