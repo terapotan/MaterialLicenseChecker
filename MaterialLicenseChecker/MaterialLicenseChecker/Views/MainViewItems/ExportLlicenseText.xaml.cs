@@ -61,19 +61,11 @@ namespace MaterialLicenseChecker.Views
                 MessageBox.Show("ファイル名が入力されていません。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-
+            //FIXME:不正な文字列が入力されたとき(\とか)は、エラーを吐くようにしたい。
             var cmd = new ViewModels.ExportLicenseText.ExportLicenseText();
-
-            //メインビューから素材名を読みだす方式ではなく
-            //ファイルから直接素材名を読みだす方式に変更
-            /*
-            CMainView.IReceiverCommandFromView ReceiverOfMainView = (MainView)(Owner);
-            CMainView.GetMaterialList MaterialList = new CMainView.GetMaterialList();
-            ReceiverOfMainView.CommandViewTo(MaterialList);
-            */
-
-            //cmd.MateiralNameList = MaterialList.MateiralNameList;
-            cmd.ExportedLicenseTextFilePath = ExportedLicenseTextFilePath.Text;
+            cmd.ExportedLicenseTextFileAbsolutePath = ExportedLicenseTextFilePath.Text + '\\' + ExportedLicenseTextFileName.Text;
+            cmd.FooterText = FooterText.Text;
+            cmd.HeaderText = HeaderText.Text;
             RecevierOfViewModel.CommandViewModelTo(cmd);
 
 

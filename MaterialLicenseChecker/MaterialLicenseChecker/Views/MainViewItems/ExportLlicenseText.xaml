@@ -26,8 +26,8 @@
         </StackPanel>
 
         <StackPanel Grid.Column="1">
-            <TextBox AcceptsReturn="True" TextWrapping="Wrap" Height="80" Margin="10,8,20,0" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
-            <TextBox AcceptsReturn="True" TextWrapping="Wrap" Height="80" Margin="10,8,20,0" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+            <TextBox AcceptsReturn="True" x:Name="HeaderText" TextWrapping="Wrap" Height="80" Margin="10,8,20,0" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+            <TextBox AcceptsReturn="True" x:Name="FooterText" TextWrapping="Wrap" Height="80" Margin="10,8,20,0" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
             <!--<Button Margin="10,25,20,10">プレビュー</Button>-->
             
 
