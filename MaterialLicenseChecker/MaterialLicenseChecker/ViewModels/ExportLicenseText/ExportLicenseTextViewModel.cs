@@ -16,22 +16,30 @@ namespace MaterialLicenseChecker.ViewModels.ExportLicenseText
 
         public void CommandViewModelTo(ExportLicenseText cmd)
         {
-            ExportingLicenseText Instance = new ExportingLicenseText(cmd.ExportedLicenseTextFilePath);
-            MaterialSiteListFileAdapter LicenseTextInstance = new MaterialSiteListFileAdapter();
-            MaterialListFileAdapter MaterialList = new MaterialListFileAdapter();
+            //今のところ全てのデータを一気に読み込んで処理する形としている。
+            //ただ将来的にデータ量が多くなった場合、処理に限界が来る可能性がある。
+            //素材名だけ読み込むようにすることで幾分か処理は低減できるが、そこまでするくらいなら
+            //素直にデータベースを使ったほうがいいだろう
 
-            var ConvertedInSiteName = new List<string>();
+            ExportingLicenseText Instance = new ExportingLicenseText(cmd.ExportedLicenseTextFileAbsolutePath);
+            MaterialSiteListFileAdapter MaterialSiteInstance = new MaterialSiteListFileAdapter();
+            MaterialListFileAdapter MaterialInstance = new MaterialListFileAdapter();
 
-            //素材名をサイト名に変換
-            foreach (var MaterialName in cmd.MateiralNameList)
+            var AllMaterialData = new List<MaterialData>();
+            var SiteNameList = new List<string>();
+            MaterialInstance.GetMaterialList(AllMaterialData);
+
+            //取り出した全素材データから、サイト名のみを取り出す。
+            foreach (var FetchedMaterialData in AllMaterialData)
             {
-                ConvertedInSiteName.Add(MaterialList.FetchMaterialSiteGivenMaterialName(MaterialName));
+                SiteNameList.Add(FetchedMaterialData.MaterialCreationSiteName);
             }
 
-            IEnumerable<string> DistinctedResult = ConvertedInSiteName.Distinct();
+            //重複したサイト名を削除する(実際の削除動作は下のfor文)
+            IEnumerable<string> DistinctedResult = SiteNameList.Distinct();
 
 
-            var list = LicenseTextInstance.GetLicenseTextLists(DistinctedResult);
+            var list = MaterialSiteInstance.GetLicenseTextLists(DistinctedResult);
 
             string strs = "";
             foreach (var str in list)
@@ -39,7 +47,7 @@ namespace MaterialLicenseChecker.ViewModels.ExportLicenseText
                 strs += (str + '\n');
             }
 
-            Instance.WriteLicenseTextFile(strs);
+            Instance.WriteLicenseTextFile(cmd.HeaderText + '\n' + strs + cmd.FooterText);
 
         }
 

@@ -48,7 +48,7 @@ namespace MaterialLicenseChecker.Models
         }
 
         /// <summary>
-        /// 素材名の一覧をリスト形式で取得する
+        /// ファイルに登録されているすべての素材データを読み出す
         /// </summary
         /// <returns></returns>
         public void GetMaterialList(List<MaterialData> OutputMaterialData)
@@ -78,7 +78,7 @@ namespace MaterialLicenseChecker.Models
         }
 
         /// <summary>
-        /// 
+        /// MaterialNameの素材データのみ読み出す
         /// </summary>
         /// <param name="MaterialName"></param>
         /// <returns></returns>

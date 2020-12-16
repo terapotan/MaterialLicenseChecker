@@ -21,11 +21,11 @@ namespace MaterialLicenseChecker.Views
     /// <summary>
     /// ExportLlicenseText.xaml の相互作用ロジック
     /// </summary>
-    public partial class ExportLlicenseText : Window
+    public partial class ExportLicenseText : Window
     {
         private IReceiverCommandFromView RecevierOfViewModel;
         
-        public ExportLlicenseText()
+        public ExportLicenseText()
         {
             InitializeComponent();
             RecevierOfViewModel = new ExportLicenseTextViewModel();
@@ -49,27 +49,23 @@ namespace MaterialLicenseChecker.Views
             ExportedLicenseTextFilePath.Text = Dialog.SelectedPath;
 
         }
-        /*
+    
 
         private void ExportLicenseTextButton(object sender, RoutedEventArgs e)
         {
             //FIXME:こういうエラー処理関連はここに任せるのではなく、
             //Model側に任せた方がいいと思う。が、どちらにせよ次のリリースでの修正となるだろう。
 
-            if (ExportedLicenseTextFilePath.Text.Equals(""))
+            if (ExportedLicenseTextFileName.Text.Equals(""))
             {
                 MessageBox.Show("ファイル名が入力されていません。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-
-            var cmd = new ExportLicenseText();
-
-            CMainView.IReceiverCommandFromView ReceiverOfMainView = (MainView)(Owner);
-            CMainView.GetMaterialList MaterialList = new CMainView.GetMaterialList();
-            ReceiverOfMainView.CommandViewTo(MaterialList);
-
-            cmd.MateiralNameList = MaterialList.MateiralNameList;
-            cmd.ExportedLicenseTextFilePath = ExportedLicenseTextFilePath.Text;
+            //FIXME:不正な文字列が入力されたとき(\とか)は、エラーを吐くようにしたい。
+            var cmd = new ViewModels.ExportLicenseText.ExportLicenseText();
+            cmd.ExportedLicenseTextFileAbsolutePath = ExportedLicenseTextFilePath.Text + '\\' + ExportedLicenseTextFileName.Text;
+            cmd.FooterText = FooterText.Text;
+            cmd.HeaderText = HeaderText.Text;
             RecevierOfViewModel.CommandViewModelTo(cmd);
 
 
@@ -78,7 +74,10 @@ namespace MaterialLicenseChecker.Views
             Close();
         }
 
-    */
+        private void ClickedCancelButton(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 
 }
