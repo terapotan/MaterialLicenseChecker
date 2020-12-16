@@ -70,6 +70,7 @@
       <DependentUpon>materialListFile.xml</DependentUpon>
     </Compile>
     <Compile Include="Models\ActiveProjectData.cs" />
+    <Compile Include="Models\LicenseTextInputsItemsFileAdapter.cs" />
     <Compile Include="Models\MaterialListData\MaterialData.cs" />
     <Compile Include="Models\MaterialListData\MaterialListLogicalData.cs" />
     <Compile Include="Models\MaterialSiteListData\MaterialSiteData.cs" />
