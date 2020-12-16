@@ -32,11 +32,12 @@ namespace MaterialLicenseChecker.Models
             //を読み込んで指定される仕組みに変更する
             LicenseTextFileAbsolutePath = runingDirectoryAbsolutePath + "/ExportResources/LicenseTexts.xml";
             MaterialListFileAbsolutePath = runingDirectoryAbsolutePath + "/ExportResources/materialListFile.xml";
-
+            LicenseTextInputsItemsFileAbsolutePath = runingDirectoryAbsolutePath + "/ExportResources/LicenseTextInputsItems.xml";
         }
 
         public readonly string LicenseTextFileAbsolutePath;
         public readonly string MaterialListFileAbsolutePath;
+        public readonly string LicenseTextInputsItemsFileAbsolutePath;
 
     }
 }
