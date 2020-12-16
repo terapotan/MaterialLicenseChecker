@@ -250,5 +250,10 @@
   <ItemGroup>
     <Folder Include="MyException\MaterialSiteListFileAdapter\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="ExportResources\LicenseTextInputsItems.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
