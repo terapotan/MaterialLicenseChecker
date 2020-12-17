@@ -42,10 +42,13 @@ namespace MaterialLicenseChecker.Models
         {
             var LoadedInputsItemsElement = _loadedXMLFileInstance.XPathSelectElement("/document");
 
-            LoadedInputsItemsElement.Element("Header").Value                 = WritingInputsItemData.HeaderText;
-            LoadedInputsItemsElement.Element("Footer").Value                 = WritingInputsItemData.FooterText;
-            LoadedInputsItemsElement.Element("ExportFolder").Value           = WritingInputsItemData.ExportingDirectory;
-            LoadedInputsItemsElement.Element("ExportingFileName").Value      = WritingInputsItemData.FileName;  
+            LoadedInputsItemsElement.SetElementValue("Header", WritingInputsItemData.HeaderText);
+            LoadedInputsItemsElement.SetElementValue("Footer", WritingInputsItemData.FooterText);
+            LoadedInputsItemsElement.SetElementValue("ExportFolder", WritingInputsItemData.ExportingDirectory);
+            LoadedInputsItemsElement.SetElementValue("ExportingFileName", WritingInputsItemData.FileName);
+
+            _loadedXMLFileInstance.Save(StoringDataFilePath.GetInstance().LicenseTextInputsItemsFileAbsolutePath);
+
         }
 
     }

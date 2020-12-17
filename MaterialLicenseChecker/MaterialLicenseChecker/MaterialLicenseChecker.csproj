@@ -92,7 +92,9 @@
     <Compile Include="ViewModels\EditingMaterialSiteSpace\IReceiverCommandFromView.cs" />
     <Compile Include="ViewModels\EditingMaterialSiteSpace\UpdateMaterialSite.cs" />
     <Compile Include="ViewModels\ExportLicenseText\ExportLicenseText.cs" />
+    <Compile Include="ViewModels\ExportLicenseText\GetSavedInputItems.cs" />
     <Compile Include="ViewModels\ExportLicenseText\IReceiverCommandFromView.cs" />
+    <Compile Include="ViewModels\ExportLicenseText\SaveInputItems.cs" />
     <Compile Include="ViewModels\ISettableActiveProjectData.cs" />
     <Compile Include="ViewModels\MainViewModel\DeleteMaterialDataOfFile.cs" />
     <Compile Include="ViewModels\MainViewModel\GetMaterialList.cs" />

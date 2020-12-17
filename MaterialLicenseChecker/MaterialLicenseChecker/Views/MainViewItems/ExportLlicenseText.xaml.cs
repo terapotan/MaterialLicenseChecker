@@ -29,15 +29,33 @@ namespace MaterialLicenseChecker.Views
         {
             InitializeComponent();
             RecevierOfViewModel = new ExportLicenseTextViewModel();
-            SetValueOfInputItems();
+            SetValueOfInputItemsIntoForm();
         }
 
-        public void SetValueOfInputItems()
+        private void SetValueOfInputItemsIntoForm()
         {
-            ExportedLicenseTextFilePath.Text = "";
-            ExportedLicenseTextFileName.Text = "";
-            FooterText.Text="";
-            HeaderText.Text = "";
+            MaterialLicenseChecker.Models.LicenseTextInputsItemsData FetchedInputItems = new MaterialLicenseChecker.Models.LicenseTextInputsItemsData();
+            GetSavedInputItems cmd = new GetSavedInputItems();
+            cmd.FetchedInputItemsData = FetchedInputItems;
+            RecevierOfViewModel.CommandViewModelTo(cmd);
+
+            ExportedLicenseTextFilePath.Text = cmd.FetchedInputItemsData.ExportingDirectory;
+            ExportedLicenseTextFileName.Text = cmd.FetchedInputItemsData.FileName;
+            FooterText.Text= cmd.FetchedInputItemsData.FooterText;
+            HeaderText.Text = cmd.FetchedInputItemsData.HeaderText;
+        }
+
+        private void SaveValueOfInputItemsIntoFile()
+        {
+            Models.LicenseTextInputsItemsData SetInputItems = new Models.LicenseTextInputsItemsData();
+            SetInputItems.ExportingDirectory = ExportedLicenseTextFilePath.Text;
+            SetInputItems.FileName = ExportedLicenseTextFileName.Text;
+            SetInputItems.FooterText = FooterText.Text;
+            SetInputItems.HeaderText = HeaderText.Text;
+
+            SaveInputItems cmd = new SaveInputItems();
+            cmd.SavedInputItemsData = SetInputItems;
+            RecevierOfViewModel.CommandViewModelTo(cmd);
         }
 
         private void InputPathButton(object sender, RoutedEventArgs e)
@@ -76,11 +94,13 @@ namespace MaterialLicenseChecker.Views
 
              
             MessageBox.Show("出力が完了しました。", "出力完了",MessageBoxButton.OK,MessageBoxImage.Information); ;
+            SaveValueOfInputItemsIntoFile();
             Close();
         }
 
         private void ClickedCancelButton(object sender, RoutedEventArgs e)
         {
+            SaveValueOfInputItemsIntoFile();
             Close();
         }
     }
