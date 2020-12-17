@@ -29,14 +29,19 @@ namespace MaterialLicenseChecker.Views
         {
             InitializeComponent();
             RecevierOfViewModel = new ExportLicenseTextViewModel();
+            SetValueOfInputItems();
         }
 
-        
+        public void SetValueOfInputItems()
+        {
+            ExportedLicenseTextFilePath.Text = "";
+            ExportedLicenseTextFileName.Text = "";
+            FooterText.Text="";
+            HeaderText.Text = "";
+        }
+
         private void InputPathButton(object sender, RoutedEventArgs e)
         {
-            //FIMXE?:サイトを追加するときには、ここはVMとVでちゃんと分離していたが、
-            //ここではそういう処理を一切行っていない。面倒くさいからこうしたわけだが、
-            //果たしてこれでよかったのだろうか……
             var Dialog = new System.Windows.Forms.FolderBrowserDialog();
             Dialog.Description = "ライセンス表示を出力するディレクトリを指定";
             if(Dialog.ShowDialog() != System.Windows.Forms.DialogResult.OK)
