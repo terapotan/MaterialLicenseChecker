@@ -41,7 +41,7 @@ namespace MaterialLicenseChecker.Views
 
             MaterialName.Text = cmd.FetchedMaterialData.MaterialName;
             MaterialType.Text = cmd.FetchedMaterialData.MaterialType;
-            FileAbsoluteLocationPath.Text = cmd.FetchedMaterialData.MaterialFileAbsolutePath;
+            MaterialFileLocation.Text = cmd.FetchedMaterialData.MaterialFileAbsolutePath;
             MaterialSiteList.Text = cmd.FetchedMaterialData.MaterialCreationSiteName;
         }
 
@@ -118,5 +118,17 @@ namespace MaterialLicenseChecker.Views
             MainViewInstance.UpdateMaterialDataGrid();
             Close();
         }
+        private void ClickedFileLocationButton(object sender, RoutedEventArgs e)
+        {
+            var Dialog = new System.Windows.Forms.FolderBrowserDialog();
+            Dialog.Description = "素材が置かれている場所を選択";
+            if (Dialog.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+            {
+                return;
+            }
+
+            MaterialFileLocation.Text = Dialog.SelectedPath;
+        }
     }
+
 }

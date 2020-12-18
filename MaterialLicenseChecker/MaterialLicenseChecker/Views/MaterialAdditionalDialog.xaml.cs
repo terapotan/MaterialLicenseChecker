@@ -108,17 +108,20 @@ namespace MaterialLicenseChecker.Views
 
 
 
-        /*
         //以下イベント発生処理
         private void ClickedFileLocationButton(object sender, RoutedEventArgs e)
         {
-            var Dialog = new OpenFileDialog();
-            Dialog.Title = "素材ファイルを指定する";
-            Dialog.ShowDialog();
+            var Dialog = new System.Windows.Forms.FolderBrowserDialog();
+            Dialog.Description = "素材が置かれている場所を選択";
+            if (Dialog.ShowDialog() != System.Windows.Forms.DialogResult.OK)
+            {
+                return;
+            }
 
-            MaterialFilePath.Text = Dialog.FileName;
+            MaterialFileLocation.Text = Dialog.SelectedPath;
         }
 
+        /*
         private void ClickedMaterialSiteButton(object sender, RoutedEventArgs e)
         {
             FetchMaterialSiteLIst siteLIst = new FetchMaterialSiteLIst();
