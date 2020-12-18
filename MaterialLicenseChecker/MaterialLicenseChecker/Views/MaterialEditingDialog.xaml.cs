@@ -104,7 +104,7 @@ namespace MaterialLicenseChecker.Views
             UpdateMaterialData.MaterialCreationSiteName = MaterialSiteList.Text;
             UpdateMaterialData.MaterialType = MaterialType.Text;
             UpdateMaterialData.MaterialName = MaterialName.Text;
-            UpdateMaterialData.MaterialFileAbsolutePath = "";//将来的には実装される
+            UpdateMaterialData.MaterialFileAbsolutePath = MaterialFileLocation.Text;
 
             UpdateMaterialDataToFile cmd = new UpdateMaterialDataToFile();
 
