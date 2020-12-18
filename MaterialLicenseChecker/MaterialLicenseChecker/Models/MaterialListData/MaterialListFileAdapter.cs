@@ -90,7 +90,7 @@ namespace MaterialLicenseChecker.Models
             ReturnedMaterialData.MaterialName = MaterialName;
             ReturnedMaterialData.MaterialCreationSiteName = SearchedMaterialElement.Element("materialCreationSiteName").Value;
             ReturnedMaterialData.MaterialType = SearchedMaterialElement.Element("materialType").Value;
-            ReturnedMaterialData.MaterialFileAbsolutePath = "";//将来的にこの項目を追加する予定。
+            ReturnedMaterialData.MaterialFileAbsolutePath = SearchedMaterialElement.Element("materialFileAbsolutePath").Value;
 
             return ReturnedMaterialData;
         }

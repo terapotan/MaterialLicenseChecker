@@ -93,6 +93,7 @@ namespace MaterialLicenseChecker.Views
             AddedMaterialData.MaterialCreationSiteName = MaterialSiteList.Text;
             AddedMaterialData.MaterialType = MaterialType.Text;
             AddedMaterialData.MaterialName = MaterialName.Text;
+            AddedMaterialData.MaterialFileAbsolutePath = MaterialFileLocation.Text;
 
             MaterialAdditional.AddMaterialDataToFile cmd = new MaterialAdditional.AddMaterialDataToFile();
 
