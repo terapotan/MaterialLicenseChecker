@@ -70,8 +70,8 @@
       <DependentUpon>materialListFile.xml</DependentUpon>
     </Compile>
     <Compile Include="Models\ActiveProjectData.cs" />
-    <Compile Include="Models\LicenseTextInputsItemsData.cs" />
-    <Compile Include="Models\LicenseTextInputsItemsFileAdapter.cs" />
+    <Compile Include="Models\LicenseTextInputsFile\LicenseTextInputsItemsData.cs" />
+    <Compile Include="Models\LicenseTextInputsFile\LicenseTextInputsItemsFileAdapter.cs" />
     <Compile Include="Models\MaterialListData\MaterialData.cs" />
     <Compile Include="Models\MaterialListData\MaterialListLogicalData.cs" />
     <Compile Include="Models\MaterialSiteListData\MaterialSiteData.cs" />
@@ -80,8 +80,8 @@
     <Compile Include="Models\MaterialListData\MaterialListFileAdapter.cs" />
     <Compile Include="Models\ExportingDisplayedLicenseText.cs" />
     <Compile Include="Models\ExportingLicenseText.cs" />
-    <Compile Include="Models\ProjectFileData.cs" />
-    <Compile Include="Models\ProjectFileReader.cs" />
+    <Compile Include="Models\ProjectFile\ProjectFileData.cs" />
+    <Compile Include="Models\ProjectFile\ProjectFileReader.cs" />
     <Compile Include="Models\StoringDataFilePath.cs" />
     <Compile Include="MyException\NotFoundMaterialSiteException.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
