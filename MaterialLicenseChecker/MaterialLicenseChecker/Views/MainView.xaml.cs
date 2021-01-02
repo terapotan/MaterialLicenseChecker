@@ -141,7 +141,7 @@ namespace MaterialLicenseChecker.Views
         }
 
         //ライセンス出力ボタンをクリック
-        private void ExportLicenseTextButton(object sender, RoutedEventArgs e)
+        private void ClickedExportLicenseTextButton(object sender, RoutedEventArgs e)
         {
             var window = new ExportLicenseText();
             window.Owner = GetWindow(this);
@@ -217,6 +217,9 @@ namespace MaterialLicenseChecker.Views
 
             dialog.ShowDialog();
 
+            //TODO:後で削除する。テスト用。
+            var Ins = new CMainView.MainViewItemsAvailableValueManager(this);
+            Ins.EnableMainViewItems();
         }
 
         private void ClickedSettingProjectLicenseItems(object sender, RoutedEventArgs e)
