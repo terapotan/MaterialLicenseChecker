@@ -25,7 +25,7 @@ namespace MaterialLicenseChecker.Models
         /// </summary>
         /// <param name="MaterialName"></param>
         /// <returns></returns>
-        public ProjectFileData LoadInputsItemData()
+        public ProjectFileData LoadProjectFilePathData()
         {
             ProjectFileData ReturnedLicenseTextInputsItemsData = new ProjectFileData();
             var LoadedInputsItemsElement = _loadedXMLFileInstance.XPathSelectElement("/document");
