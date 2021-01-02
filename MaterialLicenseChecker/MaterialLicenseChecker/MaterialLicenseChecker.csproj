@@ -114,6 +114,7 @@
     <Compile Include="ViewModels\MaterialSiteAdditionalDialog\RegisterMaterialSite.cs" />
     <Compile Include="ViewModels\MaterialSiteAdditionalDialog\SetActiveProjectDataToViewModel.cs" />
     <Compile Include="ViewModels\EditingMaterialSiteSpace\EditingMaterialSiteViewModel.cs" />
+    <Compile Include="Views\CMainView\ItemAvailableValueManager.cs" />
     <Compile Include="Views\EditingMaterialSite\EditingLicenseCheckItems\EditingLicenseCheckItems.xaml.cs">
       <DependentUpon>EditingLicenseCheckItems.xaml</DependentUpon>
     </Compile>
