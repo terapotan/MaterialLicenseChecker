@@ -20,7 +20,11 @@ namespace MaterialLicenseChecker.Models
             return _singleInstance;
         }
 
-        private StoringDataFilePath()
+        private StoringDataFilePath() { 
+ 
+        }
+
+        public void StoreFilePath(ProjectFileData Data)
         {
             //以下実行ファイルが存在するディレクトリの絶対パスを取得
             Assembly assembly = Assembly.GetEntryAssembly();
@@ -30,14 +34,14 @@ namespace MaterialLicenseChecker.Models
 
             //現在は、リテラルで指定しているが将来的にはプロジェクトファイルから値
             //を読み込んで指定される仕組みに変更する
-            LicenseTextFileAbsolutePath = runingDirectoryAbsolutePath + "/ExportResources/LicenseTexts.xml";
-            MaterialListFileAbsolutePath = runingDirectoryAbsolutePath + "/ExportResources/materialListFile.xml";
-            LicenseTextInputsItemsFileAbsolutePath = runingDirectoryAbsolutePath + "/ExportResources/LicenseTextInputsItems.xml";
+            LicenseTextFileAbsolutePath = runingDirectoryAbsolutePath + Data.LicenseTextFileRelativePath;
+            MaterialListFileAbsolutePath = runingDirectoryAbsolutePath + Data.MaterialListFileRelativePath;
+            LicenseTextInputsItemsFileAbsolutePath = runingDirectoryAbsolutePath + Data.LicenseTextInputsItemsRelativePath;
         }
 
-        public readonly string LicenseTextFileAbsolutePath;
-        public readonly string MaterialListFileAbsolutePath;
-        public readonly string LicenseTextInputsItemsFileAbsolutePath;
+        public string LicenseTextFileAbsolutePath;
+        public string MaterialListFileAbsolutePath;
+        public string LicenseTextInputsItemsFileAbsolutePath;
 
     }
 }

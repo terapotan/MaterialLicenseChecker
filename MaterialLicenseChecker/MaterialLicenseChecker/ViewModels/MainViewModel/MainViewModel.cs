@@ -14,9 +14,7 @@ namespace MaterialLicenseChecker.ViewModels.MainViewModel
     {
         public MainViewModel()
         {
-            //FIXME:将来的には、別の画面でこれを作成し代入する。
-            ActiveProjectData.GetInstance().MaterialSiteListData = new MaterialSiteListData();
-            ActiveProjectData.GetInstance().MateiralListLogicalData = new MaterialListLogicalData();
+
         }
 
         public void CommandViewModelTo(GetMaterialList cmd)
@@ -26,7 +24,14 @@ namespace MaterialLicenseChecker.ViewModels.MainViewModel
 
         public void CommandViewModelTo(LoadProjectFile cmd)
         {
-            throw new NotImplementedException();
+            ProjectFileReader Reader = new ProjectFileReader(cmd.LoadedProjectFileAbsolutePath);
+            ProjectFileData Data = new ProjectFileData();
+
+            Data = Reader.LoadProjectFilePathData();
+            StoringDataFilePath.GetInstance().StoreFilePath(Data);
+
+            ActiveProjectData.GetInstance().MaterialSiteListData = new MaterialSiteListData();
+            ActiveProjectData.GetInstance().MateiralListLogicalData = new MaterialListLogicalData();
         }
 
         void IReceiverCommandFromView.CommandViewModelTo(DeleteMaterialDataOfFile cmd)

@@ -17,9 +17,14 @@ namespace MaterialLicenseChecker.Models
 
         public LicenseTextInputsItemsFileAdapter()
         {
-            _loadedXMLFileInstance = XDocument.Load(StoringDataFilePath.GetInstance().LicenseTextInputsItemsFileAbsolutePath);
+            LoadFile();
         }
 
+        private void LoadFile()
+        {
+            _loadedXMLFileInstance = XDocument.Load(StoringDataFilePath.GetInstance().LicenseTextInputsItemsFileAbsolutePath);
+
+        }
         /// <summary>
         /// ファイルから入力項目を読み込む。
         /// </summary>
@@ -27,6 +32,8 @@ namespace MaterialLicenseChecker.Models
         /// <returns></returns>
         public LicenseTextInputsItemsData LoadInputsItemData()
         {
+            LoadFile();
+
             LicenseTextInputsItemsData ReturnedLicenseTextInputsItemsData = new LicenseTextInputsItemsData();
             var LoadedInputsItemsElement = _loadedXMLFileInstance.XPathSelectElement("/document");
 
@@ -40,6 +47,8 @@ namespace MaterialLicenseChecker.Models
 
         public void SaveInputsItemData(LicenseTextInputsItemsData WritingInputsItemData)
         {
+            LoadFile();
+
             var LoadedInputsItemsElement = _loadedXMLFileInstance.XPathSelectElement("/document");
 
             LoadedInputsItemsElement.SetElementValue("Header", WritingInputsItemData.HeaderText);

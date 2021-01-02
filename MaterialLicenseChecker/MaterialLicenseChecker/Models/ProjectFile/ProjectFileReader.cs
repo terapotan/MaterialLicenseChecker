@@ -28,7 +28,7 @@ namespace MaterialLicenseChecker.Models
         public ProjectFileData LoadProjectFilePathData()
         {
             ProjectFileData ReturnedLicenseTextInputsItemsData = new ProjectFileData();
-            var LoadedInputsItemsElement = _loadedXMLFileInstance.XPathSelectElement("/document");
+            var LoadedInputsItemsElement = _loadedXMLFileInstance.XPathSelectElement("/document/fileNames");
 
             ReturnedLicenseTextInputsItemsData.LicenseTextFileRelativePath = LoadedInputsItemsElement.Element("licenseTextFileName").Value;
             ReturnedLicenseTextInputsItemsData.MaterialListFileRelativePath = LoadedInputsItemsElement.Element("materialListFileName").Value;

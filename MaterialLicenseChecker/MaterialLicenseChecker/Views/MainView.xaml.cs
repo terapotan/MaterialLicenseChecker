@@ -75,7 +75,7 @@ namespace MaterialLicenseChecker.Views
                 e.Row.Header = (e.Row.GetIndex()+1).ToString();
             });
 
-            UpdateMaterialDataGrid();
+            //UpdateMaterialDataGrid();
         }
 
 
@@ -215,13 +215,21 @@ namespace MaterialLicenseChecker.Views
             // ファイルの種類を設定
             dialog.Filter = "プロジェクトファイル (*.projm)|*.projm|全てのファイル (*.*)|*.*";
 
-            dialog.ShowDialog();
+            var ReturnValue = dialog.ShowDialog();
 
-            MessageBox.Show(dialog.FileName);
 
-            //TODO:後で削除する。テスト用。
-            var Ins = new CMainView.MainViewItemsAvailableValueManager(this);
-            Ins.EnableMainViewItems();
+            if(ReturnValue == true)
+            {
+                var cmd = new MainViewModel.LoadProjectFile();
+                cmd.LoadedProjectFileAbsolutePath = dialog.FileName;
+
+                RecevierOfViewModel.CommandViewModelTo(cmd);
+
+                var Ins = new CMainView.MainViewItemsAvailableValueManager(this);
+                Ins.EnableMainViewItems();
+                UpdateMaterialDataGrid();
+            }
+
         }
 
         private void ClickedSettingProjectLicenseItems(object sender, RoutedEventArgs e)
