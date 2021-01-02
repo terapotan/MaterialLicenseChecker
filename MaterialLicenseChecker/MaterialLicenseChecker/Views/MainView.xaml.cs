@@ -217,6 +217,8 @@ namespace MaterialLicenseChecker.Views
 
             dialog.ShowDialog();
 
+            MessageBox.Show(dialog.FileName);
+
             //TODO:後で削除する。テスト用。
             var Ins = new CMainView.MainViewItemsAvailableValueManager(this);
             Ins.EnableMainViewItems();
