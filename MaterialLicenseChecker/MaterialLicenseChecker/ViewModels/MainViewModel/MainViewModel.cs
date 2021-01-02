@@ -24,6 +24,11 @@ namespace MaterialLicenseChecker.ViewModels.MainViewModel
             ActiveProjectData.GetInstance().MateiralListLogicalData.GetMaterialList(cmd.MaterialDataList);
         }
 
+        public void CommandViewModelTo(LoadProjectFile cmd)
+        {
+            throw new NotImplementedException();
+        }
+
         void IReceiverCommandFromView.CommandViewModelTo(DeleteMaterialDataOfFile cmd)
         {
             //!!!:自前でインスタンスを作成しないこと！！！

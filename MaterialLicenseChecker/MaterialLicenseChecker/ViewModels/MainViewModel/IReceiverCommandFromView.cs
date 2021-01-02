@@ -11,6 +11,7 @@ namespace MaterialLicenseChecker.ViewModels.MainViewModel
         void CommandViewModelTo(DeleteMaterialDataOfFile cmd);
         void CommandViewModelTo(SetActiveProjectDataToViewModel cmd);
         void CommandViewModelTo(GetMaterialList cmd);
+        void CommandViewModelTo(LoadProjectFile cmd);
 
     }
 }

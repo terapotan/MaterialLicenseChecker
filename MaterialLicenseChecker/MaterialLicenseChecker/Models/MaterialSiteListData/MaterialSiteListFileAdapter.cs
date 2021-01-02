@@ -32,6 +32,11 @@ namespace MaterialLicenseChecker.Models
 
         public MaterialSiteListFileAdapter()
         {
+            LoadFile();
+        }
+
+        private void LoadFile()
+        {
             _loadedXMLFileInstance = XDocument.Load(StoringDataFilePath.GetInstance().LicenseTextFileAbsolutePath);
         }
 
@@ -40,6 +45,8 @@ namespace MaterialLicenseChecker.Models
             //TODO:インジェクション攻撃に備え一応エスケープしておいた。
             //一応、というだけでちゃんとした対策ではないが……
             //後で時間があればちゃんとやるように。
+            LoadFile();
+
             var SearchedMaterialSite = _loadedXMLFileInstance.XPathSelectElement("//materialSite[@siteName='" + SecurityElement.Escape(SearchedSiteName) + "']");
 
             return SearchedMaterialSite.Element("licenseText").Value;
@@ -53,6 +60,8 @@ namespace MaterialLicenseChecker.Models
         /// <returns></returns>
         public bool MaterialSiteExists(string SearchedSiteName)
         {
+            LoadFile();
+
             var SearchedMaterialSite = _loadedXMLFileInstance.XPathSelectElement("//materialSite[@siteName='" + SecurityElement.Escape(SearchedSiteName) + "']");
 
             //FIXME:nullチェックって……何か、どうにかできなかったっけ?
@@ -78,6 +87,7 @@ namespace MaterialLicenseChecker.Models
         public void AddLicenseText(string SiteName, string TeamsOfUseURL, string LicenseText, string MemoOfMaterialSite)
         {
             //以下引数チェック処理。
+            LoadFile();
 
             //サイト名が、空文字列("")である場合
             if (SiteName.Equals(""))
@@ -116,6 +126,8 @@ namespace MaterialLicenseChecker.Models
         /// </returns>
         public List<string> GetLicenseTextLists(IEnumerable<string> SiteNameList)
         {
+            LoadFile();
+
             List<string> ReturnList = new List<string>();
 
 
@@ -130,6 +142,8 @@ namespace MaterialLicenseChecker.Models
 
         public List<string> GetMaterialSiteList()
         {
+            LoadFile();
+
             var materialSites = _loadedXMLFileInstance.XPathSelectElement("/document");
             IEnumerable<XElement> elements = from el in materialSites.Elements() select el;
 
@@ -150,6 +164,8 @@ namespace MaterialLicenseChecker.Models
         /// <returns></returns>
         public MaterialSiteData GetMaterialSite(string SearchedSiteName)
         {
+            LoadFile();
+
             //FIXME:後でサイトが見つからない時の処理も実装しておくこと。
             var SearchedMaterialSite = _loadedXMLFileInstance.XPathSelectElement("//materialSite[@siteName='" + SecurityElement.Escape(SearchedSiteName) + "']");
             
@@ -174,6 +190,8 @@ namespace MaterialLicenseChecker.Models
         /// <param name="MaterialSiteName"></param>
         public void DeleteMaterialSite(string MaterialSiteName)
         {
+            LoadFile();
+
             var SearchedMaterialSite = _loadedXMLFileInstance.XPathSelectElement("//materialSite[@siteName='" + SecurityElement.Escape(MaterialSiteName) + "']");
             
             //もしサイトが見つからない場合
