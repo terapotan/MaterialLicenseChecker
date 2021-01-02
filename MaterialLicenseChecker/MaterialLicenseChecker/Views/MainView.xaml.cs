@@ -213,7 +213,7 @@ namespace MaterialLicenseChecker.Views
             var dialog = new OpenFileDialog();
 
             // ファイルの種類を設定
-            dialog.Filter = "テキストファイル (*.txt)|*.txt|全てのファイル (*.*)|*.*";
+            dialog.Filter = "プロジェクトファイル (*.projm)|*.projm|全てのファイル (*.*)|*.*";
 
             dialog.ShowDialog();
 
