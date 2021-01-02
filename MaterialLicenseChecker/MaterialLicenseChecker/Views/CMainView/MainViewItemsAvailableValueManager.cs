@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MaterialLicenseChecker.Views.CMainView
 {
-    public class ItemAvailableValueManager
+    public class MainViewItemsAvailableValueManager
     {
     }
 }
