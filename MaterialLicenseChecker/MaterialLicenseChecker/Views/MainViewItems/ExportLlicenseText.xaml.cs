@@ -29,14 +29,37 @@ namespace MaterialLicenseChecker.Views
         {
             InitializeComponent();
             RecevierOfViewModel = new ExportLicenseTextViewModel();
+            SetValueOfInputItemsIntoForm();
         }
 
-        
+        private void SetValueOfInputItemsIntoForm()
+        {
+            MaterialLicenseChecker.Models.LicenseTextInputsItemsData FetchedInputItems = new MaterialLicenseChecker.Models.LicenseTextInputsItemsData();
+            GetSavedInputItems cmd = new GetSavedInputItems();
+            cmd.FetchedInputItemsData = FetchedInputItems;
+            RecevierOfViewModel.CommandViewModelTo(cmd);
+
+            ExportedLicenseTextFilePath.Text = cmd.FetchedInputItemsData.ExportingDirectory;
+            ExportedLicenseTextFileName.Text = cmd.FetchedInputItemsData.FileName;
+            FooterText.Text= cmd.FetchedInputItemsData.FooterText;
+            HeaderText.Text = cmd.FetchedInputItemsData.HeaderText;
+        }
+
+        private void SaveValueOfInputItemsIntoFile()
+        {
+            Models.LicenseTextInputsItemsData SetInputItems = new Models.LicenseTextInputsItemsData();
+            SetInputItems.ExportingDirectory = ExportedLicenseTextFilePath.Text;
+            SetInputItems.FileName = ExportedLicenseTextFileName.Text;
+            SetInputItems.FooterText = FooterText.Text;
+            SetInputItems.HeaderText = HeaderText.Text;
+
+            SaveInputItems cmd = new SaveInputItems();
+            cmd.SavedInputItemsData = SetInputItems;
+            RecevierOfViewModel.CommandViewModelTo(cmd);
+        }
+
         private void InputPathButton(object sender, RoutedEventArgs e)
         {
-            //FIMXE?:サイトを追加するときには、ここはVMとVでちゃんと分離していたが、
-            //ここではそういう処理を一切行っていない。面倒くさいからこうしたわけだが、
-            //果たしてこれでよかったのだろうか……
             var Dialog = new System.Windows.Forms.FolderBrowserDialog();
             Dialog.Description = "ライセンス表示を出力するディレクトリを指定";
             if(Dialog.ShowDialog() != System.Windows.Forms.DialogResult.OK)
@@ -71,11 +94,13 @@ namespace MaterialLicenseChecker.Views
 
              
             MessageBox.Show("出力が完了しました。", "出力完了",MessageBoxButton.OK,MessageBoxImage.Information); ;
+            SaveValueOfInputItemsIntoFile();
             Close();
         }
 
         private void ClickedCancelButton(object sender, RoutedEventArgs e)
         {
+            SaveValueOfInputItemsIntoFile();
             Close();
         }
     }

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MaterialLicenseChecker.Models;
 
 namespace MaterialLicenseChecker.ViewModels.ExportLicenseText
 {
-    interface IReceiverCommandFromView
+    public class SaveInputItems
     {
-        void CommandViewModelTo(ExportLicenseText cmd);
-        void CommandViewModelTo(GetSavedInputItems cmd);
-        void CommandViewModelTo(SaveInputItems cmd);
+        public LicenseTextInputsItemsData SavedInputItemsData;
+
     }
 }

@@ -70,6 +70,8 @@
       <DependentUpon>materialListFile.xml</DependentUpon>
     </Compile>
     <Compile Include="Models\ActiveProjectData.cs" />
+    <Compile Include="Models\LicenseTextInputsItemsData.cs" />
+    <Compile Include="Models\LicenseTextInputsItemsFileAdapter.cs" />
     <Compile Include="Models\MaterialListData\MaterialData.cs" />
     <Compile Include="Models\MaterialListData\MaterialListLogicalData.cs" />
     <Compile Include="Models\MaterialSiteListData\MaterialSiteData.cs" />
@@ -90,7 +92,9 @@
     <Compile Include="ViewModels\EditingMaterialSiteSpace\IReceiverCommandFromView.cs" />
     <Compile Include="ViewModels\EditingMaterialSiteSpace\UpdateMaterialSite.cs" />
     <Compile Include="ViewModels\ExportLicenseText\ExportLicenseText.cs" />
+    <Compile Include="ViewModels\ExportLicenseText\GetSavedInputItems.cs" />
     <Compile Include="ViewModels\ExportLicenseText\IReceiverCommandFromView.cs" />
+    <Compile Include="ViewModels\ExportLicenseText\SaveInputItems.cs" />
     <Compile Include="ViewModels\ISettableActiveProjectData.cs" />
     <Compile Include="ViewModels\MainViewModel\DeleteMaterialDataOfFile.cs" />
     <Compile Include="ViewModels\MainViewModel\GetMaterialList.cs" />
@@ -249,6 +253,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="MyException\MaterialSiteListFileAdapter\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ExportResources\LicenseTextInputsItems.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
