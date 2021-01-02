@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<document fileVersion="0">
+
+  <projectName>ソフト1</projectName>
+
+  <fileNames>
+    <licenseTextFileName>./licenseText.xml</licenseTextFileName>
+    <materialListFileName>./materialList.xml</materialListFileName>
+    <licenseTextInputsItems>./materialUsage.xml</licenseTextInputsItems>
+    </fileNames>
+
+</document>

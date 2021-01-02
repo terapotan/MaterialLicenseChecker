@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MaterialLicenseChecker.Views"
         mc:Ignorable="d"
-        Title="「お借りした素材」生成器（開発中）" Height="300" Width="500" MinHeight="300" MinWidth="500"
+        Title="「お借りした素材一覧」生成器（開発中）" Height="310" Width="510" MinHeight="310" MinWidth="510"
         WindowStartupLocation="CenterScreen" Icon=".././EmbeddedResources/Images/WindowIconImage.ico">
 
-    <DockPanel>
+    <DockPanel> 
         <Menu DockPanel.Dock="Top">
             <MenuItem IsEnabled="True" Header="プロジェクト(_P)">
                 <MenuItem Header="新規作成" Click="ClickedGenerateProject"></MenuItem>
-                <MenuItem Header="プロジェクトを開く"></MenuItem>
+                <MenuItem Header="プロジェクトを開く" Click="ClickedOpenProject"></MenuItem>
                 <!--<Separator ></Separator>-->
                 <!--=<MenuItem Header="ライセンス項目の設定" Click="ClickedSettingProjectLicenseItems"></MenuItem>-->
             </MenuItem>
@@ -31,12 +31,16 @@
         </Menu>
 
         <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="87*"/>
+                <ColumnDefinition Width="77*"/>
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="8*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Grid>
+            <Grid Grid.ColumnSpan="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="35*"/>
                     <ColumnDefinition Width="129*"/>
@@ -67,9 +71,9 @@
 
             </Grid>
 
-            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="114,5">
                 <!--<Button IsEnabled="False" Content="ライセンスチェック" Padding ="5" Margin ="0,-10,20,0" Command="{Binding ShowDialogCommand}"></Button>-->
-                <Button Content="「お借りした素材」生成！" Padding ="5" Margin="0,-10,0,0" Click="ExportLicenseTextButton"></Button>
+                <Button Content="「お借りした素材一覧」生成！" Padding ="5" Margin="0,-10,0,0" Click="ExportLicenseTextButton"></Button>
                 <Button Content="素材を追加する" Padding ="5" Margin="20,-10,0,0" Click="ClikedMaterialAdditionalMenuItem"></Button>
             </StackPanel>
 

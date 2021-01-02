@@ -21,6 +21,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Collections;
 using System.Data;
+using Microsoft.Win32;
 
 namespace MaterialLicenseChecker.Views
 {
@@ -204,6 +205,18 @@ namespace MaterialLicenseChecker.Views
             var window = new GenerateProject();
             window.Owner = GetWindow(this);
             window.ShowDialog();
+        }
+
+        private void ClickedOpenProject(object sender, RoutedEventArgs e)
+        {
+            // ダイアログのインスタンスを生成
+            var dialog = new OpenFileDialog();
+
+            // ファイルの種類を設定
+            dialog.Filter = "テキストファイル (*.txt)|*.txt|全てのファイル (*.*)|*.*";
+
+            dialog.ShowDialog();
+
         }
 
         private void ClickedSettingProjectLicenseItems(object sender, RoutedEventArgs e)
