@@ -36,5 +36,13 @@ namespace MaterialLicenseChecker.Models
 
             return ReturnedLicenseTextInputsItemsData;
         }
+
+        public string LoadProjectName()
+        {
+            ProjectFileData ReturnedLicenseTextInputsItemsData = new ProjectFileData();
+            var LoadedInputsItemsElement = _loadedXMLFileInstance.XPathSelectElement("/document");
+
+            return LoadedInputsItemsElement.Element("projectName").Value;
+        }
     }
 }

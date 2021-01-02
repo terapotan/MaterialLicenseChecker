@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MaterialLicenseChecker.Views"
         mc:Ignorable="d"
-        Title="「お借りした素材一覧」生成器（開発中）" Height="310" Width="510" MinHeight="310" MinWidth="510"
+        Title="「お借りした素材一覧」生成器" Height="310" Width="510" MinHeight="310" MinWidth="510"
         WindowStartupLocation="CenterScreen" Icon=".././EmbeddedResources/Images/WindowIconImage.ico">
 
     <DockPanel> 

@@ -209,25 +209,32 @@ namespace MaterialLicenseChecker.Views
 
         private void ClickedOpenProject(object sender, RoutedEventArgs e)
         {
-            // ダイアログのインスタンスを生成
-            var dialog = new OpenFileDialog();
+            var Dialog = new OpenFileDialog();
 
-            // ファイルの種類を設定
-            dialog.Filter = "プロジェクトファイル (*.projm)|*.projm|全てのファイル (*.*)|*.*";
+            Dialog.Filter = "プロジェクトファイル (*.projm)|*.projm|全てのファイル (*.*)|*.*";
 
-            var ReturnValue = dialog.ShowDialog();
+            var ReturnValue = Dialog.ShowDialog();
 
 
             if(ReturnValue == true)
             {
                 var cmd = new MainViewModel.LoadProjectFile();
-                cmd.LoadedProjectFileAbsolutePath = dialog.FileName;
+                cmd.LoadedProjectFileAbsolutePath = Dialog.FileName;
 
                 RecevierOfViewModel.CommandViewModelTo(cmd);
 
                 var Ins = new CMainView.MainViewItemsAvailableValueManager(this);
                 Ins.EnableMainViewItems();
                 UpdateMaterialDataGrid();
+
+                var anotherCmd = new MainViewModel.GetProjectName();
+                anotherCmd.LoadedProjectFileAbsolutePath = Dialog.FileName;
+
+                RecevierOfViewModel.CommandViewModelTo(anotherCmd);
+
+                //ウィンドウタイトル変更
+                this.Title = "「お借りした素材一覧」生成器" + "――" + anotherCmd.FetchedProjectName;
+
             }
 
         }

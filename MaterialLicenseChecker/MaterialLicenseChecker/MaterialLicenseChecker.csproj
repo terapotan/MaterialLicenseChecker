@@ -100,6 +100,7 @@
     <Compile Include="ViewModels\ISettableActiveProjectData.cs" />
     <Compile Include="ViewModels\MainViewModel\DeleteMaterialDataOfFile.cs" />
     <Compile Include="ViewModels\MainViewModel\GetMaterialList.cs" />
+    <Compile Include="ViewModels\MainViewModel\GetProjectName.cs" />
     <Compile Include="ViewModels\MainViewModel\IReceiverCommandFromView.cs" />
     <Compile Include="ViewModels\MainViewModel\LoadProjectFile.cs" />
     <Compile Include="ViewModels\MainViewModel\SetActiveProjectDataToViewModel.cs" />
