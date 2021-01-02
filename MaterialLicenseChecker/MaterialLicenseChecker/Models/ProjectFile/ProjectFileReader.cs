@@ -25,30 +25,16 @@ namespace MaterialLicenseChecker.Models
         /// </summary>
         /// <param name="MaterialName"></param>
         /// <returns></returns>
-        public LicenseTextInputsItemsData LoadInputsItemData()
+        public ProjectFileData LoadInputsItemData()
         {
-            LicenseTextInputsItemsData ReturnedLicenseTextInputsItemsData = new LicenseTextInputsItemsData();
+            ProjectFileData ReturnedLicenseTextInputsItemsData = new ProjectFileData();
             var LoadedInputsItemsElement = _loadedXMLFileInstance.XPathSelectElement("/document");
 
-            ReturnedLicenseTextInputsItemsData.HeaderText = LoadedInputsItemsElement.Element("Header").Value;
-            ReturnedLicenseTextInputsItemsData.FooterText = LoadedInputsItemsElement.Element("Footer").Value;
-            ReturnedLicenseTextInputsItemsData.ExportingDirectory = LoadedInputsItemsElement.Element("ExportFolder").Value;
-            ReturnedLicenseTextInputsItemsData.FileName = LoadedInputsItemsElement.Element("ExportingFileName").Value;
+            ReturnedLicenseTextInputsItemsData.LicenseTextFileRelativePath = LoadedInputsItemsElement.Element("licenseTextFileName").Value;
+            ReturnedLicenseTextInputsItemsData.MaterialListFileRelativePath = LoadedInputsItemsElement.Element("materialListFileName").Value;
+            ReturnedLicenseTextInputsItemsData.LicenseTextInputsItemsRelativePath = LoadedInputsItemsElement.Element("licenseTextInputsItems").Value;
 
             return ReturnedLicenseTextInputsItemsData;
-        }
-
-        public void SaveInputsItemData(LicenseTextInputsItemsData WritingInputsItemData)
-        {
-            var LoadedInputsItemsElement = _loadedXMLFileInstance.XPathSelectElement("/document");
-
-            LoadedInputsItemsElement.SetElementValue("Header", WritingInputsItemData.HeaderText);
-            LoadedInputsItemsElement.SetElementValue("Footer", WritingInputsItemData.FooterText);
-            LoadedInputsItemsElement.SetElementValue("ExportFolder", WritingInputsItemData.ExportingDirectory);
-            LoadedInputsItemsElement.SetElementValue("ExportingFileName", WritingInputsItemData.FileName);
-
-            _loadedXMLFileInstance.Save(StoringDataFilePath.GetInstance().LicenseTextInputsItemsFileAbsolutePath);
-
         }
     }
 }
