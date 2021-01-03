@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace MaterialLicenseChecker.ViewModels.GenerateProjectDialog
 {
@@ -10,7 +11,7 @@ namespace MaterialLicenseChecker.ViewModels.GenerateProjectDialog
     {
         public void CommandViewModelTo(GenerateProjectFile cmd)
         {
-            throw new NotImplementedException();
+            MessageBox.Show(cmd.GeneratedProjectFileAbsolutePath);
         }
     }
 }

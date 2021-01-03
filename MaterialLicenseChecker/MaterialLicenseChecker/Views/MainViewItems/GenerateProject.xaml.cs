@@ -46,7 +46,12 @@ namespace MaterialLicenseChecker.Views
 
         private void ClickedGenerateButton(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("作成ボタンがクリックされました");
+            var cmd = new GenerateProjectFile();
+            cmd.GeneratedProjectFileAbsolutePath = ProjectFileLocation.Text;
+            cmd.ProjectName = ProjectName.Text;
+
+            RecevierOfViewModel.CommandViewModelTo(cmd);
+
             Close();
         }
     }

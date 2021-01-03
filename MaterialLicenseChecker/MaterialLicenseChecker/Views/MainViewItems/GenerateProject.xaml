@@ -24,7 +24,7 @@
         </StackPanel>
 
         <StackPanel Grid.Column="1">
-            <TextBox Margin="10,10,20,0"></TextBox>
+            <TextBox x:Name="ProjectName" Margin="10,10,20,0"></TextBox>
             <StackPanel Orientation="Horizontal">
                 <TextBox x:Name="ProjectFileLocation" Width="160" Margin="10,8,10,0"></TextBox>
                 <Button Click="ClickedReferenceButton" Padding="7,0" Margin="0,5,0,0">参照</Button>
