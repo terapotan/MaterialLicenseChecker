@@ -9,8 +9,7 @@ namespace MaterialLicenseChecker.Models
 {
     public class ProjectFileGenerator
     {
-        private static readonly string WritingProjectFileText = @"
-<?xml version=""1.0"" encoding=""UTF-8""?>
+        private static readonly string WritingProjectFileText = @"<?xml version=""1.0"" encoding=""UTF-8""?>
 <document fileVersion = ""0"">
 
   <projectName></projectName>
@@ -24,21 +23,18 @@ namespace MaterialLicenseChecker.Models
 </document>
 ";
 
-        private string WritingMaterialListFileText = @"
-<?xml version=""1.0"" encoding=""UTF-8""?>
+        private string WritingMaterialListFileText = @"<?xml version=""1.0"" encoding=""UTF-8""?>
 <document fileVersion = ""0"">
 
 </document>
 ";
 
-        private string WritingMaterialCreationSiteListFileText = @"
-<?xml version=""1.0"" encoding=""UTF-8""?>
+        private string WritingMaterialCreationSiteListFileText = @"<?xml version=""1.0"" encoding=""UTF-8""?>
 <document fileVersion = ""0"">
 
 </document>
 ";
-        private string WritingLicenseTextInputsItemsFileText = @"
-<?xml version=""1.0"" encoding=""UTF-8""?>
+        private string WritingLicenseTextInputsItemsFileText = @"<?xml version=""1.0"" encoding=""UTF-8""?>
 <document fileVersion = ""0"">
   <Header></Header>
   <Footer></Footer>
@@ -63,6 +59,8 @@ namespace MaterialLicenseChecker.Models
             File.WriteAllText(GeneratedFolderPath + "\\" + "MaterialCreationSiteList.xml",      WritingMaterialCreationSiteListFileText);
             File.WriteAllText(GeneratedFolderPath + "\\" + "LicenseTextInputsItems.xml",        WritingLicenseTextInputsItemsFileText);
 
+            ProjectFileWriter Writer = new ProjectFileWriter(GeneratedFolderPath + "\\" + "ProjectFile.projm");
+            Writer.SetProjectName(ProjectName);
         }
     }
 }
