@@ -26,12 +26,6 @@ namespace MaterialLicenseChecker.Models
 
         public void StoreFilePath(ProjectFileData Data,string ProjectFileAbsolutePath)
         {
-            //以下実行ファイルが存在するディレクトリの絶対パスを取得
-            //Assembly assembly = Assembly.GetEntryAssembly();
-            //string runingFilePath = assembly.Location;
-            //System.IO.FileInfo fi = new System.IO.FileInfo(runingFilePath);
-            //string runingDirectoryAbsolutePath = fi.Directory.FullName;
-
             LicenseTextFileAbsolutePath = ProjectFileAbsolutePath + Data.LicenseTextFileRelativePath;
             MaterialListFileAbsolutePath = ProjectFileAbsolutePath + Data.MaterialListFileRelativePath;
             LicenseTextInputsItemsFileAbsolutePath = ProjectFileAbsolutePath + Data.LicenseTextInputsItemsRelativePath;

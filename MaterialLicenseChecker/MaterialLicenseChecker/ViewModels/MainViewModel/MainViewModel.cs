@@ -35,6 +35,7 @@ namespace MaterialLicenseChecker.ViewModels.MainViewModel
 
             StoringDataFilePath.GetInstance().StoreFilePath(Data, ProjectFileDirectoryAbsolutePath);
 
+            //FIXME:将来的には、ActiveProjectDataか、直接生成するほうか、どちらかに統一しなければならない。
             ActiveProjectData.GetInstance().MaterialSiteListData = new MaterialSiteListData();
             ActiveProjectData.GetInstance().MateiralListLogicalData = new MaterialListLogicalData();
         }

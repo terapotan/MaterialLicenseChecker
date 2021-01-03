@@ -16,9 +16,9 @@ namespace MaterialLicenseChecker.Models
   <projectName></projectName>
 
   <fileNames>
-    <licenseTextFileName></licenseTextFileName>
-    <materialListFileName></materialListFileName>
-    <licenseTextInputsItems></licenseTextInputsItems>
+    <licenseTextFileName>/MaterialCreationSiteList.xml</licenseTextFileName>
+    <materialListFileName>/MaterialList.xml</materialListFileName>
+    <licenseTextInputsItems>/LicenseTextInputsItems.xml</licenseTextInputsItems>
   </fileNames>
 
 </document>
@@ -58,7 +58,7 @@ namespace MaterialLicenseChecker.Models
 
             Directory.CreateDirectory(GeneratedFolderPath);
 
-            File.WriteAllText(GeneratedFolderPath + "\\" + "ProjectFile.xml",                   WritingProjectFileText);
+            File.WriteAllText(GeneratedFolderPath + "\\" + "ProjectFile.projm",                   WritingProjectFileText);
             File.WriteAllText(GeneratedFolderPath + "\\" + "MaterialList.xml",                  WritingMaterialListFileText);
             File.WriteAllText(GeneratedFolderPath + "\\" + "MaterialCreationSiteList.xml",      WritingMaterialCreationSiteListFileText);
             File.WriteAllText(GeneratedFolderPath + "\\" + "LicenseTextInputsItems.xml",        WritingLicenseTextInputsItemsFileText);
