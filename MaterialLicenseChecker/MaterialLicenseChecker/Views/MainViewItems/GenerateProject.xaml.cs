@@ -31,7 +31,7 @@ namespace MaterialLicenseChecker.Views
         private void ClickedReferenceButton(object sender, RoutedEventArgs e)
         {
             var Dialog = new System.Windows.Forms.FolderBrowserDialog();
-            Dialog.Description = "素材が置かれている場所を選択";
+            Dialog.Description = "プロジェクトファイルを作成する、場所を選択";
             if (Dialog.ShowDialog() != System.Windows.Forms.DialogResult.OK)
             {
                 return;

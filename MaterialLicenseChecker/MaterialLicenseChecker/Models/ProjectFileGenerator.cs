@@ -17,6 +17,9 @@ namespace MaterialLicenseChecker.Models
             {
                 throw new MyException.SameNameProjectExistsException();
             }
+
+            Directory.CreateDirectory(GeneratedFolderPath);
+
         }
     }
 }
