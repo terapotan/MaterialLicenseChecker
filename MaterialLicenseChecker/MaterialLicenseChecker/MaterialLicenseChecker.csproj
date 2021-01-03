@@ -85,6 +85,7 @@
     <Compile Include="Models\ProjectFile\ProjectFileReader.cs" />
     <Compile Include="Models\StoringDataFilePath.cs" />
     <Compile Include="MyException\NotFoundMaterialSiteException.cs" />
+    <Compile Include="MyException\SameNameProjectExistsException.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

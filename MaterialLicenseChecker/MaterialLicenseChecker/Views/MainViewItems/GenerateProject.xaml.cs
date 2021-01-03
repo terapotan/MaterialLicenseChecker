@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MaterialLicenseChecker.ViewModels.GenerateProjectDialog;
+using MyException = MaterialLicenseChecker.MyException;
 
 namespace MaterialLicenseChecker.Views
 {
@@ -46,13 +47,20 @@ namespace MaterialLicenseChecker.Views
 
         private void ClickedGenerateButton(object sender, RoutedEventArgs e)
         {
-            var cmd = new GenerateProjectFile();
-            cmd.GeneratedProjectFileAbsolutePath = ProjectFileLocation.Text;
-            cmd.ProjectName = ProjectName.Text;
+            try
+            {
+                var cmd = new GenerateProjectFile();
+                cmd.GeneratedProjectFileAbsolutePath = ProjectFileLocation.Text;
+                cmd.ProjectName = ProjectName.Text;
 
-            RecevierOfViewModel.CommandViewModelTo(cmd);
+                RecevierOfViewModel.CommandViewModelTo(cmd);
+                Close();
+            }
+            catch (MyException.SameNameProjectExistsException)
+            {
+                MessageBox.Show("既に同名のプロジェクトが存在します。\nプロジェクト名を変更してください。", "作成失敗", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
 
-            Close();
         }
     }
 }
