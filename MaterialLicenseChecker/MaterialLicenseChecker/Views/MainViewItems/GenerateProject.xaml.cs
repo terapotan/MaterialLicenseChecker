@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MaterialLicenseChecker.ViewModels.GenerateProjectDialog;
 
 namespace MaterialLicenseChecker.Views
 {
@@ -19,9 +20,11 @@ namespace MaterialLicenseChecker.Views
     /// </summary>
     public partial class GenerateProject : Window
     {
+        private IReceiverCommandFromView RecevierOfViewModel;
         public GenerateProject()
         {
             InitializeComponent();
+            RecevierOfViewModel = new GenerateProjectDialogViewModel();
         }
 
         private void ClickedReferenceButton(object sender, RoutedEventArgs e)
