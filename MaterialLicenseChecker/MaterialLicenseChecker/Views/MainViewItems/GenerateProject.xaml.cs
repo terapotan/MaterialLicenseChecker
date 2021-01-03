@@ -47,9 +47,20 @@ namespace MaterialLicenseChecker.Views
 
         private void ClickedGenerateButton(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(ProjectName.Text))
+            {
+                MessageBox.Show("プロジェクト名を入力してください", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(ProjectFileLocation.Text))
+            {
+                MessageBox.Show("プロジェクト作成先を入力してください。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
 
             //プロジェクト名にファイル名として使用できない文字が含まれている場合
-            if(!(ProjectName.Text.IndexOfAny(System.IO.Path.GetInvalidFileNameChars()) < 0))
+            if (!(ProjectName.Text.IndexOfAny(System.IO.Path.GetInvalidFileNameChars()) < 0))
             {
                 MessageBox.Show("プロジェクト名に不正な文字が含まれています。\nプロジェクト名を変更してください。", "作成失敗", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
