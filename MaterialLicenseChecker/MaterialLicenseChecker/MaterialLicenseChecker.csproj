@@ -80,6 +80,7 @@
     <Compile Include="Models\MaterialListData\MaterialListFileAdapter.cs" />
     <Compile Include="Models\ExportingDisplayedLicenseText.cs" />
     <Compile Include="Models\ExportingLicenseText.cs" />
+    <Compile Include="Models\ProjectFileGenerator.cs" />
     <Compile Include="Models\ProjectFile\ProjectFileData.cs" />
     <Compile Include="Models\ProjectFile\ProjectFileReader.cs" />
     <Compile Include="Models\StoringDataFilePath.cs" />
