@@ -8,5 +8,9 @@ namespace MaterialLicenseChecker.Models
 {
     public class ProjectFileGenerator
     {
+        public void GenerateProjectFiles(string GeneratedProjectFileAbsolutePath, string ProjectName)
+        {
+
+        }
     }
 }
