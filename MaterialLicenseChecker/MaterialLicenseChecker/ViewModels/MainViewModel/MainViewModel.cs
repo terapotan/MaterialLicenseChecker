@@ -28,7 +28,12 @@ namespace MaterialLicenseChecker.ViewModels.MainViewModel
             ProjectFileData Data = new ProjectFileData();
 
             Data = Reader.LoadProjectFilePathData();
-            StoringDataFilePath.GetInstance().StoreFilePath(Data);
+
+            //フルパス名からディレクトリ名を取得
+            System.IO.FileInfo fi = new System.IO.FileInfo(cmd.LoadedProjectFileAbsolutePath);
+            string ProjectFileDirectoryAbsolutePath = fi.Directory.FullName;
+
+            StoringDataFilePath.GetInstance().StoreFilePath(Data, ProjectFileDirectoryAbsolutePath);
 
             ActiveProjectData.GetInstance().MaterialSiteListData = new MaterialSiteListData();
             ActiveProjectData.GetInstance().MateiralListLogicalData = new MaterialListLogicalData();
