@@ -35,5 +35,10 @@ namespace MaterialLicenseChecker.Views
 
             ProjectFileLocation.Text = Dialog.SelectedPath;
         }
+
+        private void ClickedCancelButton(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }
