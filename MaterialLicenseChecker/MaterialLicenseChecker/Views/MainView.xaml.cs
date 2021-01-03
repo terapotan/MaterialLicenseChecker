@@ -22,6 +22,7 @@ using System.ComponentModel;
 using System.Collections;
 using System.Data;
 using Microsoft.Win32;
+using MaterialLicenseChecker.Views.CMainView;
 
 namespace MaterialLicenseChecker.Views
 {
@@ -266,6 +267,21 @@ namespace MaterialLicenseChecker.Views
                     }
                 }
             }
+        } 
+
+        void IReceiverCommandFromView.CommandViewTo(LoadProjectFiles InputCmd)
+        {
+            var cmd = new MainViewModel.LoadProjectFile();
+            cmd.LoadedProjectFileAbsolutePath = InputCmd.LoadedProjectFileAbsolutePath;
+             
+            RecevierOfViewModel.CommandViewModelTo(cmd);
+
+            var Ins = new CMainView.MainViewItemsAvailableValueManager(this);
+            Ins.EnableMainViewItems();
+            UpdateMaterialDataGrid(); 
+
+            //ウィンドウタイトル変更
+            Title = "「お借りした素材一覧」生成器" + "――" + InputCmd.ProjectName;
         }
     }
 }

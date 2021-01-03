@@ -73,6 +73,13 @@ namespace MaterialLicenseChecker.Views
                 cmd.ProjectName = ProjectName.Text;
 
                 RecevierOfViewModel.CommandViewModelTo(cmd);
+
+                //これが原因だぁーーーーーー！！！！！！！
+                MaterialLicenseChecker.Views.CMainView.IReceiverCommandFromView ReceiverOfView = (MaterialLicenseChecker.Views.CMainView.IReceiverCommandFromView)this.Owner;
+                MaterialLicenseChecker.Views.CMainView.LoadProjectFiles ViewCmd = new MaterialLicenseChecker.Views.CMainView.LoadProjectFiles();
+                ViewCmd.LoadedProjectFileAbsolutePath = ProjectFileLocation.Text + "\\" + ProjectName.Text + "\\" + ProjectName.Text + ".projm";
+                ViewCmd.ProjectName = ProjectName.Text;
+                ReceiverOfView.CommandViewTo(ViewCmd);
                 Close();
             }
             catch (MyException.SameNameProjectExistsException)

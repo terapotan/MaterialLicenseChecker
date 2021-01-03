@@ -54,12 +54,16 @@ namespace MaterialLicenseChecker.Models
 
             Directory.CreateDirectory(GeneratedFolderPath);
 
-            File.WriteAllText(GeneratedFolderPath + "\\" + "ProjectFile.projm",                   WritingProjectFileText);
+            File.WriteAllText(GeneratedFolderPath + "\\" + ProjectName + ".projm",                   WritingProjectFileText);
             File.WriteAllText(GeneratedFolderPath + "\\" + "MaterialList.xml",                  WritingMaterialListFileText);
             File.WriteAllText(GeneratedFolderPath + "\\" + "MaterialCreationSiteList.xml",      WritingMaterialCreationSiteListFileText);
             File.WriteAllText(GeneratedFolderPath + "\\" + "LicenseTextInputsItems.xml",        WritingLicenseTextInputsItemsFileText);
 
-            ProjectFileWriter Writer = new ProjectFileWriter(GeneratedFolderPath + "\\" + "ProjectFile.projm");
+            //REMARK:ここのファイル名を変更する場合、この先の新規作成したプロジェクトファイルを読み込むところで
+            //登場する、プロジェクト名も一緒に変更すること。
+            //もし、変更しない場合、新規作成したプロジェクトファイルを読み込むところで、ソフトウェアがクラッシュしてしまう。
+
+            ProjectFileWriter Writer = new ProjectFileWriter(GeneratedFolderPath + "\\" + ProjectName + ".projm");
             Writer.SetProjectName(ProjectName);
         }
     }
