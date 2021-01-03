@@ -47,6 +47,14 @@ namespace MaterialLicenseChecker.Views
 
         private void ClickedGenerateButton(object sender, RoutedEventArgs e)
         {
+
+            //プロジェクト名にファイル名として使用できない文字が含まれている場合
+            if(!(ProjectName.Text.IndexOfAny(System.IO.Path.GetInvalidFileNameChars()) < 0))
+            {
+                MessageBox.Show("プロジェクト名に不正な文字が含まれています。\nプロジェクト名を変更してください。", "作成失敗", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
             try
             {
                 var cmd = new GenerateProjectFile();
