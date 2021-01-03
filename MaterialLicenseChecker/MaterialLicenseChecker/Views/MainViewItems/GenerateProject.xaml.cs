@@ -40,5 +40,11 @@ namespace MaterialLicenseChecker.Views
         {
             Close();
         }
+
+        private void ClickedGenerateButton(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("作成ボタンがクリックされました");
+            Close();
+        }
     }
 }
