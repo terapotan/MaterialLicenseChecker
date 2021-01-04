@@ -70,7 +70,7 @@ namespace MaterialLicenseChecker.Views
             {
                 var cmd = new GenerateProjectFile();
                 cmd.GeneratedProjectFileAbsolutePath = ProjectFileLocation.Text;
-                cmd.ProjectName = ProjectName.Text;
+                cmd.ProjectName = ProjectName.Text; 
 
                 RecevierOfViewModel.CommandViewModelTo(cmd);
 
