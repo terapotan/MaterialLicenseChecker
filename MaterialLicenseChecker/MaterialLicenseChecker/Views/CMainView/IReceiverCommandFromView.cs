@@ -10,5 +10,6 @@ namespace MaterialLicenseChecker.Views.CMainView
     {
         void CommandViewTo(UpdateMaterialListBox msg);
         void CommandViewTo(GetMaterialList cmd);
+        void CommandViewTo(LoadProjectFiles cmd);
     }
 }

@@ -21,6 +21,8 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Collections;
 using System.Data;
+using Microsoft.Win32;
+using MaterialLicenseChecker.Views.CMainView;
 
 namespace MaterialLicenseChecker.Views
 {
@@ -74,7 +76,7 @@ namespace MaterialLicenseChecker.Views
                 e.Row.Header = (e.Row.GetIndex()+1).ToString();
             });
 
-            UpdateMaterialDataGrid();
+            //UpdateMaterialDataGrid();
         }
 
 
@@ -140,7 +142,7 @@ namespace MaterialLicenseChecker.Views
         }
 
         //ライセンス出力ボタンをクリック
-        private void ExportLicenseTextButton(object sender, RoutedEventArgs e)
+        private void ClickedExportLicenseTextButton(object sender, RoutedEventArgs e)
         {
             var window = new ExportLicenseText();
             window.Owner = GetWindow(this);
@@ -206,6 +208,38 @@ namespace MaterialLicenseChecker.Views
             window.ShowDialog();
         }
 
+        private void ClickedOpenProject(object sender, RoutedEventArgs e)
+        {
+            var Dialog = new OpenFileDialog();
+
+            Dialog.Filter = "プロジェクトファイル (*.projm)|*.projm|全てのファイル (*.*)|*.*";
+
+            var ReturnValue = Dialog.ShowDialog();
+
+
+            if(ReturnValue == true)
+            {
+                var cmd = new MainViewModel.LoadProjectFile();
+                cmd.LoadedProjectFileAbsolutePath = Dialog.FileName;
+
+                RecevierOfViewModel.CommandViewModelTo(cmd);
+
+                var Ins = new CMainView.MainViewItemsAvailableValueManager(this);
+                Ins.EnableMainViewItems();
+                UpdateMaterialDataGrid();
+
+                var anotherCmd = new MainViewModel.GetProjectName();
+                anotherCmd.LoadedProjectFileAbsolutePath = Dialog.FileName;
+
+                RecevierOfViewModel.CommandViewModelTo(anotherCmd);
+
+                //ウィンドウタイトル変更
+                this.Title = "「お借りした素材一覧」生成器" + "――" + anotherCmd.FetchedProjectName;
+
+            }
+
+        }
+
         private void ClickedSettingProjectLicenseItems(object sender, RoutedEventArgs e)
         {
             var window = new SettingProjectLicenseItems();
@@ -233,6 +267,21 @@ namespace MaterialLicenseChecker.Views
                     }
                 }
             }
+        } 
+
+        void IReceiverCommandFromView.CommandViewTo(LoadProjectFiles InputCmd)
+        {
+            var cmd = new MainViewModel.LoadProjectFile();
+            cmd.LoadedProjectFileAbsolutePath = InputCmd.LoadedProjectFileAbsolutePath;
+             
+            RecevierOfViewModel.CommandViewModelTo(cmd);
+
+            var Ins = new CMainView.MainViewItemsAvailableValueManager(this);
+            Ins.EnableMainViewItems();
+            UpdateMaterialDataGrid(); 
+
+            //ウィンドウタイトル変更
+            Title = "「お借りした素材一覧」生成器" + "――" + InputCmd.ProjectName;
         }
     }
 }

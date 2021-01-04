@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MaterialLicenseChecker.Views"
         mc:Ignorable="d"
-        Title="ライセンス表示を出力する
+        Title="「お借りした素材一覧」生成画面
         " Height="324" Width="423" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" Icon="../.././EmbeddedResources/Images/WindowIconImage.ico">
     <Grid>
         <Grid.ColumnDefinitions >

@@ -14,5 +14,6 @@ namespace MaterialLicenseChecker.ViewModels.ExportLicenseText
         public string ExportedLicenseTextFileAbsolutePath = "";
         public string HeaderText = "";
         public string FooterText = "";
+        public List<string> MaterialNameList;
     }
 }
