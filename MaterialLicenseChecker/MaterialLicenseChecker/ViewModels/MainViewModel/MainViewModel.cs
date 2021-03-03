@@ -14,14 +14,36 @@ namespace MaterialLicenseChecker.ViewModels.MainViewModel
     {
         public MainViewModel()
         {
-            //FIXME:将来的には、別の画面でこれを作成し代入する。
-            ActiveProjectData.GetInstance().MaterialSiteListData = new MaterialSiteListData();
-            ActiveProjectData.GetInstance().MateiralListLogicalData = new MaterialListLogicalData();
+
         }
 
         public void CommandViewModelTo(GetMaterialList cmd)
         {
             ActiveProjectData.GetInstance().MateiralListLogicalData.GetMaterialList(cmd.MaterialDataList);
+        }
+
+        public void CommandViewModelTo(LoadProjectFile cmd)
+        {
+            ProjectFileReader Reader = new ProjectFileReader(cmd.LoadedProjectFileAbsolutePath);
+            ProjectFileData Data = new ProjectFileData();
+
+            Data = Reader.LoadProjectFilePathData();
+
+            //フルパス名からディレクトリ名を取得
+            System.IO.FileInfo fi = new System.IO.FileInfo(cmd.LoadedProjectFileAbsolutePath);
+            string ProjectFileDirectoryAbsolutePath = fi.Directory.FullName;
+
+            StoringDataFilePath.GetInstance().StoreFilePath(Data, ProjectFileDirectoryAbsolutePath);
+
+            //FIXME:将来的には、ActiveProjectDataか、直接生成するほうか、どちらかに統一しなければならない。
+            ActiveProjectData.GetInstance().MaterialSiteListData = new MaterialSiteListData();
+            ActiveProjectData.GetInstance().MateiralListLogicalData = new MaterialListLogicalData();
+        }
+
+        public void CommandViewModelTo(GetProjectName cmd)
+        {
+            ProjectFileReader Reader = new ProjectFileReader(cmd.LoadedProjectFileAbsolutePath);
+            cmd.FetchedProjectName = Reader.LoadProjectName();
         }
 
         void IReceiverCommandFromView.CommandViewModelTo(DeleteMaterialDataOfFile cmd)

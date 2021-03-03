@@ -17,7 +17,8 @@
         </StackPanel>
 
         <StackPanel Grid.Column="1">
-            <Label Content="バージョン       alpha-7"></Label>
+            <!-- ここのバージョンを書き換える場合、App.xaml.cs側のバージョンも書き換えること。-->
+            <Label Content="バージョン       alpha-final（β版）"></Label>
             <Label Content="作者             てらたん"></Label>
             <Label Content="連絡先          Twitter         @terapotan"></Label>
             <Label Content="　　　          メールアドレス  terapotan@gmail.com"></Label>

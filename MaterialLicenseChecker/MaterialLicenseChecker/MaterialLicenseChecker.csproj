@@ -64,12 +64,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ExportResources\materialListFile.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>materialListFile.xml</DependentUpon>
-    </Compile>
     <Compile Include="Models\ActiveProjectData.cs" />
+    <Compile Include="Models\LicenseTextInputsFile\LicenseTextInputsItemsData.cs" />
+    <Compile Include="Models\LicenseTextInputsFile\LicenseTextInputsItemsFileAdapter.cs" />
     <Compile Include="Models\MaterialListData\MaterialData.cs" />
     <Compile Include="Models\MaterialListData\MaterialListLogicalData.cs" />
     <Compile Include="Models\MaterialSiteListData\MaterialSiteData.cs" />
@@ -78,8 +75,13 @@
     <Compile Include="Models\MaterialListData\MaterialListFileAdapter.cs" />
     <Compile Include="Models\ExportingDisplayedLicenseText.cs" />
     <Compile Include="Models\ExportingLicenseText.cs" />
+    <Compile Include="Models\ProjectFileGenerator.cs" />
+    <Compile Include="Models\ProjectFile\ProjectFileData.cs" />
+    <Compile Include="Models\ProjectFile\ProjectFileReader.cs" />
+    <Compile Include="Models\ProjectFile\ProjectFileWriter.cs" />
     <Compile Include="Models\StoringDataFilePath.cs" />
     <Compile Include="MyException\NotFoundMaterialSiteException.cs" />
+    <Compile Include="MyException\SameNameProjectExistsException.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -90,11 +92,18 @@
     <Compile Include="ViewModels\EditingMaterialSiteSpace\IReceiverCommandFromView.cs" />
     <Compile Include="ViewModels\EditingMaterialSiteSpace\UpdateMaterialSite.cs" />
     <Compile Include="ViewModels\ExportLicenseText\ExportLicenseText.cs" />
+    <Compile Include="ViewModels\ExportLicenseText\GetSavedInputItems.cs" />
     <Compile Include="ViewModels\ExportLicenseText\IReceiverCommandFromView.cs" />
+    <Compile Include="ViewModels\ExportLicenseText\SaveInputItems.cs" />
+    <Compile Include="ViewModels\GenerateProjectDialog\GenerateProjectDialogViewModel.cs" />
+    <Compile Include="ViewModels\GenerateProjectDialog\GenerateProjectFile.cs" />
+    <Compile Include="ViewModels\GenerateProjectDialog\IReceiverCommandFromView.cs" />
     <Compile Include="ViewModels\ISettableActiveProjectData.cs" />
     <Compile Include="ViewModels\MainViewModel\DeleteMaterialDataOfFile.cs" />
     <Compile Include="ViewModels\MainViewModel\GetMaterialList.cs" />
+    <Compile Include="ViewModels\MainViewModel\GetProjectName.cs" />
     <Compile Include="ViewModels\MainViewModel\IReceiverCommandFromView.cs" />
+    <Compile Include="ViewModels\MainViewModel\LoadProjectFile.cs" />
     <Compile Include="ViewModels\MainViewModel\SetActiveProjectDataToViewModel.cs" />
     <Compile Include="ViewModels\MaterialAdditionalDialog\AddMaterialDataToFile.cs" />
     <Compile Include="ViewModels\EditingMaterialSiteSpace\FetchMaterialSiteGivenSiteName.cs" />
@@ -110,6 +119,8 @@
     <Compile Include="ViewModels\MaterialSiteAdditionalDialog\RegisterMaterialSite.cs" />
     <Compile Include="ViewModels\MaterialSiteAdditionalDialog\SetActiveProjectDataToViewModel.cs" />
     <Compile Include="ViewModels\EditingMaterialSiteSpace\EditingMaterialSiteViewModel.cs" />
+    <Compile Include="Views\CMainView\LoadProjectFile.cs" />
+    <Compile Include="Views\CMainView\MainViewItemsAvailableValueManager.cs" />
     <Compile Include="Views\EditingMaterialSite\EditingLicenseCheckItems\EditingLicenseCheckItems.xaml.cs">
       <DependentUpon>EditingLicenseCheckItems.xaml</DependentUpon>
     </Compile>
@@ -170,6 +181,9 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="サンプルプロジェクト\サンプルプロジェクト.projm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -233,22 +247,21 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ExportResources\LicenseTexts.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ExportResources\materialListFile.xml">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>materialListFile.Designer.cs</LastGenOutput>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="EmbeddedResources\Images\WindowIconImage.ico" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="MyException\MaterialSiteListFileAdapter\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="サンプルプロジェクト\LicenseTextInputsItems.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="サンプルプロジェクト\MaterialCreationSiteList.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="サンプルプロジェクト\MaterialList.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

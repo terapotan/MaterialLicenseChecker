@@ -1,7 +1,9 @@
 ﻿<Application x:Class="MaterialLicenseChecker.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:MaterialLicenseChecker">
+             xmlns:local="clr-namespace:MaterialLicenseChecker"
+             Startup="Application_Startup"
+             DispatcherUnhandledException="Application_DispatcherUnhandledException">
     <Application.Resources>
         <Style x:Key="windowCommonStyle" TargetType="Window">
             <!--今のところ問題ないが、Viewsフォルダにさらにフォルダを追加する形式となれば、パスの修正が必要になる。-->

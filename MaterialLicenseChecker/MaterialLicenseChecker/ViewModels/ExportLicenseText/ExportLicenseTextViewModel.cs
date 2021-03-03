@@ -51,6 +51,16 @@ namespace MaterialLicenseChecker.ViewModels.ExportLicenseText
 
         }
 
+        public void CommandViewModelTo(GetSavedInputItems cmd)
+        {
+            LicenseTextInputsItemsFileAdapter LicenseTextInputItemFile = new LicenseTextInputsItemsFileAdapter();
+            cmd.FetchedInputItemsData = LicenseTextInputItemFile.LoadInputsItemData();
+        }
 
+        public void CommandViewModelTo(SaveInputItems cmd)
+        {
+            LicenseTextInputsItemsFileAdapter LicenseTextInputItemFile = new LicenseTextInputsItemsFileAdapter();
+            LicenseTextInputItemFile.SaveInputsItemData(cmd.SavedInputItemsData);
+        }
     }
 }

@@ -24,16 +24,16 @@
         </StackPanel>
 
         <StackPanel Grid.Column="1">
-            <TextBox Margin="10,10,20,0"></TextBox>
+            <TextBox x:Name="ProjectName" Margin="10,10,20,0"></TextBox>
             <StackPanel Orientation="Horizontal">
-                <TextBox Width="160" Margin="10,8,10,0"></TextBox>
-                <Button Padding="7,0" Margin="0,5,0,0">参照</Button>
+                <TextBox x:Name="ProjectFileLocation" Width="160" Margin="10,8,10,0"></TextBox>
+                <Button Click="ClickedReferenceButton" Padding="7,0" Margin="0,5,0,0">参照</Button>
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
-            <Button Margin="5,5"  Padding="15,0">作成</Button>
-            <Button Margin="5,5"  Padding="15,0">キャンセル</Button>
+            <Button Margin="5,5"  Padding="15,0" Click="ClickedGenerateButton">作成</Button>
+            <Button Margin="5,5"  Padding="15,0" Click="ClickedCancelButton">キャンセル</Button>
         </StackPanel>
 
 

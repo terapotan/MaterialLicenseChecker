@@ -15,6 +15,11 @@ namespace MaterialLicenseChecker.Models
 
         public MaterialListFileAdapter()
         {
+            LoadFile();
+        }
+
+        private void LoadFile()
+        {
             LoadedXMLFileInstance = XDocument.Load(StoringDataFilePath.GetInstance().MaterialListFileAbsolutePath);
         }
 
@@ -25,6 +30,8 @@ namespace MaterialLicenseChecker.Models
         /// <param name="LicenseText"></param>
         public void AddMaterialData(MaterialData AddedMaterialData)
         {
+            LoadFile();
+
             XElement AddedMaterialTree = new XElement("material",
                 new XElement("materialType", AddedMaterialData.MaterialType),
                 new XElement("materialCreationSiteName", AddedMaterialData.MaterialCreationSiteName),
@@ -42,6 +49,8 @@ namespace MaterialLicenseChecker.Models
         /// <param name="MaterialName"></param>
         public void DeleteMaterialData(string MaterialName)
         {
+            LoadFile();
+
             LoadedXMLFileInstance.XPathSelectElement("//material[@materialName='" + SecurityElement.Escape(MaterialName) + "']").Remove();
             LoadedXMLFileInstance.Save(StoringDataFilePath.GetInstance().MaterialListFileAbsolutePath);
 
@@ -53,6 +62,8 @@ namespace MaterialLicenseChecker.Models
         /// <returns></returns>
         public void GetMaterialList(List<MaterialData> OutputMaterialData)
         {
+            LoadFile();
+
             var materialNames = LoadedXMLFileInstance.XPathSelectElement("/document");
             IEnumerable<XElement> elements = from el in materialNames.Elements() select el;
 
@@ -73,6 +84,8 @@ namespace MaterialLicenseChecker.Models
         /// <returns></returns>
         public string FetchMaterialSiteGivenMaterialName(string MaterialName)
         {
+            LoadFile();
+
             var SearchedMaterialElement = LoadedXMLFileInstance.XPathSelectElement("//material[@materialName='" + SecurityElement.Escape(MaterialName) + "']");
             return SearchedMaterialElement.Element("materialCreationSiteName").Value;
         }
@@ -84,13 +97,15 @@ namespace MaterialLicenseChecker.Models
         /// <returns></returns>
         public MaterialData FetchMaterialData(string MaterialName)
         {
+            LoadFile();
+
             MaterialData ReturnedMaterialData = new MaterialData();
             var SearchedMaterialElement = LoadedXMLFileInstance.XPathSelectElement("//material[@materialName='" + SecurityElement.Escape(MaterialName) + "']");
             
             ReturnedMaterialData.MaterialName = MaterialName;
             ReturnedMaterialData.MaterialCreationSiteName = SearchedMaterialElement.Element("materialCreationSiteName").Value;
             ReturnedMaterialData.MaterialType = SearchedMaterialElement.Element("materialType").Value;
-            ReturnedMaterialData.MaterialFileAbsolutePath = "";//将来的にこの項目を追加する予定。
+            ReturnedMaterialData.MaterialFileAbsolutePath = SearchedMaterialElement.Element("materialFileAbsolutePath").Value;
 
             return ReturnedMaterialData;
         }
