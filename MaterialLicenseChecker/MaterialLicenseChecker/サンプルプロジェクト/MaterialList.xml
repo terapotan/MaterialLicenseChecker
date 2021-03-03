@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<document fileVersion="0">
+  <material materialName="メインキャラクター">
+    <materialType>画像</materialType>
+    <materialCreationSiteName>キャラクターあれこれ！素材集！</materialCreationSiteName>
+    <materialFileAbsolutePath></materialFileAbsolutePath>
+  </material>
+  <material materialName="攻撃効果音">
+    <materialType>音声</materialType>
+    <materialCreationSiteName>効果音倉庫</materialCreationSiteName>
+    <materialFileAbsolutePath></materialFileAbsolutePath>
+  </material>
+  <material materialName="アセット1">
+    <materialType>その他</materialType>
+    <materialCreationSiteName>アセットまとめサイト</materialCreationSiteName>
+    <materialFileAbsolutePath></materialFileAbsolutePath>
+  </material>
+  <material materialName="森画像">
+    <materialType>画像</materialType>
+    <materialCreationSiteName>イラスト素材集</materialCreationSiteName>
+    <materialFileAbsolutePath></materialFileAbsolutePath>
+  </material>
+</document>
