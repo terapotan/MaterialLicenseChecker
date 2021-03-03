@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<document fileVersion="0">
+  <materialSite siteName="効果音倉庫">
+    <licenseText>効果音倉庫様（https://example.com/music）</licenseText>
+    <teamsOfUseURL></teamsOfUseURL>
+    <licenseMemo></licenseMemo>
+  </materialSite>
+  <materialSite siteName="キャラクターあれこれ！素材集！">
+    <licenseText>キャラクターあれこれ！素材集！（https://example.com/charactor）</licenseText>
+    <teamsOfUseURL></teamsOfUseURL>
+    <licenseMemo></licenseMemo>
+  </materialSite>
+  <materialSite siteName="アセットまとめサイト">
+    <licenseText>アセットまとめサイト様（https://example.com）</licenseText>
+    <teamsOfUseURL></teamsOfUseURL>
+    <licenseMemo></licenseMemo>
+  </materialSite>
+  <materialSite siteName="イラスト素材集">
+    <licenseText>イラスト素材集様（https://example.com）</licenseText>
+    <teamsOfUseURL></teamsOfUseURL>
+    <licenseMemo>このサイトで作成された作品は、商用利用不可である。</licenseMemo>
+  </materialSite>
+</document>

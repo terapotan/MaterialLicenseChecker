@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<document fileVersion="0">
+  <projectName>サンプルプロジェクト</projectName>
+  <fileNames>
+    <licenseTextFileName>/MaterialCreationSiteList.xml</licenseTextFileName>
+    <materialListFileName>/MaterialList.xml</materialListFileName>
+    <licenseTextInputsItems>/LicenseTextInputsItems.xml</licenseTextInputsItems>
+  </fileNames>
+</document>
