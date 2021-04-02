@@ -47,6 +47,13 @@ namespace MaterialLicenseChecker.ViewModels.ExportLicenseText
                 strs += (str + '\n');
             }
 
+            if (SiteNameList.Count == 0)
+            {
+                cmd.ErrorNum = -1;
+                return;
+            }
+
+
             Instance.WriteLicenseTextFile(cmd.HeaderText + '\n' + strs + cmd.FooterText);
 
         }

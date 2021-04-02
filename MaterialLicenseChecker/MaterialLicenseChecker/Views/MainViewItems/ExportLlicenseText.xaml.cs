@@ -84,15 +84,43 @@ namespace MaterialLicenseChecker.Views
                 MessageBox.Show("ファイル名が入力されていません。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
+
+            if (ExportedLicenseTextFilePath.Text.Equals(""))
+            {
+                MessageBox.Show("出力先ディレクトリが入力されていません。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            if (!System.IO.Directory.Exists(ExportedLicenseTextFilePath.Text))
+            {
+                MessageBox.Show("指定されたディレクトリは存在しません。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
             //FIXME:不正な文字列が入力されたとき(\とか)は、エラーを吐くようにしたい。
             var cmd = new ViewModels.ExportLicenseText.ExportLicenseText();
             cmd.ExportedLicenseTextFileAbsolutePath = ExportedLicenseTextFilePath.Text + '\\' + ExportedLicenseTextFileName.Text;
             cmd.FooterText = FooterText.Text;
             cmd.HeaderText = HeaderText.Text;
+
+            if (System.IO.File.Exists(cmd.ExportedLicenseTextFileAbsolutePath))
+            {
+                var UserInput = MessageBox.Show("指定されたファイルは既に存在します。" + "\n上書きしますか？", "上書き確認", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (UserInput == MessageBoxResult.No)
+                {
+                    return;
+                }
+            }
+
             RecevierOfViewModel.CommandViewModelTo(cmd);
 
+            if(cmd.ErrorNum == -1)
+            {
+                MessageBox.Show("一件も素材が登録されていません。", "警告", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
 
-             
             MessageBox.Show("出力が完了しました。", "出力完了",MessageBoxButton.OK,MessageBoxImage.Information); ;
             SaveValueOfInputItemsIntoFile();
             Close();
