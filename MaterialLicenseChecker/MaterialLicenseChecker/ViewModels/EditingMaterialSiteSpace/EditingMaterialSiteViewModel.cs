@@ -32,6 +32,13 @@ namespace MaterialLicenseChecker.ViewModels.EditingMaterialSiteSpace
 
         public void CommandViewModelTo(DeleteMaterialSite cmd)
         {
+            //既にサイトが登録されているのに、そのサイトを消そうとした場合
+            if (ActiveProjectData.GetInstance().MateiralListLogicalData.SiteInMaterialListExists(cmd.DeletingMaterialSiteName))
+            {
+                cmd.ErrorNum = -1;
+                return;
+            }
+
             ActiveProjectData.GetInstance().MaterialSiteListData.DeleteMaterialSite(cmd.DeletingMaterialSiteName);
         }
     }
