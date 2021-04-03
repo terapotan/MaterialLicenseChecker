@@ -18,14 +18,14 @@
 
         <StackPanel Grid.Column="1">
             <!-- ここのバージョンを書き換える場合、App.xaml.cs側のバージョンも書き換えること。-->
-            <Label Content="バージョン       alpha-final（β版）"></Label>
+            <Label Content="バージョン       Ver1.0.0"></Label>
             <Label Content="作者             てらたん"></Label>
             <Label Content="連絡先          Twitter         @terapotan"></Label>
             <Label Content="　　　          メールアドレス  terapotan@gmail.com"></Label>
             <TextBlock Margin="5,5,0,0">
-                本ソフトウェアは、開発途中のソフトウェアです。<LineBreak></LineBreak>
-                そのため、機能が十分になかったり、不具合が発生したり<LineBreak></LineBreak>
-                する可能性があります。予めご了承ください。
+                アップデート情報は、https://terapotan.hatenablog.jp/<LineBreak></LineBreak>
+                で公開しています。<LineBreak></LineBreak>
+                
             </TextBlock>
         </StackPanel>
         
