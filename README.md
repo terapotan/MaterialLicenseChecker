@@ -1,7 +1,7 @@
 # β版公開！
 ![素材追加](./ReleaseImage/alpha-final/バージョン表示.jpg)
 
-β版を公開しました！詳細については、以下のリンクからご覧ください。   
+β版を公開しました！詳細については、以下のリンクからご覧ください。    
 
 [詳細ページ](https://terapotan.hatenablog.jp/entry/MaterialLicenseCheckerVer2)
 
