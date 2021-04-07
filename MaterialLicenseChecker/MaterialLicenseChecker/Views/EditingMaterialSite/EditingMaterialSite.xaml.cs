@@ -74,6 +74,13 @@ namespace MaterialLicenseChecker.Views
             }
 
             ReceiverOfViewModel.CommandViewModelTo(cmd);
+
+            if(cmd.ErrorNum == -1)
+            {
+                MessageBox.Show("素材配布サイト「" + cmd.DeletingMaterialSiteName + "」が登録されている素材が存在します。\n先にその素材を削除してください。", "登録済み", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                return;
+            }
+
             UpdateMaterialSiteListBox();
         }
 

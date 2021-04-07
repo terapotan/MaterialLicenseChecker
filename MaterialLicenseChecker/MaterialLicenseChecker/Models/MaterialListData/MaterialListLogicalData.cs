@@ -38,6 +38,33 @@ namespace MaterialLicenseChecker.Models
             materialListFileAdapter.DeleteMaterialData(ReplacedMaterialName);
             materialListFileAdapter.AddMaterialData(ReplacedMaterialData);
         }
+        /// <summary>
+        /// 既に登録されている素材リストの中で、指定されたサイトが登録されていないかチェックする。
+        /// あったらtrue、なかったらfalse。
+        /// </summary>
+        /// <param name="MaterialCreationName"></param>
+        /// <returns></returns>
+        public bool SiteInMaterialListExists(string MaterialCreationName)
+        {
+            var AllMaterialData = new List<MaterialData>();
+            var SiteNameList = new List<string>();
+            GetMaterialList(AllMaterialData);
+
+            //取り出した全素材データから、サイト名のみを取り出す。
+            foreach (var FetchedMaterialData in AllMaterialData)
+            {
+                SiteNameList.Add(FetchedMaterialData.MaterialCreationSiteName);
+            }
+
+            if(SiteNameList.Exists(str => str == MaterialCreationName))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 
 }
